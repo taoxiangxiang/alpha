@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="systemAccount">
+    <resultMap id="SystemAccountMap" type="SystemAccountDO">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="nick" column="nick" />
+        <result property="password" column="password" />
+        <result property="citizenId" column="citizen_id" />
+        <result property="birth" column="birth" />
+        <result property="ethnicGroup" column="ethnic_group" />
+        <result property="nativePlace" column="native_place" />
+        <result property="education" column="education" />
+        <result property="telNumber" column="tel_number" />
+        <result property="mobilePhone" column="mobile_phone" />
+        <result property="mailbox" column="mailbox" />
+        <result property="address" column="address" />
+        <result property="hireDate" column="hire_date" />
+        <result property="position" column="position" />
+        <result property="department" column="department" />
+        <result property="authType" column="auth_type" />
+        <result property="picUrl" column="pic_url" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="SystemAccountDO">
+        insert into system_account (id,name,nick,password,citizen_id,birth,ethnic_group,native_place
+        ,education,tel_number,mobile_phone,mailbox,address,hire_date,position,department,auth_type
+        ,pic_url,attribute,gmt_create,gmt_modified)
+         VALUES (null,#{name},#{nick},#{password},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace}
+         ,#{education},#{telNumber},#{mobilePhone},#{mailbox},#{address},#{hireDate},#{position},#{department}
+         ,#{authType},#{picUrl},#{attribute},now(),now())
+    </insert>
+
+    <select id="selectByPage" parameterType="com.alpha.query.SystemAccountQuery" resultMap="SystemAccountMap">
+        select * from system_account
+        where 1=1
+        <if test="nick != null and nick != '' ">
+            AND nick = #{nick}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+</mapper>
