@@ -13,7 +13,12 @@ public class SystemAccountQuery extends PageQuery {
     private static final long serialVersionUID = -8708649458304478739L;
 
     /**
-     * 昵称
+     * 数据库Id
      */
-    private String nick;
+    private Long id;
+
+    /**
+     * 姓名
+     */
+    private String name;
 }

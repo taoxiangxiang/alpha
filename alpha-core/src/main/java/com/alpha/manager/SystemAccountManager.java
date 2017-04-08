@@ -12,5 +12,7 @@ public interface SystemAccountManager {
 
     boolean insert(SystemAccountDO systemAccountDO);
 
+    boolean update(SystemAccountDO systemAccountDO);
+
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
 }

@@ -24,7 +24,14 @@ public class SystemAccountManagerImpl implements SystemAccountManager {
     }
 
     @Override
+    public boolean update(SystemAccountDO systemAccountDO) {
+        return systemAccountDao.update(systemAccountDO);
+    }
+
+    @Override
     public List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery) {
         return systemAccountDao.query(systemAccountQuery);
     }
+
+
 }

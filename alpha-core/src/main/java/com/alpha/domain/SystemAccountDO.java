@@ -16,12 +16,17 @@ public class SystemAccountDO implements Serializable {
     /**
      * 数据库Id
      */
-    private long id;
+    private Integer id;
 
     /**
      * 姓名
      */
     private String name;
+
+    /**
+     * 性别
+     */
+    private String sex;
 
     /**
      * 昵称
@@ -102,6 +107,11 @@ public class SystemAccountDO implements Serializable {
      * 照片地址
      */
     private String picUrl;
+
+    /**
+     * 状态
+     */
+    private String status;
 
     /**
      * 其他属性

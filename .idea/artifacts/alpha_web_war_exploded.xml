@@ -1,0 +1,58 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="alpha-web:war exploded">
+    <output-path>$PROJECT_DIR$/alpha-web/target/alpha</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="alpha-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.alibaba.citrus:citrus-webx-all:3.2.4" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-jexl:2.1.1" />
+          <element id="library" level="project" name="Maven: cglib:cglib-nodep:2.2.2" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: ecs:ecs:1.4.2" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.8" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:2.1.7" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.1.36" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" />
+          <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.6" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
+          <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.15" />
+          <element id="archive" name="alpha-core-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="alpha-core" />
+          </element>
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.12.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.7.2" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.3" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.3" />
+          <element id="library" level="project" name="Maven: com.taobao.util:util:1.2.6" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/alpha-web/target/alpha/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="alpha-web/web/Web" />
+    </root>
+  </artifact>
+</component>

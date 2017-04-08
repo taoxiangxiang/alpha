@@ -41,4 +41,9 @@ public class SystemAccountDaoImpl implements SystemAccountDao {
             return null;
         }
     }
+
+    @Override
+    public boolean update(SystemAccountDO systemAccountDO) {
+        return false;
+    }
 }

@@ -34,6 +34,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.taobao.util</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>alpha</finalName>

@@ -12,4 +12,6 @@ public interface SystemAccountDao {
     boolean insert(SystemAccountDO systemAccountDO);
 
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
+
+    boolean update(SystemAccountDO systemAccountDO);
 }
