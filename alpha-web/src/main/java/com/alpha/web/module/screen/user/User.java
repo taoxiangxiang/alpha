@@ -27,7 +27,7 @@ public class User extends BaseAjaxModule{
     private SystemAccountManager systemAccountManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("name") String name, @Param("id") Long id, Context context) {
+                        @Param("name") String name, @Param("id") Integer id, Context context) {
         try {
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
             if (id == null) {

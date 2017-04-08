@@ -26,11 +26,6 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
-    public void setError(String msg){
-        this.success = false;
-        this.errMsg = msg;
-    }
-
     public T getData() {
         return data;
     }
@@ -45,6 +40,7 @@ public class Result<T> implements Serializable {
 
     public void setErrMsg(String errMsg) {
         this.errMsg = errMsg;
+        this.success = false;
     }
 
     public boolean isSuccess() {

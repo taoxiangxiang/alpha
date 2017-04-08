@@ -18,7 +18,7 @@ public class VehicleDel extends BaseAjaxModule {
     @Resource
     private VehicleManager vehicleManager;
 
-    public void execute(@Param("id") Long id, Context context) {
+    public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             VehicleDO vehicleDO = new VehicleDO();

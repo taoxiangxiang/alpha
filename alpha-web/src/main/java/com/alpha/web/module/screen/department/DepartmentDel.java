@@ -20,7 +20,7 @@ public class DepartmentDel extends BaseAjaxModule {
     @Resource
     private DepartmentManager departmentManager;
 
-    public void execute(@Param("id") Long id, Context context) {
+    public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             DepartmentDO departmentDO = new DepartmentDO();

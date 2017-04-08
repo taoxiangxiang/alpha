@@ -21,7 +21,7 @@ public class Department extends BaseAjaxModule {
     private DepartmentManager departmentManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("departmentName") String departmentName, @Param("id") Long id,
+                        @Param("departmentName") String departmentName, @Param("id") Integer id,
                         Context context) {
         try {
             DepartmentQuery departmentQuery = new DepartmentQuery();

@@ -58,7 +58,7 @@ public class BaseModule {
     protected SystemAccountDO getAccount() {
         try {
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
-            systemAccountQuery.setNick(getSessionNick());
+            systemAccountQuery.setName(getSessionNick());
             List<SystemAccountDO> accountDOList = systemAccountManager.query(systemAccountQuery);
             if (accountDOList == null || accountDOList.size() == 0) {
                 return null;

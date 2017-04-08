@@ -18,7 +18,7 @@ public class DriverDel extends BaseAjaxModule {
     @Resource
     private DriverManager driverManager;
 
-    public void execute(@Param("id") Long id, Context context) {
+    public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             DriverDO driverDO = new DriverDO();

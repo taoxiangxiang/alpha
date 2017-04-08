@@ -44,7 +44,7 @@ public class UserManagerTest extends ITestBase {
     @Test
     public void testQuery() {
         SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
-        systemAccountQuery.setNick("admin");
+        systemAccountQuery.setName("admin");
         List<SystemAccountDO> list = systemAccountManager.query(systemAccountQuery);
         System.out.println("list=" + JSON.toJSONString(list));
     }

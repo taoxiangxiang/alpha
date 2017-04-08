@@ -21,7 +21,7 @@ public class Vehicle extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("id") Long id, Context context) {
+                        @Param("id") Integer id, Context context) {
         try {
             VehicleQuery vehicleQuery = new VehicleQuery();
             if (id == null) {

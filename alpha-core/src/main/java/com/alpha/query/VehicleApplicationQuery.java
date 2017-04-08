@@ -15,7 +15,7 @@ public class VehicleApplicationQuery extends PageQuery {
 
     private Date endDate;
 
-    private Long id;
+    private Integer id;
 
     private List<String> statusList;
 }

@@ -20,7 +20,7 @@ public class GasCardUpdate extends BaseAjaxModule {
     public void execute(@Param("gasCardNO") String gasCardNO,
                         @Param("gasCardType") String gasCardType,
                         @Param("amount") Double amount,
-                        @Param("id") long id,
+                        @Param("id") int id,
                         Context context) {
         Result<String> result = new Result<String>();
         try {

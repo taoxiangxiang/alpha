@@ -19,7 +19,7 @@ public class DriverBindInvalid extends BaseAjaxModule {
     @Resource
     private DriverBindManager driverBindManager;
 
-    public void execute(@Param("id") long id, Context context) {
+    public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             DriverBindDO driverBindDO = new DriverBindDO();

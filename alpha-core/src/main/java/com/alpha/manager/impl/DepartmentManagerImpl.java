@@ -1,5 +1,6 @@
 package com.alpha.manager.impl;
 
+import com.alpha.dao.DepartmentDao;
 import com.alpha.domain.DepartmentDO;
 import com.alpha.manager.DepartmentManager;
 import com.alpha.query.DepartmentQuery;
@@ -15,20 +16,20 @@ import java.util.List;
 public class DepartmentManagerImpl implements DepartmentManager {
 
     @Resource
-    private DepartmentManager departmentManager;
+    private DepartmentDao departmentDao;
 
     @Override
     public boolean insert(DepartmentDO departmentDO) {
-        return departmentManager.insert(departmentDO);
+        return departmentDao.insert(departmentDO);
     }
 
     @Override
     public List<DepartmentDO> query(DepartmentQuery departmentQuery) {
-        return departmentManager.query(departmentQuery);
+        return departmentDao.query(departmentQuery);
     }
 
     @Override
     public boolean update(DepartmentDO departmentDO) {
-        return departmentManager.update(departmentDO);
+        return departmentDao.update(departmentDO);
     }
 }

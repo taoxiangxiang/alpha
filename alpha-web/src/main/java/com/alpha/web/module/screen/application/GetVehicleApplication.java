@@ -23,7 +23,7 @@ public class GetVehicleApplication extends BaseAjaxModule {
     private VehicleApplicationManager vehicleApplicationManager;
 
     public void execute(@Param("startDate") Date startDate, @Param("endDate") Date endDate,
-                        @Param("status") String status, @Param("id") Long id, Context context) {
+                        @Param("status") String status, @Param("id") Integer id, Context context) {
         try {
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
             if (id == null) {

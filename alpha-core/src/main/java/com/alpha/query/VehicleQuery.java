@@ -21,5 +21,5 @@ public class VehicleQuery extends PageQuery {
     /**
      * 数据库Id
      */
-    private Long id;
+    private Integer id;
 }

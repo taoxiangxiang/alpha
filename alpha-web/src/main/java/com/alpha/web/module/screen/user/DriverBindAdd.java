@@ -21,8 +21,8 @@ public class DriverBindAdd extends BaseAjaxModule {
     @Resource
     private DriverBindManager driverBindManager;
 
-    public void execute(@Param("vehicleId") Long vehicleId, @Param("vehicleNO") String vehicleNO,
-                        @Param("driverId") Long driverId, @Param("driverName") String driverName,
+    public void execute(@Param("vehicleId") int vehicleId, @Param("vehicleNO") String vehicleNO,
+                        @Param("driverId") int driverId, @Param("driverName") String driverName,
                         @Param("team") String team, Context context) {
         Result<String> result = new Result<String>();
         try {

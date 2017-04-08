@@ -27,7 +27,7 @@ public class UserUpdate extends BaseAjaxModule {
                         @Param("mobilePhone") String mobilePhone, @Param("hireDate") Date hireDate,
                         @Param("mailbox") String mailbox, @Param("address") String address,
                         @Param("position") String position, @Param("department") String department,
-                        @Param("picUrl") String picUrl, @Param("id") Long id, Context context) {
+                        @Param("picUrl") String picUrl, @Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             SystemAccountDO systemAccountDO = new SystemAccountDO();

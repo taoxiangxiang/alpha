@@ -3,8 +3,20 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.alpha.domain.SystemAccountDO" alias="SystemAccountDO" />
+        <typeAlias type="com.alpha.domain.DepartmentDO" alias="DepartmentDO" />
+        <typeAlias type="com.alpha.domain.DriverBindDO" alias="DriverBindDO" />
+        <typeAlias type="com.alpha.domain.DriverDO" alias="DriverDO" />
+        <typeAlias type="com.alpha.domain.GasCardDO" alias="GasCardDO" />
+        <typeAlias type="com.alpha.domain.VehicleApplicationDO" alias="VehicleApplicationDO" />
+        <typeAlias type="com.alpha.domain.VehicleDO" alias="VehicleDO" />
+        <typeAlias type="com.alpha.domain.VerifyRecordDO" alias="VerifyRecordDO" />
     </typeAliases>
     <mappers>
+        <mapper resource="sqlmap/department_sqlmap.xml" />
+        <mapper resource="sqlmap/driver_bind_sqlmap.xml" />
+        <mapper resource="sqlmap/driver_sqlmap.xml" />
+        <mapper resource="sqlmap/gas_card_sqlmap.xml" />
         <mapper resource="sqlmap/system_account_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_sqlmap.xml" />
     </mappers>
 </configuration>

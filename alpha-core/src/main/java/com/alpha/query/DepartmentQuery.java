@@ -14,7 +14,7 @@ public class DepartmentQuery extends PageQuery {
     /**
      * 数据库Id
      */
-    private Long id;
+    private Integer id;
 
     /**
      * 部门名称

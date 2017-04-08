@@ -23,7 +23,7 @@ public class GasCard extends BaseAjaxModule {
     private GasCardManager gasCardManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("id") Long id, Context context) {
+                        @Param("id") Integer id, Context context) {
         try {
             GasCardQuery gasCardQuery = new GasCardQuery();
             if (id == null) {

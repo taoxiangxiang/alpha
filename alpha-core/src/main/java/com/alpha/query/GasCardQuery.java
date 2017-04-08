@@ -11,6 +11,11 @@ public class GasCardQuery extends PageQuery{
     /**
      * 数据库Id
      */
-    private Long id;
+    private Integer id;
+
+    /**
+     * 油卡卡号
+     */
+    private String gasCardNO;
 
 }

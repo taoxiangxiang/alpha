@@ -15,7 +15,7 @@ public class SystemAccountQuery extends PageQuery {
     /**
      * 数据库Id
      */
-    private Long id;
+    private Integer id;
 
     /**
      * 姓名

@@ -25,11 +25,11 @@ public class VehicleAdd extends BaseAjaxModule {
                         @Param("colour") String colour, @Param("load") String load,
                         @Param("seat") int seat, @Param("team") String team,
                         @Param("checkDate") Date checkDate, @Param("insuranceDate") Date insuranceDate,
-                        @Param("maintainDate") Date maintainDate, @Param("maintainMile") String maintainMile,
+                        @Param("maintainDate") Date maintainDate, @Param("maintainMile") int maintainMile,
                         @Param("engineNO") String engineNO, @Param("vin") String vin,
                         @Param("gasCardNO") String gasCardNO, @Param("gasCardType") String gasCardType,
                         @Param("suTongCardNO") String suTongCardNO, @Param("licenseClass") String licenseClass,
-                        @Param("picUrl") String picUrl, @Param("mile") String mile, Context context) {
+                        @Param("picUrl") String picUrl, @Param("mile") int mile, Context context) {
         Result<String> result = new Result<String>();
         try {
             VehicleDO vehicleDO = new VehicleDO();

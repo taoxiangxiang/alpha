@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gasCard">
+    <resultMap id="GasCardMap" type="GasCardDO">
+        <id property="id" column="id" />
+        <result property="gasCardNO" column="gas_card_no" />
+        <result property="gasCardType" column="gas_card_type" />
+        <result property="amount" column="amount" />
+        <result property="status" column="status" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="GasCardDO">
+        insert into gas_card (id,gas_card_no,gas_card_type,amount,status,attribute,gmt_create,gmt_modified)
+         VALUES (null,#{gasCardNO},#{gasCardType},#{amount},#{status},#{attribute},now(),now())
+    </insert>
+
+    <select id="selectByPage" parameterType="com.alpha.query.GasCardQuery" resultMap="GasCardMap">
+        select * from gas_card
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="gasCardNO != null and gasCardNO != '' ">
+            AND gas_card_no like CONCAT('%',#{gasCardNO},'%')
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <update id="update" parameterType="GasCardDO">
+        update gas_card
+        set
+        <if test="gasCardNO!=null">gas_card_no=#{gasCardNO},</if>
+        <if test="gasCardType!=null">gas_card_type=#{gasCardType},</if>
+        <if test="amount!=null">amount=#{amount},</if>
+        <if test="status!=null">status=#{status},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+</mapper>

@@ -30,7 +30,7 @@ public class DriverUpdate extends BaseAjaxModule {
                         @Param("licenseStart") Date licenseStart, @Param("licenseEnd") Date licenseEnd,
                         @Param("offerLicense") String offerLicense, @Param("remark") String remark,
                         @Param("personUrl") String personUrl, @Param("licenseUrl") String licenseUrl,
-                        @Param("id") Long id, Context context) {
+                        @Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             DriverDO driverDO = new DriverDO();

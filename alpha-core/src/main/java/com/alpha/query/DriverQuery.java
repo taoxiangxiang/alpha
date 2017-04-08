@@ -12,5 +12,5 @@ public class DriverQuery extends PageQuery{
 
     private String team;
 
-    private Long id;
+    private Integer id;
 }

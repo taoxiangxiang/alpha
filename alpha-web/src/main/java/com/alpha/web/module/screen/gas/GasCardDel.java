@@ -20,7 +20,7 @@ public class GasCardDel extends BaseAjaxModule {
     @Resource
     private GasCardManager gasCardManager;
 
-    public void execute(@Param("id") Long id, Context context) {
+    public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
             GasCardDO gasCardDO = new GasCardDO();

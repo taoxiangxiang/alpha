@@ -21,7 +21,7 @@ public class DriverAdd extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("name") String name, @Param("sex") String sex,
-                        @Param("citizenId") String citizenId, @Param("birth") String birth,
+                        @Param("citizenId") String citizenId, @Param("birth") Date birth,
                         @Param("ethnicGroup") String ethnicGroup, @Param("nativePlace") String nativePlace,
                         @Param("education") String education, @Param("mobilePhone") String mobilePhone,
                         @Param("mailbox") String mailbox, @Param("address") String address,
@@ -36,7 +36,7 @@ public class DriverAdd extends BaseAjaxModule {
             driverDO.setName(name);
             driverDO.setSex(sex);
             driverDO.setCitizenId(citizenId);
-            driverDO.setBirth(birth);
+            driverDO.setBirth(CalendarUtil.formatDate(licenseStart, CalendarUtil.DATE_FMT_3));
             driverDO.setEthnicGroup(ethnicGroup);
             driverDO.setNativePlace(nativePlace);
             driverDO.setEducation(education);

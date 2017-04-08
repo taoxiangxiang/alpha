@@ -22,7 +22,7 @@ public class DepartmentUpdate extends BaseAjaxModule {
                         @Param("departmentContact") String departmentContact,
                         @Param("departmentContactPhone") String departmentContactPhone,
                         @Param("departmentAddress") String departmentAddress,
-                        @Param("id") long id,
+                        @Param("id") int id,
                         Context context) {
         Result<String> result = new Result<String>();
         try {

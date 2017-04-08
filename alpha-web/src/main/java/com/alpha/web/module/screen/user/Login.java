@@ -30,7 +30,7 @@ public class Login extends BaseModule{
     public void execute(Context context) {
         try {
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
-            systemAccountQuery.setNick("admin");
+            systemAccountQuery.setName("admin");
             List<SystemAccountDO> accountDOList = systemAccountManager.query(systemAccountQuery);
             if (accountDOList != null && accountDOList.size() >= 1) {
                 String nick = accountDOList.get(0).getNick();
