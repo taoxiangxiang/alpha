@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleApplicationDO;
@@ -9,8 +10,6 @@ import com.alpha.manager.SystemAccountManager;
 import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
-import com.taobao.util.CalendarUtil;
-import sun.util.calendar.CalendarUtils;
 
 import javax.annotation.Resource;
 import java.util.Calendar;

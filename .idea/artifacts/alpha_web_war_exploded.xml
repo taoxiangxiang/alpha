@@ -46,7 +46,6 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.3" />
-          <element id="library" level="project" name="Maven: com.taobao.util:util:1.2.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">
