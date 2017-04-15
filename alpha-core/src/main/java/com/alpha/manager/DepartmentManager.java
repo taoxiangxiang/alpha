@@ -15,5 +15,7 @@ public interface DepartmentManager {
 
     List<DepartmentDO> query(DepartmentQuery departmentQuery);
 
+    int count(DepartmentQuery departmentQuery);
+
     boolean update(DepartmentDO departmentDO);
 }

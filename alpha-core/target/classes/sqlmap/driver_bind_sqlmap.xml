@@ -38,6 +38,20 @@
         limit #{start},#{pageSize}
     </select>
 
+    <select id="count" parameterType="com.alpha.query.DriverBindQuery" resultType="int">
+        select * from driver_bind
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="driverName != null and driverName != '' ">
+            AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+    </select>
+
     <update id="update" parameterType="DriverBindDO">
         update driver_bind
         set

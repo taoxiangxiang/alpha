@@ -33,5 +33,8 @@ public class SystemAccountManagerImpl implements SystemAccountManager {
         return systemAccountDao.query(systemAccountQuery);
     }
 
-
+    @Override
+    public int count(SystemAccountQuery systemAccountQuery) {
+        return systemAccountDao.count(systemAccountQuery);
+    }
 }

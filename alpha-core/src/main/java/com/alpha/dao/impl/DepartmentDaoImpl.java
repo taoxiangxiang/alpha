@@ -45,6 +45,16 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
+    public int count(DepartmentQuery departmentQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("department.count", departmentQuery);
+        } catch (Exception e) {
+            logger.error("DepartmentDao count catch exception, departmentQuery=" + JSON.toJSONString(departmentQuery), e);
+            return 0;
+        }
+    }
+
+    @Override
     public boolean update(DepartmentDO departmentDO) {
         try {
             sqlSession.update("department.update", departmentDO);

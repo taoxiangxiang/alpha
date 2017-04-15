@@ -39,9 +39,18 @@ public class GasCardImpl implements GasCardDao {
         try {
             return sqlSession.selectList("gasCard.selectByPage", gasCardQuery);
         } catch (Exception e) {
-            System.out.print(e.getMessage());
             logger.error("GasCardDao query catch exception, gasCardQuery=" + JSON.toJSONString(gasCardQuery), e);
             return null;
+        }
+    }
+
+    @Override
+    public int count(GasCardQuery gasCardQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("gasCard.count", gasCardQuery);
+        } catch (Exception e) {
+            logger.error("GasCardDao count catch exception, gasCardQuery=" + JSON.toJSONString(gasCardQuery), e);
+            return 0;
         }
     }
 

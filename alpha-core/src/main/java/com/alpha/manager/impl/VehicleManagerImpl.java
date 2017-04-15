@@ -29,6 +29,11 @@ public class VehicleManagerImpl implements VehicleManager {
     }
 
     @Override
+    public int count(VehicleQuery vehicleQuery) {
+        return vehicleDao.count(vehicleQuery);
+    }
+
+    @Override
     public boolean update(VehicleDO vehicleDO) {
         return vehicleDao.update(vehicleDO);
     }

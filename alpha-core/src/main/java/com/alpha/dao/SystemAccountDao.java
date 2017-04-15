@@ -13,5 +13,7 @@ public interface SystemAccountDao {
 
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
 
+    int count(SystemAccountQuery systemAccountQuery);
+
     boolean update(SystemAccountDO systemAccountDO);
 }

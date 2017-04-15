@@ -29,6 +29,11 @@ public class DriverManagerImpl implements DriverManager {
     }
 
     @Override
+    public int count(DriverQuery driverQuery) {
+        return driverDao.count(driverQuery);
+    }
+
+    @Override
     public boolean update(DriverDO driverDO) {
         return driverDao.update(driverDO);
     }

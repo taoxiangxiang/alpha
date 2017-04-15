@@ -15,4 +15,6 @@ public interface SystemAccountManager {
     boolean update(SystemAccountDO systemAccountDO);
 
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
+
+    int count(SystemAccountQuery systemAccountQuery);
 }

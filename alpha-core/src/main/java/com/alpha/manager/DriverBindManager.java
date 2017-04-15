@@ -14,5 +14,7 @@ public interface DriverBindManager {
 
     List<DriverBindDO> query(DriverBindQuery driverBindQuery);
 
+    int count(DriverBindQuery driverBindQuery);
+
     boolean update(DriverBindDO driverBindDO);
 }

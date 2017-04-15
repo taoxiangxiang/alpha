@@ -22,4 +22,9 @@ public class VehicleApplicationDaoImpl implements VehicleApplicationDao {
     public List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery) {
         return null;
     }
+
+    @Override
+    public int count(VehicleApplicationQuery vehicleApplicationQuery) {
+        return 0;
+    }
 }

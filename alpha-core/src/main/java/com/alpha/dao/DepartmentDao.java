@@ -14,5 +14,7 @@ public interface DepartmentDao {
 
     List<DepartmentDO> query(DepartmentQuery departmentQuery);
 
+    int count(DepartmentQuery departmentQuery);
+
     boolean update(DepartmentDO departmentDO);
 }

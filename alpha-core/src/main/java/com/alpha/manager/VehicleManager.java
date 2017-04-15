@@ -14,5 +14,7 @@ public interface VehicleManager {
 
     List<VehicleDO> query(VehicleQuery vehicleQuery);
 
+    int count(VehicleQuery vehicleQuery);
+
     boolean update(VehicleDO vehicleDO);
 }

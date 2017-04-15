@@ -29,6 +29,11 @@ public class DriverBindManagerImpl implements DriverBindManager {
     }
 
     @Override
+    public int count(DriverBindQuery driverBindQuery) {
+        return driverBindDao.count(driverBindQuery);
+    }
+
+    @Override
     public boolean update(DriverBindDO driverBindDO) {
         return driverBindDao.update(driverBindDO);
     }

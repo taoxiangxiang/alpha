@@ -14,5 +14,7 @@ public interface GasCardManager {
 
     List<GasCardDO> query(GasCardQuery gasCardQuery);
 
+    int count(GasCardQuery gasCardQuery);
+
     boolean update(GasCardDO gasCardDO);
 }

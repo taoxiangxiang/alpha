@@ -45,6 +45,16 @@ public class VehicleDaoImpl implements VehicleDao{
     }
 
     @Override
+    public int count(VehicleQuery vehicleQuery) {
+        try {
+            return (Integer) sqlSession.selectOne("vehicle.count", vehicleQuery);
+        } catch (Exception e) {
+            logger.error("VehicleDao count catch exception, vehicleQuery=" + JSON.toJSONString(vehicleQuery), e);
+            return 0;
+        }
+    }
+
+    @Override
     public boolean update(VehicleDO vehicleDO) {
         try {
             sqlSession.update("vehicle.update", vehicleDO);

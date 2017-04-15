@@ -45,6 +45,16 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
+    public int count(DriverQuery driverQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("driver.count", driverQuery);
+        } catch (Exception e) {
+            logger.error("DriverDao count catch exception, driverQuery=" + JSON.toJSONString(driverQuery), e);
+            return 0;
+        }
+    }
+
+    @Override
     public boolean update(DriverDO driverDO) {
         try {
             sqlSession.update("driver.update", driverDO);

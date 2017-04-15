@@ -50,6 +50,17 @@
         limit #{start},#{pageSize}
     </select>
 
+    <select id="count" parameterType="com.alpha.query.VehicleQuery" resultType="int">
+        select * from driver
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+    </select>
+
     <update id="update" parameterType="VehicleDO">
         update driver
         set

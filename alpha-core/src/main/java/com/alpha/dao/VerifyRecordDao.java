@@ -13,4 +13,6 @@ public interface VerifyRecordDao {
     boolean insert(VerifyRecordDO verifyRecordDO);
 
     List<VerifyRecordDO> query(VerifyRecordQuery verifyRecordQuery);
+
+    int count(VerifyRecordQuery verifyRecordQuery);
 }

@@ -45,6 +45,16 @@ public class DriverBindDaoImpl implements DriverBindDao{
     }
 
     @Override
+    public int count(DriverBindQuery driverBindQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("driverBind.count", driverBindQuery);
+        } catch (Exception e) {
+            logger.error("DriverBindDao count catch exception, driverBindQuery=" + JSON.toJSONString(driverBindQuery), e);
+            return 0;
+        }
+    }
+
+    @Override
     public boolean update(DriverBindDO driverBindDO) {
         try {
             sqlSession.update("driverBind.update", driverBindDO);

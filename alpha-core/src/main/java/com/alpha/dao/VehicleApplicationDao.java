@@ -13,4 +13,6 @@ public interface VehicleApplicationDao {
     boolean insert(VehicleApplicationDO vehicleApplicationDO);
 
     List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery);
+
+    int count(VehicleApplicationQuery vehicleApplicationQuery);
 }

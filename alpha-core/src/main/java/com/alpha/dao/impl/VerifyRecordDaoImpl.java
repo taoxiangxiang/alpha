@@ -21,4 +21,9 @@ public class VerifyRecordDaoImpl implements VerifyRecordDao {
     public List<VerifyRecordDO> query(VerifyRecordQuery verifyRecordQuery) {
         return null;
     }
+
+    @Override
+    public int count(VerifyRecordQuery verifyRecordQuery) {
+        return 0;
+    }
 }

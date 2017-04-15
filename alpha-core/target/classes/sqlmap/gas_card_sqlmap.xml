@@ -29,6 +29,17 @@
         limit #{start},#{pageSize}
     </select>
 
+    <select id="count" parameterType="com.alpha.query.GasCardQuery" resultType="int">
+        select * from gas_card
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="gasCardNO != null and gasCardNO != '' ">
+            AND gas_card_no like CONCAT('%',#{gasCardNO},'%')
+        </if>
+    </select>
+
     <update id="update" parameterType="GasCardDO">
         update gas_card
         set

@@ -43,6 +43,16 @@ public class SystemAccountDaoImpl implements SystemAccountDao {
     }
 
     @Override
+    public int count(SystemAccountQuery systemAccountQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("systemAccount.count",systemAccountQuery);
+        } catch (Exception e) {
+            logger.error("UserDao count catch exception, systemAccountQuery=" + JSON.toJSONString(systemAccountQuery), e);
+            return 0;
+        }
+    }
+
+    @Override
     public boolean update(SystemAccountDO systemAccountDO) {
         return false;
     }

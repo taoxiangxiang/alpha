@@ -29,6 +29,11 @@ public class GasCardManagerImpl implements GasCardManager {
     }
 
     @Override
+    public int count(GasCardQuery gasCardQuery) {
+        return gasCardDao.count(gasCardQuery);
+    }
+
+    @Override
     public boolean update(GasCardDO gasCardDO) {
         return gasCardDao.update(gasCardDO);
     }

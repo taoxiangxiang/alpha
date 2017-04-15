@@ -14,5 +14,7 @@ public interface DriverDao {
 
     List<DriverDO> query(DriverQuery driverQuery);
 
+    int count(DriverQuery driverQuery);
+
     boolean update(DriverDO driverDO);
 }

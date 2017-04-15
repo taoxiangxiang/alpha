@@ -1,13 +1,8 @@
 package com.alpha.web.module.screen;
 
 import com.alibaba.citrus.turbine.Context;
-import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.manager.SystemAccountManager;
-import com.alpha.query.SystemAccountQuery;
 import com.alpha.web.common.BaseModule;
-import com.alpha.web.module.screen.user.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 

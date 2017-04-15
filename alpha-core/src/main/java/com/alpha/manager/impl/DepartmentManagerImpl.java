@@ -32,4 +32,9 @@ public class DepartmentManagerImpl implements DepartmentManager {
     public boolean update(DepartmentDO departmentDO) {
         return departmentDao.update(departmentDO);
     }
+
+    @Override
+    public int count(DepartmentQuery departmentQuery) {
+        return departmentDao.count(departmentQuery);
+    }
 }

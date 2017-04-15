@@ -42,4 +42,13 @@
         </if>
         limit #{start},#{pageSize}
     </select>
+
+
+    <select id="count" parameterType="com.alpha.query.SystemAccountQuery" resultType="int">
+        select * from system_account
+        where 1=1
+        <if test="nick != null and nick != '' ">
+            AND nick = #{nick}
+        </if>
+    </select>
 </mapper>

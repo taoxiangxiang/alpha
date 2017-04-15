@@ -13,5 +13,7 @@ public interface DriverManager {
 
     List<DriverDO> query(DriverQuery driverQuery);
 
+    int count(DriverQuery driverQuery);
+
     boolean update(DriverDO driverDO);
 }

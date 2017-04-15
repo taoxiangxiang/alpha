@@ -33,6 +33,17 @@
         limit #{start},#{pageSize}
     </select>
 
+    <select id="count" parameterType="com.alpha.query.DepartmentQuery" resultType="int">
+        select count(1) from department
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="departmentName != null and departmentName != '' ">
+            AND department_name like CONCAT('%',#{departmentName},'%')
+        </if>
+    </select>
+
     <update id="update" parameterType="DepartmentDO">
         update department
         set
