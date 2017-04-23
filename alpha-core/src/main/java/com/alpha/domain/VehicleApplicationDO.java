@@ -79,7 +79,7 @@ public class VehicleApplicationDO implements Serializable {
     private String endPlace;
 
     /**
-     * 目的未知类型：市内、市外
+     * 目的地点类型：市内、市外
      */
     private String endPlaceType;
 

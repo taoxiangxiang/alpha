@@ -54,6 +54,12 @@ public class SystemAccountDaoImpl implements SystemAccountDao {
 
     @Override
     public boolean update(SystemAccountDO systemAccountDO) {
-        return false;
+        try {
+            sqlSession.update("systemAccount.update",systemAccountDO);
+            return true;
+        } catch (Exception e) {
+            logger.error("UserDao update catch exception, systemAccountDO=" + JSON.toJSONString(systemAccountDO), e);
+            return false;
+        }
     }
 }

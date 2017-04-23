@@ -26,6 +26,8 @@ public class User extends BaseAjaxModule{
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("name") String name, @Param("id") Integer id, Context context) {
         try {
+            page = page > 0 ? page : 1;
+            pageSize = pageSize > 0 ? pageSize : 10;
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
             if (id == null) {
                 PageResult<List<SystemAccountDO>> result = new PageResult<List<SystemAccountDO>>();

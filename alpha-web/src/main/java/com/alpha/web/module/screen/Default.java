@@ -16,7 +16,7 @@ public class Default extends BaseModule {
 
     public void execute(Context context) {
         try {
-            String nick = this.getSessionNick();
+            String nick = this.getSessionName();
             context.put("nick", nick);
         } catch (Exception e) {
             logger.error("User execute catch exception", e);

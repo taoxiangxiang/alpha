@@ -8,7 +8,7 @@
         <result property="vehicleClass" column="vehicle_class" />
         <result property="vehicleType" column="vehicle_type" />
         <result property="colour" column="colour" />
-        <result property="load" column="load" />
+        <result property="load" column="vehicle_load" />
         <result property="seat" column="seat" />
         <result property="team" column="team" />
         <result property="checkDate" column="check_date" />
@@ -30,7 +30,7 @@
     </resultMap>
 
     <insert id="insert" parameterType="VehicleDO">
-        insert into driver (id,vehicle_no,vehicle_brand,vehicle_class,vehicle_type,colour,load,seat,team,
+        insert into vehicle (id,vehicle_no,vehicle_brand,vehicle_class,vehicle_type,colour,vehicle_load,seat,team,
         check_date,insurance_date,maintain_date,maintain_mile,engine_no,vin,gas_card_no,gas_card_type,
         su_tong_card_no,license_class,pic_url,mile,status,attribute,gmt_create,gmt_modified)
          VALUES (null,#{vehicleNO},#{vehicleBrand},#{vehicleClass},#{vehicleType},#{colour},#{load},#{seat},#{team},
@@ -39,10 +39,16 @@
     </insert>
 
     <select id="selectByPage" parameterType="com.alpha.query.VehicleQuery" resultMap="VehicleMap">
-        select * from driver
+        select * from vehicle
         where 1=1
         <if test="id != null and id != '' ">
             AND id=#{id}
+        </if>
+        <if test="idList != null">
+            and id in
+            <foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
@@ -51,10 +57,16 @@
     </select>
 
     <select id="count" parameterType="com.alpha.query.VehicleQuery" resultType="int">
-        select * from driver
+        select count(1) from vehicle
         where 1=1
         <if test="id != null and id != '' ">
             AND id=#{id}
+        </if>
+        <if test="idList != null">
+            and id in
+            <foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
@@ -62,14 +74,14 @@
     </select>
 
     <update id="update" parameterType="VehicleDO">
-        update driver
+        update vehicle
         set
         <if test="vehicleNO!=null">vehicle_no=#{vehicleNO},</if>
         <if test="vehicleBrand!=null">vehicle_brand=#{vehicleBrand},</if>
         <if test="vehicleClass!=null">vehicle_class=#{vehicleClass},</if>
         <if test="vehicleType!=null">vehicle_type=#{vehicleType},</if>
         <if test="colour!=null">colour=#{colour},</if>
-        <if test="load!=null">load=#{load},</if>
+        <if test="load!=null">vehicle_load=#{load},</if>
         <if test="seat!=null">seat=#{seat},</if>
         <if test="team!=null">team=#{team},</if>
         <if test="checkDate!=null">check_date=#{checkDate},</if>

@@ -26,6 +26,8 @@ public class Driver extends BaseAjaxModule {
                         @Param("name") String name, @Param("team") String team,
                         @Param("id") Integer id, Context context) {
         try {
+            page = page > 0 ? page : 1;
+            pageSize = pageSize > 0 ? pageSize : 10;
             DriverQuery driverQuery = new DriverQuery();
             if (id == null) {
                 PageResult<List<DriverDO>> result = new PageResult<List<DriverDO>>();

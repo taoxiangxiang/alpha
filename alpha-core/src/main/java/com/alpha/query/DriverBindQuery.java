@@ -11,6 +11,11 @@ import java.util.Date;
 public class DriverBindQuery extends PageQuery {
 
     /**
+     * 数据库Id
+     */
+    private Long id;
+
+    /**
      * 车牌号
      */
     private String vehicleNO;

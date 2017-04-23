@@ -1,5 +1,6 @@
 package com.alpha.query;
 
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -7,6 +8,8 @@ import lombok.Data;
  */
 @Data
 public class VehicleQuery extends PageQuery {
+
+    private static final long serialVersionUID = -4990540747023654930L;
 
     /**
      * 车牌号
@@ -22,4 +25,9 @@ public class VehicleQuery extends PageQuery {
      * 数据库Id
      */
     private Integer id;
+
+    /**
+     * 车辆Id
+     */
+    private List<Integer> idList;
 }

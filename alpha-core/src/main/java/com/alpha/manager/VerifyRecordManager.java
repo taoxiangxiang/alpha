@@ -10,7 +10,9 @@ import java.util.List;
  */
 public interface VerifyRecordManager {
 
-    boolean insert(VerifyRecordDO verifyRecordDO);
+    String verify(VerifyRecordDO verifyRecordDO);
 
     List<VerifyRecordDO> query(VerifyRecordQuery verifyRecordQuery);
+
+    int count(VerifyRecordQuery verifyRecordQuery);
 }

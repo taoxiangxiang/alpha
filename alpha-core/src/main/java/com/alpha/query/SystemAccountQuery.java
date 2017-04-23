@@ -21,4 +21,9 @@ public class SystemAccountQuery extends PageQuery {
      * 姓名
      */
     private String name;
+
+    /**
+     * 姓名 模糊查询
+     */
+    private String likeName;
 }

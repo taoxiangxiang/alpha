@@ -31,7 +31,12 @@ public class VerifyRecordDO implements Serializable {
     /**
      * 审核事件
      */
-    private String event;
+    private String applicationEvent;
+
+    /**
+     * 审核事件Id
+     */
+    private int applicationId;
 
     /**
      * 审核结果

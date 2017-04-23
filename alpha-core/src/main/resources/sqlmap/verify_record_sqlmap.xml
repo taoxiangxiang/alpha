@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="verifyRecord">
+    <resultMap id="VerifyRecordMap" type="VerifyRecordDO">
+        <id property="id" column="id" />
+        <result property="verifyId" column="verify_id" />
+        <result property="verifyName" column="verify_name" />
+        <result property="applicationEvent" column="application_event" />
+        <result property="applicationId" column="application_id" />
+        <result property="result" column="result" />
+        <result property="remark" column="remark" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="VerifyRecordDO">
+        insert into verify_record (id,verify_id,verify_name,application_event,application_id,result,remark,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{verifyId},#{verifyName},#{applicationEvent},#{applicationId},#{result},#{remark},#{attribute},now(),now())
+    </insert>
+
+    <update id="update" parameterType="VerifyRecordDO">
+        update verify_record
+        set
+        <if test="verifyId!=null">verify_id=#{verifyId},</if>
+        <if test="verifyName!=null">verify_name=#{verifyName},</if>
+        <if test="applicationEvent!=null">application_event=#{applicationEvent},</if>
+        <if test="applicationId!=null">application_id=#{applicationId},</if>
+        <if test="result!=null">result=#{result},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.VerifyRecordQuery" resultMap="VerifyRecordMap">
+        select * from verify_record
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="applicationEvent != null and applicationEvent != '' ">
+            AND application_event=#{applicationEvent}
+        </if>
+        <if test="applicationId != null and applicationId != '' ">
+            AND application_id=#{applicationId}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.VerifyRecordQuery" resultType="int">
+        select count(1) from verify_record
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="applicationEvent != null and applicationEvent != '' ">
+            AND application_event=#{applicationEvent}
+        </if>
+        <if test="applicationId != null and applicationId != '' ">
+            AND application_id=#{applicationId}
+        </if>
+    </select>
+</mapper>

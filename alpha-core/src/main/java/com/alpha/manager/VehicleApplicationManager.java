@@ -13,4 +13,8 @@ public interface VehicleApplicationManager {
     boolean insert(VehicleApplicationDO vehicleApplicationDO);
 
     List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery);
+
+    int count(VehicleApplicationQuery vehicleApplicationQuery);
+
+    boolean update(VehicleApplicationDO vehicleApplicationDO);
 }

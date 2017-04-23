@@ -39,7 +39,7 @@ public class DriverManagerTest extends ITestBase {
         driverDO.setRemark("测试备注");
         driverDO.setPersonUrl("测试地址1");
         driverDO.setLicenseUrl("测试地址2");
-        driverDO.setStatus(SystemConstant.DRIVER_ON_LINE);
+        driverDO.setStatus(SystemConstant.DRIVER_CAN_USE);
         boolean res = driverManager.insert(driverDO);
         System.out.println(res);
     }

@@ -27,4 +27,14 @@ public class VehicleApplicationManagerImpl implements VehicleApplicationManager 
     public List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery) {
         return vehicleApplicationDao.query(vehicleApplicationQuery);
     }
+
+    @Override
+    public int count(VehicleApplicationQuery vehicleApplicationQuery) {
+        return vehicleApplicationDao.count(vehicleApplicationQuery);
+    }
+
+    @Override
+    public boolean update(VehicleApplicationDO vehicleApplicationDO) {
+        return vehicleApplicationDao.update(vehicleApplicationDO);
+    }
 }

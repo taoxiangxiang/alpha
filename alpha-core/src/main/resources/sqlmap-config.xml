@@ -10,6 +10,7 @@
         <typeAlias type="com.alpha.domain.VehicleApplicationDO" alias="VehicleApplicationDO" />
         <typeAlias type="com.alpha.domain.VehicleDO" alias="VehicleDO" />
         <typeAlias type="com.alpha.domain.VerifyRecordDO" alias="VerifyRecordDO" />
+        <typeAlias type="com.alpha.domain.VehicleUseDO" alias="VehicleUseDO" />
     </typeAliases>
     <mappers>
         <mapper resource="sqlmap/department_sqlmap.xml" />
@@ -18,5 +19,8 @@
         <mapper resource="sqlmap/gas_card_sqlmap.xml" />
         <mapper resource="sqlmap/system_account_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_application_sqlmap.xml" />
+        <mapper resource="sqlmap/verify_record_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_use_sqlmap.xml" />
     </mappers>
 </configuration>

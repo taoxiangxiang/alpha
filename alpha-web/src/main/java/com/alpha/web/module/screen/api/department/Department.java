@@ -25,6 +25,8 @@ public class Department extends BaseAjaxModule {
                         @Param("departmentName") String departmentName, @Param("id") Integer id,
                         Context context) {
         try {
+            page = page > 0 ? page : 1;
+            pageSize = pageSize > 0 ? pageSize : 10;
             DepartmentQuery departmentQuery = new DepartmentQuery();
             if (id == null) {
                 PageResult<List<DepartmentDO>> result = new PageResult<List<DepartmentDO>>();

@@ -15,4 +15,6 @@ public interface VehicleApplicationDao {
     List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery);
 
     int count(VehicleApplicationQuery vehicleApplicationQuery);
+
+    boolean update(VehicleApplicationDO vehicleApplicationDO);
 }

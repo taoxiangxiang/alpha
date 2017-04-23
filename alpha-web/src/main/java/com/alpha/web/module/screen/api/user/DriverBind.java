@@ -27,6 +27,8 @@ public class DriverBind extends BaseAjaxModule {
                         Context context) {
         PageResult<List<DriverBindDO>> result = new PageResult<List<DriverBindDO>>();
         try {
+            page = page > 0 ? page : 1;
+            pageSize = pageSize > 0 ? pageSize : 10;
             DriverBindQuery driverBindQuery = new DriverBindQuery();
             driverBindQuery.setPage(page);
             driverBindQuery.setPageSize(pageSize);

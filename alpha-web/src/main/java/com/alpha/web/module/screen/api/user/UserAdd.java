@@ -30,10 +30,17 @@ public class UserAdd extends BaseAjaxModule {
                         @Param("picUrl") String picUrl, Context context) {
         Result<String> result = new Result<String>();
         try {
+            if (name == null || citizenId == null || citizenId.length() != 18) {
+                result.setErrMsg("请正确填写姓名和身份证信息");
+                return;
+            }
             SystemAccountDO systemAccountDO = new SystemAccountDO();
             systemAccountDO.setName(name);
+            systemAccountDO.setNick(name);
             systemAccountDO.setSex(sex);
             systemAccountDO.setCitizenId(citizenId);
+            //身份证后六位
+            systemAccountDO.setPassword(encoderByMd5(citizenId.substring(12)));
             systemAccountDO.setBirth(birth);
             systemAccountDO.setEthnicGroup(ethnicGroup);
             systemAccountDO.setNativePlace(nativePlace);
@@ -42,7 +49,7 @@ public class UserAdd extends BaseAjaxModule {
             systemAccountDO.setMobilePhone(mobilePhone);
             systemAccountDO.setMailbox(mailbox);
             systemAccountDO.setAddress(address);
-            systemAccountDO.setHireDate(CalendarUtil.formatDate(hireDate, CalendarUtil.DATE_FMT_3));
+            systemAccountDO.setHireDate(hireDate == null ? null : CalendarUtil.formatDate(hireDate, CalendarUtil.DATE_FMT_3));
             systemAccountDO.setPosition(position);
             systemAccountDO.setDepartment(department);
             systemAccountDO.setPicUrl(picUrl);

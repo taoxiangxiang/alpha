@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vehicleUse">
+    <resultMap id="VehicleUseMap" type="VehicleUseDO">
+        <id property="id" column="id" />
+        <result property="applicationId" column="application_id" />
+        <result property="driverId" column="driver_id" />
+        <result property="driverName" column="driver_name" />
+        <result property="vehicleId" column="vehicle_id" />
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="status" column="status" />
+        <result property="actualStartDate" column="actual_start_eate" />
+        <result property="actualEndDate" column="actual_end_date" />
+        <result property="actualBackDate" column="actual_back_date" />
+        <result property="startMile" column="start_mile" />
+        <result property="endMile" column="end_mile" />
+        <result property="fuwuFee" column="fuwu_fee" />
+        <result property="cailvFee" column="cailv_fee" />
+        <result property="jiabanFee" column="jiaban_fee" />
+        <result property="guoluFee" column="guolu_fee" />
+        <result property="guoqiaoFee" column="guoqiao_fee" />
+        <result property="xicheFee" column="xiche_fee" />
+        <result property="tingcheFee" column="tingche_fee" />
+        <result property="otherFee" column="other_fee" />
+        <result property="remark" column="remark" />
+        <result property="attribute" column="attribute" />
+        <result property="point" column="point" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="VehicleUseDO">
+        insert into vehicle_use (id,application_id,driver_id,driver_name,vehicle_id,vehicle_no,status,actual_start_eate,actual_end_date,actual_back_date,start_mile,end_mile,fuwu_fee,cailv_fee,jiaban_fee,guolu_fee,guoqiao_fee,xiche_fee,tingche_fee,other_fee,remark,attribute,point,gmt_create,gmt_modified)
+        VALUES (null,#{applicationId},#{driverId},#{driverName},#{vehicleId},#{vehicleNO},#{status},#{actualStartDate},#{actualEndDate},#{actualBackDate},#{startMile},#{endMile},#{fuwuFee},#{cailvFee},#{jiabanFee},#{guoluFee},#{guoqiaoFee},#{xicheFee},#{tingcheFee},#{otherFee},#{remark},#{attribute},#{point},now(),now())
+    </insert>
+
+    <update id="update" parameterType="VehicleUseDO">
+        update vehicle_use
+        set
+        <if test="applicationId!=null">application_id=#{applicationId},</if>
+        <if test="driverId!=null">driver_id=#{driverId},</if>
+        <if test="driverName!=null">driver_name=#{driverName},</if>
+        <if test="vehicleId!=null">vehicle_id=#{vehicleId},</if>
+        <if test="vehicleNO!=null">vehicle_no=#{vehicleNO},</if>
+        <if test="status!=null">status=#{status},</if>
+        <if test="actualStartDate!=null">actual_start_eate=#{actualStartDate},</if>
+        <if test="actualEndDate!=null">actual_end_date=#{actualEndDate},</if>
+        <if test="actualBackDate!=null">actual_back_date=#{actualBackDate},</if>
+        <if test="startMile!=null">start_mile=#{startMile},</if>
+        <if test="endMile!=null">end_mile=#{endMile},</if>
+        <if test="fuwuFee!=null">fuwu_fee=#{fuwuFee},</if>
+        <if test="cailvFee!=null">cailv_fee=#{cailvFee},</if>
+        <if test="jiabanFee!=null">jiaban_fee=#{jiabanFee},</if>
+        <if test="guoluFee!=null">guolu_fee=#{guoluFee},</if>
+        <if test="guoqiaoFee!=null">guoqiao_fee=#{guoqiaoFee},</if>
+        <if test="xicheFee!=null">xiche_fee=#{xicheFee},</if>
+        <if test="tingcheFee!=null">tingche_fee=#{tingcheFee},</if>
+        <if test="otherFee!=null">other_fee=#{otherFee},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        <if test="point!=null">point=#{point},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.VehicleUseQuery" resultMap="VehicleUseMap">
+        select * from vehicle_use
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="applicationId != null and applicationId != '' ">
+            AND application_id=#{applicationId}
+        </if>
+        <if test="driverName != null and driverName != '' ">
+            AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="status != null and status != '' ">
+            AND status=#{status}
+        </if>
+        <if test="startDate != null">
+            AND use_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND use_date &lt;= #{endDate}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.VehicleUseQuery" resultType="int">
+        select count(1) from vehicle_use
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="applicationId != null and applicationId != '' ">
+            AND application_id=#{applicationId}
+        </if>
+        <if test="driverName != null and driverName != '' ">
+            AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="status != null and status != '' ">
+            AND status=#{status}
+        </if>
+        <if test="startDate != null">
+            AND use_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND use_date &lt;= #{endDate}
+        </if>
+    </select>
+</mapper>

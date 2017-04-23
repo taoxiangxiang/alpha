@@ -13,35 +13,11 @@
         </span>
     </div>
 
-    <div style="overflow-x: scroll;">
-        <table class="table table-striped" style="font-size: smaller;">
-            <thead>
-            <tr>
-                <th style="min-width: 100px;">姓名</th>
-                <th style="min-width:100px">年龄</th>
-                <th style="min-width: 100px;">联系方式</th>
-                <th style="min-width: 100px;">家庭地址</th>
-            </tr>
-            </thead>
-            <tbody>
-                #foreach($model in $list)
-                    <tr>
-                        <td>$!model.id</td>
-                        <td>$!model.userName</td>
-                        <td>$!model.userName</td>
-                        <td>$!model.userName</td>
-                    </tr>
-                #end
-            </tbody>
-        </table>
-        <nav>
-            <ul class="pager">
-                <li><a id="J_prev" href="#">前一页</a></li>
-                <li class="disabled"><a href="#">第1页</a></li>
-                <li><a id="J_next" href="#">后一页</a></li>
-            </ul>
-        </nav>
-    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        上传文件2：<input type="file" name="file"><br/>
+        <input type="hidden" name="action" value="UpAction"/>
+        <input id="J_submit" type="submit" name="event_submit_doUp" value="提交"/>
+    </form>
 </div>
 
 <script>

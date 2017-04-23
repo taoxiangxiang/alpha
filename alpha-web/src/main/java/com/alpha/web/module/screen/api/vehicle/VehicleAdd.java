@@ -53,7 +53,7 @@ public class VehicleAdd extends BaseAjaxModule {
             vehicleDO.setLicenseClass(licenseClass);
             vehicleDO.setPicUrl(picUrl);
             vehicleDO.setMile(mile);
-            vehicleDO.setStatus(SystemConstant.VEHICLE_ON_LINE);
+            vehicleDO.setStatus(SystemConstant.VEHICLE_CAN_USE);
             boolean res = vehicleManager.insert(vehicleDO);
             if (res) {
                 result.setData("操作成功");

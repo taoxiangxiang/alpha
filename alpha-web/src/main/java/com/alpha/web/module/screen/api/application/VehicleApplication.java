@@ -2,17 +2,17 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
-import com.alpha.constans.CalendarUtil;
-import com.alpha.constans.SystemConstant;
-import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleApplicationDO;
-import com.alpha.manager.SystemAccountManager;
 import com.alpha.manager.VehicleApplicationManager;
+import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.web.common.BaseAjaxModule;
+import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
+import java.util.List;
+
 import javax.annotation.Resource;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -23,49 +23,47 @@ public class VehicleApplication extends BaseAjaxModule {
     @Resource
     private VehicleApplicationManager vehicleApplicationManager;
 
-    public void execute(@Param("applicationType") String applicationType, @Param("vehicleType") String vehicleType,
-                        @Param("applicationReason") String applicationReason, @Param("useDate") Date useDate,
-                        @Param("predictBackDate") Date predictBackDate, @Param("personNumber") int personNumber,
-                        @Param("startPlace") String startPlace, @Param("endPlace") String endPlace,
-                        @Param("endPlaceType") String endPlaceType, @Param("contacts") String contacts,
-                        @Param("contactsPhone") String contactsPhone, @Param("remark") String remark,
-                        @Param("file") String file, Context context) {
-        Result<String> result = new Result<String>();
+    public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
+                        @Param("startDate") Date startDate, @Param("endDate") Date endDate,
+                        @Param("status") String status, @Param("id") Integer id, Context context) {
         try {
-            SystemAccountDO systemAccountDO = this.getAccount();
-            VehicleApplicationDO vehicleApplicationDO = new VehicleApplicationDO();
-//        vehicleApplicationDO.setApplicationNO();
-            vehicleApplicationDO.setApplicationType(SystemConstant.applicationTypeMap.get(applicationType));
-            vehicleApplicationDO.setVehicleType(SystemConstant.vehicleTypeMap.get(vehicleType));
-            vehicleApplicationDO.setApplicationReason(SystemConstant.applicationReasonMap.get(applicationReason));
-            vehicleApplicationDO.setUseDate(CalendarUtil.formatDate(useDate, CalendarUtil.TIME_PATTERN));
-            vehicleApplicationDO.setPredictBackDate(CalendarUtil.formatDate(predictBackDate, CalendarUtil.TIME_PATTERN));
-            vehicleApplicationDO.setApplicant(systemAccountDO.getName());
-            vehicleApplicationDO.setApplicationDepartment(systemAccountDO.getDepartment());
-            vehicleApplicationDO.setApplicantPhone(systemAccountDO.getMobilePhone());
-            vehicleApplicationDO.setPersonNumber(personNumber);
-            vehicleApplicationDO.setStartPlace(startPlace);
-            vehicleApplicationDO.setEndPlace(endPlace);
-            vehicleApplicationDO.setEndPlaceType(SystemConstant.endPlaceTypeMap.get(endPlaceType));
-            vehicleApplicationDO.setContacts(contacts);
-            vehicleApplicationDO.setContactsPhone(contactsPhone);
-            vehicleApplicationDO.setRemark(remark);
-            vehicleApplicationDO.setFile(file);
-            if (SystemConstant.END_PLACE_IN_CITY.equals(endPlaceType)) {
-                vehicleApplicationDO.setStatus(SystemConstant.APPLICATION_WAIT_VERIFY);
+            page = page > 0 ? page : 1;
+            pageSize = pageSize > 0 ? pageSize : 10;
+            VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
+            if (id == null) {
+                vehicleApplicationQuery.setPage(page);
+                vehicleApplicationQuery.setPageSize(pageSize);
+                vehicleApplicationQuery.setStartDate(startDate);
+                vehicleApplicationQuery.setEndDate(endDate);
+                if (status != null) {
+                    List<String> statusList = new ArrayList<String>();
+                    statusList.add(status);
+                    vehicleApplicationQuery.setStatusList(statusList);
+                }
+                List<VehicleApplicationDO> list = vehicleApplicationManager.query(vehicleApplicationQuery);
+                int number = vehicleApplicationManager.count(vehicleApplicationQuery);
+                PageResult<List<VehicleApplicationDO>> result = new PageResult<List<VehicleApplicationDO>>();
+                result.setData(list);
+                result.setPage(page);
+                result.setPageSize(pageSize);
+                result.setNumber(number);
+                print(result);
             } else {
-                vehicleApplicationDO.setStatus(SystemConstant.APPLICATION_WAIT_FIRST_VERIFY);
-            }
-            boolean res = vehicleApplicationManager.insert(vehicleApplicationDO);
-            if (res) {
-                result.setData("申请成功");
-            } else {
-                result.setErrMsg("申请失败，请重新申请");
+                Result<VehicleApplicationDO> result = new Result<VehicleApplicationDO>();
+                vehicleApplicationQuery.setId(id);
+                List<VehicleApplicationDO> list = vehicleApplicationManager.query(vehicleApplicationQuery);
+                if (list == null || list.size() == 0) {
+                    result.setErrMsg("无相关申请单数据：id=" + id);
+                } else {
+                    result.setData(list.get(0));
+                }
+                print(result);
             }
         } catch (Exception e) {
-            logger.error("VehicleApplication execute catch exception", e);
+            Result<VehicleApplicationDO> result = new Result<VehicleApplicationDO>();
+            logger.error("GetVehicleApplication execute catch exception", e);
             result.setErrMsg("系统异常，请重新申请");
+            print(result);
         }
-        print(result);
     }
 }

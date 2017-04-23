@@ -51,7 +51,7 @@ public class DriverAdd extends BaseAjaxModule {
             driverDO.setRemark(remark);
             driverDO.setPersonUrl(personUrl);
             driverDO.setLicenseUrl(licenseUrl);
-            driverDO.setStatus(SystemConstant.DRIVER_ON_LINE);
+            driverDO.setStatus(SystemConstant.DRIVER_CAN_USE);
             boolean res = driverManager.insert(driverDO);
             if (res) {
                 result.setData("操作成功");

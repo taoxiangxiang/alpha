@@ -1,11 +1,14 @@
 package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
+import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
 import com.alpha.query.SystemAccountQuery;
+import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.common.BaseModule;
+import com.alpha.web.domain.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,43 +22,44 @@ import java.util.List;
 /**
  * Created by taoxiang on 2017/4/3.
  */
-public class Login extends BaseModule{
+public class Login extends BaseAjaxModule{
 
     private static final Logger logger = LoggerFactory.getLogger(Login.class);
 
     @Resource
     private SystemAccountManager systemAccountManager;
 
-    public void execute(Context context) {
+    public void execute(@Param("name") String name, @Param("password") String password, Context context) {
+        Result<String> result = new Result<String>();
         try {
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
-            systemAccountQuery.setName("admin");
+            systemAccountQuery.setName(name);
             List<SystemAccountDO> accountDOList = systemAccountManager.query(systemAccountQuery);
             if (accountDOList != null && accountDOList.size() >= 1) {
-                String nick = accountDOList.get(0).getNick();
-                session.setAttribute(SystemConstant.SESSION_NICK, nick);
-                Cookie[] cookies = request.getCookies();
-                setCookie(response, SystemConstant.COOKIE_NICK, nick);
+                String passwordInDB = accountDOList.get(0).getPassword();
+                if (password != null && encoderByMd5(password).equals(passwordInDB)) {
+                    session.setAttribute(SystemConstant.SESSION_NAME, name);
+                    setCookie(response, SystemConstant.COOKIE_NAME, name);
+                    result.setData("登录成功");
+                    print(result);
+                    return;
+                }
+                result.setErrMsg("密码与账户不匹配");
+            } else {
+                result.setErrMsg("账户不存在，请联系管理员");
             }
         } catch (Exception e) {
+            result.setErrMsg("系统异常，请重试操作");
             logger.error("Login execute catch exception", e);
         }
+        print(result);
     }
 
-    public void setCookie(HttpServletResponse response, String name, String value) {
-        // new一个Cookie对象,键值对为参数
-        Cookie cookie = new Cookie(name, value);
+    private void setCookie(HttpServletResponse response, String name, String value) throws UnsupportedEncodingException {
+        Cookie cookie = new Cookie(name, URLEncoder.encode(value, "utf-8"));
         // tomcat下多应用共享
         cookie.setPath("/");
-        // 如果cookie的值中含有中文时，需要对cookie进行编码，不然会产生乱码
-        try {
-            URLEncoder.encode(value, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-//        cookie.setMaxAge(time);
         // 将Cookie添加到Response中,使之生效
         response.addCookie(cookie); // addCookie后，如果已经存在相同名字的cookie，则最新的覆盖旧的cookie
-        return;
     }
 }
