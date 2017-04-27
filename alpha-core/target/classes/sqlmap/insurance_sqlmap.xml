@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="insurance">
+    <resultMap id="InsuranceMap" type="InsuranceDO">
+        <id property="id" column="id" />
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="team" column="team" />
+        <result property="insuranceStartDate" column="insurance_start_date" />
+        <result property="insuranceEndDate" column="insurance_end_date" />
+        <result property="type" column="type" />
+        <result property="money" column="money" />
+        <result property="companyName" column="company_name" />
+        <result property="operator" column="operator" />
+        <result property="file" column="file" />
+        <result property="remark" column="remark" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="InsuranceDO">
+        insert into insurance (id,vehicle_no,team,insurance_start_date,insurance_end_date,type,money,company_name,operator,file,remark,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{vehicleNO},#{team},#{insuranceStartDate},#{insuranceEndDate},#{type},#{money},#{companyName},#{operator},#{file},#{remark},#{attribute},now(),now())
+    </insert>
+
+    <update id="update" parameterType="InsuranceDO">
+        update insurance
+        set
+        <if test="vehicleNO!=null">vehicle_no=#{vehicleNO},</if>
+        <if test="team!=null">team=#{team},</if>
+        <if test="insuranceStartDate!=null">insurance_start_date=#{insuranceStartDate},</if>
+        <if test="insuranceEndDate!=null">insurance_end_date=#{insuranceEndDate},</if>
+        <if test="type!=null">type=#{type},</if>
+        <if test="money!=null">money=#{money},</if>
+        <if test="companyName!=null">company_name=#{companyName},</if>
+        <if test="operator!=null">operator=#{operator},</if>
+        <if test="file!=null">file=#{file},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.InsuranceQuery" resultMap="InsuranceMap">
+        select * from insurance
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.InsuranceQuery" resultType="int">
+        select count(1) from insurance
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+    </select>
+</mapper>

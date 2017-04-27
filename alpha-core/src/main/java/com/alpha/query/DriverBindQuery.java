@@ -13,7 +13,7 @@ public class DriverBindQuery extends PageQuery {
     /**
      * 数据库Id
      */
-    private Long id;
+    private Integer id;
 
     /**
      * 车牌号

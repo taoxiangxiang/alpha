@@ -78,6 +78,7 @@ public class SystemConstant {
      * 审核事件
      */
     public static final String VERIFY_EVENT_VEHICLE_APPLICATION = "verifyEventVehicleApplication";
+    public static final String VERIFY_EVENT_MAINTAIN_APPLICATION = "verifyEventMaintainApplication";
 
     /**
      * 审核权限
@@ -85,6 +86,10 @@ public class SystemConstant {
     public static final String AUTH_TYPE_VEHICLE_IN_CITY_VERIFY = "inCityVerifyAuth";
     public static final String AUTH_TYPE_VEHICLE_OUT_OF_CITY_FIRST_VERIFY = "outOfCityFirstVerifyAuth";
     public static final String AUTH_TYPE_VEHICLE_OUT_OF_CITY_SECOND_VERIFY = "outOfCitySecondVerifyAuth";
+
+    public static final String AUTH_TYPE_MAINTAIN_FIRST_VERIFY = "maintainFirstVerifyAuth";
+    public static final String AUTH_TYPE_MAINTAIN_SECOND_VERIFY = "maintainSecondVerifyAuth";
+    public static final String AUTH_TYPE_MAINTAIN_THIRD_VERIFY = "maintainThirdVerifyAuth";
 
     /**
      * 审核结果
@@ -100,6 +105,15 @@ public class SystemConstant {
     public static final String VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY = "outOfCityWaitSecondVerify";
     public static final String VEHICLE_VERIFY_PASS = "vehicleVerifyPass";
     public static final String VEHICLE_VERIFY_REJECT = "vehicleVerifyReject";
+
+    /**
+     * 维保审核状态
+     */
+    public static final String MAINTAIN_WAIT_FIRST_VERIFY = "maintainWaitFirstVerify";
+    public static final String MAINTAIN_WAIT_SECOND_VERIFY = "maintainWaitSecondVerify";
+    public static final String MAINTAIN_WAIT_THIRD_VERIFY = "maintainWaitThirdVerify";
+    public static final String MAINTAIN_VERIFY_PASS = "maintainVerifyPass";
+    public static final String MAINTAIN_VERIFY_REJECT = "maintainVerifyReject";
 
     public static Map<String, String> applicationTypeMap = new HashMap<String, String>();
 

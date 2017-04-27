@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vehicleIllegal">
+    <resultMap id="VehicleIllegalMap" type="VehicleIllegalDO">
+        <id property="id" column="id" />
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="team" column="team" />
+        <result property="illegalDate" column="illegal_date" />
+        <result property="reason" column="reason" />
+        <result property="money" column="money" />
+        <result property="point" column="point" />
+        <result property="illegalAddress" column="illegal_address" />
+        <result property="driverId" column="driver_id" />
+        <result property="driverName" column="driver_name" />
+        <result property="file" column="file" />
+        <result property="remark" column="remark" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="VehicleIllegalDO">
+        insert into vehicle_illegal (id,vehicle_no,team,illegal_date,reason,money,point,illegal_address,driver_id,driver_name,file,remark,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{vehicleNO},#{team},#{illegalDate},#{reason},#{money},#{point},#{illegalAddress},#{driverId},#{driverName},#{file},#{remark},#{attribute},now(),now())
+    </insert>
+
+    <update id="update" parameterType="VehicleIllegalDO">
+        update vehicle_illegal
+        set
+        <if test="vehicleNO!=null">vehicle_no=#{vehicleNO},</if>
+        <if test="team!=null">team=#{team},</if>
+        <if test="illegalDate!=null">illegal_date=#{illegalDate},</if>
+        <if test="reason!=null">reason=#{reason},</if>
+        <if test="money!=null">money=#{money},</if>
+        <if test="point!=null">point=#{point},</if>
+        <if test="illegalAddress!=null">illegal_address=#{illegalAddress},</if>
+        <if test="driverId!=null">driver_id=#{driverId},</if>
+        <if test="driverName!=null">driver_name=#{driverName},</if>
+        <if test="file!=null">file=#{file},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.VehicleIllegalQuery" resultMap="VehicleIllegalMap">
+        select * from vehicle_illegal
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.VehicleIllegalQuery" resultType="int">
+        select count(1) from vehicle_illegal
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+    </select>
+</mapper>

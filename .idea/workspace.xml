@@ -18,23 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Upload.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/Upload.java">
+      <file leaf-file-name="VehicleAccidentManagerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleAccidentManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DownLoad.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/DownLoad.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,57 +71,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleApplicationAdd.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VerifyEventAdd.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleQuery.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_sqlmap.xml" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/driver_sqlmap.xml" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAdd.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/SqlMapClientTemplate.xml" />
-        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/DriverManagerTest.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/DriverQuery.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleManagerTest.java" />
-        <option value="$PROJECT_DIR$/alpha-web/pom.xml" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/VehicleApplicationManager.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleApplicationManagerImpl.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleApplication.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/department/Department.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/gas/GasCard.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverBind.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/User.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/Vehicle.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/VehicleUseManager.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleUseManagerImpl.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleUseDaoImpl.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap-config.xml" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleUseQuery.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleApplicationDO.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleUseDO.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/DepartmentDO.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/VehicleGasDao.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/VehicleGasManager.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleGasManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleGasDaoImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/VehicleAccidentDao.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/VehicleAccidentManager.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleAccidentManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/VehicleIllegalDao.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/VehicleIllegalManager.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleIllegalManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleIllegalDaoImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/InsuranceQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/Insurance.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/InsuranceDO.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/InsuranceAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/InsuranceManagerTest.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/insurance_sqlmap.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleAccidentDaoImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleCheckQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheck.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleCheckDO.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheckAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheckUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/InsuranceUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleCheckManagerTest.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_check_sqlmap.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleGasQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/DriverBindQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGas.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleGasDO.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGasUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGasAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleGasManagerTest.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_gas_sqlmap.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleIllegalQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegal.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleIllegalDO.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_illegal_sqlmap.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleIllegalManagerTest.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleAccidentQuery.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccident.java" />
         <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/CommonDO.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_use_sqlmap.xml" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUsePoint.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUseUpdate.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleUseManagerTest.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUseAdd.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/SystemConstant.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Login.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/Default.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/system_account_sqlmap.xml" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/SystemAccountQuery.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/UserAdd.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/UserManagerTest.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/LoginUser.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Logout.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/common/BaseModule.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/Download.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/webapp/templates/screen/user/user.vm" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/action/UpAction.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/Upload.java" />
-        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/DownLoad.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_accident_sqlmap.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap-config.xml" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccidentUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleAccidentDO.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccidentAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegalAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegalUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleAccidentManagerTest.java" />
       </list>
     </option>
   </component>
@@ -198,7 +186,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="714" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -437,6 +425,52 @@
               <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vehicle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -480,7 +514,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="file" />
+              <option name="myItemId" value="department" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -711,6 +791,112 @@
               <option name="myItemId" value="alpha" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="query" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alpha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -742,9 +928,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.alpha.web.module.screen.api.user" />
-      <recent name="com.alpha.web.module.screen.api.application" />
       <recent name="com.alpha.manager" />
+      <recent name="com.alpha.web.module.screen.api.application" />
+      <recent name="com.alpha.web.module.screen.api.user" />
       <recent name="com.alpha.web.module.screen.gas" />
       <recent name="com.alpha.domain" />
     </key>
@@ -752,7 +938,7 @@
       <recent name="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.tomcat7">
+  <component name="RunManager" selected="JUnit.VehicleAccidentManagerTest.testQuery">
     <configuration default="false" name="CommonDO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -773,7 +959,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="VehicleUseManagerTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="VehicleIllegalManagerTest.testQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.alpha.manager.*" />
@@ -784,7 +970,33 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.alpha.manager" />
-      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleUseManagerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleIllegalManagerTest" />
+      <option name="METHOD_NAME" value="testQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="VehicleAccidentManagerTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.alpha.manager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="alpha-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.alpha.manager" />
+      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleAccidentManagerTest" />
       <option name="METHOD_NAME" value="testInsert" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -799,7 +1011,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="VehicleUseManagerTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="VehicleAccidentManagerTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.alpha.manager.*" />
@@ -810,7 +1022,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.alpha.manager" />
-      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleUseManagerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleAccidentManagerTest" />
       <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -825,7 +1037,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="UserManagerTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="VehicleAccidentManagerTest.testQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.alpha.manager.*" />
@@ -836,8 +1048,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.alpha.manager" />
-      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.UserManagerTest" />
-      <option name="METHOD_NAME" value="testInsert" />
+      <option name="MAIN_CLASS_NAME" value="com.alpha.manager.VehicleAccidentManagerTest" />
+      <option name="METHOD_NAME" value="testQuery" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -849,26 +1061,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="Upload" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.alpha.web.module.screen.api.file.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.alpha.web.module.screen.api.file.Upload" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="alpha-web" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1310,18 +1502,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat7" />
       <item index="1" class="java.lang.String" itemvalue="Application.CommonDO" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleUseManagerTest.testInsert" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.VehicleUseManagerTest.testUpdate" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserManagerTest.testInsert" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Upload" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleIllegalManagerTest.testQuery" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testInsert" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testUpdate" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testQuery" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Upload" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserManagerTest.testInsert" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleUseManagerTest.testUpdate" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testQuery" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testUpdate" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleAccidentManagerTest.testInsert" />
         <item index="3" class="java.lang.String" itemvalue="Application.CommonDO" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.VehicleUseManagerTest.testInsert" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.VehicleIllegalManagerTest.testQuery" />
       </list>
     </recent_temporary>
   </component>
@@ -1370,44 +1562,49 @@
       <workItem from="1492932205568" duration="62000" />
       <workItem from="1492932289402" duration="41000" />
       <workItem from="1492932337702" duration="3000" />
-      <workItem from="1492932359430" duration="6287000" />
+      <workItem from="1492932359430" duration="6629000" />
+      <workItem from="1493194450174" duration="1423000" />
+      <workItem from="1493196176955" duration="11000" />
+      <workItem from="1493210507534" duration="5394000" />
+      <workItem from="1493216227585" duration="1422000" />
+      <workItem from="1493296890919" duration="12588000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserManagerTest_testInsert - 2017.04.23 at 14h 01m 45s.xml">
-      <configuration name="UserManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleAccidentManagerTest_testInsert - 2017.04.28 at 00h 20m 41s.xml">
+      <configuration name="VehicleAccidentManagerTest.testInsert" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserManagerTest_testInsert - 2017.04.23 at 14h 06m 16s.xml">
-      <configuration name="UserManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleAccidentManagerTest_testInsert - 2017.04.28 at 00h 22m 30s.xml">
+      <configuration name="VehicleAccidentManagerTest.testInsert" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testInsert - 2017.04.19 at 22h 55m 37s.xml">
-      <configuration name="VehicleUseManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleAccidentManagerTest_testInsert - 2017.04.28 at 00h 23m 20s.xml">
+      <configuration name="VehicleAccidentManagerTest.testInsert" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testInsert - 2017.04.19 at 22h 56m 43s.xml">
-      <configuration name="VehicleUseManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleAccidentManagerTest_testQuery - 2017.04.28 at 00h 24m 04s.xml">
+      <configuration name="VehicleAccidentManagerTest.testQuery" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testInsert - 2017.04.19 at 22h 57m 25s.xml">
-      <configuration name="VehicleUseManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleAccidentManagerTest_testUpdate - 2017.04.28 at 00h 23m 56s.xml">
+      <configuration name="VehicleAccidentManagerTest.testUpdate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testInsert - 2017.04.19 at 22h 58m 11s.xml">
-      <configuration name="VehicleUseManagerTest.testInsert" configurationId="JUnit" />
+    <history-entry file="VehicleGasManagerTest_testQuery - 2017.04.27 at 23h 14m 10s.xml">
+      <configuration name="VehicleGasManagerTest.testQuery" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testUpdate - 2017.04.19 at 23h 00m 13s.xml">
-      <configuration name="VehicleUseManagerTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="VehicleGasManagerTest_testUpdate - 2017.04.27 at 23h 14m 02s.xml">
+      <configuration name="VehicleGasManagerTest.testUpdate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testUpdate - 2017.04.19 at 23h 15m 12s.xml">
-      <configuration name="VehicleUseManagerTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="VehicleIllegalManagerTest_testInsert - 2017.04.27 at 23h 49m 35s.xml">
+      <configuration name="VehicleIllegalManagerTest.testInsert" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VehicleUseManagerTest_testUpdate - 2017.04.20 at 23h 40m 53s.xml">
-      <configuration name="VehicleUseManagerTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="VehicleIllegalManagerTest_testQuery - 2017.04.27 at 23h 50m 15s.xml">
+      <configuration name="VehicleIllegalManagerTest.testQuery" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VerifyRecordManagerTest_testQuery - 2017.04.16 at 13h 05m 56s.xml">
-      <configuration name="VerifyRecordManagerTest.testQuery" configurationId="JUnit" />
+    <history-entry file="VehicleIllegalManagerTest_testUpdate - 2017.04.27 at 23h 50m 06s.xml">
+      <configuration name="VehicleIllegalManagerTest.testUpdate" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120914000" />
+    <option name="totallyTimeSpent" value="142094000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1419,7 +1616,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="714" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1434,18 +1631,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3942953" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.392555" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32427844" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32318106" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5604027" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.55837566" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36914378" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30048466" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1520,8 +1717,20 @@
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleGasDaoImpl.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleAccidentDaoImpl.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1536,382 +1745,511 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap-config.xml">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/InsuranceManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+        <state relative-caret-position="450">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VerifyEventAdd.java">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/InsuranceQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="38" />
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleUseQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_application_sqlmap.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="71" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/department/DepartmentAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleApplicationDO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="108" column="26" lean-forward="false" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/DepartmentDO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="53" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/CommonDO.java">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleCheckQuery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_use_sqlmap.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.1.36/fastjson-1.1.36.jar!/com/alibaba/fastjson/JSON.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="131" column="34" lean-forward="false" selection-start-line="131" selection-start-column="24" selection-end-line="131" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.1.36/fastjson-1.1.36.jar!/com/alibaba/fastjson/JSONObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2290">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleUseManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="48" column="38" lean-forward="false" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUsePoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="42" column="36" lean-forward="false" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUseAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="89" column="48" lean-forward="false" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUseUpdate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleUseDO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/SystemAccountDO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/SystemConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/http/HttpServletResponse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/URLDecoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/SystemAccountManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/SystemAccountDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="37" column="68" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="68" />
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/system_account_sqlmap.xml">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/InsuranceDO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="63" column="71" lean-forward="false" selection-start-line="63" selection-start-column="71" selection-end-line="63" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/SystemAccountQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/SystemAccountManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VerifyRecordManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/webapp/templates/layout/default.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/Default.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/lang/String.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="585" column="15" lean-forward="false" selection-start-line="585" selection-start-column="15" selection-end-line="585" selection-end-column="15" />
-          <folding>
-            <element signature="e#17563#17564#0" expanded="true" />
-            <element signature="e#17624#17625#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/UserManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/UserAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="42" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/common/BaseModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/common/BaseAjaxModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/http/HttpSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar!/org/apache/commons/fileupload/FileUploadBase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Logout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/LoginUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="106" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/department/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="57" column="41" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/webapp/templates/screen/user/user.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/ServletContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/CalendarUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="49" column="69" lean-forward="true" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/ServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="66" column="22" lean-forward="false" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/http/HttpServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="55" column="11" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/action/UpAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="46" column="81" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/Upload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+        <state relative-caret-position="150">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/io/File.class">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="389" column="19" lean-forward="false" selection-start-line="389" selection-start-column="19" selection-end-line="389" selection-end-column="19" />
+        <state relative-caret-position="105">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/DownLoad.java">
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/DepartmentManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="34" column="89" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="34" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1115#1137#0" expanded="true" />
+            <element signature="e#1783#1799#0" expanded="true" />
+            <element signature="e#2265#2281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleCheckDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="73" column="28" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_check_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding>
+            <marker date="1493303675000" expanded="true" signature="1104:1412" ph="insert into vehicle_check... " />
+            <marker date="1493303675000" expanded="true" signature="1492:2230" ph="update vehic... " />
+            <marker date="1493303675000" expanded="true" signature="2363:2661" ph="select * fro... vehicle_check" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleCheckManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/Insurance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="61" column="1" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="61" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1085#1104#0" expanded="true" />
+            <element signature="e#1723#1736#0" expanded="true" />
+            <element signature="e#2187#2200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/DriverBindQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/DriverBindManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/driver_bind_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1492232960000" expanded="true" signature="1001:1304" ph="insert into driver_bind... " />
+            <marker date="1492232960000" expanded="true" signature="1433:1867" ph="select * fro... driver_bind" />
+            <marker date="1492232960000" expanded="true" signature="2464:3106" ph="update drive... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/insurance_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-511">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding>
+            <marker date="1493302100000" expanded="true" signature="1121:1454" ph="insert into insurance... " />
+            <marker date="1493302100000" expanded="true" signature="1531:2308" ph="update insur... " />
+            <marker date="1493302100000" expanded="true" signature="2435:2729" ph="select * fro... insurance" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_application_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="92" selection-end-column="13" />
+          <folding>
+            <marker date="1492249856000" expanded="true" signature="1726:2350" ph="insert into vehicle_application... " />
+            <marker date="1492249856000" expanded="true" signature="2436:3876" ph="update vehic... " />
+            <marker date="1492249856000" expanded="true" signature="4022:4615" ph="select * fro... vehicle_application" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleGasDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="108" column="28" lean-forward="false" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleGasManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding>
+            <element signature="e#566#567#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleGasDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleGasManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="66" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1230#1250#0" expanded="true" />
+            <element signature="e#1988#2002#0" expanded="true" />
+            <element signature="e#2458#2472#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGasUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="61" column="1" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="61" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleGasQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="32" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/DriverManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/biz-base.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_gas_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="67" column="13" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="67" selection-end-column="13" />
+          <folding>
+            <marker date="1493306003000" expanded="true" signature="1371:1772" ph="insert into vehicle_gas... " />
+            <marker date="1493306003000" expanded="true" signature="1850:2874" ph="update vehic... " />
+            <marker date="1493306003000" expanded="true" signature="3003:3491" ph="select * fro... vehicle_gas" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_illegal_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="59" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="59" />
+          <folding>
+            <marker date="1493307538000" expanded="true" signature="1175:1512" ph="insert into vehicle_illegal... " />
+            <marker date="1493307538000" expanded="true" signature="1594:2404" ph="update vehic... " />
+            <marker date="1493307538000" expanded="true" signature="2541:3033" ph="select * fro... vehicle_check" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleIllegalDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleIllegalManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/Vehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleIllegalQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="31" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/VehicleAccidentQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/CommonDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#376#384#0" expanded="true" />
+            <element signature="e#1560#1568#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccident.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="30" column="83" lean-forward="true" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1260#1285#0" expanded="true" />
+            <element signature="e#2078#2097#0" expanded="true" />
+            <element signature="e#2578#2597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccidentUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegalAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="65" column="1" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="65" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1250#1274#0" expanded="true" />
+            <element signature="e#2056#2074#0" expanded="true" />
+            <element signature="e#2550#2568#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleIllegalUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="40" column="43" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleGasAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheckAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="39" column="69" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleCheckUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="43" column="69" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="43" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/InsuranceUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/InsuranceAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAccidentAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleAccidentDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="103" column="11" lean-forward="false" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/SqlMapClientTemplate.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/VehicleAccidentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/vehicle_accident_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <marker date="1493309628000" expanded="true" signature="1456:1927" ph="insert into vehicle_accident... " />
+            <marker date="1493309628000" expanded="true" signature="2010:3136" ph="update vehic... " />
+            <marker date="1493309628000" expanded="true" signature="3275:3768" ph="select * fro... vehicle_accident" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleAccidentManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/test/java/com/alpha/manager/VehicleAccidentManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

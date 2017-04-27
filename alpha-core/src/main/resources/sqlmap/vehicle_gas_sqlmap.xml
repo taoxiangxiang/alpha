@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vehicleGas">
+    <resultMap id="VehicleGasMap" type="VehicleGasDO">
+        <id property="id" column="id" />
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="team" column="team" />
+        <result property="gasDate" column="gas_date" />
+        <result property="gasAddress" column="gas_address" />
+        <result property="payType" column="pay_type" />
+        <result property="gasType" column="gas_type" />
+        <result property="gasCardNO" column="gas_card_no" />
+        <result property="price" column="price" />
+        <result property="money" column="money" />
+        <result property="amount" column="amount" />
+        <result property="curMile" column="cur_mile" />
+        <result property="beforeMile" column="before_mile" />
+        <result property="operator" column="operator" />
+        <result property="file" column="file" />
+        <result property="remark" column="remark" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="VehicleGasDO">
+        insert into vehicle_gas (id,vehicle_no,team,gas_date,gas_address,pay_type,gas_type,gas_card_no,price,money,amount,cur_mile,before_mile,operator,file,remark,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{vehicleNO},#{team},#{gasDate},#{gasAddress},#{payType},#{gasType},#{gasCardNO},#{price},#{money},#{amount},#{curMile},#{beforeMile},#{operator},#{file},#{remark},#{attribute},now(),now())
+    </insert>
+
+    <update id="update" parameterType="VehicleGasDO">
+        update vehicle_gas
+        set
+        <if test="vehicleNO!=null">vehicle_no=#{vehicleNO},</if>
+        <if test="team!=null">team=#{team},</if>
+        <if test="gasDate!=null">gas_date=#{gasDate},</if>
+        <if test="gasAddress!=null">gas_address=#{gasAddress},</if>
+        <if test="payType!=null">pay_type=#{payType},</if>
+        <if test="gasType!=null">gas_type=#{gasType},</if>
+        <if test="gasCardNO!=null">gas_card_no=#{gasCardNO},</if>
+        <if test="price!=null">price=#{price},</if>
+        <if test="money!=null">money=#{money},</if>
+        <if test="amount!=null">amount=#{amount},</if>
+        <if test="curMile!=null">cur_mile=#{curMile},</if>
+        <if test="beforeMile!=null">before_mile=#{beforeMile},</if>
+        <if test="operator!=null">operator=#{operator},</if>
+        <if test="file!=null">file=#{file},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.VehicleGasQuery" resultMap="VehicleGasMap">
+        select * from vehicle_gas
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.VehicleGasQuery" resultType="int">
+        select count(1) from vehicle_gas
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+    </select>
+</mapper>

@@ -11,6 +11,11 @@
         <typeAlias type="com.alpha.domain.VehicleDO" alias="VehicleDO" />
         <typeAlias type="com.alpha.domain.VerifyRecordDO" alias="VerifyRecordDO" />
         <typeAlias type="com.alpha.domain.VehicleUseDO" alias="VehicleUseDO" />
+        <typeAlias type="com.alpha.domain.InsuranceDO" alias="InsuranceDO" />
+        <typeAlias type="com.alpha.domain.VehicleCheckDO" alias="VehicleCheckDO" />
+        <typeAlias type="com.alpha.domain.VehicleGasDO" alias="VehicleGasDO" />
+        <typeAlias type="com.alpha.domain.VehicleAccidentDO" alias="VehicleAccidentDO" />
+        <typeAlias type="com.alpha.domain.VehicleIllegalDO" alias="VehicleIllegalDO" />
     </typeAliases>
     <mappers>
         <mapper resource="sqlmap/department_sqlmap.xml" />
@@ -22,5 +27,10 @@
         <mapper resource="sqlmap/vehicle_application_sqlmap.xml" />
         <mapper resource="sqlmap/verify_record_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_use_sqlmap.xml" />
+        <mapper resource="sqlmap/insurance_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_check_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_gas_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_illegal_sqlmap.xml" />
+        <mapper resource="sqlmap/vehicle_accident_sqlmap.xml" />
     </mappers>
 </configuration>

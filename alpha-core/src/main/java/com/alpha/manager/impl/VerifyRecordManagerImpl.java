@@ -4,12 +4,15 @@ import com.alibaba.citrus.util.CollectionUtil;
 import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.dao.VerifyRecordDao;
+import com.alpha.domain.MaintainDO;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VerifyRecordDO;
+import com.alpha.manager.MaintainManager;
 import com.alpha.manager.SystemAccountManager;
 import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.manager.VerifyRecordManager;
+import com.alpha.query.MaintainQuery;
 import com.alpha.query.SystemAccountQuery;
 import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.query.VerifyRecordQuery;
@@ -31,6 +34,8 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
     private VerifyRecordDao verifyRecordDao;
     @Resource
     private VehicleApplicationManager vehicleApplicationManager;
+    @Resource
+    private MaintainManager maintainManager;
     @Resource
     private SystemAccountManager systemAccountManager;
 
@@ -57,7 +62,13 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.VERIFY_EVENT_VEHICLE_APPLICATION.equals(verifyRecordDO.getApplicationEvent())) {
             result = verifyVehicleApplication(authType, verifyRecordDO);
         }
-        return "true".equals(result) && verifyRecordDao.insert(verifyRecordDO) ? "true" : "系统异常，请稍后再试";
+        /**
+         * 维保申请审核
+         */
+        if (SystemConstant.VERIFY_EVENT_MAINTAIN_APPLICATION.equals(verifyRecordDO.getApplicationEvent())) {
+            result = verifyMaintainApplication(authType, verifyRecordDO);
+        }
+        return "true".equals(result) && verifyRecordDao.insert(verifyRecordDO) ? "true" : result;
     }
 
     private String verifyVehicleApplication(String authType, VerifyRecordDO verifyRecordDO) {
@@ -73,7 +84,7 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
          * 市区内单子审核
          */
         if (SystemConstant.VEHICLE_IN_CITY_WAIT_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_IN_CITY_VERIFY)) {
-            vehicleApplicationDO.setStatus(SystemConstant.VEHICLE_VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
+            vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_VERIFY_PASS : SystemConstant.VEHICLE_VERIFY_REJECT);
             return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
         }
@@ -81,16 +92,52 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
          * 市区外单子审核
          */
         if (SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_OUT_OF_CITY_FIRST_VERIFY)) {
-            vehicleApplicationDO.setStatus(SystemConstant.VEHICLE_VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
+            vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY : SystemConstant.VEHICLE_VERIFY_REJECT);
-            return vehicleApplicationManager.update(vehicleApplicationDOList.get(0)) ? "true" : "系统异常，请稍后再试";
+            return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
         }
         if (SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_OUT_OF_CITY_SECOND_VERIFY)) {
-            vehicleApplicationDO.setStatus(SystemConstant.VEHICLE_VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
+            vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_VERIFY_PASS : SystemConstant.VEHICLE_VERIFY_REJECT);
-            return vehicleApplicationManager.update(vehicleApplicationDOList.get(0)) ? "true" : "系统异常，请稍后再试";
+            return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
         }
         return "车辆申请处于未知状态中";
+    }
+
+    private String verifyMaintainApplication(String authType, VerifyRecordDO verifyRecordDO) {
+        MaintainQuery maintainQuery = new MaintainQuery();
+        maintainQuery.setId(verifyRecordDO.getApplicationId());
+        List<MaintainDO> maintainDOList = maintainManager.query(maintainQuery);
+        if (maintainDOList == null || maintainDOList.size() == 0) {
+            return "系统中不存在该维保申请单";
+        }
+        MaintainDO maintainDO = maintainDOList.get(0);
+        String status = maintainDO.getStatus();
+        /**
+         * 第一次审核
+         */
+        if (SystemConstant.MAINTAIN_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_FIRST_VERIFY)) {
+            maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_WAIT_SECOND_VERIFY);
+            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+        }
+        /**
+         * 第二次审核
+         */
+        if (SystemConstant.MAINTAIN_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_SECOND_VERIFY)) {
+            maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_WAIT_THIRD_VERIFY);
+            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+        }
+        /**
+         * 第三次审核
+         */
+        if (SystemConstant.MAINTAIN_WAIT_THIRD_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_THIRD_VERIFY)) {
+            maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_VERIFY_PASS);
+            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+        }
+        return "维保申请处于未知状态中";
     }
 
     @Override

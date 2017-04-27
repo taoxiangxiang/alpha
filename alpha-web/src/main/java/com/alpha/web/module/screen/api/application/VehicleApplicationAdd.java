@@ -63,7 +63,7 @@ public class VehicleApplicationAdd extends BaseAjaxModule {
                 result.setErrMsg("申请失败，请重新申请");
             }
         } catch (Exception e) {
-            logger.error("VehicleApplication execute catch exception", e);
+            logger.error("VehicleApplicationAdd execute catch exception", e);
             result.setErrMsg("系统异常，请重新申请");
         }
         print(result);

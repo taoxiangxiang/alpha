@@ -61,7 +61,7 @@ public class VehicleApplication extends BaseAjaxModule {
             }
         } catch (Exception e) {
             Result<VehicleApplicationDO> result = new Result<VehicleApplicationDO>();
-            logger.error("GetVehicleApplication execute catch exception", e);
+            logger.error("VehicleApplication execute catch exception", e);
             result.setErrMsg("系统异常，请重新申请");
             print(result);
         }
