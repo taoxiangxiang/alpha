@@ -79,6 +79,7 @@ public class SystemConstant {
      */
     public static final String VERIFY_EVENT_VEHICLE_APPLICATION = "verifyEventVehicleApplication";
     public static final String VERIFY_EVENT_MAINTAIN_APPLICATION = "verifyEventMaintainApplication";
+    public static final String VERIFY_EVENT_LEAVE_APPLICATION = "verifyEventLeaveApplication";
 
     /**
      * 审核权限
@@ -90,6 +91,10 @@ public class SystemConstant {
     public static final String AUTH_TYPE_MAINTAIN_FIRST_VERIFY = "maintainFirstVerifyAuth";
     public static final String AUTH_TYPE_MAINTAIN_SECOND_VERIFY = "maintainSecondVerifyAuth";
     public static final String AUTH_TYPE_MAINTAIN_THIRD_VERIFY = "maintainThirdVerifyAuth";
+
+    public static final String AUTH_TYPE_LEAVE_FIRST_VERIFY = "leaveFirstVerifyAuth";
+    public static final String AUTH_TYPE_LEAVE_SECOND_VERIFY = "leaveSecondVerifyAuth";
+    public static final String AUTH_TYPE_LEAVE_THIRD_VERIFY = "leaveThirdVerifyAuth";
 
     /**
      * 审核结果
@@ -114,6 +119,15 @@ public class SystemConstant {
     public static final String MAINTAIN_WAIT_THIRD_VERIFY = "maintainWaitThirdVerify";
     public static final String MAINTAIN_VERIFY_PASS = "maintainVerifyPass";
     public static final String MAINTAIN_VERIFY_REJECT = "maintainVerifyReject";
+
+    /**
+     * 请假审核状态
+     */
+    public static final String LEAVE_WAIT_FIRST_VERIFY = "leaveWaitFirstVerify";
+    public static final String LEAVE_WAIT_SECOND_VERIFY = "leaveWaitSecondVerify";
+    public static final String LEAVE_WAIT_THIRD_VERIFY = "leaveWaitThirdVerify";
+    public static final String LEAVE_VERIFY_PASS = "leaveVerifyPass";
+    public static final String LEAVE_VERIFY_REJECT = "leaveVerifyReject";
 
     public static Map<String, String> applicationTypeMap = new HashMap<String, String>();
 

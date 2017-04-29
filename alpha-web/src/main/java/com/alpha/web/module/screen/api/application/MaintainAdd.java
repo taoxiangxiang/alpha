@@ -34,7 +34,7 @@ public class MaintainAdd extends BaseAjaxModule {
             maintainDO.setPredictPickUpDate(predictPickUpDate);
             maintainDO.setType(type);
             maintainDO.setReason(reason);
-            maintainDO.setRemark(remark);
+            maintainDO.setApplicationRemark(remark);
             maintainDO.setFile(file);
             maintainDO.setStatus(SystemConstant.MAINTAIN_WAIT_FIRST_VERIFY);
             boolean res = maintainManager.insert(maintainDO);

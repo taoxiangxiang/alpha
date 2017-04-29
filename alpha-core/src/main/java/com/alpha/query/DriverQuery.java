@@ -17,5 +17,7 @@ public class DriverQuery extends PageQuery{
 
     private Integer id;
 
+    private String citizenId;
+
     private List<Integer> idList;
 }

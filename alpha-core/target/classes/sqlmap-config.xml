@@ -16,6 +16,7 @@
         <typeAlias type="com.alpha.domain.VehicleGasDO" alias="VehicleGasDO" />
         <typeAlias type="com.alpha.domain.VehicleAccidentDO" alias="VehicleAccidentDO" />
         <typeAlias type="com.alpha.domain.VehicleIllegalDO" alias="VehicleIllegalDO" />
+        <typeAlias type="com.alpha.domain.LeaveDO" alias="LeaveDO" />
     </typeAliases>
     <mappers>
         <mapper resource="sqlmap/department_sqlmap.xml" />
@@ -32,5 +33,6 @@
         <mapper resource="sqlmap/vehicle_gas_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_illegal_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_accident_sqlmap.xml" />
+        <mapper resource="sqlmap/leave_sqlmap.xml" />
     </mappers>
 </configuration>

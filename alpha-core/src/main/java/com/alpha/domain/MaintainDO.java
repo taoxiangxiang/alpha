@@ -86,12 +86,12 @@ public class MaintainDO implements Serializable {
     /**
      * 备注
      */
-    private String remark;
+    private String applicationRemark;
 
     /**
      * 备注
      */
-    private String remark2;
+    private String pickUpRemark;
 
     /**
      * 文件地址

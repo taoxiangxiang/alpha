@@ -28,7 +28,7 @@ public class MaintainUpdate extends BaseAjaxModule {
                         @Param("maintainContent") String maintainContent,
                         @Param("maintainDate") Date maintainDate,
                         @Param("mile") Integer mile,
-                        @Param("remark2") String remark2) {
+                        @Param("remark") String remark2) {
         Result<String> result = new Result<String>();
         try {
             MaintainDO maintainDO = new MaintainDO();
@@ -38,7 +38,7 @@ public class MaintainUpdate extends BaseAjaxModule {
             maintainDO.setMaintainContent(maintainContent);
             maintainDO.setMaintainDate(CalendarUtil.toString(maintainDate, CalendarUtil.TIME_PATTERN));
             maintainDO.setMile(mile);
-            maintainDO.setRemark2(remark2);
+            maintainDO.setPickUpRemark(remark2);
             boolean res = maintainManager.update(maintainDO);
             if (res) {
                 result.setData("操作成功");

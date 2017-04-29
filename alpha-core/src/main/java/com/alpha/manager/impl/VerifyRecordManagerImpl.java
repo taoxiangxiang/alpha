@@ -4,18 +4,9 @@ import com.alibaba.citrus.util.CollectionUtil;
 import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.dao.VerifyRecordDao;
-import com.alpha.domain.MaintainDO;
-import com.alpha.domain.SystemAccountDO;
-import com.alpha.domain.VehicleApplicationDO;
-import com.alpha.domain.VerifyRecordDO;
-import com.alpha.manager.MaintainManager;
-import com.alpha.manager.SystemAccountManager;
-import com.alpha.manager.VehicleApplicationManager;
-import com.alpha.manager.VerifyRecordManager;
-import com.alpha.query.MaintainQuery;
-import com.alpha.query.SystemAccountQuery;
-import com.alpha.query.VehicleApplicationQuery;
-import com.alpha.query.VerifyRecordQuery;
+import com.alpha.domain.*;
+import com.alpha.manager.*;
+import com.alpha.query.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -36,6 +27,8 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
     private VehicleApplicationManager vehicleApplicationManager;
     @Resource
     private MaintainManager maintainManager;
+    @Resource
+    private LeaveManager leaveManager;
     @Resource
     private SystemAccountManager systemAccountManager;
 
@@ -67,6 +60,13 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
          */
         if (SystemConstant.VERIFY_EVENT_MAINTAIN_APPLICATION.equals(verifyRecordDO.getApplicationEvent())) {
             result = verifyMaintainApplication(authType, verifyRecordDO);
+        }
+
+        /**
+         * 请假申请审核
+         */
+        if (SystemConstant.VERIFY_EVENT_LEAVE_APPLICATION.equals(verifyRecordDO.getApplicationEvent())) {
+            result = verifyLeaveApplication(authType, verifyRecordDO);
         }
         return "true".equals(result) && verifyRecordDao.insert(verifyRecordDO) ? "true" : result;
     }
@@ -138,6 +138,42 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
             return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
         }
         return "维保申请处于未知状态中";
+    }
+
+    private String verifyLeaveApplication(String authType, VerifyRecordDO verifyRecordDO) {
+        LeaveQuery leaveQuery = new LeaveQuery();
+        leaveQuery.setId(verifyRecordDO.getApplicationId());
+        List<LeaveDO> leaveDOList = leaveManager.query(leaveQuery);
+        if (leaveDOList == null || leaveDOList.size() == 0) {
+            return "系统中不存在该请假申请单";
+        }
+        LeaveDO leaveDO = leaveDOList.get(0);
+        String status = leaveDO.getStatus();
+        /**
+         * 第一次审核
+         */
+        if (SystemConstant.LEAVE_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_FIRST_VERIFY)) {
+            leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_WAIT_SECOND_VERIFY);
+            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+        }
+        /**
+         * 第二次审核
+         */
+        if (SystemConstant.LEAVE_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_SECOND_VERIFY)) {
+            leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_WAIT_THIRD_VERIFY);
+            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+        }
+        /**
+         * 第三次审核
+         */
+        if (SystemConstant.LEAVE_WAIT_THIRD_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_THIRD_VERIFY)) {
+            leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
+                    SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_VERIFY_PASS);
+            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+        }
+        return "请假申请处于未知状态中";
     }
 
     @Override
