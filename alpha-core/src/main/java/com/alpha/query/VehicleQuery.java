@@ -30,4 +30,6 @@ public class VehicleQuery extends PageQuery {
      * 车辆Id
      */
     private List<Integer> idList;
+
+    private List<String> statusList;
 }

@@ -2,6 +2,8 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
 import com.alpha.query.SystemAccountQuery;
@@ -35,6 +37,11 @@ public class User extends BaseAjaxModule{
                 systemAccountQuery.setPageSize(pageSize);
                 systemAccountQuery.setName(name);
                 List<SystemAccountDO> list = systemAccountManager.query(systemAccountQuery);
+                if (list != null) {
+                    for (SystemAccountDO systemAccountDO : list) {
+                        systemAccountDO.setAuthType(transAuth(systemAccountDO.getAuthType()));
+                    }
+                }
                 int number = systemAccountManager.count(systemAccountQuery);
                 result.setPage(page);
                 result.setPageSize(pageSize);
@@ -58,5 +65,20 @@ public class User extends BaseAjaxModule{
             result.setErrMsg("系统异常，请重试");
             print(result);
         }
+    }
+
+    private String transAuth(String authTypeCode) {
+        if (StringUtil.isBlank(authTypeCode)) {
+            return authTypeCode;
+        }
+        String[] authArray = authTypeCode.split(",");
+        StringBuilder sb = new StringBuilder();
+        for (String auth : authArray) {
+            if (sb.length() > 0) {
+                sb.append(",");
+            }
+            sb.append(SystemConstant.authTypeMap.get(auth));
+        }
+        return sb.toString();
     }
 }

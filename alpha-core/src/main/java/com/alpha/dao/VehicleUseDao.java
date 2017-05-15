@@ -1,6 +1,7 @@
 package com.alpha.dao;
 
 import com.alpha.domain.VehicleUseDO;
+import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.query.VehicleUseQuery;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface VehicleUseDao {
     int count(VehicleUseQuery vehicleUseQuery);
 
     boolean update(VehicleUseDO vehicleUseDO);
+
+    List<VehicleUseSumDO> queryGroupByDriver(VehicleUseQuery vehicleUseQuery);
+
+    int countGroupByDriver(VehicleUseQuery vehicleUseQuery);
 }

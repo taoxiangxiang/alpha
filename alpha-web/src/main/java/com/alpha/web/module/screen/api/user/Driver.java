@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.DriverManager;
@@ -12,6 +13,7 @@ import com.alpha.web.domain.Result;
 import sun.jvm.hotspot.debugger.Page;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,7 +37,17 @@ public class Driver extends BaseAjaxModule {
                 driverQuery.setPageSize(pageSize);
                 driverQuery.setName(name);
                 driverQuery.setTeam(team);
+                List<String> statusList = new ArrayList<String>();
+                statusList.add(SystemConstant.DRIVER_CAN_USE);
+                statusList.add(SystemConstant.DRIVER_OFF_LINE);
+                statusList.add(SystemConstant.DRIVER_USING);
+                driverQuery.setStatusList(statusList);
                 List<DriverDO> list = driverManager.query(driverQuery);
+                if (list != null) {
+                    for (DriverDO driverDO : list) {
+                        driverDO.setStatus(SystemConstant.driverStatusMap.get(driverDO.getStatus()));
+                    }
+                }
                 int number = driverManager.count(driverQuery);
                 result.setPage(page);
                 result.setPageSize(pageSize);
@@ -49,7 +61,9 @@ public class Driver extends BaseAjaxModule {
                 if (list == null || list.size() == 0) {
                     result.setErrMsg("无相关数据");
                 } else {
-                    result.setData(list.get(0));
+                    DriverDO driverDO = list.get(0);
+                    driverDO.setStatus(SystemConstant.driverStatusMap.get(driverDO.getStatus()));
+                    result.setData(driverDO);
                 }
                 print(result);
             }

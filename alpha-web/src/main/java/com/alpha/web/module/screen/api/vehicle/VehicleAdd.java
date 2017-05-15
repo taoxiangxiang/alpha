@@ -2,7 +2,9 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.constans.ParamUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.VehicleManager;
@@ -32,6 +34,24 @@ public class VehicleAdd extends BaseAjaxModule {
                         @Param("picUrl") String picUrl, @Param("mile") int mile, Context context) {
         Result<String> result = new Result<String>();
         try {
+            vehicleNO = vehicleNO == null ? null : vehicleNO.trim();
+            if (StringUtil.isBlank(vehicleNO) || !ParamUtil.validVehicleNO(vehicleNO)) {
+                result.setErrMsg("请填写正确的车牌号");
+                print(result);
+                return;
+            }
+            engineNO = engineNO == null ? null : engineNO.trim();
+            if (StringUtil.isBlank(engineNO)) {
+                result.setErrMsg("请填写正确的车牌号");
+                print(result);
+                return;
+            }
+            vin = vin == null ? null : vin.trim();
+            if (StringUtil.isBlank(vin)) {
+                result.setErrMsg("请填写正确的车架号");
+                print(result);
+                return;
+            }
             VehicleDO vehicleDO = new VehicleDO();
             vehicleDO.setVehicleNO(vehicleNO);
             vehicleDO.setVehicleBrand(vehicleBrand);

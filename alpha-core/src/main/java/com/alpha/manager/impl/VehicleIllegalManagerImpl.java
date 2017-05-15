@@ -2,6 +2,7 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleIllegalDao;
 import com.alpha.domain.VehicleIllegalDO;
+import com.alpha.domain.VehicleIllegalSumDO;
 import com.alpha.manager.VehicleIllegalManager;
 import com.alpha.query.VehicleIllegalQuery;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,15 @@ public class VehicleIllegalManagerImpl implements VehicleIllegalManager {
     @Override
     public boolean update(VehicleIllegalDO vehicleIllegalDO) {
         return vehicleIllegalDao.update(vehicleIllegalDO);
+    }
+
+    @Override
+    public List<VehicleIllegalSumDO> queryGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery) {
+        return vehicleIllegalDao.queryGroupByVehicle(vehicleIllegalQuery);
+    }
+
+    @Override
+    public int countGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery) {
+        return vehicleIllegalDao.countGroupByVehicle(vehicleIllegalQuery);
     }
 }

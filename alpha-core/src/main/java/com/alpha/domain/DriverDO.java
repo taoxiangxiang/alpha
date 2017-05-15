@@ -29,7 +29,7 @@ public class DriverDO implements Serializable {
     private String sex;
 
     /**
-     * 省份证号
+     * 身份证号
      */
     private String citizenId;
 

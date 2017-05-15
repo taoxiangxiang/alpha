@@ -2,7 +2,9 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.constans.ParamUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
 import com.alpha.manager.DriverManager;
@@ -32,6 +34,24 @@ public class DriverAdd extends BaseAjaxModule {
                         Context context) {
         Result<String> result = new Result<String>();
         try {
+            if (StringUtil.isBlank(name)) {
+                result.setErrMsg("请填写姓名！");
+                print(result);
+                return;
+            }
+            name = name.trim();
+            if (StringUtil.isBlank(citizenId) || !ParamUtil.validCitizenId(citizenId.trim())) {
+                result.setErrMsg("请填写正确的身份证号！");
+                print(result);
+                return;
+            }
+            citizenId = citizenId.trim();
+            if (StringUtil.isBlank(mobilePhone) || !ParamUtil.validMobile(mobilePhone.trim())) {
+                result.setErrMsg("请填写正确的11位手机号码！");
+                print(result);
+                return;
+            }
+            mobilePhone = mobilePhone.trim();
             DriverDO driverDO = new DriverDO();
             driverDO.setName(name);
             driverDO.setSex(sex);

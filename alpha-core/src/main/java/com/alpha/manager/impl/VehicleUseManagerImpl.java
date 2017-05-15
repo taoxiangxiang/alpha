@@ -2,6 +2,7 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleUseDao;
 import com.alpha.domain.VehicleUseDO;
+import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.manager.VehicleUseManager;
 import com.alpha.query.VehicleUseQuery;
 import org.springframework.stereotype.Component;
@@ -48,5 +49,24 @@ public class VehicleUseManagerImpl implements VehicleUseManager {
     @Override
     public boolean update(VehicleUseDO vehicleUseDO) {
         return vehicleUseDao.update(vehicleUseDO);
+    }
+
+    @Override
+    public List<VehicleUseSumDO> queryGroupByDriver(VehicleUseQuery vehicleUseQuery) {
+        List<VehicleUseSumDO> list =  vehicleUseDao.queryGroupByDriver(vehicleUseQuery);
+        if (list == null || list.size() == 0) return list;
+        for (VehicleUseSumDO vehicleUseSumDO : list) {
+            Double allFee = vehicleUseSumDO.getCailvFee() + vehicleUseSumDO.getFuwuFee()
+                    + vehicleUseSumDO.getJiabanFee() + vehicleUseSumDO.getGuoluFee()
+                    + vehicleUseSumDO.getGuoqiaoFee() + vehicleUseSumDO.getTingcheFee()
+                    + vehicleUseSumDO.getXicheFee() + vehicleUseSumDO.getOtherFee();
+            vehicleUseSumDO.setAllFee(allFee);
+        }
+        return list;
+    }
+
+    @Override
+    public int countGroupByDriver(VehicleUseQuery vehicleUseQuery) {
+        return vehicleUseDao.countGroupByDriver(vehicleUseQuery);
     }
 }

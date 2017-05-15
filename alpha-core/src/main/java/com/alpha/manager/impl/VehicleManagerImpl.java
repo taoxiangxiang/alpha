@@ -2,8 +2,10 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleDao;
 import com.alpha.domain.VehicleDO;
+import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.manager.VehicleManager;
 import com.alpha.query.VehicleQuery;
+import com.alpha.query.VehicleUseQuery;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

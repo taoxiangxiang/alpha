@@ -98,4 +98,55 @@
             </foreach>
         </if>
     </select>
+
+    <resultMap id="VehicleApplicationSumMap" type="VehicleApplicationSumDO">
+        <result property="departmentName" column="department_name" />
+        <result property="number" column="number" />
+        <result property="belongDepartmentName" column="belong_department_name" />
+        <result property="departmentContact" column="department_contact" />
+        <result property="departmentContactPhone" column="department_contact_phone" />
+        <result property="departmentAddress" column="department_address" />
+    </resultMap>
+
+    <select id="selectSumByPage" parameterType="com.alpha.query.VehicleApplicationQuery" resultMap="VehicleApplicationSumMap">
+        select department_name, number, belong_department_name,
+        department_contact,department_contact_phone,department_address
+        from
+        (select application_department,count(1) as number from vehicle_application
+        where 1=1
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        group by application_department) a
+        left join department b
+        on a.application_department=b.department_name
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="countSum" parameterType="com.alpha.query.VehicleApplicationQuery" resultType="int">
+        select count(1) from vehicle_application
+        where 1=1
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        group by application_department
+    </select>
 </mapper>

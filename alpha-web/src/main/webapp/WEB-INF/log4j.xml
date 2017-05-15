@@ -3,7 +3,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
         <!--<param name="target" value="System.out" />-->
-        <param name="file" value="/Users/taoxiang/Desktop/myapp2.log" />
+        <param name="file" value="${catalina.home}/logs/alpha.log" />
         <param name="encoding" value="${loggingCharset}" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -17,7 +17,7 @@
 
     <appender name="STDERR" class="org.apache.log4j.ConsoleAppender">
         <!--<param name="target" value="System.err" />-->
-        <param name="file" value="/Users/taoxiang/Desktop/myapp1.log" />
+        <param name="file" value="${catalina.home}/logs/alpha.log" />
         <param name="encoding" value="${loggingCharset}" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -30,7 +30,7 @@
     </appender>
 
     <appender name="PROJECT" class="org.apache.log4j.FileAppender">
-        <param name="file" value="/Users/taoxiang/Desktop/myapp.log" />
+        <param name="file" value="${catalina.home}/logs/alpha.log" />
         <param name="encoding" value="${loggingCharset}" />
         <param name="append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">

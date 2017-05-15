@@ -33,6 +33,12 @@
                 <groupId>com.alibaba.citrus</groupId>
                 <artifactId>citrus-webx-all</artifactId>
                 <version>${webx-version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.alpha.core</groupId>
@@ -191,6 +197,29 @@
                 <artifactId>servlet-api</artifactId>
                 <version>2.5</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- ======================================== -->
+            <!-- 短信依赖 -->
+            <!-- ======================================== -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <version>9.3.7.v20160115</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

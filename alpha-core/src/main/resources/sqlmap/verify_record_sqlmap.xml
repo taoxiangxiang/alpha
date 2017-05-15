@@ -42,8 +42,11 @@
         <if test="applicationEvent != null and applicationEvent != '' ">
             AND application_event=#{applicationEvent}
         </if>
-        <if test="applicationId != null and applicationId != '' ">
-            AND application_id=#{applicationId}
+        <if test="applicationIdList != null">
+            and application_id in
+            <foreach collection="applicationIdList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
         limit #{start},#{pageSize}
     </select>
@@ -57,8 +60,11 @@
         <if test="applicationEvent != null and applicationEvent != '' ">
             AND application_event=#{applicationEvent}
         </if>
-        <if test="applicationId != null and applicationId != '' ">
-            AND application_id=#{applicationId}
+        <if test="applicationIdList != null">
+            and application_id in
+            <foreach collection="applicationIdList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
     </select>
 </mapper>

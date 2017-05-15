@@ -1,6 +1,7 @@
 package com.alpha.dao;
 
 import com.alpha.domain.VehicleGasDO;
+import com.alpha.domain.VehicleGasSumDO;
 import com.alpha.query.VehicleGasQuery;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface VehicleGasDao {
     int count(VehicleGasQuery vehicleGasQuery);
 
     boolean update(VehicleGasDO vehicleGasDO);
+
+    List<VehicleGasSumDO> queryGroupByVehicle(VehicleGasQuery vehicleGasQuery);
+
+    int countGroupByVehicle(VehicleGasQuery vehicleGasQuery);
 }

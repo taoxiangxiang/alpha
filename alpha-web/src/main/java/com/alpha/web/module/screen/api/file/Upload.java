@@ -44,7 +44,8 @@ public class Upload extends BaseAjaxModule {
 
     private String uploadFile(FileItem item) {
         //得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
-        String savePath = session.getServletContext().getRealPath("/") + "file/";
+        String savePath = session.getServletContext().getRealPath("/");
+        savePath = savePath.replace("alpha", "file");
         try{
             File saveFile = new File(savePath);
             if (!saveFile.exists()) {
@@ -84,7 +85,7 @@ public class Upload extends BaseAjaxModule {
             in.close();
             //关闭输出流
             out.close();
-            return savePath + saveFilename;
+            return saveFilename;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

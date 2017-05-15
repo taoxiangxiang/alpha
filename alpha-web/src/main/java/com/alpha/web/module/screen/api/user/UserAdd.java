@@ -2,7 +2,9 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.constans.ParamUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
@@ -30,8 +32,22 @@ public class UserAdd extends BaseAjaxModule {
                         @Param("picUrl") String picUrl, Context context) {
         Result<String> result = new Result<String>();
         try {
-            if (name == null || citizenId == null || citizenId.length() != 18) {
-                result.setErrMsg("请正确填写姓名和身份证信息");
+            name = (name == null ? null : name.trim());
+            if (StringUtil.isEmpty(name)) {
+                result.setErrMsg("请填写姓名！");
+                print(result);
+                return;
+            }
+            citizenId = citizenId == null ? null : citizenId.trim();
+            if (StringUtil.isEmpty(citizenId) || !ParamUtil.validCitizenId(citizenId)) {
+                result.setErrMsg("请填写正确的身份证号！");
+                print(result);
+                return;
+            }
+            mobilePhone = mobilePhone == null ? null : mobilePhone.trim();
+            if (StringUtil.isEmpty(mobilePhone) || !ParamUtil.validMobile(mobilePhone)) {
+                result.setErrMsg("请填写正确的11位手机号码！");
+                print(result);
                 return;
             }
             SystemAccountDO systemAccountDO = new SystemAccountDO();

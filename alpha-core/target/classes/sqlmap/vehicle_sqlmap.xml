@@ -53,6 +53,12 @@
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
         limit #{start},#{pageSize}
     </select>
 
@@ -70,6 +76,12 @@
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
     </select>
 

@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.department;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DepartmentDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.DepartmentManager;
@@ -11,6 +12,7 @@ import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +35,15 @@ public class Department extends BaseAjaxModule {
                 departmentQuery.setPage(page);
                 departmentQuery.setPageSize(pageSize);
                 departmentQuery.setDepartmentName(departmentName);
+                List<String> statusList = new ArrayList<String>();
+                statusList.add(SystemConstant.DEPARTMENT_ON_LINE);
+                departmentQuery.setStatusList(statusList);
                 List<DepartmentDO> list = departmentManager.query(departmentQuery);
+                if (list != null) {
+                    for (DepartmentDO departmentDO : list) {
+                        departmentDO.setStatus(SystemConstant.departmentStatusMap.get(departmentDO.getStatus()));
+                    }
+                }
                 int number = departmentManager.count(departmentQuery);
                 result.setData(list);
                 result.setPage(page);
@@ -47,7 +57,9 @@ public class Department extends BaseAjaxModule {
                 if (list == null || list.size() == 0) {
                     result.setErrMsg("无相关数据");
                 } else {
-                    result.setData(list.get(0));
+                    DepartmentDO departmentDO = list.get(0);
+                    departmentDO.setStatus(SystemConstant.departmentStatusMap.get(departmentDO.getStatus()));
+                    result.setData(departmentDO);
                 }
                 print(result);
             }

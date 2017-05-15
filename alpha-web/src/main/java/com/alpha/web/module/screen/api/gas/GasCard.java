@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.gas;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.GasCardDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.GasCardManager;
@@ -31,6 +32,11 @@ public class GasCard extends BaseAjaxModule {
                 gasCardQuery.setPage(page);
                 gasCardQuery.setPageSize(pageSize);
                 List<GasCardDO> list = gasCardManager.query(gasCardQuery);
+                if (list != null) {
+                    for (GasCardDO gasCardDO : list) {
+                        gasCardDO.setStatus(SystemConstant.gasStatusMap.get(gasCardDO.getStatus()));
+                    }
+                }
                 int number = gasCardManager.count(gasCardQuery);
                 result.setData(list);
                 result.setPage(page);

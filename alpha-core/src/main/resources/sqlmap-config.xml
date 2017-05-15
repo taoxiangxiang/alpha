@@ -17,13 +17,21 @@
         <typeAlias type="com.alpha.domain.VehicleAccidentDO" alias="VehicleAccidentDO" />
         <typeAlias type="com.alpha.domain.VehicleIllegalDO" alias="VehicleIllegalDO" />
         <typeAlias type="com.alpha.domain.LeaveDO" alias="LeaveDO" />
+        <typeAlias type="com.alpha.domain.MaintainDO" alias="MaintainDO" />
+        <typeAlias type="com.alpha.domain.VehicleUseSumDO" alias="VehicleUseSumDO" />
+        <typeAlias type="com.alpha.domain.VehicleGasSumDO" alias="VehicleGasSumDO" />
+        <typeAlias type="com.alpha.domain.VehicleIllegalSumDO" alias="VehicleIllegalSumDO" />
+        <typeAlias type="com.alpha.domain.VehicleApplicationSumDO" alias="VehicleApplicationSumDO" />
+        <typeAlias type="com.alpha.domain.PartnerDepartmentDO" alias="PartnerDepartmentDO" />
     </typeAliases>
+
     <mappers>
         <mapper resource="sqlmap/department_sqlmap.xml" />
         <mapper resource="sqlmap/driver_bind_sqlmap.xml" />
         <mapper resource="sqlmap/driver_sqlmap.xml" />
         <mapper resource="sqlmap/gas_card_sqlmap.xml" />
         <mapper resource="sqlmap/system_account_sqlmap.xml" />
+        <mapper resource="sqlmap/maintain_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_application_sqlmap.xml" />
         <mapper resource="sqlmap/verify_record_sqlmap.xml" />
@@ -34,5 +42,6 @@
         <mapper resource="sqlmap/vehicle_illegal_sqlmap.xml" />
         <mapper resource="sqlmap/vehicle_accident_sqlmap.xml" />
         <mapper resource="sqlmap/leave_sqlmap.xml" />
+        <mapper resource="sqlmap/partner_department_sqlmap.xml" />
     </mappers>
 </configuration>

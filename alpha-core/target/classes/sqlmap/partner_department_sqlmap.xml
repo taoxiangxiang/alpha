@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="partnerDepartment">
+    <resultMap id="PartnerDepartmentMap" type="PartnerDepartmentDO">
+        <id property="id" column="id" />
+        <result property="departmentName" column="department_name" />
+        <result property="type" column="type" />
+        <result property="address" column="address" />
+        <result property="telNumber" column="tel_number" />
+        <result property="contact" column="contact" />
+        <result property="mobilePhone" column="mobile_phone" />
+        <result property="remark" column="remark" />
+        <result property="status" column="status" />
+        <result property="attribute" column="attribute" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+    <insert id="insert" parameterType="PartnerDepartmentDO">
+        insert into partner_department (id,department_name,type,address,tel_number,contact,mobile_phone,remark,status,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{departmentName},#{type},#{address},#{telNumber},#{contact},#{mobilePhone},#{remark},#{status},#{attribute},now(),now())
+    </insert>
+
+    <update id="update" parameterType="PartnerDepartmentDO">
+        update partner_department
+        set
+        <if test="departmentName!=null">department_name=#{departmentName},</if>
+        <if test="type!=null">type=#{type},</if>
+        <if test="address!=null">address=#{address},</if>
+        <if test="telNumber!=null">tel_number=#{telNumber},</if>
+        <if test="contact!=null">contact=#{contact},</if>
+        <if test="mobilePhone!=null">mobile_phone=#{mobilePhone},</if>
+        <if test="remark!=null">remark=#{remark},</if>
+        <if test="status!=null">status=#{status},</if>
+        <if test="attribute!=null">attribute=#{attribute},</if>
+        gmt_modified = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectByPage" parameterType="com.alpha.query.PartnerDepartmentQuery" resultMap="PartnerDepartmentMap">
+        select * from partner_department
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="type != null and type != '' ">
+            AND type=#{type}
+        </if>
+        <if test="departmentName != null and departmentName != '' ">
+            AND department_name like CONCAT('%',#{departmentName},'%')
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.alpha.query.PartnerDepartmentQuery" resultType="int">
+        select count(1) from partner_department
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND id=#{id}
+        </if>
+        <if test="type != null and type != '' ">
+            AND type=#{type}
+        </if>
+        <if test="departmentName != null and departmentName != '' ">
+            AND department_name like CONCAT('%',#{departmentName},'%')
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+</mapper>

@@ -3,6 +3,8 @@ package com.alpha.query;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * Created by taoxiang on 2017/4/8.
  */
@@ -20,4 +22,6 @@ public class DepartmentQuery extends PageQuery {
      * 部门名称
      */
     private String departmentName;
+
+    private List<String> statusList;
 }

@@ -2,17 +2,19 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.LeaveDO;
+import com.alpha.domain.VerifyRecordDO;
 import com.alpha.manager.LeaveManager;
+import com.alpha.manager.VerifyRecordManager;
 import com.alpha.query.LeaveQuery;
+import com.alpha.query.VerifyRecordQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by taoxiang on 2017/4/29.
@@ -21,6 +23,8 @@ public class Leave extends BaseAjaxModule {
 
     @Resource
     private LeaveManager leaveManager;
+    @Resource
+    private VerifyRecordManager verifyRecordManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("startDate") Date startDate, @Param("endDate") Date endDate,
@@ -42,6 +46,7 @@ public class Leave extends BaseAjaxModule {
                     leaveQuery.setStatusList(statusList);
                 }
                 List<LeaveDO> list = leaveManager.query(leaveQuery);
+                addVerifyRecord(list);
                 int number = leaveManager.count(leaveQuery);
                 result.setPage(page);
                 result.setPageSize(pageSize);
@@ -52,10 +57,12 @@ public class Leave extends BaseAjaxModule {
                 Result<LeaveDO> result = new Result<LeaveDO>();
                 leaveQuery.setId(id);
                 List<LeaveDO> list = leaveManager.query(leaveQuery);
+                addVerifyRecord(list);
                 if (list == null || list.size() == 0) {
                     result.setErrMsg("无相关数据");
                 } else {
-                    result.setData(list.get(0));
+                    LeaveDO leaveDO = list.get(0);
+                    result.setData(leaveDO);
                 }
                 print(result);
             }
@@ -65,6 +72,34 @@ public class Leave extends BaseAjaxModule {
             logger.error("Leave execute catch exception", e);
             result.setErrMsg("系统异常，请重试");
             print(result);
+        }
+    }
+
+    private void addVerifyRecord(List<LeaveDO> leaveDOList) {
+        if (leaveDOList == null || leaveDOList.size() == 0) {
+            return;
+        }
+        List<Integer> applicationIdList = new ArrayList<Integer>();
+        for (LeaveDO leaveDO : leaveDOList) {
+            applicationIdList.add(leaveDO.getId());
+        }
+        VerifyRecordQuery verifyRecordQuery = new VerifyRecordQuery();
+        verifyRecordQuery.setApplicationEvent(SystemConstant.VERIFY_EVENT_LEAVE_APPLICATION);
+        verifyRecordQuery.setPageSize(applicationIdList.size() * 5);
+        verifyRecordQuery.setApplicationIdList(applicationIdList);
+        List<VerifyRecordDO> verifyRecordDOList = verifyRecordManager.query(verifyRecordQuery);
+        Map<Integer, VerifyRecordDO> map = new HashMap<Integer, VerifyRecordDO>();
+        if (verifyRecordDOList != null) {
+            for (VerifyRecordDO verifyRecordDO : verifyRecordDOList) {
+                VerifyRecordDO insideDO = map.get(verifyRecordDO.getApplicationId());
+                if (insideDO == null || insideDO.getGmtCreate().before(verifyRecordDO.getGmtCreate())) {
+                    map.put(verifyRecordDO.getApplicationId(), verifyRecordDO);
+                }
+            }
+        }
+        for (LeaveDO leaveDO : leaveDOList) {
+            leaveDO.setVerifyRecord(map.get(leaveDO.getId()));
+            leaveDO.setStatus(SystemConstant.leaveStatusMap.get(leaveDO.getStatus()));
         }
     }
 }

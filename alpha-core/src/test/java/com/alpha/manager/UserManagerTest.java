@@ -2,6 +2,7 @@ package com.alpha.manager;
 
 import com.alibaba.fastjson.JSON;
 import com.alpha.ITestBase;
+import com.alpha.constans.YunUtil;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.query.SystemAccountQuery;
 import org.junit.Test;
@@ -20,6 +21,13 @@ public class UserManagerTest extends ITestBase {
 
     @Resource
     private SystemAccountManager systemAccountManager;
+    @Resource
+    private MsgManager msgManager;
+
+    @Test
+    public void testMsg() {
+        msgManager.sendCodeMsg("17091608626");
+    }
 
     @Test
     public void testInsert() throws NoSuchAlgorithmException, UnsupportedEncodingException{
@@ -28,6 +36,7 @@ public class UserManagerTest extends ITestBase {
         systemAccountDO.setNick("admin");
         String citizenId = "340223199005154610";
         systemAccountDO.setCitizenId(citizenId);
+        systemAccountDO.setMobilePhone("17091608626");
         //身份证后六位
         systemAccountDO.setPassword(encoderByMd5(citizenId.substring(12)));
 //        systemAccountDO.setPassword("1234");
@@ -47,6 +56,7 @@ public class UserManagerTest extends ITestBase {
 //        systemAccountDO.setPicUrl("picUrl");
 //        systemAccountDO.setAttribute("attribute");
         System.out.println(systemAccountManager.insert(systemAccountDO));
+//        YunUtil.sendCodeMsg("17091608626");
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleApplicationDao;
 import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VehicleApplicationSumDO;
 import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.query.VehicleApplicationQuery;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,15 @@ public class VehicleApplicationManagerImpl implements VehicleApplicationManager 
     @Override
     public boolean update(VehicleApplicationDO vehicleApplicationDO) {
         return vehicleApplicationDao.update(vehicleApplicationDO);
+    }
+
+    @Override
+    public List<VehicleApplicationSumDO> queryGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery) {
+        return vehicleApplicationDao.queryGroupByDepartment(vehicleApplicationQuery);
+    }
+
+    @Override
+    public int countGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery) {
+        return vehicleApplicationDao.count(vehicleApplicationQuery);
     }
 }

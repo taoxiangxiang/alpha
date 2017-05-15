@@ -77,4 +77,43 @@
             AND gmt_create &lt;= #{endDate}
         </if>
     </select>
+
+    <resultMap id="VehicleIllegalSumMap" type="VehicleIllegalSumDO">
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="team" column="team" />
+        <result property="number" column="number" />
+        <result property="money" column="money" />
+        <result property="point" column="point" />
+    </resultMap>
+
+    <select id="selectSumByPage" parameterType="com.alpha.query.VehicleIllegalQuery" resultMap="VehicleIllegalSumMap">
+        select vehicle_no, team, count(1) as number, sum(money) as money, sum(point) as point from vehicle_illegal
+        where 1=1
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        GROUP by vehicle_no
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="countSum" parameterType="com.alpha.query.VehicleIllegalQuery" resultType="int">
+        select count(1) from vehicle_illegal
+        where 1=1
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND gmt_create &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gmt_create &lt;= #{endDate}
+        </if>
+        GROUP by vehicle_no
+    </select>
 </mapper>

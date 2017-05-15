@@ -64,6 +64,9 @@
     <select id="selectByPage" parameterType="com.alpha.query.SystemAccountQuery" resultMap="SystemAccountMap">
         select * from system_account
         where 1=1
+        <if test="id != null">
+            AND id = #{id}
+        </if>
         <if test="name != null">
             AND name = #{name}
         </if>
@@ -77,6 +80,9 @@
     <select id="count" parameterType="com.alpha.query.SystemAccountQuery" resultType="int">
         select count(1) from system_account
         where 1=1
+        <if test="id != null">
+            AND id = #{id}
+        </if>
         <if test="name != null">
             AND name = #{name}
         </if>

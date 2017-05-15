@@ -3,6 +3,7 @@ package com.alpha.dao.impl;
 import com.alibaba.fastjson.JSON;
 import com.alpha.dao.VehicleApplicationDao;
 import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VehicleApplicationSumDO;
 import com.alpha.query.VehicleApplicationQuery;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -62,6 +63,26 @@ public class VehicleApplicationDaoImpl implements VehicleApplicationDao {
         } catch (Exception e) {
             logger.error("VehicleApplicationDao update catch exception, vehicleApplicationDO=" + JSON.toJSONString(vehicleApplicationDO), e);
             return false;
+        }
+    }
+
+    @Override
+    public List<VehicleApplicationSumDO> queryGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery) {
+        try {
+            return sqlSession.selectList("vehicleApplication.selectSumByPage", vehicleApplicationQuery);
+        } catch (Exception e) {
+            logger.error("VehicleApplicationDao queryGroupByDepartment catch exception, vehicleApplicationQuery=" + JSON.toJSONString(vehicleApplicationQuery), e);
+            return null;
+        }
+    }
+
+    @Override
+    public int countGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("vehicleApplication.countSum", vehicleApplicationQuery);
+        } catch (Exception e) {
+            logger.error("VehicleApplicationDao countGroupByDepartment catch exception, vehicleApplicationQuery=" + JSON.toJSONString(vehicleApplicationQuery), e);
+            return 0;
         }
     }
 }

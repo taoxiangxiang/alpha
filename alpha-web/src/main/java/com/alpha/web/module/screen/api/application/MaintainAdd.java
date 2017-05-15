@@ -26,6 +26,11 @@ public class MaintainAdd extends BaseAjaxModule {
         Result<String> result = new Result<String>();
         try {
             SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                result.setErrMsg("请登录系统");
+                print(result);
+                return;
+            }
             MaintainDO maintainDO = new MaintainDO();
             maintainDO.setVehicleNO(vehicleNO);
             maintainDO.setTeam(team);

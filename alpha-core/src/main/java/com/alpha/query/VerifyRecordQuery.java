@@ -1,5 +1,6 @@
 package com.alpha.query;
 
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -21,5 +22,5 @@ public class VerifyRecordQuery extends PageQuery {
     /**
      * 审核事件Id
      */
-    private int applicationId;
+    private List<Integer> applicationIdList;
 }

@@ -3,6 +3,7 @@ package com.alpha.dao.impl;
 import com.alibaba.fastjson.JSON;
 import com.alpha.dao.VehicleGasDao;
 import com.alpha.domain.VehicleGasDO;
+import com.alpha.domain.VehicleGasSumDO;
 import com.alpha.query.VehicleGasQuery;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -61,6 +62,26 @@ public class VehicleGasDaoImpl implements VehicleGasDao {
         } catch (Exception e) {
             logger.error("VehicleGasDao update catch exception, vehicleGasDO=" + JSON.toJSONString(vehicleGasDO), e);
             return false;
+        }
+    }
+
+    @Override
+    public List<VehicleGasSumDO> queryGroupByVehicle(VehicleGasQuery vehicleGasQuery) {
+        try {
+            return sqlSession.selectList("vehicleGas.selectSumByPage", vehicleGasQuery);
+        } catch (Exception e) {
+            logger.error("VehicleGasDao query catch exception, vehicleGasQuery=" + JSON.toJSONString(vehicleGasQuery), e);
+            return null;
+        }
+    }
+
+    @Override
+    public int countGroupByVehicle(VehicleGasQuery vehicleGasQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("vehicleGas.countSum", vehicleGasQuery);
+        } catch (Exception e) {
+            logger.error("VehicleGasDao count catch exception, vehicleGasQuery=" + JSON.toJSONString(vehicleGasQuery), e);
+            return 0;
         }
     }
 }

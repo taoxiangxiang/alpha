@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverBindDO;
 import com.alpha.manager.DriverBindManager;
 import com.alpha.query.DriverBindQuery;
@@ -37,6 +38,11 @@ public class DriverBind extends BaseAjaxModule {
             driverBindQuery.setStartDate(startDate);
             driverBindQuery.setEndDate(endDate);
             List<DriverBindDO> list = driverBindManager.query(driverBindQuery);
+            if (list != null) {
+                for (DriverBindDO driverBindDO : list) {
+                    driverBindDO.setStatus(SystemConstant.driverBindStatusMap.get(driverBindDO.getStatus()));
+                }
+            }
             int number = driverBindManager.count(driverBindQuery);
             result.setPage(page);
             result.setPageSize(pageSize);

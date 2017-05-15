@@ -29,6 +29,21 @@
         <result property="gmtModified" column="gmt_modified" />
     </resultMap>
 
+    <resultMap id="VehicleUseSumMap" type="VehicleUseSumDO">
+        <result property="driverId" column="driver_id" />
+        <result property="driverName" column="driver_name" />
+        <result property="number" column="number" />
+        <result property="mile" column="mile" />
+        <result property="fuwuFee" column="fuwu_fee" />
+        <result property="cailvFee" column="cailv_fee" />
+        <result property="jiabanFee" column="jiaban_fee" />
+        <result property="guoluFee" column="guolu_fee" />
+        <result property="guoqiaoFee" column="guoqiao_fee" />
+        <result property="xicheFee" column="xiche_fee" />
+        <result property="tingcheFee" column="tingche_fee" />
+        <result property="otherFee" column="other_fee" />
+    </resultMap>
+
     <insert id="insert" parameterType="VehicleUseDO">
         insert into vehicle_use (id,application_id,driver_id,driver_name,vehicle_id,vehicle_no,status,actual_start_eate,actual_end_date,actual_back_date,start_mile,end_mile,fuwu_fee,cailv_fee,jiaban_fee,guolu_fee,guoqiao_fee,xiche_fee,tingche_fee,other_fee,remark,attribute,point,gmt_create,gmt_modified)
         VALUES (null,#{applicationId},#{driverId},#{driverName},#{vehicleId},#{vehicleNO},#{status},#{actualStartDate},#{actualEndDate},#{actualBackDate},#{startMile},#{endMile},#{fuwuFee},#{cailvFee},#{jiabanFee},#{guoluFee},#{guoqiaoFee},#{xicheFee},#{tingcheFee},#{otherFee},#{remark},#{attribute},#{point},now(),now())
@@ -114,5 +129,46 @@
         <if test="endDate != null">
             AND use_date &lt;= #{endDate}
         </if>
+    </select>
+
+    <select id="selectSumByPage" parameterType="com.alpha.query.VehicleUseQuery" resultMap="VehicleUseSumMap">
+        select driver_id, driver_name, count(1) as number, sum(endMile-startMile) as mile,
+        sum(fuwu_fee) as fuwu_fee, sum(cailv_fee) as cailv_fee, sum(jiaban_fee) as jiaban_fee,
+        sum(guolu_fee) as guolu_fee, sum(guoqiao_fee) as guoqiao_fee, sum(xiche_fee) as xiche_fee,
+        sum(tingche_fee) as tingche_fee,sum(other_fee) as other_fee
+        from vehicle_use
+        where 1=1
+        <if test="driverName != null and driverName != '' ">
+            AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+        <if test="status != null and status != '' ">
+            AND status=#{status}
+        </if>
+        <if test="startDate != null">
+            AND use_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND use_date &lt;= #{endDate}
+        </if>
+        group by driver_id
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="countSum" parameterType="com.alpha.query.VehicleUseQuery" resultType="int">
+        select count(1)
+        where 1=1
+        <if test="driverName != null and driverName != '' ">
+            AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+        <if test="status != null and status != '' ">
+            AND status=#{status}
+        </if>
+        <if test="startDate != null">
+            AND use_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND use_date &lt;= #{endDate}
+        </if>
+        group by driver_id
     </select>
 </mapper>

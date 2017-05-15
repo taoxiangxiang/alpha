@@ -1,6 +1,7 @@
 package com.alpha.manager;
 
 import com.alpha.domain.VehicleUseDO;
+import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.query.VehicleUseQuery;
 
 import java.util.List;
@@ -19,4 +20,8 @@ public interface VehicleUseManager {
     int count(VehicleUseQuery vehicleUseQuery);
 
     boolean update(VehicleUseDO vehicleUseDO);
+
+    List<VehicleUseSumDO> queryGroupByDriver(VehicleUseQuery vehicleUseQuery);
+
+    int countGroupByDriver(VehicleUseQuery vehicleUseQuery);
 }

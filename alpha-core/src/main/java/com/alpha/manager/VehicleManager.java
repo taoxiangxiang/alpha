@@ -1,7 +1,9 @@
 package com.alpha.manager;
 
 import com.alpha.domain.VehicleDO;
+import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.query.VehicleQuery;
+import com.alpha.query.VehicleUseQuery;
 
 import java.util.List;
 

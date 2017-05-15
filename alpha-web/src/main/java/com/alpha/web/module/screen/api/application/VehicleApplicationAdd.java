@@ -35,9 +35,9 @@ public class VehicleApplicationAdd extends BaseAjaxModule {
             SystemAccountDO systemAccountDO = this.getAccount();
             VehicleApplicationDO vehicleApplicationDO = new VehicleApplicationDO();
 //        vehicleApplicationDO.setApplicationNO();
-            vehicleApplicationDO.setApplicationType(SystemConstant.applicationTypeMap.get(applicationType));
+            vehicleApplicationDO.setApplicationType(applicationType);
             vehicleApplicationDO.setVehicleType(vehicleType);
-            vehicleApplicationDO.setApplicationReason(SystemConstant.applicationReasonMap.get(applicationReason));
+            vehicleApplicationDO.setApplicationReason(applicationReason);
             vehicleApplicationDO.setUseDate(CalendarUtil.formatDate(useDate, CalendarUtil.TIME_PATTERN));
             vehicleApplicationDO.setPredictBackDate(CalendarUtil.formatDate(predictBackDate, CalendarUtil.TIME_PATTERN));
             vehicleApplicationDO.setApplicant(systemAccountDO.getName());
@@ -46,7 +46,7 @@ public class VehicleApplicationAdd extends BaseAjaxModule {
             vehicleApplicationDO.setPersonNumber(personNumber);
             vehicleApplicationDO.setStartPlace(startPlace);
             vehicleApplicationDO.setEndPlace(endPlace);
-            vehicleApplicationDO.setEndPlaceType(SystemConstant.endPlaceTypeMap.get(endPlaceType));
+            vehicleApplicationDO.setEndPlaceType(endPlaceType);
             vehicleApplicationDO.setContacts(contacts);
             vehicleApplicationDO.setContactsPhone(contactsPhone);
             vehicleApplicationDO.setRemark(remark);

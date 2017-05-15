@@ -1,6 +1,7 @@
 package com.alpha.manager;
 
 import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VehicleApplicationSumDO;
 import com.alpha.query.VehicleApplicationQuery;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface VehicleApplicationManager {
     int count(VehicleApplicationQuery vehicleApplicationQuery);
 
     boolean update(VehicleApplicationDO vehicleApplicationDO);
+
+    List<VehicleApplicationSumDO> queryGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery);
+
+    int countGroupByDepartment(VehicleApplicationQuery vehicleApplicationQuery);
 }

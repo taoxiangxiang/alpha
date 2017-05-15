@@ -1,5 +1,6 @@
 package com.alpha.manager.impl;
 
+import com.alpha.constans.YunUtil;
 import com.alpha.dao.SystemAccountDao;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
@@ -7,7 +8,9 @@ import com.alpha.query.SystemAccountQuery;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by taoxiang on 2017/3/29.
@@ -20,7 +23,11 @@ public class SystemAccountManagerImpl implements SystemAccountManager {
 
     @Override
     public boolean insert(SystemAccountDO systemAccountDO) {
-        return systemAccountDao.insert(systemAccountDO);
+        if (systemAccountDao.insert(systemAccountDO)) {
+            YunUtil.sendAccountOpenMsg(systemAccountDO);
+            return true;
+        }
+        return false;
     }
 
     @Override

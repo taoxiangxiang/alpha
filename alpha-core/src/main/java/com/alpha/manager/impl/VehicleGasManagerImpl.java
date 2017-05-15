@@ -2,6 +2,7 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleGasDao;
 import com.alpha.domain.VehicleGasDO;
+import com.alpha.domain.VehicleGasSumDO;
 import com.alpha.manager.VehicleGasManager;
 import com.alpha.query.VehicleGasQuery;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,15 @@ public class VehicleGasManagerImpl implements VehicleGasManager {
     @Override
     public boolean update(VehicleGasDO vehicleGasDO) {
         return vehicleGasDao.update(vehicleGasDO);
+    }
+
+    @Override
+    public List<VehicleGasSumDO> queryGroupByVehicle(VehicleGasQuery vehicleGasQuery) {
+        return vehicleGasDao.queryGroupByVehicle(vehicleGasQuery);
+    }
+
+    @Override
+    public int countGroupByVehicle(VehicleGasQuery vehicleGasQuery) {
+        return vehicleGasDao.countGroupByVehicle(vehicleGasQuery);
     }
 }

@@ -85,4 +85,38 @@
             AND gmt_create &lt;= #{endDate}
         </if>
     </select>
+
+    <resultMap id="VehicleGasSumMap" type="VehicleGasSumDO">
+        <result property="vehicleNO" column="vehicle_no" />
+        <result property="team" column="team" />
+        <result property="gasCardNO" column="gas_card_no" />
+        <result property="money" column="money" />
+        <result property="amount" column="amount" />
+        <result property="mile" column="mile" />
+        <result property="cost" column="cost" />
+    </resultMap>
+
+    <select id="selectSumByPage" parameterType="com.alpha.query.VehicleGasQuery" resultMap="VehicleGasSumMap">
+        select vehicle_no,team,gas_card_no,
+        sum(money) as money, sum(amount) as amount,
+        sum(cur_mile-before_mile) as mile, (100*sum(amount))/sum(cur_mile-before_mile) as cost
+        from vehicle_gas
+        where 1=1
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        group by vehicle_no
+        limit #{start},#{pageSize}
+    </select>
+
+    <select id="countSum" parameterType="com.alpha.query.VehicleGasQuery" resultType="int">
+        select count(1)
+        from vehicle_gas
+        where 1=1
+        <if test="vehicleNO != null and vehicleNO != '' ">
+            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        group by vehicle_no
+        limit #{start},#{pageSize}
+    </select>
 </mapper>

@@ -37,7 +37,7 @@ public class VerifyRecordManagerTest extends ITestBase {
     @Test
     public void testQuery() {
         VerifyRecordQuery verifyRecordQuery = new VerifyRecordQuery();
-        verifyRecordQuery.setApplicationId(2);
+//        verifyRecordQuery.setApplicationId(2);
         List<VerifyRecordDO> list = verifyRecordDao.query(verifyRecordQuery);
         int number = verifyRecordDao.count(verifyRecordQuery);
         System.out.println("number=" + number);

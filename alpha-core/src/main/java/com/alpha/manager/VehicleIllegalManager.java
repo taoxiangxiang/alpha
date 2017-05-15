@@ -1,6 +1,7 @@
 package com.alpha.manager;
 
 import com.alpha.domain.VehicleIllegalDO;
+import com.alpha.domain.VehicleIllegalSumDO;
 import com.alpha.query.VehicleIllegalQuery;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface VehicleIllegalManager {
     int count(VehicleIllegalQuery vehicleIllegalQuery);
 
     boolean update(VehicleIllegalDO vehicleIllegalDO);
+
+    List<VehicleIllegalSumDO> queryGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery);
+
+    int countGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery);
 }

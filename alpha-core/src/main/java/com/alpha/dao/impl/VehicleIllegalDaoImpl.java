@@ -3,6 +3,7 @@ package com.alpha.dao.impl;
 import com.alibaba.fastjson.JSON;
 import com.alpha.dao.VehicleIllegalDao;
 import com.alpha.domain.VehicleIllegalDO;
+import com.alpha.domain.VehicleIllegalSumDO;
 import com.alpha.query.VehicleIllegalQuery;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -62,6 +63,26 @@ public class VehicleIllegalDaoImpl implements VehicleIllegalDao {
         } catch (Exception e) {
             logger.error("VehicleIllegalDao update catch exception, vehicleIllegalDO=" + JSON.toJSONString(vehicleIllegalDO), e);
             return false;
+        }
+    }
+
+    @Override
+    public List<VehicleIllegalSumDO> queryGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery) {
+        try {
+            return sqlSession.selectList("vehicleIllegal.selectSumByPage", vehicleIllegalQuery);
+        } catch (Exception e) {
+            logger.error("VehicleIllegalDao query catch exception, vehicleIllegalQuery=" + JSON.toJSONString(vehicleIllegalQuery), e);
+            return null;
+        }
+    }
+
+    @Override
+    public int countGroupByVehicle(VehicleIllegalQuery vehicleIllegalQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("vehicleIllegal.countSum", vehicleIllegalQuery);
+        } catch (Exception e) {
+            logger.error("VehicleIllegalDao count catch exception, vehicleIllegalQuery=" + JSON.toJSONString(vehicleIllegalQuery), e);
+            return 0;
         }
     }
 }

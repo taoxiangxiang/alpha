@@ -2,18 +2,20 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VerifyRecordDO;
 import com.alpha.manager.VehicleApplicationManager;
+import com.alpha.manager.VerifyRecordManager;
 import com.alpha.query.VehicleApplicationQuery;
+import com.alpha.query.VerifyRecordQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
-import java.util.List;
+import java.util.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by taoxiang on 2017/4/6.
@@ -22,6 +24,8 @@ public class VehicleApplication extends BaseAjaxModule {
 
     @Resource
     private VehicleApplicationManager vehicleApplicationManager;
+    @Resource
+    private VerifyRecordManager verifyRecordManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("startDate") Date startDate, @Param("endDate") Date endDate,
@@ -41,6 +45,7 @@ public class VehicleApplication extends BaseAjaxModule {
                     vehicleApplicationQuery.setStatusList(statusList);
                 }
                 List<VehicleApplicationDO> list = vehicleApplicationManager.query(vehicleApplicationQuery);
+                addVerifyRecord(list);
                 int number = vehicleApplicationManager.count(vehicleApplicationQuery);
                 PageResult<List<VehicleApplicationDO>> result = new PageResult<List<VehicleApplicationDO>>();
                 result.setData(list);
@@ -52,6 +57,7 @@ public class VehicleApplication extends BaseAjaxModule {
                 Result<VehicleApplicationDO> result = new Result<VehicleApplicationDO>();
                 vehicleApplicationQuery.setId(id);
                 List<VehicleApplicationDO> list = vehicleApplicationManager.query(vehicleApplicationQuery);
+                addVerifyRecord(list);
                 if (list == null || list.size() == 0) {
                     result.setErrMsg("无相关申请单数据：id=" + id);
                 } else {
@@ -64,6 +70,34 @@ public class VehicleApplication extends BaseAjaxModule {
             logger.error("VehicleApplication execute catch exception", e);
             result.setErrMsg("系统异常，请重新申请");
             print(result);
+        }
+    }
+
+    private void addVerifyRecord(List<VehicleApplicationDO> vehicleApplicationDOList) {
+        if (vehicleApplicationDOList == null || vehicleApplicationDOList.size() == 0) {
+            return;
+        }
+        List<Integer> applicationIdList = new ArrayList<Integer>();
+        for (VehicleApplicationDO vehicleApplicationDO : vehicleApplicationDOList) {
+            applicationIdList.add(vehicleApplicationDO.getId());
+        }
+        VerifyRecordQuery verifyRecordQuery = new VerifyRecordQuery();
+        verifyRecordQuery.setApplicationEvent(SystemConstant.VERIFY_EVENT_VEHICLE_APPLICATION);
+        verifyRecordQuery.setPageSize(applicationIdList.size() * 5);
+        verifyRecordQuery.setApplicationIdList(applicationIdList);
+        List<VerifyRecordDO> verifyRecordDOList = verifyRecordManager.query(verifyRecordQuery);
+        Map<Integer, VerifyRecordDO> map = new HashMap<Integer, VerifyRecordDO>();
+        if (verifyRecordDOList != null) {
+            for (VerifyRecordDO verifyRecordDO : verifyRecordDOList) {
+                VerifyRecordDO insideDO = map.get(verifyRecordDO.getApplicationId());
+                if (insideDO == null || insideDO.getGmtCreate().before(verifyRecordDO.getGmtCreate())) {
+                    map.put(verifyRecordDO.getApplicationId(), verifyRecordDO);
+                }
+            }
+        }
+        for (VehicleApplicationDO vehicleApplicationDO : vehicleApplicationDOList) {
+            vehicleApplicationDO.setVerifyRecord(map.get(vehicleApplicationDO.getId()));
+            vehicleApplicationDO.setStatus(SystemConstant.vehicleApplicationStatusMap.get(vehicleApplicationDO.getStatus()));
         }
     }
 }

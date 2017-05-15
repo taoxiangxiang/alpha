@@ -2,6 +2,8 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.SystemConstant;
+import com.alpha.domain.DriverDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.VehicleManager;
 import com.alpha.query.VehicleQuery;
@@ -10,6 +12,7 @@ import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +36,17 @@ public class Vehicle extends BaseAjaxModule {
                 vehicleQuery.setPageSize(pageSize);
                 vehicleQuery.setVehicleNO(vehicleNO);
                 vehicleQuery.setTeam(team);
+                List<String> statusList = new ArrayList<String>();
+                statusList.add(SystemConstant.VEHICLE_CAN_USE);
+                statusList.add(SystemConstant.VEHICLE_OFF_LINE);
+                statusList.add(SystemConstant.VEHICLE_USING);
+                vehicleQuery.setStatusList(statusList);
                 List<VehicleDO> list = vehicleManager.query(vehicleQuery);
+                if (list != null) {
+                    for (VehicleDO vehicleDO : list) {
+                        vehicleDO.setStatus(SystemConstant.vehicleStatusMap.get(vehicleDO.getStatus()));
+                    }
+                }
                 int number = vehicleManager.count(vehicleQuery);
                 result.setData(list);
                 result.setPage(page);

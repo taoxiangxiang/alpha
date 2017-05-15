@@ -82,4 +82,9 @@ public class LeaveDO implements Serializable {
      * 修改时间
      */
     private Date gmtModified;
+
+    /**
+     * 最近一次审核
+     */
+    private VerifyRecordDO verifyRecord;
 }
