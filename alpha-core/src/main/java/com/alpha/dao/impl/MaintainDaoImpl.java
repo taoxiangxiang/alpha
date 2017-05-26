@@ -1,6 +1,7 @@
 package com.alpha.dao.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.dao.MaintainDao;
 import com.alpha.domain.MaintainDO;
 import com.alpha.query.MaintainQuery;
@@ -37,7 +38,14 @@ public class MaintainDaoImpl implements MaintainDao {
     @Override
     public List<MaintainDO> query(MaintainQuery maintainQuery) {
         try {
-            return sqlSession.selectList("maintain.selectByPage", maintainQuery);
+            List<MaintainDO> list = sqlSession.selectList("maintain.selectByPage", maintainQuery);
+            if (list != null && list.size() > 0) {
+                for (MaintainDO maintainDO : list) {
+                    maintainDO.setApplicationNO("WB" +
+                            Integer.valueOf(CalendarUtil.toString(maintainDO.getGmtCreate(), CalendarUtil.DATE_FMT_5)) * 1000000 + maintainDO.getId());
+                }
+            }
+            return list;
         } catch (Exception e) {
             logger.error("MaintainDao query catch exception, departmentQuery=" + JSON.toJSONString(maintainQuery), e);
             return null;

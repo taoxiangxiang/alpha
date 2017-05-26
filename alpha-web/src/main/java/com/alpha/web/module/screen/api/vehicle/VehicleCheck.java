@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.VehicleCheckDO;
 import com.alpha.manager.VehicleCheckManager;
 import com.alpha.query.VehicleCheckQuery;
@@ -10,6 +11,7 @@ import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +23,7 @@ public class VehicleCheck extends BaseAjaxModule {
     private VehicleCheckManager vehicleCheckManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("vehicleNO") String vehicleNO,
                         @Param("id") Integer id, Context context) {
         try {
@@ -32,6 +35,8 @@ public class VehicleCheck extends BaseAjaxModule {
                 vehicleCheckQuery.setPage(page);
                 vehicleCheckQuery.setPageSize(pageSize);
                 vehicleCheckQuery.setVehicleNO(vehicleNO);
+                vehicleCheckQuery.setStartDate(startDate == null ? null : CalendarUtil.formatDate(new Date(startDate), CalendarUtil.TIME_PATTERN));
+                vehicleCheckQuery.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
                 List<VehicleCheckDO> list = vehicleCheckManager.query(vehicleCheckQuery);
                 int number = vehicleCheckManager.count(vehicleCheckQuery);
                 result.setData(list);

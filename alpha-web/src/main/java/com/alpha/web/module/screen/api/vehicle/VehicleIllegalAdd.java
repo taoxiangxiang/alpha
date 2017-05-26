@@ -29,7 +29,7 @@ public class VehicleIllegalAdd extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("illegalDate") Date illegalDate, @Param("reason") String reason,
+                        @Param("illegalDate") Long illegalDate, @Param("reason") String reason,
                         @Param("illegalAddress") String illegalAddress, @Param("driverId") Integer driverId,
                         @Param("money") Double money, @Param("point") Integer point,
                         @Param("file") String file, @Param("remark") String remark, Context context) {
@@ -52,7 +52,7 @@ public class VehicleIllegalAdd extends BaseAjaxModule {
             VehicleIllegalDO vehicleIllegalDO = new VehicleIllegalDO();
             vehicleIllegalDO.setVehicleNO(vehicleNO);
             vehicleIllegalDO.setTeam(team);
-            vehicleIllegalDO.setIllegalDate(CalendarUtil.formatDate(illegalDate, CalendarUtil.TIME_PATTERN));
+            vehicleIllegalDO.setIllegalDate(illegalDate == null ? null : CalendarUtil.formatDate(new Date(illegalDate), CalendarUtil.TIME_PATTERN));
             vehicleIllegalDO.setReason(reason);
             vehicleIllegalDO.setIllegalAddress(illegalAddress);
             vehicleIllegalDO.setDriverId(driverId);

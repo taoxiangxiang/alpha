@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VerifyRecordDO;
@@ -28,7 +29,7 @@ public class VehicleApplication extends BaseAjaxModule {
     private VerifyRecordManager verifyRecordManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("startDate") Date startDate, @Param("endDate") Date endDate,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("status") String status, @Param("id") Integer id, Context context) {
         try {
             page = page > 0 ? page : 1;
@@ -37,8 +38,8 @@ public class VehicleApplication extends BaseAjaxModule {
             if (id == null) {
                 vehicleApplicationQuery.setPage(page);
                 vehicleApplicationQuery.setPageSize(pageSize);
-                vehicleApplicationQuery.setStartDate(startDate);
-                vehicleApplicationQuery.setEndDate(endDate);
+                vehicleApplicationQuery.setStartDate(startDate == null ? null : new Date(startDate));
+                vehicleApplicationQuery.setEndDate(endDate == null ? null : new Date(endDate));
                 if (status != null) {
                     List<String> statusList = new ArrayList<String>();
                     statusList.add(status);
@@ -86,17 +87,17 @@ public class VehicleApplication extends BaseAjaxModule {
         verifyRecordQuery.setPageSize(applicationIdList.size() * 5);
         verifyRecordQuery.setApplicationIdList(applicationIdList);
         List<VerifyRecordDO> verifyRecordDOList = verifyRecordManager.query(verifyRecordQuery);
-        Map<Integer, VerifyRecordDO> map = new HashMap<Integer, VerifyRecordDO>();
+        Map<Integer, List<VerifyRecordDO>> map = new HashMap<Integer, List<VerifyRecordDO>>();
         if (verifyRecordDOList != null) {
             for (VerifyRecordDO verifyRecordDO : verifyRecordDOList) {
-                VerifyRecordDO insideDO = map.get(verifyRecordDO.getApplicationId());
-                if (insideDO == null || insideDO.getGmtCreate().before(verifyRecordDO.getGmtCreate())) {
-                    map.put(verifyRecordDO.getApplicationId(), verifyRecordDO);
+                if (map.get(verifyRecordDO.getApplicationId()) == null) {
+                    map.put(verifyRecordDO.getApplicationId(), new ArrayList<VerifyRecordDO>());
                 }
+                map.get(verifyRecordDO.getApplicationId()).add(verifyRecordDO);
             }
         }
         for (VehicleApplicationDO vehicleApplicationDO : vehicleApplicationDOList) {
-            vehicleApplicationDO.setVerifyRecord(map.get(vehicleApplicationDO.getId()));
+            vehicleApplicationDO.setVerifyRecordList(map.get(vehicleApplicationDO.getId()));
             vehicleApplicationDO.setStatus(SystemConstant.vehicleApplicationStatusMap.get(vehicleApplicationDO.getStatus()));
         }
     }

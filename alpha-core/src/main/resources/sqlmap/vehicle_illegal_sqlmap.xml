@@ -3,6 +3,7 @@
 <mapper namespace="vehicleIllegal">
     <resultMap id="VehicleIllegalMap" type="VehicleIllegalDO">
         <id property="id" column="id" />
+        <result property="illegalId" column="illegal_id" />
         <result property="vehicleNO" column="vehicle_no" />
         <result property="team" column="team" />
         <result property="illegalDate" column="illegal_date" />
@@ -20,8 +21,8 @@
     </resultMap>
 
     <insert id="insert" parameterType="VehicleIllegalDO">
-        insert into vehicle_illegal (id,vehicle_no,team,illegal_date,reason,money,point,illegal_address,driver_id,driver_name,file,remark,attribute,gmt_create,gmt_modified)
-        VALUES (null,#{vehicleNO},#{team},#{illegalDate},#{reason},#{money},#{point},#{illegalAddress},#{driverId},#{driverName},#{file},#{remark},#{attribute},now(),now())
+        insert into vehicle_illegal (id,illegal_id,vehicle_no,team,illegal_date,reason,money,point,illegal_address,driver_id,driver_name,file,remark,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{illegalId},#{vehicleNO},#{team},#{illegalDate},#{reason},#{money},#{point},#{illegalAddress},#{driverId},#{driverName},#{file},#{remark},#{attribute},now(),now())
     </insert>
 
     <update id="update" parameterType="VehicleIllegalDO">
@@ -49,14 +50,17 @@
         <if test="id != null and id != '' ">
             AND id=#{id}
         </if>
+        <if test="illegalId != null">
+            AND illegal_id = #{illegalId}
+        </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND illegal_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND illegal_date &lt;= #{endDate}
         </if>
         limit #{start},#{pageSize}
     </select>
@@ -67,14 +71,17 @@
         <if test="id != null and id != '' ">
             AND id=#{id}
         </if>
+        <if test="illegalId != null">
+            AND illegal_id = #{illegalId}
+        </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND illegal_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND illegal_date &lt;= #{endDate}
         </if>
     </select>
 
@@ -93,10 +100,10 @@
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND illegal_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND illegal_date &lt;= #{endDate}
         </if>
         GROUP by vehicle_no
         limit #{start},#{pageSize}
@@ -109,10 +116,10 @@
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND illegal_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND illegal_date &lt;= #{endDate}
         </if>
         GROUP by vehicle_no
     </select>

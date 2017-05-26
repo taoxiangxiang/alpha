@@ -3,10 +3,17 @@ package com.alpha.web.common;
 import com.alibaba.citrus.service.pull.PullService;
 import com.alibaba.citrus.util.StringEscapeUtil;
 import com.alibaba.fastjson.JSON;
+import com.alpha.constans.CalendarUtil;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by taoxiang on 2017/4/6.
@@ -26,8 +33,8 @@ public class BaseAjaxModule extends BaseModule {
         print(result);
     }
 
-    protected void downFile(String fileUrl, FileInputStream in ) throws IOException {
-        this.writeFileByteHeader(fileUrl);
+    protected void downFile(String fileName, FileInputStream in ) throws IOException {
+        this.writeFileByteHeader(fileName);
         try {
             while (true) {
                 int readByte = in.read();
@@ -43,8 +50,12 @@ public class BaseAjaxModule extends BaseModule {
     }
 
     private void writeFileByteHeader(String fileName) throws IOException {
-        response.setContentType("application/octet-stream;charset=ISO8859-1");
+//        response.setContentType("application/octet-stream;charset=ISO8859-1");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("application/msword");
         fileName = new String(fileName.getBytes(),"ISO8859-1");
+//        response.setContentType("application/octet-stream;charset=UTF-8");
+//        fileName = new String(fileName.getBytes(),"UTF-8");
         response.setHeader("Content-disposition", "attachment;filename=" + fileName);
     }
 
@@ -56,4 +67,44 @@ public class BaseAjaxModule extends BaseModule {
         response.getOutputStream().close();
     }
 
+    /*
+     * 导出word文件
+     */
+    protected void downWord(Map<String,Object> dataMap, String templateWord) throws IOException, TemplateException{
+        Configuration configuration = new Configuration();
+        configuration.setDefaultEncoding("UTF-8");
+        configuration.setClassForTemplateLoading(this.getClass(), "/template");//模板文件所在路径
+        Template t = configuration.getTemplate(templateWord); //获取模板文件
+        if (t == null) {
+            return;
+        }
+        String savePath = session.getServletContext().getRealPath("/");
+//        String savePath = "/Users/taoxiang/Desktop/";
+        savePath = savePath.replace("alpha", "down");
+        String fileName = "用车申请单_" + CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION) + ".doc";
+        File outFile = new File(savePath + fileName); //导出文件
+        Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile),"UTF-8"));
+        t.process(dataMap, out); //将填充数据填入模板文件并输出到目标文件
+        //关闭流
+        out.flush();
+        out.close();
+        FileInputStream in = new FileInputStream(savePath + fileName);
+        downFile(fileName, in);
+    }
+
+    /*
+     * 导出excle文件
+     */
+    protected void printExcel(XSSFWorkbook book, String fileName) throws IOException {
+        response.setContentType("application/vnd.ms-excel;charset=ISO8859-1");
+        fileName = fileName + ".xlsx";
+        fileName = new String(fileName.getBytes(),"ISO8859-1");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+        response.addHeader("Pargam", "no-cache");
+        response.addHeader("Cache-Control", "no-cache");
+        OutputStream outputStream = response.getOutputStream();
+        book.write(outputStream);
+        outputStream.flush();
+        outputStream.close();
+    }
 }

@@ -1,8 +1,10 @@
 package com.alpha.dao.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.dao.LeaveDao;
 import com.alpha.domain.LeaveDO;
+import com.alpha.domain.MaintainDO;
 import com.alpha.query.LeaveQuery;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -37,7 +39,14 @@ public class LeaveDaoImpl implements LeaveDao {
     @Override
     public List<LeaveDO> query(LeaveQuery leaveQuery) {
         try {
-            return sqlSession.selectList("leave.selectByPage", leaveQuery);
+            List<LeaveDO> list = sqlSession.selectList("leave.selectByPage", leaveQuery);
+            if (list != null && list.size() > 0) {
+                for (LeaveDO leaveDO : list) {
+                    leaveDO.setApplicationNO("JQ" +
+                            Integer.valueOf(CalendarUtil.toString(leaveDO.getGmtCreate(), CalendarUtil.DATE_FMT_5)) * 1000000 + leaveDO.getId());
+                }
+            }
+            return list;
         } catch (Exception e) {
             logger.error("LeaveDao query catch exception, leaveQuery=" + JSON.toJSONString(leaveQuery), e);
             return null;

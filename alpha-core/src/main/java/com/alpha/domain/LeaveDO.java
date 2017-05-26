@@ -1,9 +1,11 @@
 package com.alpha.domain;
 
+import com.alpha.constans.CalendarUtil;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by taoxiang on 2017/4/29.
@@ -17,6 +19,11 @@ public class LeaveDO implements Serializable {
      * 数据库id
      */
     private Integer id;
+
+    /**
+     * 申请订单号
+     */
+    private String applicationNO;
 
     /**
      * 司机Id
@@ -84,7 +91,7 @@ public class LeaveDO implements Serializable {
     private Date gmtModified;
 
     /**
-     * 最近一次审核
+     * 所有审核记录
      */
-    private VerifyRecordDO verifyRecord;
+    private List<VerifyRecordDO> verifyRecordList;
 }

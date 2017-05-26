@@ -50,6 +50,12 @@
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
+        <if test="startDate != null">
+            AND end_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND end_date &lt;= #{endDate}
+        </if>
         limit #{start},#{pageSize}
     </select>
 
@@ -61,6 +67,12 @@
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="startDate != null">
+            AND end_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND end_date &lt;= #{endDate}
         </if>
     </select>
 </mapper>

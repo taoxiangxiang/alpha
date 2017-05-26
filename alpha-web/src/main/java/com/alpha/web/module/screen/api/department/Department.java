@@ -24,9 +24,11 @@ public class Department extends BaseAjaxModule {
     private DepartmentManager departmentManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
+                        @Param("belongDepartmentName") String belongDepartmentName,
                         @Param("departmentName") String departmentName, @Param("id") Integer id,
                         Context context) {
         try {
+            logger.info("1");
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
             DepartmentQuery departmentQuery = new DepartmentQuery();
@@ -35,6 +37,7 @@ public class Department extends BaseAjaxModule {
                 departmentQuery.setPage(page);
                 departmentQuery.setPageSize(pageSize);
                 departmentQuery.setDepartmentName(departmentName);
+                departmentQuery.setBelongDepartmentName(belongDepartmentName);
                 List<String> statusList = new ArrayList<String>();
                 statusList.add(SystemConstant.DEPARTMENT_ON_LINE);
                 departmentQuery.setStatusList(statusList);

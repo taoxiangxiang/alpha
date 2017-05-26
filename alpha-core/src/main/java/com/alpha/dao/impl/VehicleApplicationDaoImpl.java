@@ -1,7 +1,9 @@
 package com.alpha.dao.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.dao.VehicleApplicationDao;
+import com.alpha.domain.LeaveDO;
 import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VehicleApplicationSumDO;
 import com.alpha.query.VehicleApplicationQuery;
@@ -38,7 +40,14 @@ public class VehicleApplicationDaoImpl implements VehicleApplicationDao {
     @Override
     public List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery) {
         try {
-            return sqlSession.selectList("vehicleApplication.selectByPage", vehicleApplicationQuery);
+            List<VehicleApplicationDO> list = sqlSession.selectList("vehicleApplication.selectByPage", vehicleApplicationQuery);
+            if (list != null && list.size() > 0) {
+                for (VehicleApplicationDO vehicleApplicationDO : list) {
+                    vehicleApplicationDO.setApplicationNO("YC" +
+                            Integer.valueOf(CalendarUtil.toString(vehicleApplicationDO.getGmtCreate(), CalendarUtil.DATE_FMT_5)) * 1000000 + vehicleApplicationDO.getId());
+                }
+            }
+            return list;
         } catch (Exception e) {
             logger.error("VehicleApplicationDao query catch exception, vehicleApplicationQuery=" + JSON.toJSONString(vehicleApplicationQuery), e);
             return null;

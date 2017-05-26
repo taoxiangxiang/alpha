@@ -23,5 +23,10 @@ public class DepartmentQuery extends PageQuery {
      */
     private String departmentName;
 
+    /**
+     * 所属部门
+     */
+    private String belongDepartmentName;
+
     private List<String> statusList;
 }

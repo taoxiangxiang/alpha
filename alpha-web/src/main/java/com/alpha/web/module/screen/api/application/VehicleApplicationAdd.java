@@ -24,8 +24,8 @@ public class VehicleApplicationAdd extends BaseAjaxModule {
     private VehicleApplicationManager vehicleApplicationManager;
 
     public void execute(@Param("applicationType") String applicationType, @Param("vehicleType") String vehicleType,
-                        @Param("applicationReason") String applicationReason, @Param("useDate") Date useDate,
-                        @Param("predictBackDate") Date predictBackDate, @Param("personNumber") int personNumber,
+                        @Param("applicationReason") String applicationReason, @Param("useDate") Long useDate,
+                        @Param("predictBackDate") Long predictBackDate, @Param("personNumber") int personNumber,
                         @Param("startPlace") String startPlace, @Param("endPlace") String endPlace,
                         @Param("endPlaceType") String endPlaceType, @Param("contacts") String contacts,
                         @Param("contactsPhone") String contactsPhone, @Param("remark") String remark,
@@ -38,8 +38,8 @@ public class VehicleApplicationAdd extends BaseAjaxModule {
             vehicleApplicationDO.setApplicationType(applicationType);
             vehicleApplicationDO.setVehicleType(vehicleType);
             vehicleApplicationDO.setApplicationReason(applicationReason);
-            vehicleApplicationDO.setUseDate(CalendarUtil.formatDate(useDate, CalendarUtil.TIME_PATTERN));
-            vehicleApplicationDO.setPredictBackDate(CalendarUtil.formatDate(predictBackDate, CalendarUtil.TIME_PATTERN));
+            vehicleApplicationDO.setUseDate(useDate == null ? null : CalendarUtil.formatDate(new Date(useDate), CalendarUtil.TIME_PATTERN));
+            vehicleApplicationDO.setPredictBackDate(predictBackDate == null ? null : CalendarUtil.formatDate(new Date(predictBackDate), CalendarUtil.TIME_PATTERN));
             vehicleApplicationDO.setApplicant(systemAccountDO.getName());
             vehicleApplicationDO.setApplicationDepartment(systemAccountDO.getDepartment());
             vehicleApplicationDO.setApplicantPhone(systemAccountDO.getMobilePhone());

@@ -19,18 +19,7 @@ public class CalendarUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(CalendarUtil.class);
     static GregorianCalendar cldr = new GregorianCalendar();
-    public static final long DAYMILLI = 86400000L;
-    public static final long HOURMILLI = 3600000L;
-    public static final long MINUTEMILLI = 60000L;
-    public static final long SECONDMILLI = 1000L;
-    public static final String TIMETO = " 23:59:59";
-    public static final transient int BEFORE = 1;
-    public static final transient int AFTER = 2;
-    public static final transient int EQUAL = 3;
-    public static final String TIME_PATTERN_LONG = "dd/MMM/yyyy:HH:mm:ss +0900";
-    public static final String TIME_PATTERN_LONG2 = "dd/MM/yyyy:HH:mm:ss +0900";
     public static final String TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
-    public static final String DB_TIME_PATTERN = "YYYY-MM-DD HH24:MI:SS";
     public static final String TIME_PATTERN_SHORT = "dd/MM/yy HH:mm:ss";
     public static final String TIME_PATTERN_SHORT_1 = "yyyy/MM/dd HH:mm";
     public static final String TIME_PATTERN_SESSION = "yyyyMMddHHmmss";
@@ -38,6 +27,7 @@ public class CalendarUtil {
     public static final String DATE_FMT_1 = "yyyy/MM/dd";
     public static final String DATE_FMT_2 = "yyyy/MM/dd hh:mm:ss";
     public static final String DATE_FMT_3 = "yyyy-MM-dd";
+    public static final String DATE_FMT_5 = "yyyy";
 
     static {
         cldr.setTimeZone(TimeZone.getTimeZone("GMT+9:00"));

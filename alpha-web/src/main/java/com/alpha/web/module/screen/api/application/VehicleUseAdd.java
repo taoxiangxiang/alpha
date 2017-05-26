@@ -47,8 +47,17 @@ public class VehicleUseAdd extends BaseAjaxModule{
                 return;
             }
             List<VehicleUseDO> vehicleUseDOList = JSON.parseArray(useJson, VehicleUseDO.class);
+            if (vehicleUseDOList == null || vehicleUseDOList.size() == 0) {
+                result.setErrMsg("车辆调派信息错误，请核对车辆调派信息");
+                print(result);
+                return;
+            }
             List<Integer> vehicleIdList = new ArrayList<Integer>();
             List<Integer> driverIdList = new ArrayList<Integer>();
+            for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
+                vehicleIdList.add(vehicleUseDO.getVehicleId());
+                driverIdList.add(vehicleUseDO.getDriverId());
+            }
             List<VehicleDO> vehicleDOList = getUseVehicle(vehicleIdList);
             List<DriverDO> driverDOList = getUseDriver(driverIdList);
             if (vehicleDOList == null || vehicleIdList.size() != vehicleDOList.size()) {
@@ -86,7 +95,9 @@ public class VehicleUseAdd extends BaseAjaxModule{
             for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
                 vehicleUseDO.setApplicationId(applicationId);
                 vehicleUseDO.setVehicleNO(vehicleDOMap.get(vehicleUseDO.getVehicleId()).getVehicleNO());
+                vehicleUseDO.setApplicantPhone(vehicleApplicationDO.getApplicantPhone());
                 vehicleUseDO.setDriverName(driverDOMap.get(vehicleUseDO.getDriverId()).getName());
+                vehicleUseDO.setDriverPhone(driverDOMap.get(vehicleUseDO.getDriverId()).getMobilePhone());
                 vehicleUseDO.setActualStartDate(vehicleApplicationDO.getUseDate());
                 vehicleUseDO.setStatus(SystemConstant.VEHICLE_USE_RECORD_EFFECTIVE);
             }

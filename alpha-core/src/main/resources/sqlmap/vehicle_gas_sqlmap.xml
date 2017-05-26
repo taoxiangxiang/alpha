@@ -61,10 +61,10 @@
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND gas_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND gas_date &lt;= #{endDate}
         </if>
         limit #{start},#{pageSize}
     </select>
@@ -79,10 +79,10 @@
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="startDate != null">
-            AND gmt_create &gt;= #{startDate}
+            AND gas_date &gt;= #{startDate}
         </if>
         <if test="endDate != null">
-            AND gmt_create &lt;= #{endDate}
+            AND gas_date &lt;= #{endDate}
         </if>
     </select>
 

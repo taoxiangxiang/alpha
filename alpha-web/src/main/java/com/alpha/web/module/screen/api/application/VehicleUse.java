@@ -2,8 +2,13 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
+import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VehicleUseDO;
+import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.manager.VehicleUseManager;
+import com.alpha.query.VehicleAccidentQuery;
+import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.query.VehicleUseQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.PageResult;
@@ -11,7 +16,7 @@ import com.alpha.web.domain.Result;
 import sun.jvm.hotspot.debugger.Page;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by taoxiang on 2017/4/19.
@@ -45,4 +50,5 @@ public class VehicleUse extends BaseAjaxModule {
             print(result);
         }
     }
+
 }

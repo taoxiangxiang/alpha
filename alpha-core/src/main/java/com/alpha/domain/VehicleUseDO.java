@@ -24,6 +24,16 @@ public class VehicleUseDO implements Serializable {
     private Integer applicationId;
 
     /**
+     * 申请人电话
+     */
+    private String applicantPhone;
+
+    /**
+     * 申请单编号
+     */
+    private String applicationNO;
+
+    /**
      * 司机Id
      */
     private Integer driverId;
@@ -32,6 +42,11 @@ public class VehicleUseDO implements Serializable {
      * 司机姓名
      */
     private String driverName;
+
+    /**
+     * 司机电话
+     */
+    private String driverPhone;
 
     /**
      * 车辆Id
@@ -137,5 +152,15 @@ public class VehicleUseDO implements Serializable {
      * 修改时间
      */
     private Date gmtModified;
+
+    /**
+     * 申请单
+     */
+    private VehicleApplicationDO vehicleApplicationDO;
+
+    /**
+     * 是否已经登记
+     */
+    private boolean alreadyCheck;
 
 }

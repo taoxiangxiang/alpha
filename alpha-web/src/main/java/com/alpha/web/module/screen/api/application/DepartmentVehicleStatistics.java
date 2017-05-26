@@ -22,7 +22,7 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
     private VehicleApplicationManager vehicleApplicationManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("startDate") Date startDate, @Param("endDate") Date endDate) {
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate) {
         PageResult<List<VehicleApplicationSumDO>> result = new PageResult<List<VehicleApplicationSumDO>>();
         try {
             page = page > 0 ? page : 1;
@@ -30,8 +30,8 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
             vehicleApplicationQuery.setPage(page);
             vehicleApplicationQuery.setPageSize(pageSize);
-            vehicleApplicationQuery.setStartDate(startDate);
-            vehicleApplicationQuery.setEndDate(endDate);
+            vehicleApplicationQuery.setStartDate(startDate == null ? null : new Date(startDate));
+            vehicleApplicationQuery.setEndDate(endDate == null ? null : new Date(endDate));
             List<String> statusList = new ArrayList<String>();
             statusList.add(SystemConstant.VEHICLE_VERIFY_PASS);
             vehicleApplicationQuery.setStatusList(statusList);

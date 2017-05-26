@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.InsuranceDO;
 import com.alpha.manager.InsuranceManager;
 import com.alpha.query.InsuranceQuery;
@@ -10,6 +11,7 @@ import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +23,7 @@ public class Insurance extends BaseAjaxModule {
     private InsuranceManager insuranceManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("vehicleNO") String vehicleNO,
                         @Param("id") Integer id, Context context) {
         try {
@@ -32,6 +35,8 @@ public class Insurance extends BaseAjaxModule {
                 insuranceQuery.setPage(page);
                 insuranceQuery.setPageSize(pageSize);
                 insuranceQuery.setVehicleNO(vehicleNO);
+                insuranceQuery.setStartDate(startDate == null ? null : CalendarUtil.formatDate(new Date(startDate), CalendarUtil.TIME_PATTERN));
+                insuranceQuery.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
                 List<InsuranceDO> list = insuranceManager.query(insuranceQuery);
                 int number = insuranceManager.count(insuranceQuery);
                 result.setData(list);

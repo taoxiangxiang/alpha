@@ -20,7 +20,7 @@ public class VehicleGasUpdate extends BaseAjaxModule {
     private VehicleGasManager vehicleGasManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("gasDate") Date gasDate, @Param("gasCardNO") String gasCardNO,
+                        @Param("gasDate") Long gasDate, @Param("gasCardNO") String gasCardNO,
                         @Param("gasAddress") String gasAddress, @Param("price") Double price,
                         @Param("money") Double money, @Param("amount") Double amount,
                         @Param("curMile") Integer curMile, @Param("beforeMile") Integer beforeMile,
@@ -34,7 +34,7 @@ public class VehicleGasUpdate extends BaseAjaxModule {
             vehicleGasDO.setId(id);
             vehicleGasDO.setVehicleNO(vehicleNO);
             vehicleGasDO.setTeam(team);
-            vehicleGasDO.setGasDate(CalendarUtil.formatDate(gasDate, CalendarUtil.TIME_PATTERN));
+            vehicleGasDO.setGasDate(gasDate == null ? null : CalendarUtil.formatDate(new Date(gasDate), CalendarUtil.TIME_PATTERN));
             vehicleGasDO.setGasCardNO(gasCardNO);
             vehicleGasDO.setGasAddress(gasAddress);
             vehicleGasDO.setAmount(amount);

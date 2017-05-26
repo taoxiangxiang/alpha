@@ -48,6 +48,7 @@
                 #{item}
             </foreach>
         </if>
+        order by id
         limit #{start},#{pageSize}
     </select>
 

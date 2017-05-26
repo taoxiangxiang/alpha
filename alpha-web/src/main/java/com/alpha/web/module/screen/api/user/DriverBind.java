@@ -24,7 +24,7 @@ public class DriverBind extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("vehicleNO") String vehicleNO, @Param("driverName") String driverName,
-                        @Param("startDate") Date startDate, @Param("endDate") Date endDate,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         Context context) {
         PageResult<List<DriverBindDO>> result = new PageResult<List<DriverBindDO>>();
         try {
@@ -35,8 +35,8 @@ public class DriverBind extends BaseAjaxModule {
             driverBindQuery.setPageSize(pageSize);
             driverBindQuery.setVehicleNO(vehicleNO);
             driverBindQuery.setDriverName(driverName);
-            driverBindQuery.setStartDate(startDate);
-            driverBindQuery.setEndDate(endDate);
+            driverBindQuery.setStartDate(startDate == null ? null : new Date(startDate));
+            driverBindQuery.setEndDate(endDate == null ? null : new Date(endDate));
             List<DriverBindDO> list = driverBindManager.query(driverBindQuery);
             if (list != null) {
                 for (DriverBindDO driverBindDO : list) {

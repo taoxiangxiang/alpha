@@ -12,6 +12,8 @@
         <result property="type" column="type" />
         <result property="maintainContent" column="maintain_content" />
         <result property="maintainAddress" column="maintain_address" />
+        <result property="maintainDepartmentName" column="maintain_department_name" />
+        <result property="maintainPhone" column="maintain_phone" />
         <result property="maintainDate" column="maintain_date" />
         <result property="mile" column="mile" />
         <result property="reason" column="reason" />
@@ -25,8 +27,8 @@
     </resultMap>
 
     <insert id="insert" parameterType="MaintainDO">
-        insert into maintain (id,vehicle_no,team,applicant,applicant_phone,predict_pickUp_date,actual_pickUp_date,type,maintain_content,maintain_address,maintain_date,mile,reason,status,application_remark,pickUp_remark,file,attribute,gmt_create,gmt_modified)
-        VALUES (null,#{vehicleNO},#{team},#{applicant},#{applicantPhone},#{predictPickUpDate},#{actualPickUpDate},#{type},#{maintainContent},#{maintainAddress},#{maintainDate},#{mile},#{reason},#{status},#{applicationRemark},#{pickUpRemark},#{file},#{attribute},now(),now())
+        insert into maintain (id,maintain_department_name,maintain_phone,vehicle_no,team,applicant,applicant_phone,predict_pickUp_date,actual_pickUp_date,type,maintain_content,maintain_address,maintain_date,mile,reason,status,application_remark,pickUp_remark,file,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{maintainDepartmentName},#{maintainPhone},#{vehicleNO},#{team},#{applicant},#{applicantPhone},#{predictPickUpDate},#{actualPickUpDate},#{type},#{maintainContent},#{maintainAddress},#{maintainDate},#{mile},#{reason},#{status},#{applicationRemark},#{pickUpRemark},#{file},#{attribute},now(),now())
     </insert>
 
     <update id="update" parameterType="MaintainDO">
@@ -40,6 +42,8 @@
         <if test="actualPickUpDate!=null">actual_pickUp_date=#{actualPickUpDate},</if>
         <if test="type!=null">type=#{type},</if>
         <if test="maintainContent!=null">maintain_content=#{maintainContent},</if>
+        <if test="maintainDepartmentName!=null">maintain_department_name=#{maintainDepartmentName},</if>
+        <if test="maintainPhone!=null">maintain_phone=#{maintainPhone},</if>
         <if test="maintainAddress!=null">maintain_address=#{maintainAddress},</if>
         <if test="maintainDate!=null">maintain_date=#{maintainDate},</if>
         <if test="mile!=null">mile=#{mile},</if>
@@ -71,6 +75,7 @@
                 #{item}
             </foreach>
         </if>
+        ORDER by id desc
         limit #{start},#{pageSize}
     </select>
 

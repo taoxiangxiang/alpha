@@ -2,7 +2,7 @@ package com.alpha.constans;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alpha.domain.SystemAccountDO;
+import com.alpha.domain.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -28,20 +28,60 @@ public class YunUtil {
 
     public static boolean sendCodeMsg(String phoneNumber) {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
-        String code = "5";
-        System.out.println(code);
-        paramStringMap.put("code",  code);
-        return sendCodeMsg(phoneNumber, JSON.toJSONString(paramStringMap), "SMS_66990041");
+        paramStringMap.put("code",  getRandNum(6));
+        return sendMsg(phoneNumber, JSON.toJSONString(paramStringMap), "SMS_66990041");
     }
 
     public static boolean sendAccountOpenMsg(SystemAccountDO systemAccountDO) {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
         paramStringMap.put("accountId", systemAccountDO.getName());
         paramStringMap.put("accountCode", systemAccountDO.getCitizenId().substring(12));
-        return sendCodeMsg(systemAccountDO.getMobilePhone(), JSON.toJSONString(paramStringMap), "SMS_64655038");
+        return sendMsg(systemAccountDO.getMobilePhone(), JSON.toJSONString(paramStringMap), "SMS_64655038");
     }
 
-    private static boolean sendCodeMsg(String phoneNumber, String paramString, String templateCode) {
+    public static boolean sendLeaveVerifyReject(LeaveDO leaveDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("vocationId", leaveDO.getApplicationNO());
+        return sendMsg(leaveDO.getMobilePhone(), JSON.toJSONString(paramStringMap), "SMS_64645041");
+    }
+
+    public static boolean sendLeaveVerifyPass(LeaveDO leaveDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("vocationId", leaveDO.getApplicationNO());
+        paramStringMap.put("vocation_BeginDate", leaveDO.getStartDate());
+        paramStringMap.put("vocation_EndDate", leaveDO.getEndDate());
+        return sendMsg(leaveDO.getMobilePhone(), JSON.toJSONString(paramStringMap), "SMS_64650070");
+    }
+
+    public static boolean sendMaintainVerifyReject(MaintainDO maintainDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("maintainId", maintainDO.getApplicationNO());
+        return sendMsg(maintainDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_64625027");
+    }
+
+    public static boolean sendMaintainVerifyPass(MaintainDO maintainDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("maintainId", maintainDO.getApplicationNO());
+        paramStringMap.put("maintain_address", maintainDO.getMaintainAddress());
+        paramStringMap.put("number", maintainDO.getMaintainAddress());
+        return sendMsg(maintainDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_64585006");
+    }
+
+    public static boolean sendVehicleVerifyReject(VehicleApplicationDO vehicleApplicationDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("applicationId", vehicleApplicationDO.getApplicationNO());
+        return sendMsg(vehicleApplicationDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_64480072");
+    }
+
+    public static boolean sendVehicleVerifyPass(VehicleUseDO vehicleUseDO) {
+        Map<String, Object> paramStringMap = new HashMap<String, Object>();
+        paramStringMap.put("applicationId", vehicleUseDO.getApplicationNO());
+        paramStringMap.put("driverName", vehicleUseDO.getDriverName());
+        paramStringMap.put("number", vehicleUseDO.getDriverPhone());
+        return sendMsg(vehicleUseDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_63890293");
+    }
+
+    private static boolean sendMsg(String phoneNumber, String paramString, String templateCode) {
         String host = "http://sms.market.alicloudapi.com";
         String path = "/singleSendSms";
         String method = "GET";
@@ -68,7 +108,7 @@ public class YunUtil {
         }
     }
 
-    public static void main1(String[] args) {
+    public static String queryVehicleIllegal(VehicleDO vehicleDO, String diQu) {
         String host = "http://jisuqgclwz.market.alicloudapi.com";
         String path = "/illegal/query";
         String method = "GET";
@@ -77,20 +117,20 @@ public class YunUtil {
         //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
         headers.put("Authorization", "APPCODE " + appcode);
         Map<String, String> querys = new HashMap<String, String>();
-        querys.put("carorg", "taizhou");
-        querys.put("engineno", "058911");
-        querys.put("frameno", "LSVET69F9A2560688");
+        querys.put("carorg", diQu);
+        querys.put("engineno", vehicleDO.getEngineNO());
+        querys.put("frameno", vehicleDO.getVin());
         querys.put("iscity", "1");
-        querys.put("lsnum", "MV6301");//车牌剩余部分
-        querys.put("lsprefix", "苏");//车牌前缀
+        querys.put("lsnum", vehicleDO.getVehicleNO().substring(1,vehicleDO.getVehicleNO().length()));//车牌剩余部分
+        querys.put("lsprefix", vehicleDO.getVehicleNO().substring(0,1));//车牌前缀
 //        querys.put("lstype", "02");
 
         try {
             HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
             //获取response的body
-            System.out.println(EntityUtils.toString(response.getEntity()));
+            return EntityUtils.toString(response.getEntity());
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
     }
 

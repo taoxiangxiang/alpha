@@ -30,6 +30,9 @@
         <if test="departmentName != null and departmentName != '' ">
             AND department_name like CONCAT('%',#{departmentName},'%')
         </if>
+        <if test="belongDepartmentName != null and belongDepartmentName != '' ">
+            AND belong_department_name like CONCAT('%',#{belongDepartmentName},'%')
+        </if>
         <if test="statusList != null">
             and status in
             <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
@@ -47,6 +50,9 @@
         </if>
         <if test="departmentName != null and departmentName != '' ">
             AND department_name like CONCAT('%',#{departmentName},'%')
+        </if>
+        <if test="belongDepartmentName != null and belongDepartmentName != '' ">
+            AND belong_department_name like CONCAT('%',#{belongDepartmentName},'%')
         </if>
         <if test="statusList != null">
             and status in

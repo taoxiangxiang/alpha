@@ -26,6 +26,7 @@ public class Driver extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("name") String name, @Param("team") String team,
+                        @Param("status") String status,
                         @Param("id") Integer id, Context context) {
         try {
             page = page > 0 ? page : 1;
@@ -37,11 +38,17 @@ public class Driver extends BaseAjaxModule {
                 driverQuery.setPageSize(pageSize);
                 driverQuery.setName(name);
                 driverQuery.setTeam(team);
-                List<String> statusList = new ArrayList<String>();
-                statusList.add(SystemConstant.DRIVER_CAN_USE);
-                statusList.add(SystemConstant.DRIVER_OFF_LINE);
-                statusList.add(SystemConstant.DRIVER_USING);
-                driverQuery.setStatusList(statusList);
+                if (status != null) {
+                    List<String> statusList = new ArrayList<String>();
+                    statusList.add(status);
+                    driverQuery.setStatusList(statusList);
+                } else {
+                    List<String> statusList = new ArrayList<String>();
+                    statusList.add(SystemConstant.DRIVER_CAN_USE);
+                    statusList.add(SystemConstant.DRIVER_OFF_LINE);
+                    statusList.add(SystemConstant.DRIVER_USING);
+                    driverQuery.setStatusList(statusList);
+                }
                 List<DriverDO> list = driverManager.query(driverQuery);
                 if (list != null) {
                     for (DriverDO driverDO : list) {

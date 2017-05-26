@@ -20,7 +20,7 @@ public class InsuranceUpdate extends BaseAjaxModule {
     private InsuranceManager insuranceManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("insuranceStartDate") Date insuranceStartDate, @Param("insuranceEndDate") Date insuranceEndDate,
+                        @Param("insuranceStartDate") Long insuranceStartDate, @Param("insuranceEndDate") Long insuranceEndDate,
                         @Param("type") String type, @Param("money") Double money,
                         @Param("companyName") String companyName, @Param("operator") String operator,
                         @Param("file") String file, @Param("remark") String remark,
@@ -31,8 +31,8 @@ public class InsuranceUpdate extends BaseAjaxModule {
             insuranceDO.setId(id);
             insuranceDO.setVehicleNO(vehicleNO);
             insuranceDO.setTeam(team);
-            insuranceDO.setInsuranceStartDate(CalendarUtil.formatDate(insuranceStartDate, CalendarUtil.TIME_PATTERN));
-            insuranceDO.setInsuranceEndDate(CalendarUtil.formatDate(insuranceEndDate, CalendarUtil.TIME_PATTERN));
+            insuranceDO.setInsuranceStartDate(insuranceStartDate == null ? null : CalendarUtil.formatDate(new Date(insuranceStartDate), CalendarUtil.TIME_PATTERN));
+            insuranceDO.setInsuranceEndDate(insuranceEndDate == null ? null : CalendarUtil.formatDate(new Date(insuranceEndDate), CalendarUtil.TIME_PATTERN));
             insuranceDO.setType(type);
             insuranceDO.setMoney(money);
             insuranceDO.setCompanyName(companyName);

@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.VehicleAccidentDO;
 import com.alpha.manager.VehicleAccidentManager;
 import com.alpha.query.VehicleAccidentQuery;
@@ -23,7 +24,7 @@ public class VehicleAccident extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("vehicleNO") String vehicleNO,
-                        @Param("startDate") Date startDate, @Param("endDate") Date endDate,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("id") Integer id, Context context) {
         try {
             page = page > 0 ? page : 1;
@@ -34,8 +35,8 @@ public class VehicleAccident extends BaseAjaxModule {
                 vehicleAccidentQuery.setPage(page);
                 vehicleAccidentQuery.setPageSize(pageSize);
                 vehicleAccidentQuery.setVehicleNO(vehicleNO);
-                vehicleAccidentQuery.setStartDate(startDate);
-                vehicleAccidentQuery.setEndDate(endDate);
+                vehicleAccidentQuery.setStartDate(startDate == null ? null : CalendarUtil.formatDate(new Date(startDate), CalendarUtil.TIME_PATTERN));
+                vehicleAccidentQuery.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
                 List<VehicleAccidentDO> list = vehicleAccidentManager.query(vehicleAccidentQuery);
                 int number = vehicleAccidentManager.count(vehicleAccidentQuery);
                 result.setData(list);

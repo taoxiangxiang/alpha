@@ -22,9 +22,9 @@ public class VehicleCheckUpdate extends BaseAjaxModule {
     private VehicleCheckManager vehicleCheckManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("checkDate") Date checkDate, @Param("checkNO") String checkNO,
+                        @Param("checkDate") Long checkDate, @Param("checkNO") String checkNO,
                         @Param("checkAddress") String checkAddress, @Param("money") Double money,
-                        @Param("endDate") Date endDate, @Param("operator") String operator,
+                        @Param("endDate") Long endDate, @Param("operator") String operator,
                         @Param("file") String file, @Param("remark") String remark,
                         @Param("id") Integer id, Context context) {
         Result<String> result = new Result<String>();
@@ -33,8 +33,8 @@ public class VehicleCheckUpdate extends BaseAjaxModule {
             vehicleCheckDO.setId(id);
             vehicleCheckDO.setVehicleNO(vehicleNO);
             vehicleCheckDO.setTeam(team);
-            vehicleCheckDO.setCheckDate(CalendarUtil.formatDate(checkDate, CalendarUtil.TIME_PATTERN));
-            vehicleCheckDO.setEndDate(CalendarUtil.formatDate(endDate, CalendarUtil.TIME_PATTERN));
+            vehicleCheckDO.setCheckDate(checkDate == null ? null : CalendarUtil.formatDate(new Date(checkDate), CalendarUtil.TIME_PATTERN));
+            vehicleCheckDO.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
             vehicleCheckDO.setCheckAddress(checkAddress);
             vehicleCheckDO.setMoney(money);
             vehicleCheckDO.setCheckNO(checkNO);

@@ -23,6 +23,7 @@
         <typeAlias type="com.alpha.domain.VehicleIllegalSumDO" alias="VehicleIllegalSumDO" />
         <typeAlias type="com.alpha.domain.VehicleApplicationSumDO" alias="VehicleApplicationSumDO" />
         <typeAlias type="com.alpha.domain.PartnerDepartmentDO" alias="PartnerDepartmentDO" />
+        <typeAlias type="com.alpha.domain.TeamDO" alias="TeamDO" />
     </typeAliases>
 
     <mappers>
@@ -43,5 +44,6 @@
         <mapper resource="sqlmap/vehicle_accident_sqlmap.xml" />
         <mapper resource="sqlmap/leave_sqlmap.xml" />
         <mapper resource="sqlmap/partner_department_sqlmap.xml" />
+        <mapper resource="sqlmap/team_sqlmap.xml" />
     </mappers>
 </configuration>

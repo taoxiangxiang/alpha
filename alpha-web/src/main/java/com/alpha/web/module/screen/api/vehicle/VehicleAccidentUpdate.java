@@ -28,7 +28,7 @@ public class VehicleAccidentUpdate extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("accidentDate") Date accidentDate, @Param("accidentDesc") String accidentDesc,
+                        @Param("accidentDate") Long accidentDate, @Param("accidentDesc") String accidentDesc,
                         @Param("accidentAddress") String accidentAddress, @Param("driverId") Integer driverId,
                         @Param("result") String result1, @Param("dealDesc") String dealDesc,
                         @Param("liablePerson") String liablePerson, @Param("maintainAddress") String maintainAddress,
@@ -53,7 +53,7 @@ public class VehicleAccidentUpdate extends BaseAjaxModule {
             vehicleAccidentDO.setId(id);
             vehicleAccidentDO.setVehicleNO(vehicleNO);
             vehicleAccidentDO.setTeam(team);
-            vehicleAccidentDO.setAccidentDate(CalendarUtil.formatDate(accidentDate, CalendarUtil.TIME_PATTERN));
+            vehicleAccidentDO.setAccidentDate(accidentDate == null ? null : CalendarUtil.formatDate(new Date(accidentDate), CalendarUtil.TIME_PATTERN));
             vehicleAccidentDO.setAccidentDesc(accidentDesc);
             vehicleAccidentDO.setAccidentAddress(accidentAddress);
             vehicleAccidentDO.setDriverId(driverId);

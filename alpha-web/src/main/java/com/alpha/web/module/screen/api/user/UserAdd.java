@@ -23,10 +23,10 @@ public class UserAdd extends BaseAjaxModule {
     private SystemAccountManager systemAccountManager;
 
     public void execute(@Param("name") String name, @Param("sex") String sex,
-                        @Param("citizenId") String citizenId, @Param("birth") String birth,
+                        @Param("citizenId") String citizenId, @Param("birth") Long birth,
                         @Param("ethnicGroup") String ethnicGroup, @Param("nativePlace") String nativePlace,
                         @Param("education") String education, @Param("telNumber") String telNumber,
-                        @Param("mobilePhone") String mobilePhone, @Param("hireDate") Date hireDate,
+                        @Param("mobilePhone") String mobilePhone, @Param("hireDate") Long hireDate,
                         @Param("mailbox") String mailbox, @Param("address") String address,
                         @Param("position") String position, @Param("department") String department,
                         @Param("picUrl") String picUrl, Context context) {
@@ -57,7 +57,7 @@ public class UserAdd extends BaseAjaxModule {
             systemAccountDO.setCitizenId(citizenId);
             //身份证后六位
             systemAccountDO.setPassword(encoderByMd5(citizenId.substring(12)));
-            systemAccountDO.setBirth(birth);
+            systemAccountDO.setBirth(birth == null ? null : CalendarUtil.formatDate(new Date(birth), CalendarUtil.DATE_FMT_3));
             systemAccountDO.setEthnicGroup(ethnicGroup);
             systemAccountDO.setNativePlace(nativePlace);
             systemAccountDO.setEducation(education);
@@ -65,7 +65,7 @@ public class UserAdd extends BaseAjaxModule {
             systemAccountDO.setMobilePhone(mobilePhone);
             systemAccountDO.setMailbox(mailbox);
             systemAccountDO.setAddress(address);
-            systemAccountDO.setHireDate(hireDate == null ? null : CalendarUtil.formatDate(hireDate, CalendarUtil.DATE_FMT_3));
+            systemAccountDO.setHireDate(hireDate == null ? null : CalendarUtil.formatDate(new Date(hireDate), CalendarUtil.DATE_FMT_3));
             systemAccountDO.setPosition(position);
             systemAccountDO.setDepartment(department);
             systemAccountDO.setPicUrl(picUrl);

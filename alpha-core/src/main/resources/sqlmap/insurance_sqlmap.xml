@@ -47,6 +47,12 @@
         <if test="id != null and id != '' ">
             AND id=#{id}
         </if>
+        <if test="startDate != null">
+            AND insurance_end_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND insurance_end_date &lt;= #{endDate}
+        </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
@@ -58,6 +64,12 @@
         where 1=1
         <if test="id != null and id != '' ">
             AND id=#{id}
+        </if>
+        <if test="startDate != null">
+            AND insurance_end_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND insurance_end_date &lt;= #{endDate}
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')

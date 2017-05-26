@@ -27,7 +27,7 @@ public class LeaveAdd extends BaseAjaxModule {
     @Resource
     private DriverManager driverManager;
 
-    public void execute(@Param("startDate") Date startDate, @Param("endDate") Date endDate,
+    public void execute(@Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("reason") String reason, @Param("remark") String remark,
                         @Param("file") String file,
                         Context context) {
@@ -48,8 +48,8 @@ public class LeaveAdd extends BaseAjaxModule {
             leaveDO.setDriverName(driverDO.getName());
             leaveDO.setMobilePhone(driverDO.getMobilePhone());
 //            leaveDO.setTeam(driverDO);
-            leaveDO.setStartDate(CalendarUtil.formatDate(startDate, CalendarUtil.TIME_PATTERN));
-            leaveDO.setEndDate(CalendarUtil.formatDate(endDate, CalendarUtil.TIME_PATTERN));
+            leaveDO.setStartDate(startDate == null ? null : CalendarUtil.formatDate(new Date(startDate), CalendarUtil.TIME_PATTERN));
+            leaveDO.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
             leaveDO.setReason(reason);
             leaveDO.setRemark(remark);
             leaveDO.setFile(file);

@@ -1,5 +1,8 @@
 package com.alpha.domain;
 
+import java.util.List;
+
+import com.alpha.constans.CalendarUtil;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -124,7 +127,7 @@ public class VehicleApplicationDO implements Serializable {
     private Date gmtModified;
 
     /**
-     * 最近一次审核
+     * 所有审核记录
      */
-    private VerifyRecordDO verifyRecord;
+    private List<VerifyRecordDO> verifyRecordList;
 }

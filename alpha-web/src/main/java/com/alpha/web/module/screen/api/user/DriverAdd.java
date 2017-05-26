@@ -23,12 +23,12 @@ public class DriverAdd extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("name") String name, @Param("sex") String sex,
-                        @Param("citizenId") String citizenId, @Param("birth") Date birth,
+                        @Param("citizenId") String citizenId, @Param("birth") Long birth,
                         @Param("ethnicGroup") String ethnicGroup, @Param("nativePlace") String nativePlace,
                         @Param("education") String education, @Param("mobilePhone") String mobilePhone,
                         @Param("mailbox") String mailbox, @Param("address") String address,
                         @Param("drivingLicense") String drivingLicense, @Param("licenseClass") String licenseClass,
-                        @Param("licenseStart") Date licenseStart, @Param("licenseEnd") Date licenseEnd,
+                        @Param("licenseStart") Long licenseStart, @Param("licenseEnd") Long licenseEnd,
                         @Param("offerLicense") String offerLicense, @Param("remark") String remark,
                         @Param("personUrl") String personUrl, @Param("licenseUrl") String licenseUrl,
                         Context context) {
@@ -56,7 +56,7 @@ public class DriverAdd extends BaseAjaxModule {
             driverDO.setName(name);
             driverDO.setSex(sex);
             driverDO.setCitizenId(citizenId);
-            driverDO.setBirth(CalendarUtil.formatDate(licenseStart, CalendarUtil.DATE_FMT_3));
+            driverDO.setBirth(birth == null ? null : CalendarUtil.formatDate(new Date(birth), CalendarUtil.DATE_FMT_3));
             driverDO.setEthnicGroup(ethnicGroup);
             driverDO.setNativePlace(nativePlace);
             driverDO.setEducation(education);
@@ -65,8 +65,8 @@ public class DriverAdd extends BaseAjaxModule {
             driverDO.setAddress(address);
             driverDO.setDrivingLicense(drivingLicense);
             driverDO.setLicenseClass(licenseClass);
-            driverDO.setLicenseStart(CalendarUtil.formatDate(licenseStart, CalendarUtil.DATE_FMT_3));
-            driverDO.setLicenseEnd(CalendarUtil.formatDate(licenseEnd, CalendarUtil.DATE_FMT_3));
+            driverDO.setLicenseStart(licenseStart == null ? null : CalendarUtil.formatDate(new Date(licenseStart), CalendarUtil.DATE_FMT_3));
+            driverDO.setLicenseEnd(licenseEnd == null ? null : CalendarUtil.formatDate(new Date(licenseEnd), CalendarUtil.DATE_FMT_3));
             driverDO.setOfferLicense(offerLicense);
             driverDO.setRemark(remark);
             driverDO.setPersonUrl(personUrl);

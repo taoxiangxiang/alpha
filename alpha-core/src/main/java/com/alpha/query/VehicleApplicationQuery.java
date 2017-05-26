@@ -18,4 +18,6 @@ public class VehicleApplicationQuery extends PageQuery {
     private Integer id;
 
     private List<String> statusList;
+
+    private List<Integer> idList;
 }

@@ -18,6 +18,11 @@ public class VehicleIllegalDO implements Serializable{
     private Integer id;
 
     /**
+     * 违章Id
+     */
+    private String illegalId;
+
+    /**
      * 车牌号
      */
     private String vehicleNO;

@@ -22,12 +22,17 @@ public class VehicleIllegalQuery extends PageQuery {
     private String vehicleNO;
 
     /**
+     * 违章Id
+     */
+    private String illegalId;
+
+    /**
      * 开始日期
      */
-    private Date startDate;
+    private String startDate;
 
     /**
      * 结束日期
      */
-    private Date endDate;
+    private String endDate;
 }

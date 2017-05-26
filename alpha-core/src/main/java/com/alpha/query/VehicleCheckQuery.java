@@ -14,4 +14,8 @@ public class VehicleCheckQuery extends PageQuery {
 
     private String vehicleNO;
 
+    private String startDate;
+
+    private String endDate;
+
 }

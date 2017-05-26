@@ -50,6 +50,12 @@ public class SystemConstant {
     public static final String DEPARTMENT_DELETE = "delete";
 
     /**
+     * 车队信息
+     */
+    public static final String TEAM_ON_LINE = "onLine";
+    public static final String TEAM_DELETE = "delete";
+
+    /**
      * 油卡信息
      */
     public static final String GAS_CARD_ON_LINE = "onLine";

@@ -20,17 +20,17 @@ public class VehicleCheckAdd extends BaseAjaxModule {
     private VehicleCheckManager vehicleCheckManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("checkDate") Date checkDate, @Param("checkNO") String checkNO,
+                        @Param("checkDate") Long checkDate, @Param("checkNO") String checkNO,
                         @Param("checkAddress") String checkAddress, @Param("money") Double money,
-                        @Param("endDate") Date endDate, @Param("operator") String operator,
+                        @Param("endDate") Long endDate, @Param("operator") String operator,
                         @Param("file") String file, @Param("remark") String remark, Context context) {
         Result<String> result = new Result<String>();
         try {
             VehicleCheckDO vehicleCheckDO = new VehicleCheckDO();
             vehicleCheckDO.setVehicleNO(vehicleNO);
             vehicleCheckDO.setTeam(team);
-            vehicleCheckDO.setCheckDate(CalendarUtil.formatDate(checkDate, CalendarUtil.TIME_PATTERN));
-            vehicleCheckDO.setEndDate(CalendarUtil.formatDate(endDate, CalendarUtil.TIME_PATTERN));
+            vehicleCheckDO.setCheckDate(checkDate == null ? null : CalendarUtil.formatDate(new Date(checkDate), CalendarUtil.TIME_PATTERN));
+            vehicleCheckDO.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
             vehicleCheckDO.setCheckAddress(checkAddress);
             vehicleCheckDO.setMoney(money);
             vehicleCheckDO.setCheckNO(checkNO);

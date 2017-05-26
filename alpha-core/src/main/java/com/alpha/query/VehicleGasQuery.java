@@ -25,10 +25,10 @@ public class VehicleGasQuery extends PageQuery {
     /**
      * 开始日期
      */
-    private Date startDate;
+    private String startDate;
 
     /**
      * 结束日期
      */
-    private Date endDate;
+    private String endDate;
 }

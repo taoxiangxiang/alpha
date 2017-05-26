@@ -30,7 +30,7 @@ public class VehicleUseUpdate extends BaseAjaxModule{
                         @Param("jiabanFee") double jiabanFee, @Param("guoluFee") double guoluFee,
                         @Param("guoqiaoFee") double guoqiaoFee, @Param("xicheFee") double xicheFee,
                         @Param("tingcheFee") double tingcheFee, @Param("otherFee") double otherFee,
-                        @Param("remark") String remark, @Param("fileList") List<FileItem> fileList,
+                        @Param("remark") String remark, @Param("fileList") String fileList,
                         Context context) {
         Result<String> result = new Result<String>();
         try {
@@ -55,7 +55,7 @@ public class VehicleUseUpdate extends BaseAjaxModule{
                 if (vehicleUseDO.getAttribute() != null) {
                     jsonObject = JSON.parseObject(vehicleUseDO.getAttribute());
                 }
-                jsonObject.put("file", fileList);
+                jsonObject.put("fileList", fileList);
                 vehicleUseDO.setAttribute(jsonObject.toJSONString());
             }
             boolean res = vehicleUseManager.update(vehicleUseDO);

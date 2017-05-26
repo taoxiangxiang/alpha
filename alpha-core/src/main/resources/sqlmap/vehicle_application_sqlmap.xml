@@ -76,6 +76,13 @@
                 #{item}
             </foreach>
         </if>
+        <if test="idList != null">
+            and id in
+            <foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER by id desc
         limit #{start},#{pageSize}
     </select>
 
@@ -94,6 +101,12 @@
         <if test="statusList != null">
             and status in
             <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="idList != null">
+            and id in
+            <foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>

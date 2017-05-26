@@ -23,8 +23,8 @@ public class VehicleUpdate extends BaseAjaxModule {
                         @Param("vehicleClass") String vehicleClass, @Param("vehicleType") String vehicleType,
                         @Param("colour") String colour, @Param("load") String load,
                         @Param("seat") int seat, @Param("team") String team,
-                        @Param("checkDate") Date checkDate, @Param("insuranceDate") Date insuranceDate,
-                        @Param("maintainDate") Date maintainDate, @Param("maintainMile") int maintainMile,
+                        @Param("checkDate") Long checkDate, @Param("insuranceDate") Long insuranceDate,
+                        @Param("maintainDate") Long maintainDate, @Param("maintainMile") int maintainMile,
                         @Param("engineNO") String engineNO, @Param("vin") String vin,
                         @Param("gasCardNO") String gasCardNO, @Param("gasCardType") String gasCardType,
                         @Param("suTongCardNO") String suTongCardNO, @Param("licenseClass") String licenseClass,
@@ -42,9 +42,9 @@ public class VehicleUpdate extends BaseAjaxModule {
             vehicleDO.setLoad(load);
             vehicleDO.setSeat(seat);
             vehicleDO.setTeam(team);
-            vehicleDO.setCheckDate(CalendarUtil.formatDate(checkDate, CalendarUtil.TIME_PATTERN));
-            vehicleDO.setInsuranceDate(CalendarUtil.formatDate(insuranceDate, CalendarUtil.TIME_PATTERN));
-            vehicleDO.setMaintainDate(CalendarUtil.formatDate(maintainDate, CalendarUtil.TIME_PATTERN));
+            vehicleDO.setCheckDate(checkDate == null ? null : CalendarUtil.formatDate(new Date(checkDate), CalendarUtil.TIME_PATTERN));
+            vehicleDO.setInsuranceDate(insuranceDate == null ? null : CalendarUtil.formatDate(new Date(insuranceDate), CalendarUtil.TIME_PATTERN));
+            vehicleDO.setMaintainDate(maintainDate == null ? null : CalendarUtil.formatDate(new Date(maintainDate), CalendarUtil.TIME_PATTERN));
             vehicleDO.setMaintainMile(maintainMile);
             vehicleDO.setEngineNO(engineNO);
             vehicleDO.setVin(vin);

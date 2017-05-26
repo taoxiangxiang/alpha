@@ -25,6 +25,7 @@ public class Vehicle extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("vehicleNO") String vehicleNO, @Param("team") String team,
+                        @Param("status") String status,
                         @Param("id") Integer id, Context context) {
         try {
             page = page > 0 ? page : 1;
@@ -36,11 +37,17 @@ public class Vehicle extends BaseAjaxModule {
                 vehicleQuery.setPageSize(pageSize);
                 vehicleQuery.setVehicleNO(vehicleNO);
                 vehicleQuery.setTeam(team);
-                List<String> statusList = new ArrayList<String>();
-                statusList.add(SystemConstant.VEHICLE_CAN_USE);
-                statusList.add(SystemConstant.VEHICLE_OFF_LINE);
-                statusList.add(SystemConstant.VEHICLE_USING);
-                vehicleQuery.setStatusList(statusList);
+                if (status != null) {
+                    List<String> statusList = new ArrayList<String>();
+                    statusList.add(status);
+                    vehicleQuery.setStatusList(statusList);
+                } else {
+                    List<String> statusList = new ArrayList<String>();
+                    statusList.add(SystemConstant.VEHICLE_CAN_USE);
+                    statusList.add(SystemConstant.VEHICLE_OFF_LINE);
+                    statusList.add(SystemConstant.VEHICLE_USING);
+                    vehicleQuery.setStatusList(statusList);
+                }
                 List<VehicleDO> list = vehicleManager.query(vehicleQuery);
                 if (list != null) {
                     for (VehicleDO vehicleDO : list) {

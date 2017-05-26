@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.user;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.LeaveDO;
 import com.alpha.domain.VerifyRecordDO;
@@ -27,7 +28,7 @@ public class Leave extends BaseAjaxModule {
     private VerifyRecordManager verifyRecordManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("startDate") Date startDate, @Param("endDate") Date endDate,
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("status") String status,
                         @Param("id") Integer id, Context context) {
         try {
@@ -38,8 +39,8 @@ public class Leave extends BaseAjaxModule {
                 PageResult<List<LeaveDO>> result = new PageResult<List<LeaveDO>>();
                 leaveQuery.setPage(page);
                 leaveQuery.setPageSize(pageSize);
-                leaveQuery.setStartDate(startDate);
-                leaveQuery.setEndDate(endDate);
+                leaveQuery.setStartDate(startDate == null ? null : new Date(startDate));
+                leaveQuery.setEndDate(endDate == null ? null : new Date(endDate));
                 if (status != null) {
                     List<String> statusList = new ArrayList<String>();
                     statusList.add(status);
@@ -88,17 +89,17 @@ public class Leave extends BaseAjaxModule {
         verifyRecordQuery.setPageSize(applicationIdList.size() * 5);
         verifyRecordQuery.setApplicationIdList(applicationIdList);
         List<VerifyRecordDO> verifyRecordDOList = verifyRecordManager.query(verifyRecordQuery);
-        Map<Integer, VerifyRecordDO> map = new HashMap<Integer, VerifyRecordDO>();
+        Map<Integer, List<VerifyRecordDO>> map = new HashMap<Integer, List<VerifyRecordDO>>();
         if (verifyRecordDOList != null) {
             for (VerifyRecordDO verifyRecordDO : verifyRecordDOList) {
-                VerifyRecordDO insideDO = map.get(verifyRecordDO.getApplicationId());
-                if (insideDO == null || insideDO.getGmtCreate().before(verifyRecordDO.getGmtCreate())) {
-                    map.put(verifyRecordDO.getApplicationId(), verifyRecordDO);
+                if (map.get(verifyRecordDO.getApplicationId()) == null) {
+                    map.put(verifyRecordDO.getApplicationId(), new ArrayList<VerifyRecordDO>());
                 }
+                map.get(verifyRecordDO.getApplicationId()).add(verifyRecordDO);
             }
         }
         for (LeaveDO leaveDO : leaveDOList) {
-            leaveDO.setVerifyRecord(map.get(leaveDO.getId()));
+            leaveDO.setVerifyRecordList(map.get(leaveDO.getId()));
             leaveDO.setStatus(SystemConstant.leaveStatusMap.get(leaveDO.getStatus()));
         }
     }

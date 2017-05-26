@@ -3,6 +3,7 @@ package com.alpha.manager.impl;
 import com.alibaba.citrus.util.CollectionUtil;
 import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.SystemConstant;
+import com.alpha.constans.YunUtil;
 import com.alpha.dao.VerifyRecordDao;
 import com.alpha.domain.*;
 import com.alpha.manager.*;
@@ -86,7 +87,11 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.VEHICLE_IN_CITY_WAIT_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_IN_CITY_VERIFY)) {
             vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_VERIFY_PASS : SystemConstant.VEHICLE_VERIFY_REJECT);
-            return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            String res = vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.VEHICLE_VERIFY_REJECT.equals(vehicleApplicationDO.getStatus())) {
+                YunUtil.sendVehicleVerifyReject(vehicleApplicationDO);
+            }
+            return res;
         }
         /**
          * 市区外单子审核
@@ -94,12 +99,20 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_OUT_OF_CITY_FIRST_VERIFY)) {
             vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY : SystemConstant.VEHICLE_VERIFY_REJECT);
-            return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            String res = vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.VEHICLE_VERIFY_REJECT.equals(vehicleApplicationDO.getStatus())) {
+                YunUtil.sendVehicleVerifyReject(vehicleApplicationDO);
+            }
+            return res;
         }
         if (SystemConstant.VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_VEHICLE_OUT_OF_CITY_SECOND_VERIFY)) {
             vehicleApplicationDO.setStatus(SystemConstant.VERIFY_PASS.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.VEHICLE_VERIFY_PASS : SystemConstant.VEHICLE_VERIFY_REJECT);
-            return vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            String res = vehicleApplicationManager.update(vehicleApplicationDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.VEHICLE_VERIFY_REJECT.equals(vehicleApplicationDO.getStatus())) {
+                YunUtil.sendVehicleVerifyReject(vehicleApplicationDO);
+            }
+            return res;
         }
         return "车辆申请处于未知状态中";
     }
@@ -119,7 +132,11 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.MAINTAIN_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_FIRST_VERIFY)) {
             maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_WAIT_SECOND_VERIFY);
-            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            String res = maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.MAINTAIN_VERIFY_REJECT.equals(maintainDO.getStatus())) {
+                YunUtil.sendMaintainVerifyReject(maintainDO);
+            }
+            return res;
         }
         /**
          * 第二次审核
@@ -127,7 +144,10 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.MAINTAIN_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_SECOND_VERIFY)) {
             maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_WAIT_THIRD_VERIFY);
-            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            String res = maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.MAINTAIN_VERIFY_REJECT.equals(maintainDO.getStatus())) {
+                YunUtil.sendMaintainVerifyReject(maintainDO);
+            }
         }
         /**
          * 第三次审核
@@ -135,7 +155,10 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.MAINTAIN_WAIT_THIRD_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_MAINTAIN_THIRD_VERIFY)) {
             maintainDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.MAINTAIN_VERIFY_REJECT : SystemConstant.MAINTAIN_VERIFY_PASS);
-            return maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            String res = maintainManager.update(maintainDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.MAINTAIN_VERIFY_REJECT.equals(maintainDO.getStatus())) {
+                YunUtil.sendMaintainVerifyReject(maintainDO);
+            }
         }
         return "维保申请处于未知状态中";
     }
@@ -155,7 +178,11 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.LEAVE_WAIT_FIRST_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_FIRST_VERIFY)) {
             leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_WAIT_SECOND_VERIFY);
-            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            String res = leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.LEAVE_VERIFY_REJECT.equals(leaveDO.getStatus())) {
+                YunUtil.sendLeaveVerifyReject(leaveDO);
+            }
+            return res;
         }
         /**
          * 第二次审核
@@ -163,7 +190,11 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.LEAVE_WAIT_SECOND_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_SECOND_VERIFY)) {
             leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_WAIT_THIRD_VERIFY);
-            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            String res = leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.LEAVE_VERIFY_REJECT.equals(leaveDO.getStatus())) {
+                YunUtil.sendLeaveVerifyReject(leaveDO);
+            }
+            return res;
         }
         /**
          * 第三次审核
@@ -171,7 +202,14 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
         if (SystemConstant.LEAVE_WAIT_THIRD_VERIFY.equals(status) && authType.contains(SystemConstant.AUTH_TYPE_LEAVE_THIRD_VERIFY)) {
             leaveDO.setStatus(SystemConstant.VERIFY_REJECT.equals(verifyRecordDO.getResult()) ?
                     SystemConstant.LEAVE_VERIFY_REJECT : SystemConstant.LEAVE_VERIFY_PASS);
-            return leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            String res = leaveManager.update(leaveDO) ? "true" : "系统异常，请稍后再试";
+            if ("true".equals(res) && SystemConstant.LEAVE_VERIFY_REJECT.equals(leaveDO.getStatus())) {
+                YunUtil.sendLeaveVerifyReject(leaveDO);
+            }
+            if ("true".equals(res) && SystemConstant.LEAVE_VERIFY_PASS.equals(leaveDO.getStatus())) {
+                YunUtil.sendLeaveVerifyPass(leaveDO);
+            }
+            return res;
         }
         return "请假申请处于未知状态中";
     }

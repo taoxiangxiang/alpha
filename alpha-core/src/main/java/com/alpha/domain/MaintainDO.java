@@ -1,5 +1,8 @@
 package com.alpha.domain;
 
+import java.util.List;
+
+import com.alpha.constans.CalendarUtil;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,6 +20,11 @@ public class MaintainDO implements Serializable {
      * 数据库Id
      */
     private Integer id;
+
+    /**
+     * 申请订单号
+     */
+    private String applicationNO;
 
     /**
      * 车牌号
@@ -62,6 +70,16 @@ public class MaintainDO implements Serializable {
      * 维保厂地址
      */
     private String maintainAddress;
+
+    /**
+     * 维保厂单位
+     */
+    private String maintainDepartmentName;
+
+    /**
+     * 维保厂单位电话
+     */
+    private String maintainPhone;
 
     /**
      * 维保时间
@@ -114,7 +132,7 @@ public class MaintainDO implements Serializable {
     private Date gmtModified;
 
     /**
-     * 最近一次审核
+     * 所有审核记录
      */
-    private VerifyRecordDO verifyRecord;
+    private List<VerifyRecordDO> verifyRecordList;
 }
