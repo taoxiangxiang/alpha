@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleGasDO;
 import com.alpha.domain.VehicleIllegalDO;
 import com.alpha.manager.DriverManager;
@@ -35,15 +36,16 @@ public class VehicleIllegalAdd extends BaseAjaxModule {
                         @Param("file") String file, @Param("remark") String remark, Context context) {
         Result<String> result = new Result<String>();
         try {
-            DriverDO driverDO = null;
-            if (driverId != null && driverId > 0) {
-                DriverQuery driverQuery = new DriverQuery();
-                driverQuery.setId(driverId);
-                List<DriverDO> driverDOList = driverManager.query(driverQuery);
-                if (driverDOList != null && driverDOList.size() > 0) {
-                    driverDO = driverDOList.get(0);
-                }
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
             }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
+            DriverDO driverDO = driverManager.queryById(driverId);
             if (driverDO == null) {
                 result.setErrMsg("不存在该司机");
                 print(result);
@@ -52,7 +54,7 @@ public class VehicleIllegalAdd extends BaseAjaxModule {
             VehicleIllegalDO vehicleIllegalDO = new VehicleIllegalDO();
             vehicleIllegalDO.setVehicleNO(vehicleNO);
             vehicleIllegalDO.setTeam(team);
-            vehicleIllegalDO.setIllegalDate(illegalDate == null ? null : CalendarUtil.formatDate(new Date(illegalDate), CalendarUtil.TIME_PATTERN));
+            vehicleIllegalDO.setIllegalDate(illegalDate == null ? null : new Date(illegalDate));
             vehicleIllegalDO.setReason(reason);
             vehicleIllegalDO.setIllegalAddress(illegalAddress);
             vehicleIllegalDO.setDriverId(driverId);

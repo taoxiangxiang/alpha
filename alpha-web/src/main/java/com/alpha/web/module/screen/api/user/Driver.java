@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.DriverManager;
 import com.alpha.query.DriverQuery;
@@ -31,6 +32,11 @@ public class Driver extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
             DriverQuery driverQuery = new DriverQuery();
             if (id == null) {
                 PageResult<List<DriverDO>> result = new PageResult<List<DriverDO>>();
@@ -47,6 +53,7 @@ public class Driver extends BaseAjaxModule {
                     statusList.add(SystemConstant.DRIVER_CAN_USE);
                     statusList.add(SystemConstant.DRIVER_OFF_LINE);
                     statusList.add(SystemConstant.DRIVER_USING);
+                    statusList.add(SystemConstant.DRIVER_LEAVING);
                     driverQuery.setStatusList(statusList);
                 }
                 List<DriverDO> list = driverManager.query(driverQuery);

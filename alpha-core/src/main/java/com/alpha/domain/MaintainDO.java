@@ -37,6 +37,11 @@ public class MaintainDO implements Serializable {
     private String team;
 
     /**
+     * 申请人Id
+     */
+    private Integer applicantId;
+
+    /**
      * 申请人
      */
     private String applicant;
@@ -49,12 +54,12 @@ public class MaintainDO implements Serializable {
     /**
      * 预计取车时间
      */
-    private String predictPickUpDate;
+    private Date predictPickUpDate;
 
     /**
      * 实际取车时间
      */
-    private String actualPickUpDate;
+    private Date actualPickUpDate;
 
     /**
      * 维保类别
@@ -65,6 +70,16 @@ public class MaintainDO implements Serializable {
      * 维保内容
      */
     private String maintainContent;
+
+    /**
+     * 维保内容
+     */
+    private Double money;
+
+    /**
+     * 维保厂Id
+     */
+    private Integer maintainDepartmentId;
 
     /**
      * 维保厂地址
@@ -84,7 +99,7 @@ public class MaintainDO implements Serializable {
     /**
      * 维保时间
      */
-    private String maintainDate;
+    private Date maintainDate;
 
     /**
      * 车辆里程

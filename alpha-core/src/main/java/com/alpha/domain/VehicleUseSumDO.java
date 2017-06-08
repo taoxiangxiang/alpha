@@ -21,6 +21,11 @@ public class VehicleUseSumDO {
     private String driverName;
 
     /**
+     * 车队
+     */
+    private String team;
+
+    /**
      * 出车次数
      */
     private Integer number;
@@ -29,6 +34,16 @@ public class VehicleUseSumDO {
      * 出车里程
      */
     private Integer mile;
+
+    /**
+     * 出车时间
+     */
+    private Integer useTime;
+
+    /**
+     * 出车时间描述
+     */
+    private String useTimeDesc;
 
     /**
      * 总费用
@@ -74,4 +89,9 @@ public class VehicleUseSumDO {
      * 其他费用
      */
     private Double otherFee;
+
+    /**
+     * 司机
+     */
+    private DriverDO driverDO;
 }

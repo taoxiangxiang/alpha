@@ -24,6 +24,7 @@
         <typeAlias type="com.alpha.domain.VehicleApplicationSumDO" alias="VehicleApplicationSumDO" />
         <typeAlias type="com.alpha.domain.PartnerDepartmentDO" alias="PartnerDepartmentDO" />
         <typeAlias type="com.alpha.domain.TeamDO" alias="TeamDO" />
+        <typeAlias type="com.alpha.domain.MaintainSumDO" alias="MaintainSumDO" />
     </typeAliases>
 
     <mappers>

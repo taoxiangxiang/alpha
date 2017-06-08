@@ -4,10 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alibaba.fastjson.JSON;
 import com.alpha.constans.SystemConstant;
-import com.alpha.domain.DriverDO;
-import com.alpha.domain.VehicleApplicationDO;
-import com.alpha.domain.VehicleDO;
-import com.alpha.domain.VehicleUseDO;
+import com.alpha.domain.*;
 import com.alpha.manager.DriverManager;
 import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.manager.VehicleManager;
@@ -40,14 +37,36 @@ public class VehicleUseAdd extends BaseAjaxModule{
                         @Param("useJson") String useJson, Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO systemAccountDO = getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请先登录系统"));
+                return;
+            }
+            if (systemAccountDO.getAuthType() == null || !systemAccountDO.getAuthType().contains(SystemConstant.AUTH_TYPE_VEHICLE_USE_SCHEDULE)) {
+                print(new Result<String>("您没有车辆调派的权限"));
+                return;
+            }
+            if (applicationId <= 0) {
+                result.setErrMsg("请核对申请单Id，申请单不存在");
+                print(result);
+                return;
+            }
             VehicleApplicationDO vehicleApplicationDO = getVehicleApplication(applicationId);
             if (vehicleApplicationDO == null) {
                 result.setErrMsg("请核对申请单Id，申请单不存在");
                 print(result);
                 return;
             }
-            List<VehicleUseDO> vehicleUseDOList = JSON.parseArray(useJson, VehicleUseDO.class);
-            if (vehicleUseDOList == null || vehicleUseDOList.size() == 0) {
+            List<VehicleUseDO> vehicleUseDOList;
+            try {
+                vehicleUseDOList = JSON.parseArray(useJson, VehicleUseDO.class);
+                if (vehicleUseDOList == null || vehicleUseDOList.size() == 0) {
+                    result.setErrMsg("车辆调派信息错误，请核对车辆调派信息");
+                    print(result);
+                    return;
+                }
+            } catch (Exception e) {
+                logger.error("VehicleUseAdd execute catch exception,useJson=" + useJson, e);
                 result.setErrMsg("车辆调派信息错误，请核对车辆调派信息");
                 print(result);
                 return;
@@ -98,10 +117,11 @@ public class VehicleUseAdd extends BaseAjaxModule{
                 vehicleUseDO.setApplicantPhone(vehicleApplicationDO.getApplicantPhone());
                 vehicleUseDO.setDriverName(driverDOMap.get(vehicleUseDO.getDriverId()).getName());
                 vehicleUseDO.setDriverPhone(driverDOMap.get(vehicleUseDO.getDriverId()).getMobilePhone());
+                vehicleUseDO.setTeam(driverDOMap.get(vehicleUseDO.getDriverId()).getTeam());
                 vehicleUseDO.setActualStartDate(vehicleApplicationDO.getUseDate());
                 vehicleUseDO.setStatus(SystemConstant.VEHICLE_USE_RECORD_EFFECTIVE);
             }
-            String res = vehicleUseManager.batchInsert(vehicleUseDOList);
+            String res = vehicleUseManager.batchInsert(vehicleApplicationDO, vehicleUseDOList);
             if (res.equals("true")) {
                 result.setData("操作成功");
             } else {

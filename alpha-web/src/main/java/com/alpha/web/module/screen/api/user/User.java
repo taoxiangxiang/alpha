@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,12 +31,21 @@ public class User extends BaseAjaxModule{
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
             if (id == null) {
                 PageResult<List<SystemAccountDO>> result = new PageResult<List<SystemAccountDO>>();
                 systemAccountQuery.setPage(page);
                 systemAccountQuery.setPageSize(pageSize);
                 systemAccountQuery.setName(name);
+                List<String> typeList = new ArrayList<String>();
+                typeList.add(SystemConstant.USER_TYPE_NO_AUTH);
+                typeList.add(SystemConstant.USER_TYPE_HAS_AUTH);
+                systemAccountQuery.setTypeList(typeList);
                 List<SystemAccountDO> list = systemAccountManager.query(systemAccountQuery);
                 if (list != null) {
                     for (SystemAccountDO systemAccountDO : list) {

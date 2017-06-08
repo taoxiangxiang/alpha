@@ -31,4 +31,9 @@ public class VehicleGasQuery extends PageQuery {
      * 结束日期
      */
     private String endDate;
+
+    /**
+     * 车队
+     */
+    private String team;
 }

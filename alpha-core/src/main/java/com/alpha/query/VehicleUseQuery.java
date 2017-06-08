@@ -1,5 +1,6 @@
 package com.alpha.query;
 
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -26,6 +27,11 @@ public class VehicleUseQuery extends PageQuery {
     private String driverName;
 
     /**
+     * 司机Id
+     */
+    private Integer driverId;
+
+    /**
      * 车牌号
      */
     private String vehicleNO;
@@ -44,6 +50,15 @@ public class VehicleUseQuery extends PageQuery {
      * 使用时间
      */
     private String endDate;
+
+    /**
+     * 是否已经登记
+     */
+    private Boolean alreadyCheck;
+
+    private String team;
+
+    private List<Integer> applicationIdList;
 
 
 }

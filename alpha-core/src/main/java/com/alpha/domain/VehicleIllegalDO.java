@@ -35,7 +35,7 @@ public class VehicleIllegalDO implements Serializable{
     /**
      * 违章日期
      */
-    private String illegalDate;
+    private Date illegalDate;
 
     /**
      * 违章原因

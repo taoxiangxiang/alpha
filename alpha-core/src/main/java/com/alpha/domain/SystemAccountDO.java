@@ -1,5 +1,8 @@
 package com.alpha.domain;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alpha.constans.SystemConstant;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -46,7 +49,7 @@ public class SystemAccountDO implements Serializable {
     /**
      * 生日
      */
-    private String birth;
+    private Date birth;
 
     /**
      * 名族
@@ -86,7 +89,7 @@ public class SystemAccountDO implements Serializable {
     /**
      * 入职日期
      */
-    private String hireDate;
+    private Date hireDate;
 
     /**
      * 职位
@@ -114,6 +117,11 @@ public class SystemAccountDO implements Serializable {
     private String status;
 
     /**
+     * 状态
+     */
+    private String type;
+
+    /**
      * 其他属性
      */
     private String attribute;
@@ -127,4 +135,28 @@ public class SystemAccountDO implements Serializable {
      * 修改时间
      */
     private Date gmtModified;
+
+
+    public boolean hasAuth() {
+        return this.getType() != null && SystemConstant.USER_TYPE_HAS_AUTH.equals(this.getType());
+    }
+
+    public boolean hasNOAuth() {
+        return this.getType() != null && SystemConstant.USER_TYPE_NO_AUTH.equals(this.getType());
+    }
+
+    public boolean isDriver() {
+        return this.getType() != null && SystemConstant.USER_TYPE_DRIVER.equals(this.getType());
+    }
+
+    public int getDriverId() {
+        if (attribute == null) return 0;
+        try {
+            JSONObject jsObject = JSON.parseObject(attribute);
+            Object object = jsObject.get("driverId");
+            return object == null ? 0 : Integer.valueOf(String.valueOf(object));
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

@@ -1,16 +1,24 @@
 package com.alpha.domain;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
  * Created by taoxiang on 2017/5/6.
  */
+@Data
 public class VehicleGasSumDO {
 
     /**
      * 车牌号
      */
     private String vehicleNO;
+
+    /**
+     * 车队
+     */
+    private String team;
 
     /**
      * 油卡编号
@@ -28,7 +36,7 @@ public class VehicleGasSumDO {
     private Double amount;
 
     /**
-     * 本次加油里程
+     * 加油里程
      */
     private Integer mile;
 

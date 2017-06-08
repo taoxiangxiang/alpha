@@ -30,8 +30,8 @@ public class VehicleApplicationManagerTest extends ITestBase {
         vehicleApplicationDO.setApplicationType(SystemConstant.applicationTypeMap.get("emergency"));
         vehicleApplicationDO.setVehicleType("car");
         vehicleApplicationDO.setApplicationReason(SystemConstant.applicationReasonMap.get("1"));
-        vehicleApplicationDO.setUseDate("1990-01-01 00:00:00");
-        vehicleApplicationDO.setPredictBackDate("1990-01-01 00:00:01");
+//        vehicleApplicationDO.setUseDate("1990-01-01 00:00:00");
+//        vehicleApplicationDO.setPredictBackDate("1990-01-01 00:00:01");
         vehicleApplicationDO.setApplicant("测试申请人");
         vehicleApplicationDO.setApplicationDepartment("测试部门");
         vehicleApplicationDO.setApplicantPhone("测试电话");

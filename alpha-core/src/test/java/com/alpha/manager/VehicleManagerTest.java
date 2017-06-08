@@ -32,9 +32,9 @@ public class VehicleManagerTest extends ITestBase {
         vehicleDO.setLoad("1顿");
         vehicleDO.setSeat(2);
         vehicleDO.setTeam("测试车队");
-        vehicleDO.setCheckDate("2017-10-1 00:00:01");
-        vehicleDO.setInsuranceDate("2017-10-1 00:00:02");
-        vehicleDO.setMaintainDate("2017-10-1 00:00:03");
+//        vehicleDO.setCheckDate("2017-10-1 00:00:01");
+//        vehicleDO.setInsuranceDate("2017-10-1 00:00:02");
+//        vehicleDO.setMaintainDate("2017-10-1 00:00:03");
         vehicleDO.setMaintainMile(1000);
         vehicleDO.setEngineNO("测试引擎编号");
         vehicleDO.setVin("测试车架号");

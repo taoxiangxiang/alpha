@@ -20,4 +20,14 @@ public class VehicleApplicationQuery extends PageQuery {
     private List<String> statusList;
 
     private List<Integer> idList;
+
+    /**
+     * 申请人部门
+     */
+    private String applicationDepartment;
+
+    /**
+     * 申请人Id
+     */
+    private Integer applicantId;
 }

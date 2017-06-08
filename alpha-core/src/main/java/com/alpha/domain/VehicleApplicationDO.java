@@ -44,12 +44,17 @@ public class VehicleApplicationDO implements Serializable {
     /**
      * 用车时间
      */
-    private String useDate;
+    private Date useDate;
 
     /**
      * 预计回车时间
      */
-    private String predictBackDate;
+    private Date predictBackDate;
+
+    /**
+     * 申请人Id
+     */
+    private Integer applicantId;
 
     /**
      * 申请人
@@ -65,6 +70,11 @@ public class VehicleApplicationDO implements Serializable {
      * 申请人电话
      */
     private String applicantPhone;
+
+    /**
+     * 用车人
+     */
+    private String usePerson;
 
     /**
      * 乘车人数

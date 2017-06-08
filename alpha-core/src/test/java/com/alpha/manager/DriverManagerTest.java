@@ -24,7 +24,7 @@ public class DriverManagerTest extends ITestBase {
         driverDO.setName("测试姓名");
         driverDO.setSex("测试性别");
         driverDO.setCitizenId("3402231xx");
-        driverDO.setBirth("1990-05-10");
+//        driverDO.setBirth("1990-05-10");
         driverDO.setEthnicGroup("测试民族");
         driverDO.setNativePlace("测试国籍");
         driverDO.setEducation("测试学历");
@@ -33,15 +33,15 @@ public class DriverManagerTest extends ITestBase {
         driverDO.setAddress("测试地址");
         driverDO.setDrivingLicense("测试驾照编号");
         driverDO.setLicenseClass("测试驾照类别");
-        driverDO.setLicenseStart("1990-05-11");
-        driverDO.setLicenseEnd("1990-05-12");
+//        driverDO.setLicenseStart("1990-05-11");
+//        driverDO.setLicenseEnd("1990-05-12");
         driverDO.setOfferLicense("测试发证机关");
         driverDO.setRemark("测试备注");
         driverDO.setPersonUrl("测试地址1");
         driverDO.setLicenseUrl("测试地址2");
         driverDO.setStatus(SystemConstant.DRIVER_CAN_USE);
-        boolean res = driverManager.insert(driverDO);
-        System.out.println(res);
+//        boolean res = driverManager.insert(driverDO);
+//        System.out.println(res);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class DriverManagerTest extends ITestBase {
         driverDO.setName("测试姓名1");
         driverDO.setSex("测试性别1");
         driverDO.setCitizenId("3402231xx1");
-        driverDO.setBirth("1990-05-101");
+//        driverDO.setBirth("1990-05-101");
         driverDO.setEthnicGroup("测试民族1");
         driverDO.setNativePlace("测试国籍1");
         driverDO.setEducation("测试学历1");
@@ -70,8 +70,8 @@ public class DriverManagerTest extends ITestBase {
         driverDO.setAddress("测试地址1");
         driverDO.setDrivingLicense("测试驾照编号1");
         driverDO.setLicenseClass("测试驾照类别1");
-        driverDO.setLicenseStart("1990-05-111");
-        driverDO.setLicenseEnd("1990-05-121");
+//        driverDO.setLicenseStart("1990-05-111");
+//        driverDO.setLicenseEnd("1990-05-121");
         driverDO.setOfferLicense("测试发证机关1");
         driverDO.setRemark("测试备注1");
         driverDO.setPersonUrl("测试地址11");

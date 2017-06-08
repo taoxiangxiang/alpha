@@ -9,6 +9,7 @@
         <result property="password" column="password" />
         <result property="citizenId" column="citizen_id" />
         <result property="birth" column="birth" />
+        <result property="type" column="type" />
         <result property="ethnicGroup" column="ethnic_group" />
         <result property="nativePlace" column="native_place" />
         <result property="education" column="education" />
@@ -27,10 +28,10 @@
     </resultMap>
 
     <insert id="insert" parameterType="SystemAccountDO">
-        insert into system_account (id,name,nick,sex,password,citizen_id,birth,ethnic_group,native_place
+        insert into system_account (id,type,name,nick,sex,password,citizen_id,birth,ethnic_group,native_place
         ,education,tel_number,mobile_phone,mailbox,address,hire_date,position,department,auth_type
         ,pic_url,attribute,gmt_create,gmt_modified)
-         VALUES (null,#{name},#{sex},#{nick},#{password},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace}
+         VALUES (null,#{type},#{name},#{nick},#{sex},#{password},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace}
          ,#{education},#{telNumber},#{mobilePhone},#{mailbox},#{address},#{hireDate},#{position},#{department}
          ,#{authType},#{picUrl},#{attribute},now(),now())
     </insert>
@@ -40,6 +41,7 @@
         set
         <if test="name!=null">name=#{name},</if>
         <if test="sex!=null">sex=#{sex},</if>
+        <if test="type!=null">type=#{type},</if>
         <if test="nick!=null">nick=#{nick},</if>
         <if test="password!=null">password=#{password},</if>
         <if test="citizenId!=null">citizen_id=#{citizenId},</if>
@@ -70,6 +72,12 @@
         <if test="name != null">
             AND name = #{name}
         </if>
+        <if test="typeList != null">
+            and type in
+            <foreach collection="typeList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
         <if test="likeName != null and likeName != '' ">
             AND name like CONCAT('%',#{likeName},'%')
         </if>
@@ -85,6 +93,9 @@
         </if>
         <if test="name != null">
             AND name = #{name}
+        </if>
+        <if test="type != null">
+            AND type = #{type}
         </if>
         <if test="likeName != null and likeName != '' ">
             AND name like CONCAT('%',#{likeName},'%')

@@ -4,10 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
-import com.alpha.domain.LeaveDO;
-import com.alpha.domain.MaintainDO;
-import com.alpha.domain.VehicleApplicationDO;
-import com.alpha.domain.VerifyRecordDO;
+import com.alpha.domain.*;
 import com.alpha.manager.MaintainManager;
 import com.alpha.manager.VerifyRecordManager;
 import com.alpha.query.MaintainQuery;
@@ -35,7 +32,19 @@ public class Maintain extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (systemAccountDO.hasNOAuth()) {
+                print(new Result<String>("您没有维保申请功能权限"));
+                return;
+            }
             MaintainQuery maintainQuery = new MaintainQuery();
+            if (systemAccountDO.isDriver()) {
+                maintainQuery.setApplicantId(systemAccountDO.getId());
+            }
             if (id == null) {
                 maintainQuery.setPage(page);
                 maintainQuery.setPageSize(pageSize);
@@ -43,7 +52,10 @@ public class Maintain extends BaseAjaxModule {
                 maintainQuery.setEndDate(endDate == null ? null : new Date(endDate));
                 if (status != null) {
                     List<String> statusList = new ArrayList<String>();
-                    statusList.add(status);
+                    String[] splitStatusArray = status.split(",");
+                    for (String splitStatus: splitStatusArray) {
+                        statusList.add(splitStatus);
+                    }
                     maintainQuery.setStatusList(statusList);
                 }
                 List<MaintainDO> list = maintainManager.query(maintainQuery);

@@ -2,8 +2,11 @@ package com.alpha.web.common;
 
 import com.alibaba.citrus.service.pull.PullService;
 import com.alibaba.citrus.util.StringEscapeUtil;
+import com.alibaba.citrus.util.StringUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.constans.SystemConstant;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -23,7 +26,7 @@ public class BaseAjaxModule extends BaseModule {
     protected void print(Object object) {
         String callback = StringEscapeUtil.escapeHtml(request.getParameter("callback"));
         String backvar = StringEscapeUtil.escapeHtml(request.getParameter("backvar"));
-        String result = JSON.toJSONString(object);
+        String result = JSON.toJSONString(object, SerializerFeature.DisableCircularReferenceDetect);
         if (callback != null) {
             result = callback + "(" + result + ");";
         }
@@ -106,5 +109,19 @@ public class BaseAjaxModule extends BaseModule {
         book.write(outputStream);
         outputStream.flush();
         outputStream.close();
+    }
+
+    protected boolean hasAuth(String authType) {
+        if (StringUtil.isBlank(authType)) {
+            return false;
+        }
+        String[] authArray = authType.split(",");
+        StringBuilder sb = new StringBuilder();
+        for (String auth : authArray) {
+            if (SystemConstant.authTypeMap.containsKey(auth)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

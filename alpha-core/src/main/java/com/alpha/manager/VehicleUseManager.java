@@ -1,5 +1,6 @@
 package com.alpha.manager;
 
+import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VehicleUseDO;
 import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.query.VehicleUseQuery;
@@ -11,11 +12,13 @@ import java.util.List;
  */
 public interface VehicleUseManager {
 
-    String batchInsert(List<VehicleUseDO> vehicleUseDOList) throws Exception;
+    String batchInsert(VehicleApplicationDO vehicleApplicationDO, List<VehicleUseDO> vehicleUseDOList) throws Exception;
 
     boolean insert(VehicleUseDO vehicleUseDO);
 
     List<VehicleUseDO> query(VehicleUseQuery vehicleUseQuery);
+
+    VehicleUseDO queryById(int id);
 
     int count(VehicleUseQuery vehicleUseQuery);
 

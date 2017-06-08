@@ -31,7 +31,7 @@ public class VehicleGasDO implements Serializable{
     /**
      * 加油日期
      */
-    private String gasDate;
+    private Date gasDate;
 
     /**
      * 油气站

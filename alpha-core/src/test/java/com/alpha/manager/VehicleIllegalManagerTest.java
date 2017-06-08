@@ -26,7 +26,7 @@ public class VehicleIllegalManagerTest extends ITestBase {
         VehicleIllegalDO vehicleIllegalDO = new VehicleIllegalDO();
         vehicleIllegalDO.setVehicleNO("1");
         vehicleIllegalDO.setTeam("2");
-        vehicleIllegalDO.setIllegalDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        vehicleIllegalDO.setIllegalDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         vehicleIllegalDO.setReason("3");
         vehicleIllegalDO.setIllegalAddress("4");
         vehicleIllegalDO.setDriverId(5);

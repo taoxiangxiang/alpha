@@ -83,6 +83,11 @@ public class BaseModule {
         }
     }
 
+    protected boolean isHasAuth() {
+        SystemAccountDO systemAccountDO = getAccount();
+        return systemAccountDO != null && SystemConstant.USER_TYPE_HAS_AUTH.equals(systemAccountDO.getType());
+    }
+
     protected String encoderByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //确定计算方法
         MessageDigest md5=MessageDigest.getInstance("MD5");

@@ -1,6 +1,7 @@
 package com.alpha.dao;
 
 import com.alpha.domain.MaintainDO;
+import com.alpha.domain.MaintainSumDO;
 import com.alpha.query.MaintainQuery;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface MaintainDao {
     int count(MaintainQuery maintainQuery);
 
     boolean update(MaintainDO maintainDO);
+
+    List<MaintainSumDO> queryGroupByVehicle(MaintainQuery maintainQuery);
+
+    int countGroupByVehicle(MaintainQuery maintainQuery);
 }

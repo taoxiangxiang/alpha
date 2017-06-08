@@ -94,4 +94,10 @@ public class VehicleApplicationDaoImpl implements VehicleApplicationDao {
             return 0;
         }
     }
+
+    public static void main(String args[]) {
+        String aa = "YC201700000022";
+        int a = Integer.valueOf(aa.substring(6));
+        System.out.println(a);
+    }
 }

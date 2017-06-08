@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.DriverManager;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
@@ -21,6 +22,15 @@ public class DriverInvalid extends BaseAjaxModule {
     public void execute(@Param("id") int id,  Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             DriverDO driverDO = new DriverDO();
             driverDO.setId(id);
             driverDO.setStatus(SystemConstant.DRIVER_OFF_LINE);

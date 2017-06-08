@@ -2,6 +2,8 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VerifyRecordDO;
 import com.alpha.manager.VerifyRecordManager;
@@ -26,6 +28,10 @@ public class VerifyEventAdd extends BaseAjaxModule {
         Result<String> result1 = new Result<String>();
         try {
             SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请先登录系统"));
+                return;
+            }
             VerifyRecordDO verifyRecordDO = new VerifyRecordDO();
             verifyRecordDO.setVerifyId(systemAccountDO.getId());
             verifyRecordDO.setVerifyName(systemAccountDO.getName());
@@ -33,6 +39,12 @@ public class VerifyEventAdd extends BaseAjaxModule {
             verifyRecordDO.setApplicationId(applicationId);
             verifyRecordDO.setResult(result);
             verifyRecordDO.setRemark(remark);
+            String checkParamRes = checkParam(verifyRecordDO);
+            if (!"ok".equals(checkParamRes)) {
+                result1.setErrMsg(checkParamRes);
+                print(result1);
+                return;
+            }
             String res = verifyRecordManager.verify(verifyRecordDO);
             if (res.equals("true")) {
                 result1.setData("操作成功");
@@ -44,5 +56,18 @@ public class VerifyEventAdd extends BaseAjaxModule {
             result1.setErrMsg("系统异常，请重试");
         }
         print(result1);
+    }
+
+    private String checkParam(VerifyRecordDO verifyRecordDO) {
+        if (StringUtil.isBlank(verifyRecordDO.getApplicationEvent()) || verifyRecordDO.getApplicationId() <= 0) {
+            return "无法识别该审核事件";
+        }
+        if (StringUtil.isBlank(verifyRecordDO.getResult()) || !SystemConstant.verifyResultMap.containsValue(verifyRecordDO.getResult())) {
+            return "请填写审核结果";
+        }
+        if (StringUtil.isBlank(verifyRecordDO.getRemark())) {
+            return "请填写备注";
+        }
+        return "ok";
     }
 }

@@ -12,6 +12,7 @@
         <result property="seat" column="seat" />
         <result property="team" column="team" />
         <result property="checkDate" column="check_date" />
+        <result property="applicationId" column="application_id" />
         <result property="insuranceDate" column="insurance_date" />
         <result property="maintainDate" column="maintain_date" />
         <result property="maintainMile" column="maintain_mile" />
@@ -30,10 +31,10 @@
     </resultMap>
 
     <insert id="insert" parameterType="VehicleDO">
-        insert into vehicle (id,vehicle_no,vehicle_brand,vehicle_class,vehicle_type,colour,vehicle_load,seat,team,
+        insert into vehicle (id,application_id,vehicle_no,vehicle_brand,vehicle_class,vehicle_type,colour,vehicle_load,seat,team,
         check_date,insurance_date,maintain_date,maintain_mile,engine_no,vin,gas_card_no,gas_card_type,
         su_tong_card_no,license_class,pic_url,mile,status,attribute,gmt_create,gmt_modified)
-         VALUES (null,#{vehicleNO},#{vehicleBrand},#{vehicleClass},#{vehicleType},#{colour},#{load},#{seat},#{team},
+         VALUES (null,#{applicationId},#{vehicleNO},#{vehicleBrand},#{vehicleClass},#{vehicleType},#{colour},#{load},#{seat},#{team},
          #{checkDate},#{insuranceDate},#{maintainDate},#{maintainMile},#{engineNO},#{vin},#{gasCardNO},#{gasCardType},
          #{suTongCardNO},#{licenseClass},#{picUrl},#{mile},#{status},#{attribute},now(),now())
     </insert>
@@ -52,6 +53,9 @@
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
         </if>
         <if test="statusList != null">
             and status in
@@ -77,6 +81,9 @@
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
+        </if>
         <if test="statusList != null">
             and status in
             <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
@@ -96,6 +103,7 @@
         <if test="load!=null">vehicle_load=#{load},</if>
         <if test="seat!=null">seat=#{seat},</if>
         <if test="team!=null">team=#{team},</if>
+        <if test="applicationId!=null">application_id=#{applicationId},</if>
         <if test="checkDate!=null">check_date=#{checkDate},</if>
         <if test="insuranceDate!=null">insurance_date=#{insuranceDate},</if>
         <if test="maintainDate!=null">maintain_date=#{maintainDate},</if>

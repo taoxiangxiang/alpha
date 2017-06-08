@@ -2,11 +2,13 @@ package com.alpha.web.module.screen.api.application;
 
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleApplicationSumDO;
 import com.alpha.manager.VehicleApplicationManager;
 import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.PageResult;
+import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -22,9 +24,19 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
     private VehicleApplicationManager vehicleApplicationManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
+                        @Param("departmentName") String departmentName,
                         @Param("startDate") Long startDate, @Param("endDate") Long endDate) {
         PageResult<List<VehicleApplicationSumDO>> result = new PageResult<List<VehicleApplicationSumDO>>();
         try {
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!curAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
@@ -32,6 +44,7 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
             vehicleApplicationQuery.setPageSize(pageSize);
             vehicleApplicationQuery.setStartDate(startDate == null ? null : new Date(startDate));
             vehicleApplicationQuery.setEndDate(endDate == null ? null : new Date(endDate));
+            vehicleApplicationQuery.setApplicationDepartment(departmentName);
             List<String> statusList = new ArrayList<String>();
             statusList.add(SystemConstant.VEHICLE_VERIFY_PASS);
             vehicleApplicationQuery.setStatusList(statusList);

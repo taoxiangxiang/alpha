@@ -29,12 +29,28 @@
         <if test="id != null and id != '' ">
             AND id=#{id}
         </if>
+        <if test="driverId != null and driverId != '' ">
+            AND driver_id=#{driverId}
+        </if>
+        <if test="vehicleId != null and vehicleId != '' ">
+            AND vehicle_id=#{vehicleId}
+        </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
         <if test="driverName != null and driverName != '' ">
             AND driver_name like CONCAT('%',#{driverName},'%')
         </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+        <if test="startDate != null">
+            AND bind_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND bind_date &lt;= #{endDate}
+        </if>
+        ORDER  by id desc
         limit #{start},#{pageSize}
     </select>
 
@@ -44,8 +60,23 @@
         <if test="id != null and id != '' ">
             AND id=#{id}
         </if>
+        <if test="driverId != null and driverId != '' ">
+            AND driverId=#{driver_id}
+        </if>
+        <if test="vehicleId != null and vehicleId != '' ">
+            AND vehicleId=#{vehicle_id}
+        </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+        <if test="startDate != null">
+            AND bind_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND bind_date &lt;= #{endDate}
         </if>
         <if test="driverName != null and driverName != '' ">
             AND driver_name like CONCAT('%',#{driverName},'%')

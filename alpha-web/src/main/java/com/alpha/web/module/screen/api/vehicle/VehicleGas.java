@@ -3,6 +3,7 @@ package com.alpha.web.module.screen.api.vehicle;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleGasDO;
 import com.alpha.manager.VehicleGasManager;
 import com.alpha.query.VehicleGasQuery;
@@ -30,6 +31,15 @@ public class VehicleGas extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             VehicleGasQuery vehicleGasQuery = new VehicleGasQuery();
             if (id == null) {
                 PageResult<List<VehicleGasDO>> result = new PageResult<List<VehicleGasDO>>();

@@ -21,6 +21,15 @@ public class UserDel extends BaseAjaxModule {
     public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!curAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             SystemAccountDO systemAccountDO = new SystemAccountDO();
             systemAccountDO.setId(id);
             systemAccountDO.setStatus(SystemConstant.ACCOUNT_DELETE);

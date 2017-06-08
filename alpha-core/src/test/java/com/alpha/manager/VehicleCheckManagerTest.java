@@ -27,8 +27,8 @@ public class VehicleCheckManagerTest extends ITestBase {
         VehicleCheckDO vehicleCheckDO = new VehicleCheckDO();
         vehicleCheckDO.setVehicleNO("1");
         vehicleCheckDO.setTeam("2");
-        vehicleCheckDO.setCheckDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
-        vehicleCheckDO.setEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        vehicleCheckDO.setCheckDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        vehicleCheckDO.setEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         vehicleCheckDO.setCheckAddress("3");
         vehicleCheckDO.setMoney(4.0);
         vehicleCheckDO.setCheckNO("5");

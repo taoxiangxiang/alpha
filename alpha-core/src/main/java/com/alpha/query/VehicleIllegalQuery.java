@@ -35,4 +35,7 @@ public class VehicleIllegalQuery extends PageQuery {
      * 结束日期
      */
     private String endDate;
+
+    private String team;
+
 }

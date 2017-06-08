@@ -27,8 +27,8 @@ public class InsuranceManagerTest extends ITestBase {
         InsuranceDO insuranceDO = new InsuranceDO();
         insuranceDO.setVehicleNO("测试车牌");
         insuranceDO.setTeam("测试测队");
-        insuranceDO.setInsuranceStartDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
-        insuranceDO.setInsuranceEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        insuranceDO.setInsuranceStartDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        insuranceDO.setInsuranceEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         insuranceDO.setType("1");
         insuranceDO.setMoney(2.0);
         insuranceDO.setCompanyName("3");

@@ -99,6 +99,9 @@
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
+        </if>
         <if test="startDate != null">
             AND illegal_date &gt;= #{startDate}
         </if>
@@ -110,17 +113,22 @@
     </select>
 
     <select id="countSum" parameterType="com.alpha.query.VehicleIllegalQuery" resultType="int">
-        select count(1) from vehicle_illegal
-        where 1=1
-        <if test="vehicleNO != null and vehicleNO != '' ">
-            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
-        </if>
-        <if test="startDate != null">
-            AND illegal_date &gt;= #{startDate}
-        </if>
-        <if test="endDate != null">
-            AND illegal_date &lt;= #{endDate}
-        </if>
-        GROUP by vehicle_no
+        SELECT count(1)
+        from (
+            select vehicle_no,count(1) from vehicle_illegal
+            where 1=1
+            <if test="vehicleNO != null and vehicleNO != '' ">
+                AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+            </if>
+            <if test="team != null and team != '' ">
+                AND team like CONCAT('%',#{team},'%')
+            </if>
+            <if test="startDate != null">
+                AND illegal_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND illegal_date &lt;= #{endDate}
+            </if>
+            GROUP by vehicle_no)a
     </select>
 </mapper>

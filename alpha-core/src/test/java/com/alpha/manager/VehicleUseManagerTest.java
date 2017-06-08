@@ -25,7 +25,7 @@ public class VehicleUseManagerTest extends ITestBase {
     public void testInsert() throws Exception{
         String useJson = "[{\"driverId\":1,\"vehicleId\":2}]";
         List<VehicleUseDO> vehicleUseDOList = JSON.parseArray(useJson, VehicleUseDO.class);
-        System.out.println(vehicleUseManager.batchInsert(vehicleUseDOList));
+//        System.out.println(vehicleUseManager.batchInsert(vehicleUseDOList));
     }
 
     @Test

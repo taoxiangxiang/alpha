@@ -8,6 +8,8 @@ import java.io.*;
 import com.alpha.web.domain.Result;
 import org.apache.commons.fileupload.FileItem;
 
+import java.net.URLEncoder;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -33,7 +35,7 @@ public class Upload extends BaseAjaxModule {
             if (!res.equals("fail")) {
                 result.setData(res);
             } else {
-                result.setErrMsg(res);
+                result.setErrMsg("系统异常，请重试");
             }
         } catch (Exception e) {
             logger.error("Upload execute catch exception, fileName=" + fileItem.getName(), e);
@@ -86,16 +88,14 @@ public class Upload extends BaseAjaxModule {
             //关闭输出流
             out.close();
             return saveFilename;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "fail";
     }
 
-    private String makeFileName(String filename){  //2.jpg
+    private String makeFileName(String filename) throws UnsupportedEncodingException, NoSuchAlgorithmException {  //2.jpg
         //为防止文件覆盖的现象发生，要为上传文件产生一个唯一的文件名
-        return CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION) + "_" + filename;
+        return CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION) + "_" + encoderByMd5(filename);
     }
 }

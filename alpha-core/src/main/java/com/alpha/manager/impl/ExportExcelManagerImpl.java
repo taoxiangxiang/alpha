@@ -2,6 +2,8 @@ package com.alpha.manager.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VehicleUseDO;
 import com.alpha.manager.ExportExcelManager;
 import org.apache.poi.xssf.usermodel.*;
 import org.slf4j.Logger;
@@ -59,10 +61,14 @@ public class ExportExcelManagerImpl implements ExportExcelManager {
 
     private Object getFieldValueByName(String filedName, Object o) {
         try {
-            Class clazz = o.getClass();
-            PropertyDescriptor pd = new PropertyDescriptor(filedName, clazz);
-            Method method = pd.getReadMethod();
-            return method.invoke(o);
+            String[] filedNameArray = filedName.split("\\.");
+            for (String innerFieldName : filedNameArray) {
+                Class clazz = o.getClass();
+                PropertyDescriptor pd = new PropertyDescriptor(innerFieldName, clazz);
+                Method method = pd.getReadMethod();
+                o = method.invoke(o);
+            }
+            return o;
         } catch (Exception e) {
             logger.error("ExportExcelManagerImpl catch exception, no such getter method，filedName＝" + filedName + ",o=" + JSON.toJSONString(o), e);
             return null;

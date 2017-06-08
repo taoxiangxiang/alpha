@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.dao.MaintainDao;
 import com.alpha.domain.MaintainDO;
+import com.alpha.domain.MaintainSumDO;
 import com.alpha.query.MaintainQuery;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -70,6 +71,26 @@ public class MaintainDaoImpl implements MaintainDao {
         } catch (Exception e) {
             logger.error("MaintainDao update catch exception, maintainDO=" + JSON.toJSONString(maintainDO), e);
             return false;
+        }
+    }
+
+    @Override
+    public List<MaintainSumDO> queryGroupByVehicle(MaintainQuery maintainQuery) {
+        try {
+            return sqlSession.selectList("maintain.selectSumByPage", maintainQuery);
+        } catch (Exception e) {
+            logger.error("MaintainDao queryGroupByVehicle catch exception, departmentQuery=" + JSON.toJSONString(maintainQuery), e);
+            return null;
+        }
+    }
+
+    @Override
+    public int countGroupByVehicle(MaintainQuery maintainQuery) {
+        try {
+            return (Integer)sqlSession.selectOne("maintain.countSum", maintainQuery);
+        } catch (Exception e) {
+            logger.error("MaintainDao countGroupByVehicle catch exception, departmentQuery=" + JSON.toJSONString(maintainQuery), e);
+            return 0;
         }
     }
 }

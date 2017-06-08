@@ -21,6 +21,9 @@ public class ParamUtil {
     private static final int ID_LENGTH = 17;
 
     private static boolean vIDNumByCode(String idNum) {
+        if (idNum.length() != 18) {
+            return false;
+        }
         // 系数列表
         int[] ratioArr = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
         // 校验码列表

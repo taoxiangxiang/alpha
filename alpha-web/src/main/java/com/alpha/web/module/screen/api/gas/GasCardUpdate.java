@@ -2,7 +2,9 @@ package com.alpha.web.module.screen.api.gas;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.domain.GasCardDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.GasCardManager;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
@@ -24,6 +26,27 @@ public class GasCardUpdate extends BaseAjaxModule {
                         Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!curAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
+            if (StringUtil.isBlank(gasCardNO)) {
+                print(new Result<String>("请填写油卡卡号"));
+                return;
+            }
+            if (StringUtil.isBlank(gasCardType)) {
+                print(new Result<String>("请填写油卡类型"));
+                return;
+            }
+            if (amount == null) {
+                print(new Result<String>("请填写余额"));
+                return;
+            }
             GasCardDO gasCardDO = new GasCardDO();
             gasCardDO.setId(id);
             gasCardDO.setGasCardNO(gasCardNO);

@@ -1,8 +1,10 @@
 package com.alpha.manager;
 
 import com.alpha.domain.LeaveDO;
+import com.alpha.domain.LeaveSumDO;
 import com.alpha.query.LeaveQuery;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,4 +19,6 @@ public interface LeaveManager {
     int count(LeaveQuery leaveQuery);
 
     boolean update(LeaveDO leaveDO);
+
+    List<LeaveSumDO> getSumList(List<LeaveDO> leaveDOList, Date start, Date end);
 }

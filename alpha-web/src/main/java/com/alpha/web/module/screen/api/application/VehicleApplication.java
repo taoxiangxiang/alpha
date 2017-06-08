@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleApplicationDO;
 import com.alpha.domain.VerifyRecordDO;
 import com.alpha.manager.VehicleApplicationManager;
@@ -34,7 +35,20 @@ public class VehicleApplication extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请先登录系统"));
+                return;
+            }
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
+            /*权限判断*/
+            if (systemAccountDO.isDriver()) {
+                print(new Result<String>("您暂无此项功能权限"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                vehicleApplicationQuery.setApplicantId(systemAccountDO.getId());
+            }
             if (id == null) {
                 vehicleApplicationQuery.setPage(page);
                 vehicleApplicationQuery.setPageSize(pageSize);
@@ -42,9 +56,13 @@ public class VehicleApplication extends BaseAjaxModule {
                 vehicleApplicationQuery.setEndDate(endDate == null ? null : new Date(endDate));
                 if (status != null) {
                     List<String> statusList = new ArrayList<String>();
-                    statusList.add(status);
+                    String[] splitStatusArray = status.split(",");
+                    for (String splitStatus: splitStatusArray) {
+                        statusList.add(splitStatus);
+                    }
                     vehicleApplicationQuery.setStatusList(statusList);
                 }
+
                 List<VehicleApplicationDO> list = vehicleApplicationManager.query(vehicleApplicationQuery);
                 addVerifyRecord(list);
                 int number = vehicleApplicationManager.count(vehicleApplicationQuery);

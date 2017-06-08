@@ -15,6 +15,8 @@ public interface VehicleApplicationManager {
 
     List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery);
 
+    List<Integer> queryByApplicantId(int applicantId);
+
     int count(VehicleApplicationQuery vehicleApplicationQuery);
 
     boolean update(VehicleApplicationDO vehicleApplicationDO);

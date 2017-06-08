@@ -1,8 +1,11 @@
 package com.alpha.domain;
 
+import lombok.Data;
+
 /**
  * Created by taoxiang on 2017/5/6.
  */
+@Data
 public class VehicleApplicationSumDO {
 
     /**

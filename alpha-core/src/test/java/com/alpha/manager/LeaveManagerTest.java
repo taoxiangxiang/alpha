@@ -29,8 +29,8 @@ public class LeaveManagerTest extends ITestBase {
         leaveDO.setDriverName("2");
         leaveDO.setMobilePhone("3");
 //            leaveDO.setTeam(driverDO);
-        leaveDO.setStartDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
-        leaveDO.setEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        leaveDO.setStartDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        leaveDO.setEndDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         leaveDO.setReason("4");
         leaveDO.setRemark("5");
         leaveDO.setFile("6");

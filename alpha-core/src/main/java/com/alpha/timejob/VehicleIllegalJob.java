@@ -3,6 +3,7 @@ package com.alpha.timejob;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.YunUtil;
 import com.alpha.domain.VehicleDO;
 import com.alpha.domain.VehicleIllegalDO;
@@ -113,7 +114,7 @@ public class VehicleIllegalJob implements InitializingBean {
             VehicleIllegalDO vehicleIllegalDO = new VehicleIllegalDO();
             vehicleIllegalDO.setVehicleNO(vehicleDO.getVehicleNO());
             vehicleIllegalDO.setTeam(vehicleDO.getTeam());
-            vehicleIllegalDO.setIllegalDate(time);
+            vehicleIllegalDO.setIllegalDate(CalendarUtil.toDate(time, CalendarUtil.TIME_PATTERN));
             vehicleIllegalDO.setReason(content);
             vehicleIllegalDO.setMoney(Double.valueOf(price));
             vehicleIllegalDO.setPoint(Integer.valueOf(score));

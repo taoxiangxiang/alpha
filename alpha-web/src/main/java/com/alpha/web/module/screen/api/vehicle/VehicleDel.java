@@ -3,6 +3,7 @@ package com.alpha.web.module.screen.api.vehicle;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.VehicleManager;
 import com.alpha.web.common.BaseAjaxModule;
@@ -21,6 +22,15 @@ public class VehicleDel extends BaseAjaxModule {
     public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             VehicleDO vehicleDO = new VehicleDO();
             vehicleDO.setId(id);
             vehicleDO.setStatus(SystemConstant.VEHICLE_DELETE);

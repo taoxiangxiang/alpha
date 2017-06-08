@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.InsuranceDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.InsuranceManager;
 import com.alpha.query.InsuranceQuery;
 import com.alpha.web.common.BaseAjaxModule;
@@ -29,6 +30,15 @@ public class Insurance extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             InsuranceQuery insuranceQuery = new InsuranceQuery();
             if (id == null) {
                 PageResult<List<InsuranceDO>> result = new PageResult<List<InsuranceDO>>();

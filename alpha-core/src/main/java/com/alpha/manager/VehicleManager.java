@@ -16,6 +16,10 @@ public interface VehicleManager {
 
     List<VehicleDO> query(VehicleQuery vehicleQuery);
 
+    VehicleDO queryById(int id);
+
+    VehicleDO queryByVehicleNO(String vehicleNO);
+
     int count(VehicleQuery vehicleQuery);
 
     boolean update(VehicleDO vehicleDO);

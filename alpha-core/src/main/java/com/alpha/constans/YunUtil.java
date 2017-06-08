@@ -6,6 +6,7 @@ import com.alpha.domain.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -63,7 +64,7 @@ public class YunUtil {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
         paramStringMap.put("maintainId", maintainDO.getApplicationNO());
         paramStringMap.put("maintain_address", maintainDO.getMaintainAddress());
-        paramStringMap.put("number", maintainDO.getMaintainAddress());
+        paramStringMap.put("number", maintainDO.getMaintainPhone());
         return sendMsg(maintainDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_64585006");
     }
 
@@ -146,5 +147,13 @@ public class YunUtil {
     private static int randomInt(int from, int to) {
         Random r = new Random();
         return from + r.nextInt(to - from);
+    }
+
+    public static void main(String args[]) {
+        Date a = new Date();
+        Date b = a;
+        b = CalendarUtil.addDate(b,1);
+        System.out.println(CalendarUtil.toString(a, CalendarUtil.TIME_PATTERN));
+        System.out.println(CalendarUtil.toString(b, CalendarUtil.TIME_PATTERN));
     }
 }

@@ -27,7 +27,7 @@ public class VehicleGasManagerTest extends ITestBase {
         VehicleGasDO vehicleGasDO = new VehicleGasDO();
         vehicleGasDO.setVehicleNO("1");
         vehicleGasDO.setTeam("2");
-        vehicleGasDO.setGasDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        vehicleGasDO.setGasDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         vehicleGasDO.setGasCardNO("3");
         vehicleGasDO.setGasAddress("4");
         vehicleGasDO.setPrice(5.0);

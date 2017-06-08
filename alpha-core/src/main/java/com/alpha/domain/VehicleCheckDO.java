@@ -31,7 +31,7 @@ public class VehicleCheckDO implements Serializable {
     /**
      * 年检日期
      */
-    private String checkDate;
+    private Date checkDate;
 
     /**
      * 年检号
@@ -51,7 +51,7 @@ public class VehicleCheckDO implements Serializable {
     /**
      * 到期时间
      */
-    private String endDate;
+    private Date endDate;
 
     /**
      * 经手人

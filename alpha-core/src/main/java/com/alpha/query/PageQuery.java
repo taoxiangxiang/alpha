@@ -20,7 +20,7 @@ public class PageQuery implements Serializable {
     /**
      * 每页数据大小
      */
-    private int pageSize = 10;
+    private int pageSize = 10000;
 
     /**
      * 数据起始点

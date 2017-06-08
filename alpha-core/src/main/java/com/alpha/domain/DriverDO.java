@@ -24,6 +24,11 @@ public class DriverDO implements Serializable {
     private String name;
 
     /**
+     * 车队
+     */
+    private String team;
+
+    /**
      * 性别
      */
     private String sex;
@@ -36,7 +41,7 @@ public class DriverDO implements Serializable {
     /**
      * 生日
      */
-    private String birth;
+    private Date birth;
 
     /**
      * 民族
@@ -81,12 +86,12 @@ public class DriverDO implements Serializable {
     /**
      * 驾照开始日期
      */
-    private String licenseStart;
+    private Date licenseStart;
 
     /**
      * 驾照结束日期
      */
-    private String licenseEnd;
+    private Date licenseEnd;
 
     /**
      * 发证机关
@@ -112,6 +117,11 @@ public class DriverDO implements Serializable {
      * 人员状态
      */
     private String status;
+
+    /**
+     * 申请单Id：维保单或者出车单或者病假单
+     */
+    private Integer applicationId;
 
     /**
      * 其他属性

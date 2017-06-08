@@ -105,18 +105,36 @@
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
         </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
+        </if>
+        <if test="startDate != null">
+            AND gas_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND gas_date &lt;= #{endDate}
+        </if>
         group by vehicle_no
         limit #{start},#{pageSize}
     </select>
 
     <select id="countSum" parameterType="com.alpha.query.VehicleGasQuery" resultType="int">
-        select count(1)
-        from vehicle_gas
-        where 1=1
-        <if test="vehicleNO != null and vehicleNO != '' ">
-            AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
-        </if>
-        group by vehicle_no
-        limit #{start},#{pageSize}
+        select count(1) from (
+            select vehicle_no,count(1)
+            from vehicle_gas
+            where 1=1
+            <if test="vehicleNO != null and vehicleNO != '' ">
+                AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
+            </if>
+            <if test="team != null and team != '' ">
+                AND team like CONCAT('%',#{team},'%')
+            </if>
+            <if test="startDate != null">
+                AND gas_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND gas_date &lt;= #{endDate}
+            </if>
+            group by vehicle_no) a
     </select>
 </mapper>

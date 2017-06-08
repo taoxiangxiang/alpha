@@ -22,8 +22,9 @@ public class Result<T> implements Serializable {
 
     }
 
-    public Result(T data) {
-        this.data = data;
+    public Result(String errMsg) {
+        this.errMsg = errMsg;
+        this.success = false;
     }
 
     public T getData() {

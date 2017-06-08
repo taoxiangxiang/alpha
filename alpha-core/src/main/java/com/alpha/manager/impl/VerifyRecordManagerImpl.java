@@ -114,7 +114,7 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
             }
             return res;
         }
-        return "车辆申请处于未知状态中";
+        return "您没有当前状态的审批权限";
     }
 
     private String verifyMaintainApplication(String authType, VerifyRecordDO verifyRecordDO) {
@@ -148,6 +148,7 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
             if ("true".equals(res) && SystemConstant.MAINTAIN_VERIFY_REJECT.equals(maintainDO.getStatus())) {
                 YunUtil.sendMaintainVerifyReject(maintainDO);
             }
+            return res;
         }
         /**
          * 第三次审核
@@ -159,8 +160,9 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
             if ("true".equals(res) && SystemConstant.MAINTAIN_VERIFY_REJECT.equals(maintainDO.getStatus())) {
                 YunUtil.sendMaintainVerifyReject(maintainDO);
             }
+            return res;
         }
-        return "维保申请处于未知状态中";
+        return "您没有当前状态的审批权限";
     }
 
     private String verifyLeaveApplication(String authType, VerifyRecordDO verifyRecordDO) {
@@ -211,7 +213,7 @@ public class VerifyRecordManagerImpl implements VerifyRecordManager {
             }
             return res;
         }
-        return "请假申请处于未知状态中";
+        return "您没有当前状态的审批权限";
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DepartmentDO;
 import com.alpha.domain.PartnerDepartmentDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.DepartmentManager;
 import com.alpha.manager.PartnerDepartmentManager;
 import com.alpha.web.common.BaseAjaxModule;
@@ -23,6 +24,15 @@ public class PartnerDepartmentDel extends BaseAjaxModule {
     public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!curAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             PartnerDepartmentDO partnerDepartmentDO = new PartnerDepartmentDO();
             partnerDepartmentDO.setId(id);
             partnerDepartmentDO.setStatus(SystemConstant.DEPARTMENT_DELETE);

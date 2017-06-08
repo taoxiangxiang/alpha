@@ -1,5 +1,6 @@
 package com.alpha.query;
 
+import java.util.List;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,4 +27,9 @@ public class SystemAccountQuery extends PageQuery {
      * 姓名 模糊查询
      */
     private String likeName;
+
+    /**
+     * 人员类型
+     */
+    private List<String> typeList;
 }

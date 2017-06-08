@@ -30,12 +30,12 @@ public class InsuranceDO implements Serializable {
     /**
      * 投保日期
      */
-    private String insuranceStartDate;
+    private Date insuranceStartDate;
 
     /**
      * 保险到期
      */
-    private String insuranceEndDate;
+    private Date insuranceEndDate;
 
     /**
      * 保险种类

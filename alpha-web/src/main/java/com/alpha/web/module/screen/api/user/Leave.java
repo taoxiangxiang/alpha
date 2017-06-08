@@ -5,6 +5,7 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.LeaveDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VerifyRecordDO;
 import com.alpha.manager.LeaveManager;
 import com.alpha.manager.VerifyRecordManager;
@@ -34,7 +35,19 @@ public class Leave extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (systemAccountDO.hasNOAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             LeaveQuery leaveQuery = new LeaveQuery();
+            if (systemAccountDO.isDriver()) {
+                leaveQuery.setDriverId(systemAccountDO.getDriverId());
+            }
             if (id == null) {
                 PageResult<List<LeaveDO>> result = new PageResult<List<LeaveDO>>();
                 leaveQuery.setPage(page);

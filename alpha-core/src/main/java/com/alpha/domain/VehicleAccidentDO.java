@@ -28,7 +28,7 @@ public class VehicleAccidentDO {
     /**
      * 事故日期
      */
-    private String accidentDate;
+    private Date accidentDate;
 
     /**
      * 司机Id

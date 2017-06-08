@@ -31,6 +31,22 @@ public class VehicleManagerImpl implements VehicleManager {
     }
 
     @Override
+    public VehicleDO queryById(int id) {
+        VehicleQuery vehicleQuery = new VehicleQuery();
+        vehicleQuery.setId(id);
+        List<VehicleDO> vehicleDOList = vehicleDao.query(vehicleQuery);
+        return (vehicleDOList == null || vehicleDOList.size() == 0) ? null : vehicleDOList.get(0);
+    }
+
+    @Override
+    public VehicleDO queryByVehicleNO(String vehicleNO) {
+        VehicleQuery vehicleQuery = new VehicleQuery();
+        vehicleQuery.setVehicleNO(vehicleNO);
+        List<VehicleDO> vehicleDOList = vehicleDao.query(vehicleQuery);
+        return (vehicleDOList == null || vehicleDOList.size() == 0) ? null : vehicleDOList.get(0);
+    }
+
+    @Override
     public int count(VehicleQuery vehicleQuery) {
         return vehicleDao.count(vehicleQuery);
     }

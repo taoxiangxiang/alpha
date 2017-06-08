@@ -61,17 +61,17 @@ public class VehicleDO implements Serializable {
     /**
      * 下一次年检日期
      */
-    private String checkDate;
+    private Date checkDate;
 
     /**
      * 保险到期日期
      */
-    private String insuranceDate;
+    private Date insuranceDate;
 
     /**
      * 下一次保养日期
      */
-    private String maintainDate;
+    private Date maintainDate;
 
     /**
      * 下一次保养里程
@@ -122,6 +122,11 @@ public class VehicleDO implements Serializable {
      * 车辆状态
      */
     private String status;
+
+    /**
+     * 申请单Id：维保单或者出车单
+     */
+    private Integer applicationId;
 
     /**
      * 其他属性

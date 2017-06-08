@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverBindDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.DriverBindManager;
 import com.alpha.query.DriverBindQuery;
 import com.alpha.web.common.BaseAjaxModule;
@@ -24,16 +25,23 @@ public class DriverBind extends BaseAjaxModule {
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("vehicleNO") String vehicleNO, @Param("driverName") String driverName,
+                        @Param("status") String status,
                         @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         Context context) {
         PageResult<List<DriverBindDO>> result = new PageResult<List<DriverBindDO>>();
         try {
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
             DriverBindQuery driverBindQuery = new DriverBindQuery();
             driverBindQuery.setPage(page);
             driverBindQuery.setPageSize(pageSize);
             driverBindQuery.setVehicleNO(vehicleNO);
+            driverBindQuery.setStatus(status);
             driverBindQuery.setDriverName(driverName);
             driverBindQuery.setStartDate(startDate == null ? null : new Date(startDate));
             driverBindQuery.setEndDate(endDate == null ? null : new Date(endDate));

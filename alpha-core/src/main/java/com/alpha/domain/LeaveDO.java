@@ -48,12 +48,12 @@ public class LeaveDO implements Serializable {
     /**
      * 开始时间
      */
-    private String startDate;
+    private Date startDate;
 
     /**
      * 结束时间
      */
-    private String endDate;
+    private Date endDate;
 
     /**
      * 原因

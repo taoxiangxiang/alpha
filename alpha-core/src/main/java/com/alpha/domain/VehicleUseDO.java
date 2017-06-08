@@ -44,6 +44,11 @@ public class VehicleUseDO implements Serializable {
     private String driverName;
 
     /**
+     * 车队
+     */
+    private String team;
+
+    /**
      * 司机电话
      */
     private String driverPhone;
@@ -66,17 +71,22 @@ public class VehicleUseDO implements Serializable {
     /**
      * 实际开始时间
      */
-    private String actualStartDate;
+    private Date actualStartDate;
 
     /**
      * 实际结束时间
      */
-    private String actualEndDate;
+    private Date actualEndDate;
 
     /**
      * 实际回车时间
      */
-    private String actualBackDate;
+    private Date actualBackDate;
+
+    /**
+     * 使用时间
+     */
+    private Integer useTime;
 
     /**
      * 出车里程
@@ -157,6 +167,11 @@ public class VehicleUseDO implements Serializable {
      * 申请单
      */
     private VehicleApplicationDO vehicleApplicationDO;
+
+    /**
+     * 司机
+     */
+    private DriverDO driverDO;
 
     /**
      * 是否已经登记

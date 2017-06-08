@@ -7,10 +7,12 @@
         <result property="sex" column="sex" />
         <result property="citizenId" column="citizen_id" />
         <result property="birth" column="birth" />
+        <result property="team" column="team" />
         <result property="ethnicGroup" column="ethnic_group" />
         <result property="nativePlace" column="native_place" />
         <result property="education" column="education" />
         <result property="mobilePhone" column="mobile_phone" />
+        <result property="applicationId" column="application_id" />
         <result property="mailbox" column="mailbox" />
         <result property="address" column="address" />
         <result property="drivingLicense" column="driving_license" />
@@ -28,10 +30,10 @@
     </resultMap>
 
     <insert id="insert" parameterType="DriverDO">
-        insert into driver (id,name,sex,citizen_id,birth,ethnic_group,native_place,education,mobile_phone,
+        insert into driver (id,application_id,team,name,sex,citizen_id,birth,ethnic_group,native_place,education,mobile_phone,
         mailbox,address,driving_license,license_class,license_start,license_end,offer_license,remark,
         person_url,license_url,status,attribute,gmt_create,gmt_modified)
-         VALUES (null,#{name},#{sex},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace},#{education},#{mobilePhone},
+         VALUES (null,#{applicationId},#{team},#{name},#{sex},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace},#{education},#{mobilePhone},
          #{mailbox},#{address},#{drivingLicense},#{licenseClass},#{licenseStart},
          #{licenseEnd},#{offerLicense},#{remark},#{personUrl},#{licenseUrl},#{status},#{attribute},now(),now())
     </insert>
@@ -48,8 +50,14 @@
                 #{item}
             </foreach>
         </if>
+        <if test="citizenId != null">
+            AND citizen_id=#{citizenId}
+        </if>
         <if test="name != null and name != '' ">
             AND name like CONCAT('%',#{name},'%')
+        </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
         </if>
         <if test="statusList != null">
             and status in
@@ -72,8 +80,14 @@
                 #{item}
             </foreach>
         </if>
+        <if test="citizenId != null">
+            AND citizen_id=#{citizenId}
+        </if>
         <if test="name != null and name != '' ">
             AND name like CONCAT('%',#{name},'%')
+        </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
         </if>
         <if test="statusList != null">
             and status in
@@ -96,6 +110,7 @@
         <if test="mobilePhone!=null">mobile_phone=#{mobilePhone},</if>
         <if test="mailbox!=null">mailbox=#{mailbox},</if>
         <if test="address!=null">address=#{address},</if>
+        <if test="applicationId!=null">application_id=#{applicationId},</if>
         <if test="drivingLicense!=null">driving_license=#{drivingLicense},</if>
         <if test="licenseClass!=null">license_class=#{licenseClass},</if>
         <if test="licenseStart!=null">license_start=#{licenseStart},</if>
@@ -105,6 +120,7 @@
         <if test="personUrl!=null">person_url=#{personUrl},</if>
         <if test="licenseUrl!=null">license_url=#{licenseUrl},</if>
         <if test="status!=null">status=#{status},</if>
+        <if test="team!=null">team=#{team},</if>
         gmt_modified = now()
         where id = #{id}
     </update>

@@ -3,6 +3,7 @@ package com.alpha.web.module.screen.api.vehicle;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.dao.TeamDao;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
 
@@ -19,6 +20,15 @@ public class TeamDel extends BaseAjaxModule {
     public void execute(@Param("id") int id, Context context) {
         Result<String> result = new Result<String>();
         try {
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             boolean res = teamDao.invalid(id);
             if (res) {
                 result.setData("操作成功");

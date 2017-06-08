@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DepartmentDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.DepartmentManager;
 import com.alpha.query.DepartmentQuery;
@@ -31,6 +32,11 @@ public class Department extends BaseAjaxModule {
             logger.info("1");
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
             DepartmentQuery departmentQuery = new DepartmentQuery();
             if (id == null) {
                 PageResult<List<DepartmentDO>> result = new PageResult<List<DepartmentDO>>();

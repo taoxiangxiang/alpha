@@ -8,6 +8,7 @@ import com.alpha.query.VehicleApplicationQuery;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,21 @@ public class VehicleApplicationManagerImpl implements VehicleApplicationManager 
     @Override
     public List<VehicleApplicationDO> query(VehicleApplicationQuery vehicleApplicationQuery) {
         return vehicleApplicationDao.query(vehicleApplicationQuery);
+    }
+
+    @Override
+    public List<Integer> queryByApplicantId(int applicantId) {
+        VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
+        vehicleApplicationQuery.setApplicantId(applicantId);
+        List<VehicleApplicationDO> vehicleApplicationDOList = vehicleApplicationDao.query(vehicleApplicationQuery);
+        List<Integer> applicationIdList = new ArrayList<Integer>();
+        if (vehicleApplicationDOList == null) {
+            return applicationIdList;
+        }
+        for (VehicleApplicationDO vehicleApplicationDO : vehicleApplicationDOList) {
+            applicationIdList.add(vehicleApplicationDO.getId());
+        }
+        return applicationIdList;
     }
 
     @Override

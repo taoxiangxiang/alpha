@@ -21,6 +21,7 @@ public class SystemConstant {
     public static final String VEHICLE_USING = "using";
     public static final String VEHICLE_OFF_LINE = "offLine";
     public static final String VEHICLE_DELETE = "delete";
+    public static final String VEHICLE_MAINTAIN = "maintain";
 
     /**
      * 司机基础信息
@@ -29,6 +30,7 @@ public class SystemConstant {
     public static final String DRIVER_USING = "using";
     public static final String DRIVER_OFF_LINE = "offLine";
     public static final String DRIVER_DELETE = "delete";
+    public static final String DRIVER_LEAVING = "leaving";
 
     /**
      * 司机--车辆信息
@@ -42,6 +44,10 @@ public class SystemConstant {
     public static final String ACCOUNT_ON_LINE = "onLine";
     public static final String ACCOUNT_OFF_LINE = "offLine";
     public static final String ACCOUNT_DELETE = "delete";
+
+    public static final String USER_TYPE_DRIVER = "driver";
+    public static final String USER_TYPE_HAS_AUTH = "hasAuth";
+    public static final String USER_TYPE_NO_AUTH = "noAuth";
 
     /**
      * 部门信息
@@ -89,6 +95,10 @@ public class SystemConstant {
     public static final String AUTH_TYPE_LEAVE_SECOND_VERIFY = "leaveSecondVerifyAuth";
     public static final String AUTH_TYPE_LEAVE_THIRD_VERIFY = "leaveThirdVerifyAuth";
 
+    public static final String AUTH_TYPE_VEHICLE_USE_SCHEDULE = "vehicleUseScheduleAuth";
+    public static final String AUTH_TYPE_MAINTAIN_SCHEDULE = "maintainScheduleAuth";
+    public static final String AUTH_TYPE_SEE_ALL = "seeAllAuth";
+
     /**
      * 审核结果
      */
@@ -102,6 +112,7 @@ public class SystemConstant {
     public static final String VEHICLE_OUT_OF_CITY_WAIT_FIRST_VERIFY = "outOfCityWaitFirstVerify";
     public static final String VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY = "outOfCityWaitSecondVerify";
     public static final String VEHICLE_VERIFY_PASS = "vehicleVerifyPass";
+    public static final String VEHICLE_ALREADY_SCHEDULE = "vehicleAlreadySchedule";
     public static final String VEHICLE_VERIFY_REJECT = "vehicleVerifyReject";
 
     /**
@@ -111,6 +122,8 @@ public class SystemConstant {
     public static final String MAINTAIN_WAIT_SECOND_VERIFY = "maintainWaitSecondVerify";
     public static final String MAINTAIN_WAIT_THIRD_VERIFY = "maintainWaitThirdVerify";
     public static final String MAINTAIN_VERIFY_PASS = "maintainVerifyPass";
+    public static final String MAINTAIN_ALREADY_SCHEDULE = "maintainAlreadySchedule";
+    public static final String MAINTAIN_ALREADY_PICK_UP = "maintainAlreadyPickUp";
     public static final String MAINTAIN_VERIFY_REJECT = "maintainVerifyReject";
 
     /**
@@ -125,7 +138,6 @@ public class SystemConstant {
     public static Map<String, String> applicationTypeMap = new HashMap<String, String>();
     public static Map<String, String> applicationReasonMap = new HashMap<String, String>();
     public static Map<String, String> endPlaceTypeMap = new HashMap<String, String>();
-    public static Map<String, String> applicationStatus = new HashMap<String, String>();
     public static Map<String, String> driverStatusMap = new HashMap<String, String>();
     public static Map<String, String> vehicleStatusMap = new HashMap<String, String>();
     public static Map<String, String> gasStatusMap = new HashMap<String, String>();
@@ -135,39 +147,30 @@ public class SystemConstant {
     public static Map<String, String> leaveStatusMap = new HashMap<String, String>();
     public static Map<String, String> vehicleApplicationStatusMap = new HashMap<String, String>();
     public static Map<String, String> maintainStatusMap = new HashMap<String, String>();
+    public static Map<String, String> verifyResultMap = new HashMap<String, String>();
 
     public static final String END_PLACE_IN_CITY = "市内";
+    private static final String END_PLACE_OUT_OF_CITY = "市内";
 
     static {
-//        applicationReasonMap.put("1", "抢险救灾以及突发事件的处置");
-//        applicationReasonMap.put("2", "送、取机票文件材料及数量较多的公务用品");
-//        applicationReasonMap.put("3", "参加市领导和市有关部门紧急召集的跨部门会议，参加重要接待活动，原则上只送不接，交通不便、特殊情况除外");
-//        applicationReasonMap.put("4", "干部职工工作期间因伤因病需要紧急送医");
-//        applicationReasonMap.put("5", "厅级离退休干部参加公务车活动和紧急就医");
-//        applicationReasonMap.put("6", "经批准的其他特殊情况用车");
-//        applicationReasonMap.put("7", "市级机关部门（单位）参加省里组织召开的重要会议和活动，原则上主要负责人可使用应急用车");
-//        applicationReasonMap.put("8", "由市机关部门（单位）领导班子成员牵头参加省里召开的会议，凭会议通知3人以上（不含驾驶员），可使用应急用车");
-//        applicationReasonMap.put("9", "上级部门领导来我市开展调研、检查、考核工作，可使用应急用车接待");
-//        applicationReasonMap.put("10", "易地交流干部在双休日和法定节假日往来工作地和生活地的交通保障，在省、市相关政策出台前，暂由所在的单位负责保障");
-//        applicationReasonMap.put("11", "单位统一组织的集体慰问活动，携带的物品较多的，可以使用应急用车");
-//        applicationReasonMap.put("12", "单位集体组织到乡镇检查、考核公共交通不便的，可以使用应急用车");
 
+        endPlaceTypeMap.put(END_PLACE_IN_CITY, "市内");
+        endPlaceTypeMap.put(END_PLACE_OUT_OF_CITY, "市外");
 
-        applicationStatus.put(VEHICLE_IN_CITY_WAIT_VERIFY, "市内出车待审核");
-        applicationStatus.put(VEHICLE_OUT_OF_CITY_WAIT_FIRST_VERIFY, "市外出车待初审");
-        applicationStatus.put(VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY, "市外出车待复审");
-        applicationStatus.put("passed", "审核通过");
-
+        verifyResultMap.put(VERIFY_PASS, "同意");
+        verifyResultMap.put(VERIFY_REJECT, "不同意");
 
         driverStatusMap.put("canUse", "可调派");
-        driverStatusMap.put("using","出车中");
-        driverStatusMap.put("offLine","已停用");
+        driverStatusMap.put("using", "出车中");
+        driverStatusMap.put("offLine", "已停用");
         driverStatusMap.put("delete", "已删除");
+        driverStatusMap.put("leaving", "休假中");
 
         vehicleStatusMap.put("canUse", "可调派");
-        vehicleStatusMap.put("using","出车中");
-        vehicleStatusMap.put("offLine","已停用");
+        vehicleStatusMap.put("using", "出车中");
+        vehicleStatusMap.put("offLine", "已停用");
         vehicleStatusMap.put("delete", "已删除");
+        vehicleStatusMap.put("maintain", "维保中");
 
         gasStatusMap.put("onLine", "有效");
         gasStatusMap.put("delete", "已删除");
@@ -187,24 +190,30 @@ public class SystemConstant {
         authTypeMap.put("leaveFirstVerifyAuth", "病事假一审");
         authTypeMap.put("leaveSecondVerifyAuth", "病事假二审");
         authTypeMap.put("leaveThirdVerifyAuth", "病事假三审");
+        authTypeMap.put(AUTH_TYPE_VEHICLE_USE_SCHEDULE, "车辆调度");
+        authTypeMap.put(AUTH_TYPE_MAINTAIN_SCHEDULE, "维保调派");
+        authTypeMap.put(AUTH_TYPE_SEE_ALL, "查看所有功能");
 
-        leaveStatusMap.put("leaveWaitFirstVerify","待一审");
-        leaveStatusMap.put("leaveWaitSecondVerify","待二审");
-        leaveStatusMap.put("leaveWaitThirdVerify","待三审");
-        leaveStatusMap.put("leaveVerifyPass","审批通过");
-        leaveStatusMap.put("leaveVerifyReject","审批拒绝");
+        leaveStatusMap.put("leaveWaitFirstVerify", "待一审");
+        leaveStatusMap.put("leaveWaitSecondVerify", "待二审");
+        leaveStatusMap.put("leaveWaitThirdVerify", "待三审");
+        leaveStatusMap.put("leaveVerifyPass", "审批通过");
+        leaveStatusMap.put("leaveVerifyReject", "审批拒绝");
 
-        vehicleApplicationStatusMap.put("inCityWaitVerify","市内待审核");
-        vehicleApplicationStatusMap.put("outOfCityWaitFirstVerify","市外待一审");
-        vehicleApplicationStatusMap.put("outOfCityWaitSecondVerify","市外待二审");
-        vehicleApplicationStatusMap.put("vehicleVerifyPass","审批通过");
-        vehicleApplicationStatusMap.put("vehicleVerifyReject","审批拒绝");
+        vehicleApplicationStatusMap.put(VEHICLE_IN_CITY_WAIT_VERIFY, "市内待审核");
+        vehicleApplicationStatusMap.put(VEHICLE_OUT_OF_CITY_WAIT_FIRST_VERIFY, "市外待一审");
+        vehicleApplicationStatusMap.put(VEHICLE_OUT_OF_CITY_WAIT_SECOND_VERIFY, "市外待二审");
+        vehicleApplicationStatusMap.put(VEHICLE_VERIFY_PASS, "审批通过");
+        vehicleApplicationStatusMap.put(VEHICLE_VERIFY_REJECT, "审批拒绝");
+        vehicleApplicationStatusMap.put(VEHICLE_ALREADY_SCHEDULE, "已调派");
 
-        maintainStatusMap.put("maintainWaitFirstVerify","维保待一审");
-        maintainStatusMap.put("maintainWaitSecondVerify","维保待二审");
-        maintainStatusMap.put("maintainWaitThirdVerify","维保待三审");
-        maintainStatusMap.put("maintainVerifyPass","审批通过");
-        maintainStatusMap.put("maintainVerifyReject","审批拒绝");
+        maintainStatusMap.put(MAINTAIN_WAIT_FIRST_VERIFY, "维保待一审");
+        maintainStatusMap.put(MAINTAIN_WAIT_SECOND_VERIFY, "维保待二审");
+        maintainStatusMap.put(MAINTAIN_WAIT_THIRD_VERIFY, "维保待三审");
+        maintainStatusMap.put(MAINTAIN_VERIFY_PASS, "审批通过");
+        maintainStatusMap.put(MAINTAIN_VERIFY_REJECT, "审批拒绝");
+        maintainStatusMap.put(MAINTAIN_ALREADY_SCHEDULE, "已派出");
+        maintainStatusMap.put(MAINTAIN_ALREADY_PICK_UP, "已取车");
     }
 
 }

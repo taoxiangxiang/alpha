@@ -3,6 +3,7 @@ package com.alpha.web.module.screen.api.vehicle;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleGasDO;
 import com.alpha.domain.VehicleGasSumDO;
 import com.alpha.domain.VehicleUseSumDO;
@@ -27,15 +28,28 @@ public class VehicleGasStatistics extends BaseAjaxModule {
     private VehicleGasManager vehicleGasManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("vehicleNO") String vehicleNO, Context context) {
+                        @Param("startDate") Long startDate, @Param("endDate") Long endDate,
+                        @Param("vehicleNO") String vehicleNO, @Param("team") String team) {
         PageResult<List<VehicleGasSumDO>> result = new PageResult<List<VehicleGasSumDO>>();
         try {
+            SystemAccountDO curAccountDO = this.getAccount();
+            if (curAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!curAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
             VehicleGasQuery vehicleGasQuery = new VehicleGasQuery();
             vehicleGasQuery.setPage(page);
             vehicleGasQuery.setPageSize(pageSize);
+            vehicleGasQuery.setStartDate(startDate == null ? null : CalendarUtil.formatDate(new Date(startDate), CalendarUtil.TIME_PATTERN));
+            vehicleGasQuery.setEndDate(endDate == null ? null : CalendarUtil.formatDate(new Date(endDate), CalendarUtil.TIME_PATTERN));
             vehicleGasQuery.setVehicleNO(vehicleNO);
+            vehicleGasQuery.setTeam(team);
             List<VehicleGasSumDO> list = vehicleGasManager.queryGroupByVehicle(vehicleGasQuery);
             int number = vehicleGasManager.countGroupByVehicle(vehicleGasQuery);
             result.setData(list);

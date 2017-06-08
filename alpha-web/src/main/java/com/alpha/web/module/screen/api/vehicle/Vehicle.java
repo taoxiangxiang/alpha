@@ -4,6 +4,7 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleDO;
 import com.alpha.manager.VehicleManager;
 import com.alpha.query.VehicleQuery;
@@ -30,6 +31,11 @@ public class Vehicle extends BaseAjaxModule {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 10;
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
             VehicleQuery vehicleQuery = new VehicleQuery();
             if (id == null) {
                 PageResult<List<VehicleDO>> result = new PageResult<List<VehicleDO>>();
@@ -46,6 +52,7 @@ public class Vehicle extends BaseAjaxModule {
                     statusList.add(SystemConstant.VEHICLE_CAN_USE);
                     statusList.add(SystemConstant.VEHICLE_OFF_LINE);
                     statusList.add(SystemConstant.VEHICLE_USING);
+                    statusList.add(SystemConstant.VEHICLE_MAINTAIN);
                     vehicleQuery.setStatusList(statusList);
                 }
                 List<VehicleDO> list = vehicleManager.query(vehicleQuery);

@@ -21,6 +21,16 @@ public class DriverBindQuery extends PageQuery {
     private String vehicleNO;
 
     /**
+     * 司机Id
+     */
+    private int driverId;
+
+    /**
+     * 司机Id
+     */
+    private int vehicleId;
+
+    /**
      * 姓名
      */
     private String driverName;
@@ -34,4 +44,9 @@ public class DriverBindQuery extends PageQuery {
      * 匹配结束日期
      */
     private Date endDate;
+
+    /**
+     * 状态
+     */
+    private String status;
 }

@@ -20,4 +20,16 @@ public class MaintainQuery extends PageQuery {
     private Integer id;
 
     private List<String> statusList;
+
+    /**
+     * 车牌号
+     */
+    private String vehicleNO;
+
+    /**
+     * 所属车队
+     */
+    private String team;
+
+    private Integer applicantId;
 }

@@ -2,9 +2,12 @@ package com.alpha.web.module.screen.api.vehicle;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleAccidentDO;
+import com.alpha.domain.VehicleGasDO;
 import com.alpha.manager.DriverManager;
 import com.alpha.manager.VehicleAccidentManager;
 import com.alpha.query.DriverQuery;
@@ -26,14 +29,27 @@ public class VehicleAccidentAdd extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("accidentDate") Long accidentDate, @Param("accidentDesc") String accidentDesc,
+                        @Param("accidentDate") Long accidentDate, @Param(name="accidentDesc", defaultValue="") String accidentDesc,
                         @Param("accidentAddress") String accidentAddress, @Param("driverId") Integer driverId,
-                        @Param("result") String result1, @Param("dealDesc") String dealDesc,
+                        @Param("result") String result1, @Param(name="dealDesc", defaultValue="") String dealDesc,
                         @Param("liablePerson") String liablePerson, @Param("maintainAddress") String maintainAddress,
                         @Param("liableDesc") String liableDesc, @Param("money") Double money,
-                        @Param("file") String file, @Param("remark") String remark, Context context) {
+                        @Param(name="file", defaultValue="") String file, @Param(name="remark", defaultValue="") String remark, Context context) {
         Result<String> result = new Result<String>();
         try {
+            file = (file == null ? "" : file);
+            remark = (remark == null ? "" : remark);
+            accidentDesc = (accidentDesc == null ? "" : accidentDesc);
+            dealDesc = (dealDesc == null ? "" : dealDesc);
+            SystemAccountDO systemAccountDO = this.getAccount();
+            if (systemAccountDO == null) {
+                print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
+                return;
+            }
             DriverDO driverDO = null;
             if (driverId != null && driverId > 0) {
                 DriverQuery driverQuery = new DriverQuery();
@@ -51,7 +67,7 @@ public class VehicleAccidentAdd extends BaseAjaxModule {
             VehicleAccidentDO vehicleAccidentDO = new VehicleAccidentDO();
             vehicleAccidentDO.setVehicleNO(vehicleNO);
             vehicleAccidentDO.setTeam(team);
-            vehicleAccidentDO.setAccidentDate(accidentDate == null ? null : CalendarUtil.formatDate(new Date(accidentDate), CalendarUtil.TIME_PATTERN));
+            vehicleAccidentDO.setAccidentDate(accidentDate == null ? null : new Date(accidentDate));
             vehicleAccidentDO.setAccidentDesc(accidentDesc);
             vehicleAccidentDO.setAccidentAddress(accidentAddress);
             vehicleAccidentDO.setDriverId(driverId);
@@ -64,6 +80,12 @@ public class VehicleAccidentAdd extends BaseAjaxModule {
             vehicleAccidentDO.setMaintainAddress(maintainAddress);
             vehicleAccidentDO.setFile(file);
             vehicleAccidentDO.setRemark(remark);
+            String checkParamRes = checkParam(vehicleAccidentDO);
+            if (!"ok".equals(checkParamRes)) {
+                result.setErrMsg(checkParamRes);
+                print(result);
+                return;
+            }
             boolean res = vehicleAccidentManager.insert(vehicleAccidentDO);
             if (res) {
                 result.setData("操作成功");
@@ -75,5 +97,39 @@ public class VehicleAccidentAdd extends BaseAjaxModule {
             result.setErrMsg("系统异常，请重新操作");
         }
         print(result);
+    }
+
+    private String checkParam(VehicleAccidentDO vehicleAccidentDO) {
+        if (StringUtil.isBlank(vehicleAccidentDO.getVehicleNO())) {
+            return "请填写车牌号";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getTeam())) {
+            return "请设置车牌对应的车队";
+        }
+        if (vehicleAccidentDO.getDriverId() == null) {
+            return "请填写司机";
+        }
+        if (vehicleAccidentDO.getAccidentDate() == null) {
+            return "请填写事故日期";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getAccidentAddress())) {
+            return "请填写事故地点";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getResult())) {
+            return "请填写处理结果";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getLiablePerson())) {
+            return "请填写定损人";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getMaintainAddress())) {
+            return "请填写维修地点";
+        }
+        if (StringUtil.isBlank(vehicleAccidentDO.getLiableDesc())) {
+            return "请填写责任认定";
+        }
+        if (vehicleAccidentDO.getMoney() == null) {
+            return "请填写保险赔偿金额";
+        }
+        return "ok";
     }
 }

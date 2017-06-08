@@ -24,7 +24,7 @@ public class VehicleAccidentManagerTest extends ITestBase {
         VehicleAccidentDO vehicleAccidentDO = new VehicleAccidentDO();
         vehicleAccidentDO.setVehicleNO("1");
         vehicleAccidentDO.setTeam("2");
-        vehicleAccidentDO.setAccidentDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
+//        vehicleAccidentDO.setAccidentDate(CalendarUtil.formatDate(new Date(), CalendarUtil.TIME_PATTERN));
         vehicleAccidentDO.setAccidentDesc("3");
         vehicleAccidentDO.setAccidentAddress("4");
         vehicleAccidentDO.setDriverId(5);

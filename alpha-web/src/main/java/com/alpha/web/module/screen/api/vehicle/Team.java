@@ -4,10 +4,12 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.SystemConstant;
 import com.alpha.dao.TeamDao;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.TeamDO;
 import com.alpha.query.TeamQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.PageResult;
+import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,6 +28,11 @@ public class Team extends BaseAjaxModule {
                         @Param("team") String team, Context context) {
         page = page > 0 ? page : 1;
         pageSize = pageSize > 0 ? pageSize : 10;
+        SystemAccountDO systemAccountDO = this.getAccount();
+        if (systemAccountDO == null) {
+            print(new Result<String>("请登录系统"));
+            return;
+        }
         PageResult<List<TeamDO>> result = new PageResult<List<TeamDO>>();
         try {
             TeamQuery teamQuery = new TeamQuery();
