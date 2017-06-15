@@ -37,7 +37,7 @@ public class ExportLeave extends BaseAjaxModule {
                         @Param("status") String status, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             LeaveQuery leaveQuery = new LeaveQuery();
             leaveQuery.setPage(page);
             leaveQuery.setPageSize(pageSize);

@@ -29,6 +29,16 @@ public class SystemAccountQuery extends PageQuery {
     private String likeName;
 
     /**
+     * 昵称
+     */
+    private String nick;
+
+    /**
+     * 身份证号码
+     */
+    private String citizenId;
+
+    /**
      * 人员类型
      */
     private List<String> typeList;

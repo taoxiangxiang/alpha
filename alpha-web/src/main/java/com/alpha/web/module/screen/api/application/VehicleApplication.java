@@ -34,7 +34,7 @@ public class VehicleApplication extends BaseAjaxModule {
                         @Param("status") String status, @Param("id") Integer id, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             SystemAccountDO systemAccountDO = getAccount();
             if (systemAccountDO == null) {
                 print(new Result<String>("请先登录系统"));

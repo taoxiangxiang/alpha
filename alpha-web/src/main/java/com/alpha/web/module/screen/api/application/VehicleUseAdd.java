@@ -5,15 +5,15 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alibaba.fastjson.JSON;
 import com.alpha.constans.SystemConstant;
 import com.alpha.domain.*;
-import com.alpha.manager.DriverManager;
-import com.alpha.manager.VehicleApplicationManager;
-import com.alpha.manager.VehicleManager;
-import com.alpha.manager.VehicleUseManager;
+import com.alpha.manager.*;
+import com.alpha.query.DriverBindQuery;
 import com.alpha.query.DriverQuery;
 import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.query.VehicleQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
+import com.alpha.web.module.screen.api.user.DriverBind;
+import org.apache.ecs.html.B;
 
 import java.util.*;
 
@@ -30,6 +30,8 @@ public class VehicleUseAdd extends BaseAjaxModule{
     private VehicleManager vehicleManager;
     @Resource
     private DriverManager driverManager;
+    @Resource
+    private DriverBindManager driverBindManager;
     @Resource
     private VehicleApplicationManager vehicleApplicationManager;
 
@@ -73,7 +75,47 @@ public class VehicleUseAdd extends BaseAjaxModule{
             }
             List<Integer> vehicleIdList = new ArrayList<Integer>();
             List<Integer> driverIdList = new ArrayList<Integer>();
+            List<DriverBindDO> driverBindDOList = driverBindManager.query(new DriverBindQuery());
+            Map<Integer, String> driverBindMap = new HashMap<Integer, String>();
+            Map<String, String> driverBindReverseMap = new HashMap<String, String>();
+            if (driverBindDOList != null) {
+                for (DriverBindDO driverBindDO : driverBindDOList) {
+                    driverBindMap.put(driverBindDO.getDriverId(), driverBindDO.getVehicleNO());
+                    driverBindReverseMap.put(driverBindDO.getVehicleNO(), driverBindDO.getDriverName());
+                }
+            }
+            Map<Integer, Boolean> driverIdSelectedMap = new HashMap<Integer, Boolean>();
+            Map<Integer, Boolean> vehicleIdSelectedMap = new HashMap<Integer, Boolean>();
             for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
+                if (vehicleUseDO.getVehicleId() == null || vehicleUseDO.getDriverId() == null ) {
+                    result.setErrMsg("请核对车辆调派信息,请选择对应司机和车辆");
+                    print(result);
+                    return;
+                }
+                if (driverIdSelectedMap.containsKey(vehicleUseDO.getDriverId())) {
+                    result.setErrMsg("请核对车辆调派信息,请勿重复调派司机：" + vehicleUseDO.getDriverName());
+                    print(result);
+                    return;
+                }
+                if (vehicleIdSelectedMap.containsKey(vehicleUseDO.getVehicleId())) {
+                    result.setErrMsg("请核对车辆调派信息,请勿重复调派车：" + vehicleUseDO.getVehicleNO());
+                    print(result);
+                    return;
+                }
+                if (driverBindMap.containsKey(vehicleUseDO.getDriverId())
+                        && !driverBindMap.get(vehicleUseDO.getDriverId()).equals(vehicleUseDO.getVehicleNO())) {
+                    result.setErrMsg("请核对车辆调派信息,司机：" + vehicleUseDO.getDriverName() + "已经绑定了车辆" + driverBindMap.get(vehicleUseDO.getDriverId()));
+                    print(result);
+                    return;
+                }
+                if (driverBindReverseMap.containsKey(vehicleUseDO.getVehicleNO())
+                        && !driverBindReverseMap.get(vehicleUseDO.getVehicleNO()).equals(vehicleUseDO.getDriverName())) {
+                    result.setErrMsg("请核对车辆调派信息,车辆：" + vehicleUseDO.getVehicleNO() + "已经绑定了司机" + driverBindReverseMap.get(vehicleUseDO.getVehicleNO()));
+                    print(result);
+                    return;
+                }
+                driverIdSelectedMap.put(vehicleUseDO.getDriverId(), true);
+                vehicleIdSelectedMap.put(vehicleUseDO.getVehicleId(), true);
                 vehicleIdList.add(vehicleUseDO.getVehicleId());
                 driverIdList.add(vehicleUseDO.getDriverId());
             }

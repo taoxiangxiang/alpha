@@ -26,6 +26,7 @@
         <if test="gasCardNO != null and gasCardNO != '' ">
             AND gas_card_no like CONCAT('%',#{gasCardNO},'%')
         </if>
+        order by id desc
         limit #{start},#{pageSize}
     </select>
 

@@ -36,7 +36,7 @@ public class ExportMaintainStatistics extends BaseAjaxModule {
                         @Param("vehicleNO") String vehicleNO, @Param("team") String team) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10000;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             MaintainQuery maintainQuery = new MaintainQuery();
             maintainQuery.setPage(page);
             maintainQuery.setPageSize(pageSize);

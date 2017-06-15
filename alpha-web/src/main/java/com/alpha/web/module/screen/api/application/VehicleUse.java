@@ -38,7 +38,7 @@ public class VehicleUse extends BaseAjaxModule {
         PageResult<List<VehicleUseDO>> result = new PageResult<List<VehicleUseDO>>();
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             SystemAccountDO systemAccountDO = getAccount();
             if (systemAccountDO == null) {
                 print(new Result<String>("请先登录系统"));
@@ -47,7 +47,8 @@ public class VehicleUse extends BaseAjaxModule {
             VehicleUseQuery vehicleUseQuery = new VehicleUseQuery();
             vehicleUseQuery.setPage(page);
             vehicleUseQuery.setPageSize(pageSize);
-            vehicleUseQuery.setApplicationId(Integer.valueOf(applicationId.substring(6)));
+            vehicleUseQuery.setApplicationId(applicationId == null ? null :
+                    (applicationId.startsWith("YC") ? Integer.valueOf(applicationId.substring(6)) : Integer.valueOf(applicationId)));
             /*权限判断*/
             if (systemAccountDO.isDriver()) {
                 vehicleUseQuery.setDriverId(systemAccountDO.getDriverId());

@@ -150,7 +150,7 @@ public class SystemConstant {
     public static Map<String, String> verifyResultMap = new HashMap<String, String>();
 
     public static final String END_PLACE_IN_CITY = "市内";
-    private static final String END_PLACE_OUT_OF_CITY = "市内";
+    private static final String END_PLACE_OUT_OF_CITY = "市外";
 
     static {
 

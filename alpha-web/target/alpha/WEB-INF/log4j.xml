@@ -4,7 +4,7 @@
 
     <!--<appender name="alphaAppender" class="org.apache.log4j.ConsoleAppender">-->
         <!--<param name="target" value="System.err" />-->
-        <!--&lt;!&ndash;<param name="file" value="C:/User/dministrator/Downloads/apache-tomcat-7.0.77-windows-x64/apache-tomcat-7.0.77/logs/alpha.log" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<param name="file" value="C:/User/administrator/Downloads/apache-tomcat-7.0.77-windows-x64/apache-tomcat-7.0.77/logs/alpha.log" />&ndash;&gt;-->
         <!--<param name="file" value="/Users/taoxiang/Desktop/aAction.log"/>-->
         <!--<param name="encoding" value="${loggingCharset}" />-->
         <!--<layout class="org.apache.log4j.PatternLayout">-->
@@ -18,7 +18,7 @@
     <!--</appender>-->
 
     <appender name="alphaAppender" class="org.apache.log4j.FileAppender">
-        <param name="file" value="/Users/taoxiang/Desktop/aAction.log"/>
+        <param name="file" value="C:/User/administrator/Downloads/apache-tomcat-7.0.77-windows-x64/apache-tomcat-7.0.77/logs/alpha.log"/>
         <param name="append" value="true"/>
         <param name="encoding" value="${loggingCharset}"/>
         <layout class="org.apache.log4j.PatternLayout">

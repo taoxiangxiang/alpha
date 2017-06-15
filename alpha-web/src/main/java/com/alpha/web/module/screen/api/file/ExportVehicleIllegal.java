@@ -32,7 +32,7 @@ public class ExportVehicleIllegal extends BaseAjaxModule {
                         @Param("vehicleNO") String vehicleNO, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleIllegalQuery vehicleIllegalQuery = new VehicleIllegalQuery();
             vehicleIllegalQuery.setPage(page);
             vehicleIllegalQuery.setPageSize(pageSize);

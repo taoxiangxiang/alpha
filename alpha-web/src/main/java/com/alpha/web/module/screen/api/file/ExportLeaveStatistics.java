@@ -36,7 +36,7 @@ public class ExportLeaveStatistics extends BaseAjaxModule {
                         @Param("startDate") Long startDate, @Param("endDate") Long endDate) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10000;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             LeaveQuery leaveQuery = new LeaveQuery();
             PageResult<List<LeaveSumDO>> result = new PageResult<List<LeaveSumDO>>();
             leaveQuery.setPage(page);

@@ -22,7 +22,7 @@ public interface VehicleUseManager {
 
     int count(VehicleUseQuery vehicleUseQuery);
 
-    boolean update(VehicleUseDO vehicleUseDO);
+    boolean update(VehicleUseDO vehicleUseDO) throws Exception;
 
     List<VehicleUseSumDO> queryGroupByDriver(VehicleUseQuery vehicleUseQuery);
 

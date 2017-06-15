@@ -3,6 +3,7 @@ package com.alpha.web.module.screen.api.file;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
+import com.alpha.constans.YunUtil;
 import com.alpha.web.common.BaseAjaxModule;
 import java.io.*;
 import com.alpha.web.domain.Result;
@@ -96,6 +97,7 @@ public class Upload extends BaseAjaxModule {
 
     private String makeFileName(String filename) throws UnsupportedEncodingException, NoSuchAlgorithmException {  //2.jpg
         //为防止文件覆盖的现象发生，要为上传文件产生一个唯一的文件名
-        return CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION) + "_" + encoderByMd5(filename);
+        String prefix = filename.substring(filename.lastIndexOf(".") + 1);
+        return CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION) + "_" + YunUtil.getRandNum(3) + "." + prefix;
     }
 }

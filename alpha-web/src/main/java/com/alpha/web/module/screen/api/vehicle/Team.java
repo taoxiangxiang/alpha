@@ -27,7 +27,7 @@ public class Team extends BaseAjaxModule {
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
                         @Param("team") String team, Context context) {
         page = page > 0 ? page : 1;
-        pageSize = pageSize > 0 ? pageSize : 10;
+        pageSize = pageSize > 0 ? pageSize : 1000;
         SystemAccountDO systemAccountDO = this.getAccount();
         if (systemAccountDO == null) {
             print(new Result<String>("请登录系统"));

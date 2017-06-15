@@ -36,7 +36,7 @@ public class ExportVehicleCheck extends BaseAjaxModule {
                         @Param("vehicleNO") String vehicleNO, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleCheckQuery vehicleCheckQuery = new VehicleCheckQuery();
             PageResult<List<VehicleCheckDO>> result = new PageResult<List<VehicleCheckDO>>();
             vehicleCheckQuery.setPage(page);

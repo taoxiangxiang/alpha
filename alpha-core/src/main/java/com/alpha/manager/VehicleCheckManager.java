@@ -10,11 +10,11 @@ import java.util.List;
  */
 public interface VehicleCheckManager {
 
-    boolean insert(VehicleCheckDO vehicleCheckDO);
+    boolean insert(VehicleCheckDO vehicleCheckDO) throws Exception ;
 
     List<VehicleCheckDO> query(VehicleCheckQuery vehicleCheckQuery);
 
     int count(VehicleCheckQuery vehicleCheckQuery);
 
-    boolean update(VehicleCheckDO vehicleCheckDO);
+    boolean update(VehicleCheckDO vehicleCheckDO) throws Exception ;
 }

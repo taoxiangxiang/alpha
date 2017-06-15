@@ -31,7 +31,7 @@ public class ExportMaintain extends BaseAjaxModule {
                         @Param("status") String status, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             MaintainQuery maintainQuery = new MaintainQuery();
             maintainQuery.setPage(page);
             maintainQuery.setPageSize(pageSize);

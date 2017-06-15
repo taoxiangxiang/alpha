@@ -93,6 +93,10 @@ public class DriverUpdate extends BaseAjaxModule {
         if (StringUtil.isBlank(driverDO.getCitizenId()) || !ParamUtil.validCitizenId(driverDO.getCitizenId())) {
             return "请填写正确的身份证号";
         }
+        DriverDO driverDO1 = driverManager.queryByCitizenId(driverDO.getCitizenId());
+        if ( driverDO1 != null && driverDO1.getId() != driverDO.getId().intValue()) {
+            return "该身份证号已被他人使用，请核实身份证号";
+        }
         if (driverDO.getBirth() == null) {
             return "请填写生日";
         }

@@ -72,6 +72,12 @@
         <if test="name != null">
             AND name = #{name}
         </if>
+        <if test="nick != null">
+            AND nick = #{nick}
+        </if>
+        <if test="citizenId != null">
+            AND citizen_id = #{citizenId}
+        </if>
         <if test="typeList != null">
             and type in
             <foreach collection="typeList" index="index" item="item" open="(" separator="," close=")">
@@ -81,6 +87,7 @@
         <if test="likeName != null and likeName != '' ">
             AND name like CONCAT('%',#{likeName},'%')
         </if>
+        order by id desc
         limit #{start},#{pageSize}
     </select>
 
@@ -94,8 +101,17 @@
         <if test="name != null">
             AND name = #{name}
         </if>
-        <if test="type != null">
-            AND type = #{type}
+        <if test="nick != null">
+            AND nick = #{nick}
+        </if>
+        <if test="citizenId != null">
+            AND citizen_id = #{citizenId}
+        </if>
+        <if test="typeList != null">
+            and type in
+            <foreach collection="typeList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
         <if test="likeName != null and likeName != '' ">
             AND name like CONCAT('%',#{likeName},'%')

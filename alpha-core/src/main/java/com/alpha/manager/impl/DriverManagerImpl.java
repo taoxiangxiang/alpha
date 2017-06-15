@@ -36,7 +36,7 @@ public class DriverManagerImpl implements DriverManager {
 
         SystemAccountDO systemAccountDO = new SystemAccountDO();
         systemAccountDO.setName(driverDO.getName());
-        systemAccountDO.setNick(driverDO.getName());
+        systemAccountDO.setNick(driverDO.getName() + (systemAccountManager.queryByNick(driverDO.getName()) == null ? "" : "_1"));
         systemAccountDO.setSex(driverDO.getSex());
         systemAccountDO.setCitizenId(driverDO.getCitizenId());
         //身份证后六位

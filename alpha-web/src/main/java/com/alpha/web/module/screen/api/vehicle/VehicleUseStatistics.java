@@ -40,7 +40,7 @@ public class VehicleUseStatistics extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleUseQuery vehicleUseQuery = new VehicleUseQuery();
             vehicleUseQuery.setPage(page);
             vehicleUseQuery.setPageSize(pageSize);

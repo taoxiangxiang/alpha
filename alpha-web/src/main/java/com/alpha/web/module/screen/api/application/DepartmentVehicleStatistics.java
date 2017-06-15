@@ -38,7 +38,7 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
             vehicleApplicationQuery.setPage(page);
             vehicleApplicationQuery.setPageSize(pageSize);
@@ -46,7 +46,7 @@ public class DepartmentVehicleStatistics extends BaseAjaxModule{
             vehicleApplicationQuery.setEndDate(endDate == null ? null : new Date(endDate));
             vehicleApplicationQuery.setApplicationDepartment(departmentName);
             List<String> statusList = new ArrayList<String>();
-            statusList.add(SystemConstant.VEHICLE_VERIFY_PASS);
+            statusList.add(SystemConstant.VEHICLE_ALREADY_SCHEDULE);
             vehicleApplicationQuery.setStatusList(statusList);
             List<VehicleApplicationSumDO> list = vehicleApplicationManager.queryGroupByDepartment(vehicleApplicationQuery);
             int number = vehicleApplicationManager.countGroupByDepartment(vehicleApplicationQuery);

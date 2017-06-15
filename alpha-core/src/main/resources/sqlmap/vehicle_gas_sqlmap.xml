@@ -66,6 +66,7 @@
         <if test="endDate != null">
             AND gas_date &lt;= #{endDate}
         </if>
+        order by id desc
         limit #{start},#{pageSize}
     </select>
 

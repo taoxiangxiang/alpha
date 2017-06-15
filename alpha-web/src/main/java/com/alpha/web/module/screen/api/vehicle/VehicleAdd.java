@@ -25,19 +25,22 @@ public class VehicleAdd extends BaseAjaxModule {
     private VehicleManager vehicleManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("vehicleBrand") String vehicleBrand,
-                        @Param(name="vehicleClass", defaultValue="") String vehicleClass, @Param("vehicleType") String vehicleType,
+                        @Param("vehicleClass") String vehicleClass, @Param("vehicleType") String vehicleType,
                         @Param("colour") String colour, @Param("load") String load,
                         @Param("seat") int seat, @Param("team") String team,
                         @Param("checkDate") Long checkDate, @Param("insuranceDate") Long insuranceDate,
                         @Param("maintainDate") Long maintainDate, @Param("maintainMile") int maintainMile,
                         @Param("engineNO") String engineNO, @Param("vin") String vin,
-                        @Param(name="gasCardNO", defaultValue = "") String gasCardNO, @Param(name="gasCardType", defaultValue="") String gasCardType,
+                        @Param(name="gasCardNO", defaultValue = "") String gasCardNO, @Param("gasCardType") String gasCardType,
                         @Param(name="suTongCardNO", defaultValue="") String suTongCardNO, @Param("licenseClass") String licenseClass,
-                        @Param(name="", defaultValue="") String picUrl, @Param("mile") int mile, Context context) {
+                        @Param(name="picUrl", defaultValue="") String picUrl, @Param("mile") int mile, Context context) {
         Result<String> result = new Result<String>();
         try {
             vehicleClass = (vehicleClass == null ? "" : vehicleClass);
             gasCardNO = (gasCardNO == null ? "" : gasCardNO);
+            if (StringUtil.isBlank(gasCardNO)) {
+                gasCardType = "";
+            }
             gasCardType = (gasCardType == null ? "" : gasCardType);
             suTongCardNO = (suTongCardNO == null ? "" : suTongCardNO);
             picUrl = (picUrl == null ? "" : picUrl);

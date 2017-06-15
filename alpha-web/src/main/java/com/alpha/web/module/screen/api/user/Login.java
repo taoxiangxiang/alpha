@@ -29,17 +29,17 @@ public class Login extends BaseAjaxModule{
     @Resource
     private SystemAccountManager systemAccountManager;
 
-    public void execute(@Param("name") String name, @Param("password") String password, Context context) {
+    public void execute(@Param("name") String nick, @Param("password") String password, Context context) {
         Result<String> result = new Result<String>();
         try {
             SystemAccountQuery systemAccountQuery = new SystemAccountQuery();
-            systemAccountQuery.setName(name);
+            systemAccountQuery.setNick(nick);
             List<SystemAccountDO> accountDOList = systemAccountManager.query(systemAccountQuery);
             if (accountDOList != null && accountDOList.size() >= 1) {
                 String passwordInDB = accountDOList.get(0).getPassword();
                 if (password != null && encoderByMd5(password).equals(passwordInDB)) {
-                    session.setAttribute(SystemConstant.SESSION_NAME, name);
-                    setCookie(response, SystemConstant.COOKIE_NAME, name);
+                    session.setAttribute(SystemConstant.SESSION_NAME, nick);
+                    setCookie(response, SystemConstant.COOKIE_NAME, nick);
                     result.setData("登录成功");
                     print(result);
                     return;
@@ -59,6 +59,7 @@ public class Login extends BaseAjaxModule{
         Cookie cookie = new Cookie(name, URLEncoder.encode(value, "utf-8"));
         // tomcat下多应用共享
         cookie.setPath("/");
+        cookie.setMaxAge(-1);
         // 将Cookie添加到Response中,使之生效
         response.addCookie(cookie); // addCookie后，如果已经存在相同名字的cookie，则最新的覆盖旧的cookie
     }

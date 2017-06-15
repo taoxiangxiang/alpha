@@ -39,7 +39,7 @@ public class VehicleIllegalStatistics extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleIllegalQuery vehicleIllegalQuery = new VehicleIllegalQuery();
             PageResult<List<VehicleIllegalSumDO>> result = new PageResult<List<VehicleIllegalSumDO>>();
             vehicleIllegalQuery.setPage(page);

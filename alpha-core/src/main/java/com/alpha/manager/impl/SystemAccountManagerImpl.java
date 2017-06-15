@@ -41,6 +41,22 @@ public class SystemAccountManagerImpl implements SystemAccountManager {
     }
 
     @Override
+    public SystemAccountDO queryByNick(String nick) {
+        SystemAccountQuery systemAccountQuery =  new SystemAccountQuery();
+        systemAccountQuery.setNick(nick);
+        List<SystemAccountDO> list = systemAccountDao.query(systemAccountQuery);
+        return (list == null || list.size() == 0) ? null : list.get(0);
+    }
+
+    @Override
+    public SystemAccountDO queryByCitizenId(String citizenId) {
+        SystemAccountQuery systemAccountQuery =  new SystemAccountQuery();
+        systemAccountQuery.setCitizenId(citizenId);
+        List<SystemAccountDO> list = systemAccountDao.query(systemAccountQuery);
+        return (list == null || list.size() == 0) ? null : list.get(0);
+    }
+
+    @Override
     public int count(SystemAccountQuery systemAccountQuery) {
         return systemAccountDao.count(systemAccountQuery);
     }

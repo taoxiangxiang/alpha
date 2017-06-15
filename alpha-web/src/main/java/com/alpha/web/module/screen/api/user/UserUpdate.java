@@ -91,8 +91,19 @@ public class UserUpdate extends BaseAjaxModule {
         if (StringUtil.isBlank(systemAccountDO.getSex())) {
             return "请填写性别";
         }
+        if (StringUtil.isBlank(systemAccountDO.getNick())) {
+            return "请填写昵称【昵称用于登录时使用的用户名】";
+        }
+        SystemAccountDO systemAccountDO1 = systemAccountManager.queryByNick(systemAccountDO.getNick());
+        if (systemAccountDO1 != null && systemAccountDO1.getId() != systemAccountDO.getId().intValue()) {
+            return "该昵称已被他人使用，请更换昵称";
+        }
         if (StringUtil.isBlank(systemAccountDO.getCitizenId()) || !ParamUtil.validCitizenId(systemAccountDO.getCitizenId())) {
             return "请填写正确的身份证号";
+        }
+        SystemAccountDO systemAccountDO2 = systemAccountManager.queryByCitizenId(systemAccountDO.getCitizenId());
+        if (systemAccountDO2 != null && systemAccountDO2.getId() != systemAccountDO.getId().intValue()) {
+            return "该身份证号已被他人使用，请核实身份证号";
         }
         if (systemAccountDO.getBirth() == null) {
             return "请填写生日";
@@ -114,9 +125,6 @@ public class UserUpdate extends BaseAjaxModule {
         }
         if (StringUtil.isBlank(systemAccountDO.getDepartment())) {
             return "请填写部门";
-        }
-        if (StringUtil.isBlank(systemAccountDO.getAuthType())) {
-            return "请填写拥有权限";
         }
         return "ok";
     }

@@ -23,6 +23,7 @@
         <if test="team != null and team != '' ">
             AND team like CONCAT('%',#{team},'%')
         </if>
+        order by id desc
         limit #{start},#{pageSize}
     </select>
 

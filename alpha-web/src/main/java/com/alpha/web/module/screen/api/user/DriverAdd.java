@@ -10,6 +10,9 @@ import com.alpha.domain.DriverDO;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.domain.VehicleAccidentDO;
 import com.alpha.manager.DriverManager;
+import com.alpha.manager.SystemAccountManager;
+import com.alpha.query.DriverQuery;
+import com.alpha.query.SystemAccountQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
 
@@ -23,6 +26,8 @@ public class DriverAdd extends BaseAjaxModule {
 
     @Resource
     private DriverManager driverManager;
+    @Resource
+    private SystemAccountManager systemAccountManager;
 
     public void execute(@Param("name") String name, @Param("sex") String sex, @Param("team") String team,
                         @Param("citizenId") String citizenId, @Param("birth") Long birth,
@@ -105,6 +110,18 @@ public class DriverAdd extends BaseAjaxModule {
         if (StringUtil.isBlank(driverDO.getCitizenId()) || !ParamUtil.validCitizenId(driverDO.getCitizenId())) {
             return "请填写正确的身份证号";
         }
+        DriverQuery driverQuery = new DriverQuery();
+        driverQuery.setCitizenId(driverDO.getCitizenId());
+        if (driverManager.count(driverQuery) > 0) {
+            return "该身份证号已被他人使用，请核实身份证号";
+        }
+
+        SystemAccountQuery systemAccountQuery2 = new SystemAccountQuery();
+        systemAccountQuery2.setCitizenId(driverDO.getCitizenId());
+        if (systemAccountManager.count(systemAccountQuery2) > 0) {
+            return "该身份证号已被他人使用，请核实身份证号";
+        }
+
         if (driverDO.getBirth() == null) {
             return "请填写生日";
         }

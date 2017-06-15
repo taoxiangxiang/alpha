@@ -114,11 +114,11 @@
         <if test="endDate != null">
             AND actual_start_date &lt;= #{endDate}
         </if>
-        <if test="alreadyCheck != null and alreadyCheck=='true'">
-            AND actual_start_date is not NULL
+        <if test="alreadyCheck != null and alreadyCheck==true">
+            AND actual_end_date is not NULL
         </if>
-        <if test="alreadyCheck != null and alreadyCheck=='false'">
-            AND actual_start_date is NULL
+        <if test="alreadyCheck != null and alreadyCheck==false">
+            AND actual_end_date is NULL
         </if>
         <if test="applicationIdList != null">
             and application_id in
@@ -139,14 +139,14 @@
         <if test="applicationId != null and applicationId != '' ">
             AND application_id=#{applicationId}
         </if>
-        <if test="team != null and team != '' ">
-            AND team like CONCAT('%',#{team},'%')
-        </if>
         <if test="driverId != null">
             AND driver_id=#{driverId}
         </if>
         <if test="driverName != null and driverName != '' ">
             AND driver_name like CONCAT('%',#{driverName},'%')
+        </if>
+        <if test="team != null and team != '' ">
+            AND team like CONCAT('%',#{team},'%')
         </if>
         <if test="vehicleNO != null and vehicleNO != '' ">
             AND vehicle_no like CONCAT('%',#{vehicleNO},'%')
@@ -159,6 +159,18 @@
         </if>
         <if test="endDate != null">
             AND actual_start_date &lt;= #{endDate}
+        </if>
+        <if test="alreadyCheck != null and alreadyCheck==true">
+            AND actual_end_date is not NULL
+        </if>
+        <if test="alreadyCheck != null and alreadyCheck==false">
+            AND actual_end_date is NULL
+        </if>
+        <if test="applicationIdList != null">
+            and application_id in
+            <foreach collection="applicationIdList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </if>
     </select>
 
@@ -184,6 +196,7 @@
         <if test="endDate != null">
             AND actual_start_date &lt;= #{endDate}
         </if>
+        AND actual_end_date is not NULL
         group by driver_id
         limit #{start},#{pageSize}
     </select>
@@ -209,6 +222,7 @@
             <if test="endDate != null">
                 AND actual_start_date &lt;= #{endDate}
             </if>
+            AND actual_end_date is not NULL
             group by driver_id)a
     </select>
 </mapper>

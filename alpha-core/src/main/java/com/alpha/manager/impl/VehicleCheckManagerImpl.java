@@ -2,9 +2,12 @@ package com.alpha.manager.impl;
 
 import com.alpha.dao.VehicleCheckDao;
 import com.alpha.domain.VehicleCheckDO;
+import com.alpha.domain.VehicleDO;
 import com.alpha.manager.VehicleCheckManager;
+import com.alpha.manager.VehicleManager;
 import com.alpha.query.VehicleCheckQuery;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -17,10 +20,26 @@ public class VehicleCheckManagerImpl implements VehicleCheckManager {
 
     @Resource
     private VehicleCheckDao vehicleCheckDao;
+    @Resource
+    private VehicleManager vehicleManager;
 
     @Override
-    public boolean insert(VehicleCheckDO vehicleCheckDO) {
-        return vehicleCheckDao.insert(vehicleCheckDO);
+    @Transactional(rollbackForClassName="Exception")
+    public boolean insert(VehicleCheckDO vehicleCheckDO) throws Exception {
+        VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(vehicleCheckDO.getVehicleNO());
+        if (vehicleDO == null) {
+            return false;
+        }
+        if (!vehicleCheckDao.insert(vehicleCheckDO)) {
+            return false;
+        }
+        if (vehicleCheckDO.getEndDate().after(vehicleDO.getCheckDate())) {
+            vehicleDO.setCheckDate(vehicleCheckDO.getEndDate());
+            if (!vehicleManager.update(vehicleDO)) {
+                throw new Exception("数据库写入失败");
+            }
+        }
+        return true;
     }
 
     @Override
@@ -34,7 +53,21 @@ public class VehicleCheckManagerImpl implements VehicleCheckManager {
     }
 
     @Override
-    public boolean update(VehicleCheckDO vehicleCheckDO) {
-        return vehicleCheckDao.update(vehicleCheckDO);
+    @Transactional(rollbackForClassName="Exception")
+    public boolean update(VehicleCheckDO vehicleCheckDO) throws Exception {
+        VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(vehicleCheckDO.getVehicleNO());
+        if (vehicleDO == null) {
+            return false;
+        }
+        if (!vehicleCheckDao.update(vehicleCheckDO)) {
+            return false;
+        }
+        if (vehicleCheckDO.getEndDate().after(vehicleDO.getCheckDate())) {
+            vehicleDO.setCheckDate(vehicleCheckDO.getEndDate());
+            if (!vehicleManager.update(vehicleDO)) {
+                throw new Exception("数据库写入失败");
+            }
+        }
+        return true;
     }
 }

@@ -32,7 +32,7 @@ public class ExportVehicleGas extends BaseAjaxModule {
                         @Param("vehicleNO") String vehicleNO, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleGasQuery vehicleGasQuery = new VehicleGasQuery();
             vehicleGasQuery.setPage(page);
             vehicleGasQuery.setPageSize(pageSize);

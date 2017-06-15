@@ -7,5 +7,5 @@ public interface DBManager {
 
     boolean dbBackup(String savePath);
 
-    boolean dbRecover(String savePath);
+    String dbRecover(String savePath);
 }

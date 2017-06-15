@@ -96,8 +96,19 @@ public class VehicleUseManagerImpl implements VehicleUseManager {
 
     @Override
     @Transactional(rollbackForClassName="Exception")
-    public boolean update(VehicleUseDO vehicleUseDO) {
-        return vehicleUseDao.update(vehicleUseDO);
+    public boolean update(VehicleUseDO vehicleUseDO) throws Exception {
+        if (!vehicleUseDao.update(vehicleUseDO)) {
+            return false;
+        }
+        VehicleUseDO vehicleUseDOInDB = queryById(vehicleUseDO.getId());
+        VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(vehicleUseDOInDB.getVehicleNO());
+        if (vehicleUseDOInDB.getEndMile() > vehicleDO.getMile()) {
+            vehicleDO.setMile(vehicleUseDOInDB.getEndMile());
+            if (!vehicleManager.update(vehicleDO)) {
+                throw new Exception("数据库写入失败");
+            }
+        }
+        return true;
     }
 
     @Override
@@ -156,7 +167,7 @@ public class VehicleUseManagerImpl implements VehicleUseManager {
             VehicleApplicationDO vehicleApplicationDO = map.get(vehicleUseDO.getApplicationId());
             vehicleUseDO.setVehicleApplicationDO(vehicleApplicationDO);
             vehicleUseDO.setApplicationNO(vehicleApplicationDO.getApplicationNO());
-            vehicleUseDO.setAlreadyCheck(vehicleUseDO.getGmtModified().getTime() - vehicleUseDO.getGmtCreate().getTime() > 10000L);
+            vehicleUseDO.setAlreadyCheck(vehicleUseDO.getActualEndDate() != null);
         }
     }
 

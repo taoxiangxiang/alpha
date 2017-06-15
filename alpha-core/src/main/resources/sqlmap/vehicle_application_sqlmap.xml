@@ -13,6 +13,7 @@
         <result property="applicant" column="applicant" />
         <result property="applicationDepartment" column="application_department" />
         <result property="applicantPhone" column="applicant_phone" />
+        <result property="usePerson" column="use_person" />
         <result property="personNumber" column="person_number" />
         <result property="startPlace" column="start_place" />
         <result property="endPlace" column="end_place" />
@@ -28,8 +29,8 @@
     </resultMap>
 
     <insert id="insert" parameterType="VehicleApplicationDO">
-        insert into vehicle_application (id,applicant_id,application_no,application_type,vehicle_type,application_reason,use_date,predict_back_date,applicant,application_department,applicant_phone,person_number,start_place,end_place,end_place_type,contacts,contacts_phone,remark,file,status,attribute,gmt_create,gmt_modified)
-        VALUES (null,#{applicantId},#{applicationNO},#{applicationType},#{vehicleType},#{applicationReason},#{useDate},#{predictBackDate},#{applicant},#{applicationDepartment},#{applicantPhone},#{personNumber},#{startPlace},#{endPlace},#{endPlaceType},#{contacts},#{contactsPhone},#{remark},#{file},#{status},#{attribute},now(),now())
+        insert into vehicle_application (id,use_person,applicant_id,application_no,application_type,vehicle_type,application_reason,use_date,predict_back_date,applicant,application_department,applicant_phone,person_number,start_place,end_place,end_place_type,contacts,contacts_phone,remark,file,status,attribute,gmt_create,gmt_modified)
+        VALUES (null,#{usePerson},#{applicantId},#{applicationNO},#{applicationType},#{vehicleType},#{applicationReason},#{useDate},#{predictBackDate},#{applicant},#{applicationDepartment},#{applicantPhone},#{personNumber},#{startPlace},#{endPlace},#{endPlaceType},#{contacts},#{contactsPhone},#{remark},#{file},#{status},#{attribute},now(),now())
     </insert>
 
     <update id="update" parameterType="VehicleApplicationDO">
@@ -45,6 +46,7 @@
         <if test="applicant!=null">applicant=#{applicant},</if>
         <if test="applicationDepartment!=null">application_department=#{applicationDepartment},</if>
         <if test="applicantPhone!=null">applicant_phone=#{applicantPhone},</if>
+        <if test="usePerson!=null">use_person=#{usePerson},</if>
         <if test="personNumber!=null">person_number=#{personNumber},</if>
         <if test="startPlace!=null">start_place=#{startPlace},</if>
         <if test="endPlace!=null">end_place=#{endPlace},</if>

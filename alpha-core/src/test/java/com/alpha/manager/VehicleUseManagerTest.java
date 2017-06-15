@@ -58,7 +58,7 @@ public class VehicleUseManagerTest extends ITestBase {
         }
         jsonObject.put("file", "12");
         vehicleUseDO.setAttribute(jsonObject.toJSONString());
-        boolean res = vehicleUseManager.update(vehicleUseDO);
-        System.out.println("res=" + res);
+//        boolean res = vehicleUseManager.update(vehicleUseDO);
+//        System.out.println("res=" + res);
     }
 }

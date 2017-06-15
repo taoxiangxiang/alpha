@@ -75,7 +75,7 @@ public class MaintainUpdate extends BaseAjaxModule {
                 }
                 partnerDepartmentDO = partnerDepartmentDOList.get(0);
             } else {
-                if (!systemAccountDO.hasAuth() && maintainDOInDB.getApplicantId() != systemAccountDO.getDriverId()) {
+                if (!systemAccountDO.hasAuth() && maintainDOInDB.getApplicantId() != systemAccountDO.getId()) {
                     result.setErrMsg("这不是您的维保单");
                     print(result);
                     return;

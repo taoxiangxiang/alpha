@@ -16,5 +16,9 @@ public interface SystemAccountManager {
 
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
 
+    SystemAccountDO queryByNick(String nick);
+
+    SystemAccountDO queryByCitizenId(String citizenId);
+
     int count(SystemAccountQuery systemAccountQuery);
 }

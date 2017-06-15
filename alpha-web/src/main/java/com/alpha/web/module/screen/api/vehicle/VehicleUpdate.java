@@ -36,6 +36,9 @@ public class VehicleUpdate extends BaseAjaxModule {
         try {
             vehicleClass = (vehicleClass == null ? "" : vehicleClass);
             gasCardNO = (gasCardNO == null ? "" : gasCardNO);
+            if (StringUtil.isBlank(gasCardNO)) {
+                gasCardType = "";
+            }
             gasCardType = (gasCardType == null ? "" : gasCardType);
             suTongCardNO = (suTongCardNO == null ? "" : suTongCardNO);
             picUrl = (picUrl == null ? "" : picUrl);

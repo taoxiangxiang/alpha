@@ -9,6 +9,7 @@ import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
+import com.alpha.query.SystemAccountQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
 
@@ -113,8 +114,17 @@ public class UserAdd extends BaseAjaxModule {
         if (StringUtil.isBlank(systemAccountDO.getSex())) {
             return "请填写性别";
         }
+        if (StringUtil.isBlank(systemAccountDO.getNick())) {
+            return "请填写昵称【昵称用于登录时使用的用户名】";
+        }
+        if (systemAccountManager.queryByNick(systemAccountDO.getNick()) != null) {
+            return "该昵称已被他人使用，请更换昵称";
+        }
         if (StringUtil.isBlank(systemAccountDO.getCitizenId()) || !ParamUtil.validCitizenId(systemAccountDO.getCitizenId())) {
             return "请填写正确的身份证号";
+        }
+        if (systemAccountManager.queryByCitizenId(systemAccountDO.getCitizenId()) != null) {
+            return "该身份证号已被他人使用，请核实身份证号";
         }
         if (systemAccountDO.getBirth() == null) {
             return "请填写生日";

@@ -35,8 +35,8 @@ public class VehicleCheckManagerTest extends ITestBase {
         vehicleCheckDO.setOperator("6");
         vehicleCheckDO.setFile("7");
         vehicleCheckDO.setRemark("8");
-        boolean res = vehicleCheckManager.insert(vehicleCheckDO);
-        System.out.println("res=" + res);
+//        boolean res = vehicleCheckManager.insert(vehicleCheckDO);
+//        System.out.println("res=" + res);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class VehicleCheckManagerTest extends ITestBase {
         VehicleCheckDO vehicleCheckDO = new VehicleCheckDO();
         vehicleCheckDO.setId(1);
         vehicleCheckDO.setVehicleNO("12");
-        boolean res = vehicleCheckManager.update(vehicleCheckDO);
-        System.out.println("res=" + res);
+//        boolean res = vehicleCheckManager.update(vehicleCheckDO);
+//        System.out.println("res=" + res);
     }
 }

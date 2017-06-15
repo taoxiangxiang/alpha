@@ -31,7 +31,7 @@ public class Department extends BaseAjaxModule {
         try {
             logger.info("1");
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             SystemAccountDO curAccountDO = this.getAccount();
             if (curAccountDO == null) {
                 print(new Result<String>("请登录系统"));

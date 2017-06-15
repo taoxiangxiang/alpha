@@ -36,7 +36,7 @@ public class DriverBind extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             DriverBindQuery driverBindQuery = new DriverBindQuery();
             driverBindQuery.setPage(page);
             driverBindQuery.setPageSize(pageSize);

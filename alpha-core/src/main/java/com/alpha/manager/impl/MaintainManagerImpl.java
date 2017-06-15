@@ -1,5 +1,6 @@
 package com.alpha.manager.impl;
 
+import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.SystemConstant;
 import com.alpha.constans.YunUtil;
 import com.alpha.dao.MaintainDao;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,12 +74,33 @@ public class MaintainManagerImpl implements MaintainManager {
     }
 
     @Override
+    @Transactional(rollbackForClassName="Exception")
     public boolean pickUpMaintain(MaintainDO maintainDO) throws Exception {
+        MaintainDO maintainDOInDB = queryById(maintainDO.getId());
+        VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(maintainDOInDB.getVehicleNO());
+        if (vehicleDO == null) {
+            return false;
+        }
         if (!maintainDao.update(maintainDO)) {
             return false;
         }
-        MaintainDO maintainDOInDB = queryById(maintainDO.getId());
-        VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(maintainDOInDB.getVehicleNO());
+        Date nextMaintainDate = CalendarUtil.addDate(maintainDO.getActualPickUpDate(), 120);
+        int nextMaintainMile = maintainDO.getMile() + 4000;
+        if  ("维修".equals(maintainDOInDB.getType()) && maintainDO.getMile() > vehicleDO.getMile()) {
+            vehicleDO.setMile(maintainDO.getMile());
+            if (!vehicleManager.update(vehicleDO)) {
+                throw new Exception("更新车辆状态失败");
+            }
+        }
+        if ("保养".equals(maintainDOInDB.getType()) && (nextMaintainDate.after(vehicleDO.getMaintainDate())
+                || nextMaintainMile > vehicleDO.getMaintainMile() || maintainDO.getMile() > vehicleDO.getMile())) {
+            vehicleDO.setMaintainDate(nextMaintainDate);
+            vehicleDO.setMaintainMile(nextMaintainMile);
+            vehicleDO.setMile(maintainDO.getMile());
+            if (!vehicleManager.update(vehicleDO)) {
+                throw new Exception("更新车辆状态失败");
+            }
+        }
         if (SystemConstant.VEHICLE_MAINTAIN.equals(vehicleDO.getStatus()) && vehicleDO.getApplicationId() != null
                 && maintainDOInDB.getId().intValue() == vehicleDO.getApplicationId()) {
             vehicleDO.setStatus(SystemConstant.VEHICLE_CAN_USE);

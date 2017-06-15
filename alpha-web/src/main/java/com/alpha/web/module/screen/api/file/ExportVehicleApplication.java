@@ -30,7 +30,7 @@ public class ExportVehicleApplication extends BaseAjaxModule {
                         @Param("status") String status, Context context) {
         try {
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 200;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
             vehicleApplicationQuery.setPage(page);
             vehicleApplicationQuery.setPageSize(pageSize);

@@ -3,6 +3,8 @@ package com.alpha.web.module.screen.api.user;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alibaba.citrus.util.StringUtil;
+import com.alpha.dao.MsgCodeDao;
+import com.alpha.domain.MsgCodeDO;
 import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.SystemAccountManager;
 import com.alpha.web.common.BaseAjaxModule;
@@ -21,6 +23,8 @@ public class ModifyPassword extends BaseAjaxModule {
 
     @Resource
     private SystemAccountManager systemAccountManager;
+    @Resource
+    private MsgCodeDao msgCodeDao;
 
     public void execute(@Param("code") String code, @Param("newPassword1") String newPassword1,
                         @Param("newPassword2") String newPassword2, Context context) {
@@ -35,6 +39,18 @@ public class ModifyPassword extends BaseAjaxModule {
                 return;
             }
             systemAccountDO.setPassword(encoderByMd5(newPassword1));
+            MsgCodeDO msgCodeDO = msgCodeDao.queryRecentOneByPhone(accountNow.getMobilePhone());
+            if (msgCodeDO == null) {
+                result.setErrMsg("您的验证码已经失效");
+                print(result);
+                return;
+            }
+
+            if (!msgCodeDO.getCode().equals(code)) {
+                result.setErrMsg("您的验证码输入错误");
+                print(result);
+                return;
+            }
             boolean res = systemAccountManager.update(systemAccountDO);
             if (res) {
                 result.setData("操作成功");

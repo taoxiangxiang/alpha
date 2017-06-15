@@ -25,6 +25,7 @@
         <typeAlias type="com.alpha.domain.PartnerDepartmentDO" alias="PartnerDepartmentDO" />
         <typeAlias type="com.alpha.domain.TeamDO" alias="TeamDO" />
         <typeAlias type="com.alpha.domain.MaintainSumDO" alias="MaintainSumDO" />
+        <typeAlias type="com.alpha.domain.MsgCodeDO" alias="MsgCodeDO" />
     </typeAliases>
 
     <mappers>
@@ -46,5 +47,6 @@
         <mapper resource="sqlmap/leave_sqlmap.xml" />
         <mapper resource="sqlmap/partner_department_sqlmap.xml" />
         <mapper resource="sqlmap/team_sqlmap.xml" />
+        <mapper resource="sqlmap/msg_code_sqlmap.xml" />
     </mappers>
 </configuration>

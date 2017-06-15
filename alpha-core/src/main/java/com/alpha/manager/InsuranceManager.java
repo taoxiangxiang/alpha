@@ -9,11 +9,11 @@ import java.util.List;
  * Created by taoxiang on 2017/4/26.
  */
 public interface InsuranceManager {
-    boolean insert(InsuranceDO insuranceDO);
+    boolean insert(InsuranceDO insuranceDO) throws Exception;
 
     List<InsuranceDO> query(InsuranceQuery insuranceQuery);
 
     int count(InsuranceQuery insuranceQuery);
 
-    boolean update(InsuranceDO insuranceDO);
+    boolean update(InsuranceDO insuranceDO) throws Exception;
 }

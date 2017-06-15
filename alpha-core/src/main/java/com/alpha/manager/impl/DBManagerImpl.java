@@ -27,23 +27,26 @@ public class DBManagerImpl implements DBManager {
             // -u后面是用户名，-p是密码-p后面最好不要有空格，-family是数据库的名字
             Process process = runtime.exec("mysqldump -h " + dbHost + " -P "
                     + dbPort + " -u " + dbUser + " -p" + dbPass + " " + dbName);
-            InputStream inputStream = process.getInputStream();// 得到输入流，写成.sql文件
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            BufferedReader br = new BufferedReader(reader);
-            String s = null;
-            StringBuilder sb = new StringBuilder();
-            while ((s = br.readLine()) != null) {
-                sb.append(s).append("\r\n");
+            InputStream in = process.getInputStream();
+            InputStreamReader input = new InputStreamReader(in,"utf8");
+            String inStr;
+            StringBuffer sb = new StringBuffer("");
+            String outStr;
+            BufferedReader br = new BufferedReader(input);
+            while ((inStr = br.readLine()) != null) {
+                sb.append(inStr + "\r\n");
             }
-            s = sb.toString();
-            File file = new File(savePath);
-            boolean res = file.getParentFile().mkdirs();
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(s.getBytes());
-            fileOutputStream.close();
+            outStr = sb.toString();
+            FileOutputStream fout = new FileOutputStream(savePath);
+            OutputStreamWriter writer = new OutputStreamWriter(fout, "utf8");
+            writer.write(outStr);
+            writer.flush();
+            in.close();
+            input.close();
             br.close();
-            reader.close();
-            inputStream.close();
+            writer.close();
+            fout.close();
+            logger.info("MYSQL备份成功");
             return true;
         } catch (Exception e) {
             logger.error("DBManager dbBackup catch exception", e);
@@ -53,31 +56,49 @@ public class DBManagerImpl implements DBManager {
     }
 
     @Override
-    public boolean dbRecover(String savePath) {
+    public String dbRecover(String savePath) {
+        Runtime runtime = Runtime.getRuntime();
+        Process process = null;
         try {
-            Runtime runtime = Runtime.getRuntime();
-            Process process = runtime.exec("mysql -h" + dbHost + " -P " + dbPort
+            process = runtime.exec("mysql -h" + dbHost + " -P " + dbPort
                     + " -u " + dbUser + " -p" + dbPass
                     + " --default-character-set=utf8 " + dbName);
-            OutputStream outputStream = process.getOutputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(savePath)));
-            String str = null;
-            StringBuilder sb = new StringBuilder();
-            while ((str = br.readLine()) != null) {
-                sb.append(str).append("\r\n");
+        } catch (IOException e) {
+            logger.error("DBManager dbRecover catch exception", e);
+            return "IO异常，请稍后重试";
+        }
+        InputStreamReader in = null;
+        try {
+            in = new InputStreamReader(new FileInputStream(savePath), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            logger.error("DBManager dbRecover catch exception", e);
+            return "系统异常，请稍后重试";
+        } catch (FileNotFoundException e) {
+            logger.error("DBManager dbRecover catch exception", e);
+            return "文件不存在，请选择正确的日期";
+        }
+        try {
+            BufferedReader br = new BufferedReader(in);
+            String inStr = null;
+            StringBuffer sb = new StringBuffer("");
+            String outStr;
+            while ((inStr = br.readLine()) != null) {
+                sb.append(inStr + "\r\n");
             }
-            str = sb.toString();
-            OutputStreamWriter writer = new OutputStreamWriter(outputStream,"utf-8");
-            writer.write(str);
+            outStr = sb.toString();
+            OutputStream out = process.getOutputStream();
+            OutputStreamWriter writer = null;
+            writer = new OutputStreamWriter(out, "UTF-8");
+            writer.write(outStr);
             writer.flush();
-            outputStream.close();
+            out.flush();
+            out.close();
             br.close();
             writer.close();
-            return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
             logger.error("DBManager dbRecover catch exception", e);
-            return false;
+            return "系统异常，请稍后重试";
         }
+        return "ok";
     }
 }

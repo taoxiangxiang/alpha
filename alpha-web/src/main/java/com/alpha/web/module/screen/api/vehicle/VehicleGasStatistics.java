@@ -42,7 +42,7 @@ public class VehicleGasStatistics extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             VehicleGasQuery vehicleGasQuery = new VehicleGasQuery();
             vehicleGasQuery.setPage(page);
             vehicleGasQuery.setPageSize(pageSize);

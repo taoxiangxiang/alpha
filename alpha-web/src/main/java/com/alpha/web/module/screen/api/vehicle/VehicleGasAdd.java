@@ -23,13 +23,13 @@ public class VehicleGasAdd extends BaseAjaxModule {
     private VehicleGasManager vehicleGasManager;
 
     public void execute(@Param("vehicleNO") String vehicleNO, @Param("team") String team,
-                        @Param("gasDate") Long gasDate, @Param(name="", defaultValue="") String gasCardNO,
-                        @Param(name="gasAddress", defaultValue="") String gasAddress, @Param("price") Double price,
+                        @Param("gasDate") Long gasDate, @Param("gasCardNO") String gasCardNO,
+                        @Param("gasAddress") String gasAddress, @Param("price") Double price,
                         @Param("money") Double money, @Param("amount") Double amount,
                         @Param("curMile") Integer curMile, @Param("beforeMile") Integer beforeMile,
-                        @Param(name="payType", defaultValue="") String payType, @Param("gasType") String gasType,
+                        @Param("payType") String payType, @Param("gasType") String gasType,
                         @Param("operator") String operator,
-                        @Param(name="file", defaultValue="") String file, @Param(name="remark", defaultValue="") String remark, Context context) {
+                        @Param("file") String file, @Param("remark") String remark, Context context) {
         Result<String> result = new Result<String>();
         try {
             file = (file == null ? "" : file);

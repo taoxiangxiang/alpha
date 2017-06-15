@@ -27,9 +27,9 @@ public class YunUtil {
      * SMS_63890293: 您的车辆使用申请单${applicationId}已经通过审核，请联系您的司机${driverName}，联系电话${number}
      */
 
-    public static boolean sendCodeMsg(String phoneNumber) {
+    public static boolean sendCodeMsg(String phoneNumber,String code) {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
-        paramStringMap.put("code",  getRandNum(6));
+        paramStringMap.put("code",  code);
         return sendMsg(phoneNumber, JSON.toJSONString(paramStringMap), "SMS_66990041");
     }
 
@@ -99,10 +99,7 @@ public class YunUtil {
             HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
             //获取response的body
             JSONObject jsonObject = JSON.parseObject(EntityUtils.toString(response.getEntity()));
-            System.out.println("http=" + EntityUtils.toString(response.getEntity()));
-            boolean res = Boolean.valueOf(String.valueOf(jsonObject.get("success")));
-            System.out.println("send result=" + res + ", http=" + EntityUtils.toString(response.getEntity()));
-            return true;
+            return Boolean.valueOf(String.valueOf(jsonObject.get("success")));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -135,7 +132,7 @@ public class YunUtil {
         }
     }
 
-    private static String getRandNum(int charCount) {
+    public static String getRandNum(int charCount) {
         String charValue = "";
         for (int i = 0; i < charCount; i++) {
             char c = (char) (randomInt(0, 10) + '0');
@@ -150,10 +147,8 @@ public class YunUtil {
     }
 
     public static void main(String args[]) {
-        Date a = new Date();
-        Date b = a;
-        b = CalendarUtil.addDate(b,1);
-        System.out.println(CalendarUtil.toString(a, CalendarUtil.TIME_PATTERN));
-        System.out.println(CalendarUtil.toString(b, CalendarUtil.TIME_PATTERN));
+        String fileName = "a.doc";
+        String prefix=fileName.substring(fileName.lastIndexOf(".")+1);
+        System.out.println(prefix);
     }
 }

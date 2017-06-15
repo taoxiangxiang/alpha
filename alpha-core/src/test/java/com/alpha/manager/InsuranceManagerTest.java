@@ -35,8 +35,8 @@ public class InsuranceManagerTest extends ITestBase {
         insuranceDO.setOperator("4");
         insuranceDO.setFile("5");
         insuranceDO.setRemark("6");
-        boolean res = insuranceManager.insert(insuranceDO);
-        System.out.println("res=" + res);
+//        boolean res = insuranceManager.insert(insuranceDO);
+//        System.out.println("res=" + res);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class InsuranceManagerTest extends ITestBase {
         InsuranceDO insuranceDO = new InsuranceDO();
         insuranceDO.setId(1);
         insuranceDO.setVehicleNO("测试车牌2");
-        boolean res = insuranceManager.update(insuranceDO);
-        System.out.println("res=" + res);
+//        boolean res = insuranceManager.update(insuranceDO);
+//        System.out.println("res=" + res);
     }
 }

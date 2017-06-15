@@ -39,7 +39,7 @@ public class MaintainStatistics extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10;
+            pageSize = pageSize > 0 ? pageSize : 1000;
             MaintainQuery maintainQuery = new MaintainQuery();
             maintainQuery.setPage(page);
             maintainQuery.setPageSize(pageSize);
@@ -48,7 +48,7 @@ public class MaintainStatistics extends BaseAjaxModule {
             maintainQuery.setVehicleNO(vehicleNO);
             maintainQuery.setTeam(team);
             List<String> statusList = new ArrayList<String>();
-            statusList.add(SystemConstant.MAINTAIN_VERIFY_PASS);
+            statusList.add(SystemConstant.MAINTAIN_ALREADY_PICK_UP);
             maintainQuery.setStatusList(statusList);
             List<MaintainSumDO> list = maintainManager.queryGroupByVehicle(maintainQuery);
             int number = maintainManager.countGroupByVehicle(maintainQuery);
