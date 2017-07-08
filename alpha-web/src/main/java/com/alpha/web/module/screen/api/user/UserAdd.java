@@ -39,6 +39,7 @@ public class UserAdd extends BaseAjaxModule {
             mailbox = (mailbox == null ? "" : mailbox);
             address = (address == null ? "" : address);
             picUrl = (picUrl == null ? "" : picUrl);
+            authType = (authType == null ? "" : authType);
             SystemAccountDO curAccountDO = this.getAccount();
             if (curAccountDO == null) {
                 print(new Result<String>("请登录系统"));
@@ -147,9 +148,9 @@ public class UserAdd extends BaseAjaxModule {
         if (StringUtil.isBlank(systemAccountDO.getDepartment())) {
             return "请填写部门";
         }
-        if (StringUtil.isBlank(systemAccountDO.getAuthType())) {
-            return "请填写拥有权限";
-        }
+//        if (StringUtil.isBlank(systemAccountDO.getAuthType())) {
+//            return "请填写拥有权限";
+//        }
         return "ok";
     }
 

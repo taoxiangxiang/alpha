@@ -20,4 +20,6 @@ public interface DriverManager {
     int count(DriverQuery driverQuery);
 
     boolean update(DriverDO driverDO);
+
+    boolean updateInfo(DriverDO driverDO) throws Exception;
 }

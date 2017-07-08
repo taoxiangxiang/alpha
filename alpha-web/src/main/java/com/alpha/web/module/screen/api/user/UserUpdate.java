@@ -13,6 +13,7 @@ import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by taoxiang on 2017/4/8.
@@ -37,6 +38,7 @@ public class UserUpdate extends BaseAjaxModule {
             mailbox = (mailbox == null ? "" : mailbox);
             address = (address == null ? "" : address);
             picUrl = (picUrl == null ? "" : picUrl);
+            authType = (authType == null ? "" : authType);
             SystemAccountDO curAccountDO = this.getAccount();
             if (curAccountDO == null) {
                 print(new Result<String>("请登录系统"));
@@ -64,15 +66,23 @@ public class UserUpdate extends BaseAjaxModule {
             systemAccountDO.setPosition(position);
             systemAccountDO.setDepartment(department);
             systemAccountDO.setPicUrl(picUrl);
-            systemAccountDO.setType(hasAuth(authType) ? SystemConstant.USER_TYPE_HAS_AUTH : SystemConstant.USER_TYPE_NO_AUTH);
+            authType = dealAuth(authType);
+            systemAccountDO.setAuthType(authType);
+            if (!curAccountDO.isDriver()) {
+                systemAccountDO.setType(hasAuth(authType) ? SystemConstant.USER_TYPE_HAS_AUTH : SystemConstant.USER_TYPE_NO_AUTH);
+            }
             String checkParamRes = checkParam(systemAccountDO);
             if (!"ok".equals(checkParamRes)) {
                 result.setErrMsg(checkParamRes);
                 print(result);
                 return;
             }
-            boolean res = systemAccountManager.update(systemAccountDO);
+            boolean res = systemAccountManager.updateInfo(systemAccountDO);
             if (res) {
+                if (curAccountDO.getId() == id) {
+                    session.setAttribute(SystemConstant.SESSION_NAME, nick);
+                    setCookie(response, SystemConstant.COOKIE_NAME, nick);
+                }
                 result.setData("操作成功");
             } else {
                 result.setErrMsg("操作失败，请重新操作");
@@ -127,5 +137,32 @@ public class UserUpdate extends BaseAjaxModule {
             return "请填写部门";
         }
         return "ok";
+    }
+
+    private String dealAuth(String authType) {
+        if (StringUtil.isBlank(authType)) return authType;
+        String validAuthType = "";
+        String[] authArray = authType.split(",");
+        for (String auth : authArray) {
+            String validKey = "";
+            for (Map.Entry<String, String> entry : SystemConstant.authTypeMap.entrySet()) {
+                if (entry.getKey().equals(auth)) {
+                    validKey = entry.getKey();
+                    break;
+                }
+                if (entry.getValue().equals(auth)) {
+                    validKey = entry.getKey();
+                    break;
+                }
+            }
+            if (!StringUtil.isBlank(validKey)) {
+                if (StringUtil.isBlank(validAuthType)) {
+                    validAuthType = validAuthType + validKey;
+                } else {
+                    validAuthType = validAuthType + "," + validKey;
+                }
+            }
+        }
+        return validAuthType;
     }
 }

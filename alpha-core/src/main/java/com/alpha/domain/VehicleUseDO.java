@@ -178,4 +178,6 @@ public class VehicleUseDO implements Serializable {
      */
     private boolean alreadyCheck;
 
+    private int useMile;
+
 }

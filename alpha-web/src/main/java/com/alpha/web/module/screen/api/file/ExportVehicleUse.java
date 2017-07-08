@@ -26,7 +26,7 @@ public class ExportVehicleUse extends BaseAjaxModule {
     private ExportExcelManager exportExcelManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("applicationId") Integer applicationId,
+                        @Param("applicationId") String applicationId, @Param("alreadyCheck") Boolean alreadyCheck,
                         @Param("vehicleNO") String vehicleNO, @Param("team") String team,
                         @Param("startDate") Long startDate, @Param("endDate") Long endDate,
                         @Param("status") String status, Context context) {
@@ -36,12 +36,21 @@ public class ExportVehicleUse extends BaseAjaxModule {
             VehicleUseQuery vehicleUseQuery = new VehicleUseQuery();
             vehicleUseQuery.setPage(page);
             vehicleUseQuery.setPageSize(pageSize);
-            vehicleUseQuery.setApplicationId(applicationId);
+            vehicleUseQuery.setApplicationId(applicationId == null ? null :
+                    (applicationId.startsWith("YC") ? Integer.valueOf(applicationId.substring(6)) : Integer.valueOf(applicationId)));
             vehicleUseQuery.setTeam(team);
             vehicleUseQuery.setVehicleNO(vehicleNO);
             vehicleUseQuery.setStartDate(startDate == null ? null : CalendarUtil.toString(new Date(startDate), CalendarUtil.TIME_PATTERN));
             vehicleUseQuery.setEndDate(endDate == null ? null : CalendarUtil.toString(new Date(endDate), CalendarUtil.TIME_PATTERN));
+            vehicleUseQuery.setAlreadyCheck(alreadyCheck);
             List<VehicleUseDO> list = vehicleUseManager.query(vehicleUseQuery);
+            if (list != null) {
+                for (VehicleUseDO vehicleUseDO : list) {
+                    if (vehicleUseDO.getStartMile() != null && vehicleUseDO.getEndMile() != null) {
+                        vehicleUseDO.setUseMile(vehicleUseDO.getEndMile().intValue() - vehicleUseDO.getStartMile().intValue());
+                    }
+                }
+            }
             XSSFWorkbook xssfWorkbook = exportExcelManager.exportExcel(initTitleNameList(), initFieldNameList(), list);
             printExcel(xssfWorkbook, "出车明细单_" + CalendarUtil.toString(new Date(), CalendarUtil.TIME_PATTERN_SESSION));
         } catch (Exception e) {
@@ -61,6 +70,9 @@ public class ExportVehicleUse extends BaseAjaxModule {
         titleNameList.add("所属车队");
         titleNameList.add("手机号码");
         titleNameList.add("车牌号");
+        titleNameList.add("目的地");
+        titleNameList.add("单次里程[公里]");
+        titleNameList.add("用车人");
         titleNameList.add("实际开始时间");
         titleNameList.add("实际结束时间");
         titleNameList.add("实际回车时间");
@@ -81,13 +93,16 @@ public class ExportVehicleUse extends BaseAjaxModule {
 
     private List<String> initFieldNameList() {
         List<String> fieldNameList = new ArrayList<String>();
-        fieldNameList.add("applicationId");
+        fieldNameList.add("applicationNO");
         fieldNameList.add("vehicleApplicationDO.gmtCreate");
         fieldNameList.add("driverName");
         fieldNameList.add("driverDO.citizenId");
         fieldNameList.add("driverDO.team");
         fieldNameList.add("driverDO.mobilePhone");
         fieldNameList.add("vehicleNO");
+        fieldNameList.add("vehicleApplicationDO.endPlace");
+        fieldNameList.add("useMile");
+        fieldNameList.add("vehicleApplicationDO.usePerson");
         fieldNameList.add("actualStartDate");
         fieldNameList.add("actualEndDate");
         fieldNameList.add("actualBackDate");

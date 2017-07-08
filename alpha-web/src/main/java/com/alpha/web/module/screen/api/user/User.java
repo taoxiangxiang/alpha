@@ -46,6 +46,10 @@ public class User extends BaseAjaxModule{
                 typeList.add(SystemConstant.USER_TYPE_NO_AUTH);
                 typeList.add(SystemConstant.USER_TYPE_HAS_AUTH);
                 systemAccountQuery.setTypeList(typeList);
+
+                List<String> statusList = new ArrayList<String>();
+                statusList.add(SystemConstant.ACCOUNT_ON_LINE);
+                systemAccountQuery.setStatusList(statusList);
                 List<SystemAccountDO> list = systemAccountManager.query(systemAccountQuery);
                 if (list != null) {
                     for (SystemAccountDO systemAccountDO : list) {

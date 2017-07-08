@@ -22,16 +22,17 @@
         <result property="department" column="department" />
         <result property="authType" column="auth_type" />
         <result property="picUrl" column="pic_url" />
+        <result property="status" column="status" />
         <result property="attribute" column="attribute" />
         <result property="gmtCreate" column="gmt_create" />
         <result property="gmtModified" column="gmt_modified" />
     </resultMap>
 
     <insert id="insert" parameterType="SystemAccountDO">
-        insert into system_account (id,type,name,nick,sex,password,citizen_id,birth,ethnic_group,native_place
+        insert into system_account (id,status,type,name,nick,sex,password,citizen_id,birth,ethnic_group,native_place
         ,education,tel_number,mobile_phone,mailbox,address,hire_date,position,department,auth_type
         ,pic_url,attribute,gmt_create,gmt_modified)
-         VALUES (null,#{type},#{name},#{nick},#{sex},#{password},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace}
+         VALUES (null,#{status},#{type},#{name},#{nick},#{sex},#{password},#{citizenId},#{birth},#{ethnicGroup},#{nativePlace}
          ,#{education},#{telNumber},#{mobilePhone},#{mailbox},#{address},#{hireDate},#{position},#{department}
          ,#{authType},#{picUrl},#{attribute},now(),now())
     </insert>
@@ -56,6 +57,7 @@
         <if test="hireDate!=null">hire_date=#{hireDate},</if>
         <if test="position!=null">position=#{position},</if>
         <if test="department!=null">department=#{department},</if>
+        <if test="status!=null">status=#{status},</if>
         <if test="authType!=null">auth_type=#{authType},</if>
         <if test="picUrl!=null">pic_url=#{picUrl},</if>
         <if test="attribute!=null">attribute=#{attribute},</if>
@@ -81,6 +83,12 @@
         <if test="typeList != null">
             and type in
             <foreach collection="typeList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
@@ -110,6 +118,12 @@
         <if test="typeList != null">
             and type in
             <foreach collection="typeList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="statusList != null">
+            and status in
+            <foreach collection="statusList" index="index" item="item" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>

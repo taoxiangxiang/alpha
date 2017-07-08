@@ -12,6 +12,8 @@ import com.alpha.query.LeaveQuery;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 /**
@@ -65,7 +67,7 @@ public class LeaveManagerImpl implements LeaveManager {
             if (end != null && end.before(leaveStart)) {
                 endMinx = end;
             }
-            double day = endMinx.after(startMax) ? (endMinx.getTime() - startMax.getTime()) / 24 / 3600 / 1000 : 0;
+            double day = endMinx.after(startMax) ? (endMinx.getTime() - startMax.getTime()) / 24.0 / 3600 / 1000 : 0;
             if (day == 0) continue;
             if (!leaveDayMap.containsKey(leaveDO.getDriverId())) {
                 leaveDayMap.put(leaveDO.getDriverId(), 0D);
@@ -88,7 +90,8 @@ public class LeaveManagerImpl implements LeaveManager {
             leaveSumDO.setTeam(driverDO.getTeam());
             leaveSumDO.setSex(driverDO.getSex());
             leaveSumDO.setCitizenId(driverDO.getCitizenId());
-            leaveSumDO.setNumber(leaveDayMap.get(driverDO.getId()));
+            BigDecimal bg = new BigDecimal(leaveDayMap.get(driverDO.getId())).setScale(1, RoundingMode.HALF_UP);
+            leaveSumDO.setNumber(bg.doubleValue() + "天");
             leaveSumDOList.add(leaveSumDO);
         }
         return leaveSumDOList;

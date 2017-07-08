@@ -2,6 +2,7 @@ package com.alpha.web.module.screen.api.notice;
 
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.DriverDO;
 import com.alpha.domain.RemindDO;
@@ -32,13 +33,17 @@ public class Remind extends BaseAjaxModule {
     private DriverManager driverManager;
 
     public void execute(@Param("page") int page, @Param("pageSize") int pageSize,
-                        @Param("vehicleNO") String vehicleNO,  Context context) {
+                        @Param("team") String team, @Param("eventTitle") String eventTitle,  Context context) {
         try {
             page = page > 0 ? page : 1;
             pageSize = pageSize > 0 ? pageSize : 1000;
             SystemAccountDO systemAccountDO = this.getAccount();
             if (systemAccountDO == null) {
                 print(new Result<String>("请登录系统"));
+                return;
+            }
+            if (!systemAccountDO.hasAuth()) {
+                print(new Result<String>("您没有该功能权限"));
                 return;
             }
             List<RemindDO> remindDOList = new ArrayList<RemindDO>();
@@ -77,11 +82,11 @@ public class Remind extends BaseAjaxModule {
                         remindDO.setTeam(vehicleDO.getTeam());
                         remindDO.setEventTarget("车牌：" + vehicleDO.getVehicleNO());
                         remindDO.setExpireContent("保养到期时间：" + CalendarUtil.toString(vehicleDO.getMaintainDate(), CalendarUtil.TIME_PATTERN)
-                                + "；到期里程：" + vehicleDO.getMaintainMile());
+                                + "；到期里程：" + vehicleDO.getMaintainMile() + "公里");
                         long day =  (vehicleDO.getMaintainDate().getTime() - new Date().getTime())/24/3600/1000;
                         int mile =  vehicleDO.getMaintainMile() - vehicleDO.getMile();
                         remindDO.setRemindInfo((day > 0 ? "剩余" + day + "天，" : "时间已过期；") +
-                                (mile > 0 ? "剩余" + mile + "里程" : "目前里程" + vehicleDO.getMile() +"，里程已超出"));
+                                (mile > 0 ? "剩余里程：" + mile + "公里" : "目前里程" + vehicleDO.getMile() +"，里程已超出"));
                         remindDOList.add(remindDO);
                     }
                 }
@@ -107,10 +112,20 @@ public class Remind extends BaseAjaxModule {
             PageResult<List<RemindDO>> result = new PageResult<List<RemindDO>>();
             result.setPage(page);
             result.setPageSize(pageSize);
-            int number = remindDOList.size();
+            List<RemindDO> filterRemindDOList = new ArrayList<RemindDO>();
+            for (RemindDO remindDO : remindDOList) {
+                if (!StringUtil.isBlank(team) && !remindDO.getTeam().contains(team)) {
+                    continue;
+                }
+                if (!StringUtil.isBlank(eventTitle) && !remindDO.getEventTitle().contains(eventTitle)) {
+                    continue;
+                }
+                filterRemindDOList.add(remindDO);
+            }
+            int number = filterRemindDOList.size();
             result.setNumber(number);
-            int end = number < ((page) * pageSize - 1) ? number : ((page) * pageSize - 1);
-            result.setData(remindDOList.subList((page-1) * pageSize, end));
+            int end = number < (page * pageSize) ? number : (page * pageSize);
+            result.setData(filterRemindDOList.subList((page-1) * pageSize, end));
             print(result);
         } catch (Exception e) {
             Result<VehicleDO> result = new Result<VehicleDO>();

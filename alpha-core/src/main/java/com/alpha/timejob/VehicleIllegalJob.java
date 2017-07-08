@@ -69,7 +69,7 @@ public class VehicleIllegalJob implements InitializingBean {
     }
 
     private void dealSingleVehicle(VehicleDO vehicleDO) {
-        String diQu = "taizhou";
+        String diQu = "yangzhou";
         if ("皖".equals(vehicleDO.getVehicleNO().substring(0,1))) {
             diQu = "wuhu";
         }

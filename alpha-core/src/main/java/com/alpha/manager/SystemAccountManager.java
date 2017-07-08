@@ -14,6 +14,8 @@ public interface SystemAccountManager {
 
     boolean update(SystemAccountDO systemAccountDO);
 
+    boolean updateInfo(SystemAccountDO systemAccountDO) throws Exception;
+
     List<SystemAccountDO> query(SystemAccountQuery systemAccountQuery);
 
     SystemAccountDO queryByNick(String nick);

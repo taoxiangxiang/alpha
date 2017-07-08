@@ -26,14 +26,27 @@ public class ModifyPassword extends BaseAjaxModule {
     @Resource
     private MsgCodeDao msgCodeDao;
 
-    public void execute(@Param("code") String code, @Param("newPassword1") String newPassword1,
+    public void execute(@Param("nick") String nick, @Param("code") String code, @Param("newPassword1") String newPassword1,
                         @Param("newPassword2") String newPassword2, Context context) {
         Result<String> result = new Result<String>();
         try {
             SystemAccountDO accountNow = this.getAccount();
+            if (accountNow == null) {
+                if (StringUtil.isBlank(nick)) {
+                    result.setErrMsg("请输入当前用户昵称");
+                    print(result);
+                    return;
+                }
+                accountNow = systemAccountManager.queryByNick(nick);
+            }
+            if (accountNow == null) {
+                result.setErrMsg("当前账户不存在");
+                print(result);
+                return;
+            }
             SystemAccountDO systemAccountDO = new SystemAccountDO();
             systemAccountDO.setId(accountNow.getId());
-            if (StringUtil.isBlank(newPassword1) || newPassword1.equals(newPassword2)) {
+            if (StringUtil.isBlank(newPassword1) || !newPassword1.equals(newPassword2)) {
                 result.setErrMsg("密码不能为空，且两次密码必须一致");
                 print(result);
                 return;
@@ -57,6 +70,7 @@ public class ModifyPassword extends BaseAjaxModule {
             } else {
                 result.setErrMsg("操作失败，请重新操作");
             }
+            print(result);
         } catch (Exception e) {
             logger.error("ModifyPassword execute catch exception", e);
             result.setErrMsg("系统异常，请重试");

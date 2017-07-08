@@ -1,9 +1,12 @@
 package com.alpha.web.module.screen.api.user;
 
+import com.alibaba.citrus.turbine.dataresolver.Param;
+import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.YunUtil;
 import com.alpha.dao.MsgCodeDao;
 import com.alpha.domain.MsgCodeDO;
 import com.alpha.domain.SystemAccountDO;
+import com.alpha.manager.SystemAccountManager;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
 import org.slf4j.Logger;
@@ -23,11 +26,26 @@ public class SendCodeMsg extends BaseAjaxModule {
 
     @Resource
     private MsgCodeDao msgCodeDao;
+    @Resource
+    private SystemAccountManager systemAccountManager;
 
-    public void execute() {
+    public void execute(@Param("nick") String nick) {
         Result<String> result = new Result<String>();
         try {
             SystemAccountDO accountNow = this.getAccount();
+            if (accountNow == null) {
+                if (StringUtil.isBlank(nick)) {
+                    result.setErrMsg("请输入当前用户昵称");
+                    print(result);
+                    return;
+                }
+                accountNow = systemAccountManager.queryByNick(nick);
+            }
+            if (accountNow == null) {
+                result.setErrMsg("当前账户不存在");
+                print(result);
+                return;
+            }
             String code =  YunUtil.getRandNum(6);
             //频率控制 同一个手机号，一分钟最多一条，一个小时内最多7条
             long oneMinutesAgo = new Date().getTime() - 60L * 1000L;

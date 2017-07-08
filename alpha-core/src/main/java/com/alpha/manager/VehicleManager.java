@@ -1,6 +1,7 @@
 package com.alpha.manager;
 
 import com.alpha.domain.VehicleDO;
+import com.alpha.domain.VehicleInfoDO;
 import com.alpha.domain.VehicleUseSumDO;
 import com.alpha.query.VehicleQuery;
 import com.alpha.query.VehicleUseQuery;
@@ -23,4 +24,6 @@ public interface VehicleManager {
     int count(VehicleQuery vehicleQuery);
 
     boolean update(VehicleDO vehicleDO);
+
+    List<VehicleInfoDO> getVehicleInfo(List<VehicleDO> vehicleDOList, String vehicleNO, String team, Long startDate, Long endDate);
 }

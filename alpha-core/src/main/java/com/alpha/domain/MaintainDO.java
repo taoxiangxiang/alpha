@@ -72,7 +72,7 @@ public class MaintainDO implements Serializable {
     private String maintainContent;
 
     /**
-     * 维保内容
+     * 维保费用
      */
     private Double money;
 
@@ -130,6 +130,11 @@ public class MaintainDO implements Serializable {
      * 文件地址
      */
     private String file;
+
+    /**
+     * 文件地址2
+     */
+    private String file2;
 
     /**
      * 其他属性

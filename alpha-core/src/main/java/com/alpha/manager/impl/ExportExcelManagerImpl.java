@@ -53,7 +53,21 @@ public class ExportExcelManagerImpl implements ExportExcelManager {
         if (fieldNameList == null) return;
         for(int i = 0; i < fieldNameList.size(); i++) {
             Object object = getFieldValueByName(fieldNameList.get(i), o);
-            String value = (object == null ? "" : ((object instanceof Date) ? CalendarUtil.toString((Date)object, CalendarUtil.TIME_PATTERN) : String.valueOf(object)));
+            String value = "";
+            if (object == null) {
+                value = "";
+            } else if (object instanceof Date) {
+                value = CalendarUtil.toString((Date)object, CalendarUtil.TIME_PATTERN);
+            } else if (object instanceof Boolean) {
+                if (((Boolean) object)) {
+                    value = "是";
+                } else {
+                    value = "否";
+                }
+            } else {
+                value = String.valueOf(object);
+            }
+//            String value = (object == null ? "" : ((object instanceof Date) ? CalendarUtil.toString((Date)object, CalendarUtil.TIME_PATTERN) : String.valueOf(object)));
             XSSFCell cell = row.createCell(i);
             cell.setCellValue(value);
         }

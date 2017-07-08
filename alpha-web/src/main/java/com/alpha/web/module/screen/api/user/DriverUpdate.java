@@ -5,8 +5,11 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alibaba.citrus.util.StringUtil;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.constans.ParamUtil;
+import com.alpha.constans.SystemConstant;
 import com.alpha.domain.DriverDO;
+import com.alpha.domain.SystemAccountDO;
 import com.alpha.manager.DriverManager;
+import com.alpha.manager.SystemAccountManager;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
 
@@ -20,6 +23,8 @@ public class DriverUpdate extends BaseAjaxModule {
 
     @Resource
     private DriverManager driverManager;
+    @Resource
+    private SystemAccountManager systemAccountManager;
 
     public void execute(@Param("name") String name, @Param("sex") String sex,@Param("team") String team,
                         @Param("citizenId") String citizenId, @Param("birth") Long birth,
@@ -40,6 +45,20 @@ public class DriverUpdate extends BaseAjaxModule {
             citizenId = citizenId == null ? null : citizenId.trim();
             name = name == null ? null : name.trim();
             mobilePhone = mobilePhone == null ? null : mobilePhone.trim();
+            DriverDO driverDOInDB = driverManager.queryById(id);
+            if (driverDOInDB == null) {
+                result.setErrMsg("该司机不存在");
+                print(result);
+                return;
+            }
+            if (!driverDOInDB.getCitizenId().equals(citizenId)) {
+                SystemAccountDO systemAccountDO = systemAccountManager.queryByCitizenId(citizenId);
+                if (systemAccountDO != null) {
+                    result.setErrMsg("该身份证号码已经被他人使用，请核对");
+                    print(result);
+                    return;
+                }
+            }
             DriverDO driverDO = new DriverDO();
             driverDO.setId(id);
             driverDO.setName(name);
@@ -67,7 +86,7 @@ public class DriverUpdate extends BaseAjaxModule {
                 print(result);
                 return;
             }
-            boolean res = driverManager.update(driverDO);
+            boolean res = driverManager.updateInfo(driverDO);
             if (res) {
                 result.setData("操作成功");
             } else {

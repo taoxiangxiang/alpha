@@ -13,7 +13,10 @@ import freemarker.template.TemplateException;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -123,5 +126,14 @@ public class BaseAjaxModule extends BaseModule {
             }
         }
         return false;
+    }
+
+    protected void setCookie(HttpServletResponse response, String name, String value) throws UnsupportedEncodingException {
+        Cookie cookie = new Cookie(name, URLEncoder.encode(value, "utf-8"));
+        // tomcat下多应用共享
+        cookie.setPath("/");
+        cookie.setMaxAge(-1);
+        // 将Cookie添加到Response中,使之生效
+        response.addCookie(cookie); // addCookie后，如果已经存在相同名字的cookie，则最新的覆盖旧的cookie
     }
 }

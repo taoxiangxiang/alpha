@@ -140,4 +140,6 @@ public class VehicleApplicationDO implements Serializable {
      * 所有审核记录
      */
     private List<VerifyRecordDO> verifyRecordList;
+
+
 }

@@ -41,11 +41,11 @@ public class LeaveStatistics extends BaseAjaxModule {
                 return;
             }
             page = page > 0 ? page : 1;
-            pageSize = pageSize > 0 ? pageSize : 10000;
+            pageSize = pageSize > 0 ? pageSize : 100000;
             LeaveQuery leaveQuery = new LeaveQuery();
             PageResult<List<LeaveSumDO>> result = new PageResult<List<LeaveSumDO>>();
-            leaveQuery.setPage(page);
-            leaveQuery.setPageSize(pageSize);
+            leaveQuery.setPage(1);
+            leaveQuery.setPageSize(100000);
             leaveQuery.setDriverName(driverName);
             leaveQuery.setTeam(team);
             List<String> statusList = new ArrayList<String>();
@@ -56,7 +56,7 @@ public class LeaveStatistics extends BaseAjaxModule {
             result.setPage(page);
             result.setPageSize(pageSize);
             result.setNumber(number);
-            int end = number < ((page) * pageSize - 1) ? number : ((page) * pageSize - 1);
+            int end = number < (page * pageSize) ? number : (page * pageSize);
             result.setData(leaveSumDOList.subList((page-1) * pageSize, end));
             print(result);
         } catch (Exception e) {

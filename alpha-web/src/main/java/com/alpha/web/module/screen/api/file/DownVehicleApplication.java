@@ -4,7 +4,9 @@ import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.dataresolver.Param;
 import com.alpha.constans.CalendarUtil;
 import com.alpha.domain.VehicleApplicationDO;
+import com.alpha.domain.VehicleUseDO;
 import com.alpha.manager.VehicleApplicationManager;
+import com.alpha.manager.VehicleUseManager;
 import com.alpha.query.VehicleApplicationQuery;
 import com.alpha.web.common.BaseAjaxModule;
 import com.alpha.web.domain.Result;
@@ -23,13 +25,22 @@ public class DownVehicleApplication extends BaseAjaxModule {
 
     @Resource
     private VehicleApplicationManager vehicleApplicationManager;
+    @Resource
+    private VehicleUseManager vehicleUseManager;
 
     public void execute(@Param("id") int id, Context context) {
+        VehicleUseDO vehicleUseDO = vehicleUseManager.queryById(id);
         Result<String> result = new Result<String>();
+        if (vehicleUseDO == null) {
+            result.setErrMsg("申请单不存在");
+            print(result);
+            return;
+        }
+//        int idInDB = (id.startsWith("YC") ? Integer.valueOf(id.substring(6)) : Integer.valueOf(id));
         List<VehicleApplicationDO> vehicleApplicationDOList = null;
         try {
             VehicleApplicationQuery vehicleApplicationQuery = new VehicleApplicationQuery();
-            vehicleApplicationQuery.setId(id);
+            vehicleApplicationQuery.setId(vehicleUseDO.getApplicationId());
             vehicleApplicationDOList = vehicleApplicationManager.query(vehicleApplicationQuery);
         } catch (Exception e) {
             result.setErrMsg("系统异常，请稍后重试");
@@ -55,7 +66,7 @@ public class DownVehicleApplication extends BaseAjaxModule {
 
     private Map<String,Object> initDataMap(VehicleApplicationDO vehicleApplicationDO) {
         Map<String,Object> dataMap = new HashMap<String,Object>();
-        dataMap.put("id", vehicleApplicationDO.getId());
+        dataMap.put("id", vehicleApplicationDO.getApplicationNO());
         dataMap.put("gmtCreate", CalendarUtil.toString(vehicleApplicationDO.getGmtCreate(), CalendarUtil.TIME_PATTERN));
         dataMap.put("applicationDepartment", vehicleApplicationDO.getApplicationDepartment());
         dataMap.put("applicationType", vehicleApplicationDO.getApplicationType());
@@ -65,8 +76,8 @@ public class DownVehicleApplication extends BaseAjaxModule {
         dataMap.put("endPlace", vehicleApplicationDO.getEndPlace());
         dataMap.put("vehicleType", vehicleApplicationDO.getVehicleType());
         dataMap.put("personNumber", vehicleApplicationDO.getPersonNumber());
-        dataMap.put("useDate", vehicleApplicationDO.getUseDate());
-        dataMap.put("predictBackDate", vehicleApplicationDO.getPredictBackDate());
+        dataMap.put("useDate", CalendarUtil.toString(vehicleApplicationDO.getUseDate(), CalendarUtil.TIME_PATTERN));
+        dataMap.put("predictBackDate", CalendarUtil.toString(vehicleApplicationDO.getPredictBackDate(), CalendarUtil.TIME_PATTERN));
         dataMap.put("applicationType", vehicleApplicationDO.getApplicationType());
         dataMap.put("applicationReason", vehicleApplicationDO.getApplicationReason());
         return dataMap;

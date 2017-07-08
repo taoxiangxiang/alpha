@@ -50,8 +50,8 @@ public class DriverManagerImpl implements DriverManager {
         systemAccountDO.setMailbox(driverDO.getMailbox());
         systemAccountDO.setAddress(driverDO.getAddress());
         systemAccountDO.setHireDate(null);
-        systemAccountDO.setPosition(null);
-        systemAccountDO.setDepartment(null);
+        systemAccountDO.setPosition("司机");
+        systemAccountDO.setDepartment(driverDO.getTeam());
         systemAccountDO.setPicUrl(driverDO.getPersonUrl());
         systemAccountDO.setStatus(SystemConstant.ACCOUNT_ON_LINE);
         systemAccountDO.setType(SystemConstant.USER_TYPE_DRIVER);
@@ -106,7 +106,31 @@ public class DriverManagerImpl implements DriverManager {
     }
 
     @Override
-    public boolean update(DriverDO driverDO) {
+    public boolean update(DriverDO driverDO){
+        return driverDao.update(driverDO);
+    }
+
+    @Override
+    @Transactional(rollbackForClassName="Exception")
+    public boolean updateInfo(DriverDO driverDO) throws Exception{
+        DriverDO driverDOInDB = queryById(driverDO.getId());
+        SystemAccountDO systemAccountDO = systemAccountManager.queryByCitizenId(driverDOInDB.getCitizenId());
+        systemAccountDO.setName(driverDO.getName());
+        systemAccountDO.setSex(driverDO.getSex());
+        systemAccountDO.setCitizenId(driverDO.getCitizenId());
+        systemAccountDO.setBirth(driverDO.getBirth());
+        systemAccountDO.setEthnicGroup(driverDO.getEthnicGroup());
+        systemAccountDO.setNativePlace(driverDO.getNativePlace());
+        systemAccountDO.setEducation(driverDO.getEducation());
+        systemAccountDO.setTelNumber(driverDO.getMobilePhone());
+        systemAccountDO.setMobilePhone(driverDO.getMobilePhone());
+        systemAccountDO.setMailbox(driverDO.getMailbox());
+        systemAccountDO.setAddress(driverDO.getAddress());
+        systemAccountDO.setDepartment(driverDO.getTeam());
+        systemAccountDO.setPicUrl(driverDO.getPersonUrl());
+        if (!systemAccountManager.update(systemAccountDO)) {
+            throw new Exception("数据库查询失败");
+        }
         return driverDao.update(driverDO);
     }
 }

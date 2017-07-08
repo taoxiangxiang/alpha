@@ -24,6 +24,7 @@
         <result property="applicationRemark" column="application_remark" />
         <result property="pickUpRemark" column="pickUp_remark" />
         <result property="file" column="file" />
+        <result property="file2" column="file2" />
         <result property="attribute" column="attribute" />
         <result property="gmtCreate" column="gmt_create" />
         <result property="gmtModified" column="gmt_modified" />
@@ -58,6 +59,7 @@
         <if test="applicationRemark!=null">application_remark=#{applicationRemark},</if>
         <if test="pickUpRemark!=null">pickUp_remark=#{pickUpRemark},</if>
         <if test="file!=null">file=#{file},</if>
+        <if test="file2!=null">file2=#{file2},</if>
         <if test="attribute!=null">attribute=#{attribute},</if>
         gmt_modified = now()
         where id = #{id}
@@ -144,6 +146,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )a
         left outer join(
             select vehicle_no, team, count(1) as baoYangNumber, sum(money) as baoYangMoney
@@ -167,6 +170,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )b
         on a.vehicle_no=b.vehicle_no
         UNION
@@ -193,6 +197,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )a
         right outer join(
             select vehicle_no, team, count(1) as baoYangNumber, sum(money) as baoYangMoney
@@ -216,6 +221,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )b
         on a.vehicle_no=b.vehicle_no
         order by vehicle_no
@@ -247,6 +253,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )a
         left outer join(
             select vehicle_no, team, count(1) as baoYangNumber, sum(money) as baoYangMoney
@@ -270,6 +277,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )b
         on a.vehicle_no=b.vehicle_no
         union
@@ -296,6 +304,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )a
         right outer join(
             select vehicle_no, team, count(1) as baoYangNumber, sum(money) as baoYangMoney
@@ -319,6 +328,7 @@
             <if test="team != null and team != '' ">
                 AND team like CONCAT('%',#{team},'%')
             </if>
+            group by team,vehicle_no
         )b
         on a.vehicle_no=b.vehicle_no)cc
     </select>

@@ -59,7 +59,7 @@ public class VehicleUseManagerImpl implements VehicleUseManager {
             if (!insert(vehicleUseDO) || !driverManager.update(driverDO) || !vehicleManager.update(vehicleDO)) {
                 throw new Exception("数据库写入失败");
             }
-            YunUtil.sendVehicleVerifyPass(vehicleUseDO);
+            YunUtil.sendVehicleVerifyPass(vehicleApplicationDO, vehicleUseDO);
         }
         return "true";
     }

@@ -16,6 +16,8 @@ import com.alpha.web.domain.PageResult;
 import com.alpha.web.domain.Result;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +53,13 @@ public class VehicleGasStatistics extends BaseAjaxModule {
             vehicleGasQuery.setVehicleNO(vehicleNO);
             vehicleGasQuery.setTeam(team);
             List<VehicleGasSumDO> list = vehicleGasManager.queryGroupByVehicle(vehicleGasQuery);
+            if (list != null) {
+                for (VehicleGasSumDO vehicleGasSumDO : list) {
+                    if (vehicleGasSumDO.getCost() == null) continue;
+                    BigDecimal bg = new BigDecimal(vehicleGasSumDO.getCost()).setScale(1, RoundingMode.HALF_UP);
+                    vehicleGasSumDO.setCost(bg.doubleValue());
+                }
+            }
             int number = vehicleGasManager.countGroupByVehicle(vehicleGasQuery);
             result.setData(list);
             result.setPage(page);

@@ -42,4 +42,9 @@ public class SystemAccountQuery extends PageQuery {
      * 人员类型
      */
     private List<String> typeList;
+
+    /**
+     * 状态类型
+     */
+    private List<String> statusList;
 }

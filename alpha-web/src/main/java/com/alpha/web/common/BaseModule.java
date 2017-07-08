@@ -71,7 +71,7 @@ public class BaseModule {
             if (sessionName == null) {
                 return null;
             }
-            systemAccountQuery.setName(getSessionName());
+            systemAccountQuery.setNick(getSessionName());
             List<SystemAccountDO> accountDOList = systemAccountManager.query(systemAccountQuery);
             if (accountDOList == null || accountDOList.size() == 0) {
                 return null;

@@ -75,59 +75,32 @@ public class VehicleUseAdd extends BaseAjaxModule{
             }
             List<Integer> vehicleIdList = new ArrayList<Integer>();
             List<Integer> driverIdList = new ArrayList<Integer>();
-            List<DriverBindDO> driverBindDOList = driverBindManager.query(new DriverBindQuery());
-            Map<Integer, String> driverBindMap = new HashMap<Integer, String>();
-            Map<String, String> driverBindReverseMap = new HashMap<String, String>();
+            DriverBindQuery driverBindQuery = new DriverBindQuery();
+            driverBindQuery.setStatus(SystemConstant.DRIVER_BIND_VEHICLE);
+            List<DriverBindDO> driverBindDOList = driverBindManager.query(driverBindQuery);
+            Map<Integer, DriverBindDO> driverBindMap = new HashMap<Integer, DriverBindDO>();
+            Map<Integer, DriverBindDO> vehicleBindMap = new HashMap<Integer, DriverBindDO>();
             if (driverBindDOList != null) {
                 for (DriverBindDO driverBindDO : driverBindDOList) {
-                    driverBindMap.put(driverBindDO.getDriverId(), driverBindDO.getVehicleNO());
-                    driverBindReverseMap.put(driverBindDO.getVehicleNO(), driverBindDO.getDriverName());
+                    driverBindMap.put(driverBindDO.getDriverId(), driverBindDO);
+                    vehicleBindMap.put(driverBindDO.getVehicleId(), driverBindDO);
                 }
             }
             Map<Integer, Boolean> driverIdSelectedMap = new HashMap<Integer, Boolean>();
             Map<Integer, Boolean> vehicleIdSelectedMap = new HashMap<Integer, Boolean>();
-            for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
-                if (vehicleUseDO.getVehicleId() == null || vehicleUseDO.getDriverId() == null ) {
-                    result.setErrMsg("请核对车辆调派信息,请选择对应司机和车辆");
-                    print(result);
-                    return;
-                }
-                if (driverIdSelectedMap.containsKey(vehicleUseDO.getDriverId())) {
-                    result.setErrMsg("请核对车辆调派信息,请勿重复调派司机：" + vehicleUseDO.getDriverName());
-                    print(result);
-                    return;
-                }
-                if (vehicleIdSelectedMap.containsKey(vehicleUseDO.getVehicleId())) {
-                    result.setErrMsg("请核对车辆调派信息,请勿重复调派车：" + vehicleUseDO.getVehicleNO());
-                    print(result);
-                    return;
-                }
-                if (driverBindMap.containsKey(vehicleUseDO.getDriverId())
-                        && !driverBindMap.get(vehicleUseDO.getDriverId()).equals(vehicleUseDO.getVehicleNO())) {
-                    result.setErrMsg("请核对车辆调派信息,司机：" + vehicleUseDO.getDriverName() + "已经绑定了车辆" + driverBindMap.get(vehicleUseDO.getDriverId()));
-                    print(result);
-                    return;
-                }
-                if (driverBindReverseMap.containsKey(vehicleUseDO.getVehicleNO())
-                        && !driverBindReverseMap.get(vehicleUseDO.getVehicleNO()).equals(vehicleUseDO.getDriverName())) {
-                    result.setErrMsg("请核对车辆调派信息,车辆：" + vehicleUseDO.getVehicleNO() + "已经绑定了司机" + driverBindReverseMap.get(vehicleUseDO.getVehicleNO()));
-                    print(result);
-                    return;
-                }
-                driverIdSelectedMap.put(vehicleUseDO.getDriverId(), true);
-                vehicleIdSelectedMap.put(vehicleUseDO.getVehicleId(), true);
+            for (VehicleUseDO vehicleUseDO : vehicleUseDOList)  {
                 vehicleIdList.add(vehicleUseDO.getVehicleId());
                 driverIdList.add(vehicleUseDO.getDriverId());
             }
             List<VehicleDO> vehicleDOList = getUseVehicle(vehicleIdList);
             List<DriverDO> driverDOList = getUseDriver(driverIdList);
-            if (vehicleDOList == null || vehicleIdList.size() != vehicleDOList.size()) {
-                result.setErrMsg("请核对车辆Id信息，部分车辆Id不存在");
+            if (vehicleDOList == null) {
+                result.setErrMsg("请核对车辆Id信息，车辆信息不存在");
                 print(result);
                 return;
             }
-            if (driverDOList == null || driverIdList.size() != driverDOList.size()) {
-                result.setErrMsg("请核对司机Id信息，部分司机Id不存在");
+            if (driverDOList == null) {
+                result.setErrMsg("请核对司机Id信息，司机信息不存在");
                 print(result);
                 return;
             }
@@ -152,7 +125,45 @@ public class VehicleUseAdd extends BaseAjaxModule{
                 }
                 driverDOMap.put(driverDO.getId(), driverDO);
             }
+            for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
+                if (vehicleUseDO.getVehicleId() == null || vehicleUseDO.getDriverId() == null ) {
+                    result.setErrMsg("请核对车辆调派信息,请选择对应司机和车辆");
+                    print(result);
+                    return;
+                }
+                if (vehicleDOMap.get(vehicleUseDO.getVehicleId()) == null || driverDOMap.get(vehicleUseDO.getDriverId()) == null ) {
+                    result.setErrMsg("请核对车辆调派信息,请选择正确的司机和车辆");
+                    print(result);
+                    return;
+                }
+                if (driverIdSelectedMap.containsKey(vehicleUseDO.getDriverId())) {
+                    result.setErrMsg("请核对车辆调派信息,请勿重复调派司机：" + driverDOMap.get(vehicleUseDO.getDriverId()).getName());
+                    print(result);
+                    return;
+                }
+                if (vehicleIdSelectedMap.containsKey(vehicleUseDO.getVehicleId())) {
+                    result.setErrMsg("请核对车辆调派信息,请勿重复调派车：" + vehicleDOMap.get(vehicleUseDO.getVehicleId()).getVehicleNO());
+                    print(result);
+                    return;
+                }
+                if (driverBindMap.containsKey(vehicleUseDO.getDriverId())
+                        && driverBindMap.get(vehicleUseDO.getDriverId()).getVehicleId().intValue() != vehicleUseDO.getVehicleId()) {
+                    result.setErrMsg("请核对车辆调派信息,司机：" + driverBindMap.get(vehicleUseDO.getDriverId()).getDriverName()
+                            + "已经绑定了车辆" + driverBindMap.get(vehicleUseDO.getDriverId()).getVehicleNO());
+                    print(result);
+                    return;
+                }
+                if (vehicleBindMap.containsKey(vehicleUseDO.getVehicleId())
+                        && vehicleBindMap.get(vehicleUseDO.getVehicleId()).getDriverId().intValue() != vehicleUseDO.getDriverId()) {
+                    result.setErrMsg("请核对车辆调派信息,车辆：" + vehicleBindMap.get(vehicleUseDO.getVehicleId()).getVehicleNO()
+                            + "已经绑定了司机" + vehicleBindMap.get(vehicleUseDO.getVehicleId()).getDriverName());
+                    print(result);
+                    return;
+                }
+                driverIdSelectedMap.put(vehicleUseDO.getDriverId(), true);
+                vehicleIdSelectedMap.put(vehicleUseDO.getVehicleId(), true);
 
+            }
             for (VehicleUseDO vehicleUseDO : vehicleUseDOList) {
                 vehicleUseDO.setApplicationId(applicationId);
                 vehicleUseDO.setVehicleNO(vehicleDOMap.get(vehicleUseDO.getVehicleId()).getVehicleNO());

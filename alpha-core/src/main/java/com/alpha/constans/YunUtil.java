@@ -25,6 +25,7 @@ public class YunUtil {
      * SMS_64585006: 您的车辆维修保养申请单${maintainId}已经通过审核，请至${maintain_address}进行维修保养，联系电话${number}。
      * SMS_64480072: 您的车辆使用申请单${applicationId}被驳回，请登录系统查看或联系车管中心。
      * SMS_63890293: 您的车辆使用申请单${applicationId}已经通过审核，请联系您的司机${driverName}，联系电话${number}
+     * SMS_72765031：您有新的用车调派单号：${applicationId}，用车时间为：${useDate}, 预计回车时间：${predictBackDate}，联系人：${contacts}，联系人电话${contactsPhone},请和联系人联系后尽快发车。
      */
 
     public static boolean sendCodeMsg(String phoneNumber,String code) {
@@ -49,8 +50,8 @@ public class YunUtil {
     public static boolean sendLeaveVerifyPass(LeaveDO leaveDO) {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
         paramStringMap.put("vocationId", leaveDO.getApplicationNO());
-        paramStringMap.put("vocation_BeginDate", leaveDO.getStartDate());
-        paramStringMap.put("vocation_EndDate", leaveDO.getEndDate());
+        paramStringMap.put("vocation_BeginDate", CalendarUtil.toString(leaveDO.getStartDate(), "MM-dd HH:mm:ss"));
+        paramStringMap.put("vocation_EndDate", CalendarUtil.toString(leaveDO.getEndDate(),"MM-dd HH:mm:ss"));
         return sendMsg(leaveDO.getMobilePhone(), JSON.toJSONString(paramStringMap), "SMS_64650070");
     }
 
@@ -74,12 +75,21 @@ public class YunUtil {
         return sendMsg(vehicleApplicationDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_64480072");
     }
 
-    public static boolean sendVehicleVerifyPass(VehicleUseDO vehicleUseDO) {
+    public static boolean sendVehicleVerifyPass(VehicleApplicationDO vehicleApplicationDO, VehicleUseDO vehicleUseDO) {
         Map<String, Object> paramStringMap = new HashMap<String, Object>();
-        paramStringMap.put("applicationId", vehicleUseDO.getApplicationNO());
+        paramStringMap.put("applicationId", vehicleApplicationDO.getApplicationNO());
         paramStringMap.put("driverName", vehicleUseDO.getDriverName());
         paramStringMap.put("number", vehicleUseDO.getDriverPhone());
-        return sendMsg(vehicleUseDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_63890293");
+        sendMsg(vehicleUseDO.getApplicantPhone(), JSON.toJSONString(paramStringMap), "SMS_63890293");
+
+        Map<String, Object> paramStringMap2 = new HashMap<String, Object>();
+        paramStringMap2.put("applicationId", vehicleApplicationDO.getApplicationNO());
+        paramStringMap2.put("useDate", CalendarUtil.toString(vehicleApplicationDO.getUseDate(), "MM-dd HH:mm:ss"));
+        paramStringMap2.put("predictBackDate", CalendarUtil.toString(vehicleApplicationDO.getPredictBackDate(), "MM-dd HH:mm:ss"));
+        paramStringMap2.put("contacts", vehicleApplicationDO.getContacts());
+        paramStringMap2.put("contactsPhone", vehicleApplicationDO.getContactsPhone());
+
+        return sendMsg(vehicleUseDO.getDriverPhone(), JSON.toJSONString(paramStringMap2), "SMS_72765031");
     }
 
     private static boolean sendMsg(String phoneNumber, String paramString, String templateCode) {
@@ -146,9 +156,38 @@ public class YunUtil {
         return from + r.nextInt(to - from);
     }
 
+
     public static void main(String args[]) {
-        String fileName = "a.doc";
-        String prefix=fileName.substring(fileName.lastIndexOf(".")+1);
-        System.out.println(prefix);
+//        String host = "http://jisuqgclwz.market.alicloudapi.com";
+//        String path = "/illegal/query";
+//        String method = "GET";
+//        String appcode = "53b47f50df2a430fb84ac6a795dcd4fc";
+//        Map<String, String> headers = new HashMap<String, String>();
+//        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
+//        headers.put("Authorization", "APPCODE " + appcode);
+//        Map<String, String> querys = new HashMap<String, String>();
+//        querys.put("carorg", "taizhou");
+//        querys.put("engineno", "CRE093483");
+//        querys.put("frameno", "WAUYGB4H4GN018022");
+//        querys.put("iscity", "1");
+//        querys.put("lsnum", "MUE005");//车牌剩余部分
+//        querys.put("lsprefix", "苏");//车牌前缀
+////        querys.put("lstype", "02");
+//
+//        try {
+//            HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
+//            //获取response的body
+//            System.out.print( EntityUtils.toString(response.getEntity()));
+//        } catch (Exception e) {
+//        }
+
+        Map<String, Object> paramStringMap2 = new HashMap<String, Object>();
+        paramStringMap2.put("applicationId", "1");
+        paramStringMap2.put("useDate", CalendarUtil.toString(new Date(), "MM-dd HH:mm:ss")
+                );
+        paramStringMap2.put("contacts", "12");
+        paramStringMap2.put("contactsPhone", "13");
+
+         sendMsg("17091608626", JSON.toJSONString(paramStringMap2), "SMS_72820028");
     }
 }

@@ -45,6 +45,6 @@ public class LeaveSumDO implements Serializable {
     /**
      * 请假天数
      */
-    private Double number;
+    private String number;
 
 }

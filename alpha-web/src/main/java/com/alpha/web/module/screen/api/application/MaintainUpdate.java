@@ -36,7 +36,7 @@ public class MaintainUpdate extends BaseAjaxModule {
                         @Param("actualPickUpDate") Long actualPickUpDate,
                         @Param("maintainContent") String maintainContent,
                         @Param("maintainDate") Long maintainDate,
-                        @Param("mile") Integer mile,
+                        @Param("mile") int mile, @Param("money") double money, @Param("file2") String file2,
                         @Param(name="pickUpRemark", defaultValue="") String pickUpRemark) {
         Result<String> result = new Result<String>();
         try {
@@ -100,6 +100,11 @@ public class MaintainUpdate extends BaseAjaxModule {
                     print(result);
                     return;
                 }
+                if (money <= 0) {
+                    result.setErrMsg("请填写费用");
+                    print(result);
+                    return;
+                }
             }
             MaintainDO maintainDO = new MaintainDO();
             maintainDO.setId(id);
@@ -108,12 +113,15 @@ public class MaintainUpdate extends BaseAjaxModule {
                 maintainDO.setMaintainAddress(partnerDepartmentDO.getAddress());
                 maintainDO.setMaintainDepartmentName(partnerDepartmentDO.getDepartmentName());
                 maintainDO.setMaintainPhone(partnerDepartmentDO.getMobilePhone());
+            } else {
+                maintainDO.setActualPickUpDate(actualPickUpDate == null ? null : new Date(actualPickUpDate));
+                maintainDO.setMaintainContent(maintainContent);
+                maintainDO.setMaintainDate(maintainDate == null ? null : new Date(maintainDate));
+                maintainDO.setMile(mile);
+                maintainDO.setMoney(money);
+                maintainDO.setPickUpRemark(pickUpRemark);
+                maintainDO.setFile2(file2);
             }
-            maintainDO.setActualPickUpDate(actualPickUpDate == null ? null : new Date(actualPickUpDate));
-            maintainDO.setMaintainContent(maintainContent);
-            maintainDO.setMaintainDate(maintainDate == null ? null :new Date(maintainDate));
-            maintainDO.setMile(mile);
-            maintainDO.setPickUpRemark(pickUpRemark);
             boolean res = false;
             if (partnerDepartmentDO != null) {
                 if (SystemConstant.MAINTAIN_VERIFY_PASS.equals(maintainDOInDB.getStatus())) {
