@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="maven-antrun-" default="main"  >
 <target name="main">
-  <echo message="project home:        /Users/taoxiang/Desktop/workspace/my/git/alpha/alpha-core"/>
-  <echo message="java home:           /Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
+  <echo message="project home:        /Users/taoxiang/Desktop/workspace/alpha/alpha/alpha-core"/>
+  <echo message="java home:           /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre"/>
   <echo message="java source version: 1.6"/>
   <echo message="java target version: 1.6"/>
   <echo message="java source charset: UTF-8"/>
