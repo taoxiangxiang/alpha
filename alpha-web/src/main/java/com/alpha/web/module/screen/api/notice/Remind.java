@@ -76,7 +76,8 @@ public class Remind extends BaseAjaxModule {
                         remindDOList.add(remindDO);
                     }
 
-                    if (twoWeekAfter.after(vehicleDO.getMaintainDate()) || (vehicleDO.getMile() + 500) >= vehicleDO.getMaintainMile()) {
+                    if (twoWeekAfter.after(vehicleDO.getMaintainDate()) || (vehicleDO.getMile() != null && vehicleDO.getMaintainMile() != null &&
+                            (vehicleDO.getMile() + 500) >= vehicleDO.getMaintainMile())) {
                         RemindDO remindDO = new RemindDO();
                         remindDO.setEventTitle("保养到期");
                         remindDO.setTeam(vehicleDO.getTeam());
@@ -84,9 +85,12 @@ public class Remind extends BaseAjaxModule {
                         remindDO.setExpireContent("保养到期时间：" + CalendarUtil.toString(vehicleDO.getMaintainDate(), CalendarUtil.TIME_PATTERN)
                                 + "；到期里程：" + vehicleDO.getMaintainMile() + "公里");
                         long day =  (vehicleDO.getMaintainDate().getTime() - new Date().getTime())/24/3600/1000;
-                        int mile =  vehicleDO.getMaintainMile() - vehicleDO.getMile();
-                        remindDO.setRemindInfo((day > 0 ? "剩余" + day + "天，" : "时间已过期；") +
-                                (mile > 0 ? "剩余里程：" + mile + "公里" : "目前里程" + vehicleDO.getMile() +"，里程已超出"));
+                        String remindInfo = (day > 0 ? "剩余" + day + "天，" : "时间已过期；");
+                        if (vehicleDO.getMile() != null && vehicleDO.getMaintainMile() != null) {
+                            int mile =  vehicleDO.getMaintainMile() - vehicleDO.getMile();
+                            remindInfo = remindInfo + (mile > 0 ? "剩余里程：" + mile + "公里" : "目前里程" + vehicleDO.getMile() +"，里程已超出");
+                        }
+                        remindDO.setRemindInfo(remindInfo);
                         remindDOList.add(remindDO);
                     }
                 }

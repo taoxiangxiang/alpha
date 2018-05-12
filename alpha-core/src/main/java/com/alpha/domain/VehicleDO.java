@@ -76,7 +76,7 @@ public class VehicleDO implements Serializable {
     /**
      * 下一次保养里程
      */
-    private int maintainMile;
+    private Integer maintainMile;
 
     /**
      * 发动机编号
@@ -116,7 +116,7 @@ public class VehicleDO implements Serializable {
     /**
      * 车辆行驶里程
      */
-    private int mile;
+    private Integer mile;
 
     /**
      * 车辆状态

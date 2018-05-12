@@ -105,12 +105,12 @@ public class VehicleUpdate extends BaseAjaxModule {
         if (StringUtil.isBlank(vehicleDO.getColour())) {
             return "请填写车辆颜色";
         }
-        if (StringUtil.isBlank(vehicleDO.getLoad())) {
-            return "请填写载重";
-        }
-        if (vehicleDO.getSeat() <= 0) {
-            return "请填写座位";
-        }
+//        if (StringUtil.isBlank(vehicleDO.getLoad())) {
+//            return "请填写载重";
+//        }
+//        if (vehicleDO.getSeat() <= 0) {
+//            return "请填写座位";
+//        }
         if (StringUtil.isBlank(vehicleDO.getTeam())) {
             return "请填写车队";
         }
@@ -123,9 +123,9 @@ public class VehicleUpdate extends BaseAjaxModule {
         if (vehicleDO.getMaintainDate() == null ) {
             return "请填写下一次保养时间";
         }
-        if (vehicleDO.getMaintainMile() <= 0) {
-            return "请填写下一次保养里程";
-        }
+//        if (vehicleDO.getMaintainMile() <= 0) {
+//            return "请填写下一次保养里程";
+//        }
         if (StringUtil.isBlank(vehicleDO.getEngineNO())) {
             return "请填写发动机编号";
         }
@@ -135,9 +135,9 @@ public class VehicleUpdate extends BaseAjaxModule {
         if (StringUtil.isBlank(vehicleDO.getLicenseClass())) {
             return "请填写驾照类型";
         }
-        if (vehicleDO.getMile() <= 0) {
-            return "请填写车辆里程";
-        }
+//        if (vehicleDO.getMile() <= 0) {
+//            return "请填写车辆里程";
+//        }
         return "ok";
     }
 }

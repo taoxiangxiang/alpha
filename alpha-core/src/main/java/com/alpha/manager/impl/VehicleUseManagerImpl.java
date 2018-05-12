@@ -102,7 +102,8 @@ public class VehicleUseManagerImpl implements VehicleUseManager {
         }
         VehicleUseDO vehicleUseDOInDB = queryById(vehicleUseDO.getId());
         VehicleDO vehicleDO = vehicleManager.queryByVehicleNO(vehicleUseDOInDB.getVehicleNO());
-        if (vehicleUseDOInDB.getEndMile() > vehicleDO.getMile()) {
+        int mile = (vehicleDO.getMile() == null ? 0 : vehicleDO.getMile());
+        if (vehicleUseDOInDB.getEndMile() > mile) {
             vehicleDO.setMile(vehicleUseDOInDB.getEndMile());
             if (!vehicleManager.update(vehicleDO)) {
                 throw new Exception("数据库写入失败");

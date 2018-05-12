@@ -29,7 +29,7 @@ import java.util.TimerTask;
 public class VehicleIllegalJob implements InitializingBean {
 
     private static final long LOCAL_CACHE_TIMER_START = 10 * 1000;
-    private static final long LOCAL_CACHE_TIMER_PERIOD = 2 * 24 * 3600 * 1000;
+    private static final long LOCAL_CACHE_TIMER_PERIOD = 7 * 24 * 3600 * 1000;
 
     private static final Logger logger = LoggerFactory.getLogger(VehicleIllegalJob.class);
 

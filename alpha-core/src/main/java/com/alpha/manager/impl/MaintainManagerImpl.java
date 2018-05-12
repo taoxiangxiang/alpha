@@ -86,14 +86,16 @@ public class MaintainManagerImpl implements MaintainManager {
         }
         Date nextMaintainDate = CalendarUtil.addDate(maintainDO.getActualPickUpDate(), 120);
         int nextMaintainMile = maintainDO.getMile() + 4000;
-        if  ("维修".equals(maintainDOInDB.getType()) && maintainDO.getMile() > vehicleDO.getMile()) {
+        int mile = (vehicleDO.getMile() == null ? 0 : vehicleDO.getMile());
+        if  ("维修".equals(maintainDOInDB.getType()) && maintainDO.getMile() > mile) {
             vehicleDO.setMile(maintainDO.getMile());
             if (!vehicleManager.update(vehicleDO)) {
                 throw new Exception("更新车辆状态失败");
             }
         }
+        int maintainMile = (vehicleDO.getMaintainMile() == null ? 0 : vehicleDO.getMaintainMile());
         if ("保养".equals(maintainDOInDB.getType()) && (nextMaintainDate.after(vehicleDO.getMaintainDate())
-                || nextMaintainMile > vehicleDO.getMaintainMile() || maintainDO.getMile() > vehicleDO.getMile())) {
+                || nextMaintainMile > maintainMile || maintainDO.getMile() > mile)) {
             vehicleDO.setMaintainDate(nextMaintainDate);
             vehicleDO.setMaintainMile(nextMaintainMile);
             vehicleDO.setMile(maintainDO.getMile());

@@ -2,298 +2,204 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6c1784d-34be-44f7-ad63-499cd11ea990" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/common/BaseAjaxModule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/common/BaseModule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/domain/PageResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/domain/Result.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/Default.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/DepartmentVehicleStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/Maintain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/MaintainAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/MaintainUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleApplicationAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleUse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleUseAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleUsePoint.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VehicleUseUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/application/VerifyEventAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/Department.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/DepartmentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/DepartmentDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/DepartmentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/PartnerDepartment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/BackUp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/DownLoad.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/DownVehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportDepartmentVehicleStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportInsurance.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportLeave.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportLeaveStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportMaintain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportMaintainStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleAccident.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleCheck.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleGas.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleGasStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleIllegal.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleIllegalStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleInfoStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleUse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleUse2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/ExportVehicleUseStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/Recover.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/Upload.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/file/WordTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/gas/GasCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/gas/GasCardAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/gas/GasCardDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/gas/GasCardUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/notice/Msg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/notice/Remind.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/Driver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverBind.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverBindAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverBindInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/DriverUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/Leave.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/LeaveAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/Login.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/LoginUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/Logout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/ModifyPassword.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/ResetPassword.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/SendCodeMsg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/UserAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/UserDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/UserInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/user/UserUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/Insurance.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/InsuranceAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/InsuranceUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/LeaveStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/MaintainStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/Team.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/TeamAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/TeamDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/Vehicle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccident.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccidentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccidentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheck.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheckAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheckUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleGas.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegal.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleInfoStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/com/alpha/web/module/screen/api/vehicle/VehicleUseStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/classes/template/vehicleApplication.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/pipeline-exception.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/pipeline.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/resources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/uris.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/webx-component-and-root.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/common/webx-component.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/jboss-web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/alpha-core-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/aopalliance-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/aspectjweaver-1.7.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/cglib-nodep-2.2.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/citrus-webx-all-3.2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-codec-1.8.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-collections-3.2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-io-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-jexl-2.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/commons-lang-2.6.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/ecs-1.4.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/fastjson-1.1.36.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/freemarker-2.3.15.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/httpclient-4.2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/httpcore-4.2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/jcl-over-slf4j-1.7.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/jetty-util-9.3.7.v20160115.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/lombok-1.12.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/mybatis-3.2.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/mybatis-spring-1.2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/mysql-connector-java-5.1.38.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/oro-2.0.8.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/poi-3.10-FINAL.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/poi-ooxml-3.10-FINAL.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/poi-ooxml-schemas-3.10-FINAL.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/slf4j-api-1.7.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-aop-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-aspects-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-beans-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-context-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-context-support-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-core-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-expression-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-jdbc-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-orm-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-tx-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-web-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/spring-webmvc-3.2.7.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/stax-api-1.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/velocity-1.6.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/lib/xmlbeans-2.3.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/log4j.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/web/form.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/webx-web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/WEB-INF/webx.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap-switch.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap-switch.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/bootstrap3/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/assets/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/templates/control/common/nav.vm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/templates/layout/default.vm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/templates/screen/index.vm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/alpha/templates/screen/user/user.vm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/common/BaseAjaxModule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/common/BaseModule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/domain/PageResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/domain/Result.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/Default.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/DepartmentVehicleStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/Maintain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/MaintainAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/MaintainUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleApplicationAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleUse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleUseAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleUsePoint.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VehicleUseUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/application/VerifyEventAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/Department.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/DepartmentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/DepartmentDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/DepartmentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/PartnerDepartment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/department/PartnerDepartmentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/BackUp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/DownLoad.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/DownVehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportDepartmentVehicleStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportInsurance.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportLeave.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportLeaveStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportMaintain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportMaintainStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleAccident.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleCheck.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleGas.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleGasStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleIllegal.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleIllegalStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleInfoStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleUse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleUse2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/ExportVehicleUseStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/Recover.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/Upload.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/file/WordTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/gas/GasCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/gas/GasCardAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/gas/GasCardDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/gas/GasCardUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/notice/Msg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/notice/Remind.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/Driver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverBind.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverBindAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverBindInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/DriverUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/Leave.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/LeaveAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/Login.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/LoginUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/Logout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/ModifyPassword.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/ResetPassword.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/SendCodeMsg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/UserAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/UserDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/UserInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/user/UserUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/Insurance.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/InsuranceAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/InsuranceUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/LeaveStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/MaintainStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/Team.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/TeamAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/TeamDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/Vehicle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccident.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccidentAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleAccidentUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheck.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheckAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleCheckUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleDel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleGas.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleGasUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegal.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalAdd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleIllegalUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleInfoStatistics.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleInvalid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-web/target/classes/com/alpha/web/module/screen/api/vehicle/VehicleUseStatistics.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT-sources.jar" afterPath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/YunUtil.class" afterPath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/YunUtil.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT-sources.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/alpha-core-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/antrun/build-main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/SqlMapClientTemplate.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/biz-base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/CalendarUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/HttpUtils$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/HttpUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/ParamUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/SystemConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/constans/YunUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/DepartmentDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/DriverBindDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/DriverDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/GasCardDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/InsuranceDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/LeaveDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/MaintainDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/MsgCodeDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/PartnerDepartmentDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/SystemAccountDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/TeamDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleAccidentDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleApplicationDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleCheckDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleGasDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleIllegalDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VehicleUseDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/VerifyRecordDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/DepartmentDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/DriverBindDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/DriverDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/GasCardImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/InsuranceDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/LeaveDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/MaintainDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/MsgCodeDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/PartnerDepartmentDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/SystemAccountDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/TeamDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleAccidentDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleApplicationDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleCheckDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleGasDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleIllegalDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VehicleUseDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/dao/impl/VerifyRecordDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/CommonDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/DepartmentDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/DriverBindDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/DriverDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/GasCardDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/InsuranceDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/LeaveDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/LeaveSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/MaintainDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/MaintainSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/MsgCodeDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/PartnerDepartmentDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/RemindDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/SystemAccountDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/TeamDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleAccidentDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleApplicationDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleApplicationSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleCheckDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleGasDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleGasSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleIllegalDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleIllegalSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleInfoDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleUseDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VehicleUseSumDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/domain/VerifyRecordDO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/DBManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/DepartmentManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/DriverBindManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/DriverManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/ExportExcelManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/GasCardManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/InsuranceManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/LeaveManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/MaintainManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/MsgManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/PartnerDepartmentManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/SystemAccountManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleAccidentManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleApplicationManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleCheckManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleGasManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleIllegalManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VehicleUseManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/VerifyRecordManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/DBManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/DepartmentManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/DriverBindManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/DriverManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/ExportExcelManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/GasCardManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/InsuranceManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/LeaveManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/MaintainManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/MsgManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/PartnerDepartmentManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/SystemAccountManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleAccidentManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleApplicationManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleCheckManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleGasManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleIllegalManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VehicleUseManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/manager/impl/VerifyRecordManagerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/DepartmentQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/DriverBindQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/DriverQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/GasCardQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/InsuranceQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/LeaveQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/MaintainQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/PageQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/PartnerDepartmentQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/SystemAccountQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/TeamQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleAccidentQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleApplicationQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleCheckQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleGasQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleIllegalQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VehicleUseQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/query/VerifyRecordQuery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/BackUpJob$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/BackUpJob.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/LeaveJob$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/LeaveJob.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/VehicleIllegalJob$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/com/alpha/timejob/VehicleIllegalJob.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/department_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/driver_bind_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/driver_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/gas_card_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/insurance_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/leave_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/maintain_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/msg_code_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/partner_department_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/system_account_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/team_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_accident_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_application_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_check_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_gas_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_illegal_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/vehicle_use_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/classes/sqlmap/verify_record_sqlmap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/maven-archiver/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/ITestBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/DepartmentManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/DriverBindManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/DriverManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/GasCardManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/InsuranceManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/LeaveManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/PartnerDepartmentManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/SystemAccountManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/UserManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleAccidentManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleApplicationManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleCheckManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleGasManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleIllegalManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VehicleUseManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alpha-core/target/test-classes/com/alpha/manager/VerifyRecordManagerTest.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/antrun/build-main.xml" afterPath="$PROJECT_DIR$/alpha-core/target/antrun/build-main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/alpha-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleDO.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleDO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/DriverManagerImpl.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/DriverManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/MaintainManagerImpl.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/MaintainManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleUseManagerImpl.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleUseManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/VehicleIllegalJob.java" afterPath="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/VehicleIllegalJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/pom.xml" afterPath="$PROJECT_DIR$/alpha-web/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/notice/Remind.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/notice/Remind.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverUpdate.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverUpdate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAdd.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAdd.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.java" afterPath="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.java" />
     </list>
     <ignored path="$PROJECT_DIR$/alpha-core/target/" />
     <ignored path="$PROJECT_DIR$/alpha-web/target/" />
@@ -317,35 +223,107 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DriverManagerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/DriverManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/DriverDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/DriverDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="driver_sqlmap.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/driver_sqlmap.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="31" column="49" lean-forward="false" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+              <folding>
+                <marker date="1526135131762" expanded="true" signature="1766:2396" ph="insert into driver... " />
+                <marker date="1526135131762" expanded="true" signature="2517:3467" ph="select * fro... driver" />
+                <marker date="1526135131762" expanded="true" signature="4547:5970" ph="update drive... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverQuery.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/DriverQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverDO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/DriverDO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SystemAccountManagerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/SystemAccountManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriverAdd.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendCodeMsg.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/SendCodeMsg.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="YunUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+            <state relative-caret-position="291">
+              <caret line="48" column="50" lean-forward="false" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VehicleUse.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -359,7 +337,20 @@
       <find>SMS_64645041</find>
       <find>SMS_64645041SMS_64645041</find>
       <find>setTemplateParam</find>
+      <find>distributionManagement</find>
+      <find>sendMsg</find>
+      <find>违章</find>
+      <find>nextMaintainMile</find>
+      <find>载重</find>
+      <find>getMile</find>
+      <find>初始</find>
+      <find>setAttribute</find>
+      <find>driver</find>
+      <find>driverDOInDB</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -372,12 +363,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/alpha-core/pom.xml" />
         <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/MsgManagerImpl.java" />
-        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java" />
         <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java" />
         <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/alpha-web/pom.xml" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/VehicleIllegalJob.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleDO.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/MaintainManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleUseManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/notice/Remind.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java" />
+        <option value="$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverUpdate.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/DriverManagerImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/DriverDaoImpl.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/DriverDao.java" />
+        <option value="$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/driver_sqlmap.xml" />
       </list>
     </option>
   </component>
@@ -401,21 +406,17 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="alpha-core" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="alpha-core" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="alpha-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="alpha-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="alpha-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
         </path>
       </expand>
       <select />
@@ -849,7 +850,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -866,60 +866,72 @@
               <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
               <item name="alpha" type="462c0819:PsiDirectoryNode" />
               <item name="alpha-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="timejob" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="alpha-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alpha" type="b2602c69:ProjectViewProjectNode" />
@@ -931,6 +943,7 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -955,7 +968,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.YunUtil">
+  <component name="RunManager" selected="Remote.Unnamed">
+    <configuration name="Unnamed" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="116.62.58.217" />
+      <option name="PORT" value="8000" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8000" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
     <configuration name="YunUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1056,6 +1080,10 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Remote.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Application.YunUtil" />
+    </list>
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Application.YunUtil" />
@@ -1077,7 +1105,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514640620626</updated>
-      <workItem from="1514640622322" duration="3210000" />
+      <workItem from="1514640622322" duration="5203000" />
+      <workItem from="1514647956345" duration="304000" />
+      <workItem from="1514891438523" duration="1000" />
+      <workItem from="1525529492544" duration="63000" />
+      <workItem from="1526129985457" duration="4386000" />
     </task>
     <task id="LOCAL-00001" summary="修改短信方式">
       <created>1514642745386</created>
@@ -1086,50 +1118,115 @@
       <option name="project" value="LOCAL" />
       <updated>1514642745386</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改短信方式">
+      <created>1514644666113</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1514644666113</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3210000" />
+    <option name="totallyTimeSpent" value="9957000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="815" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="813" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5380201" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.92109036" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5380201" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.92109036" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1139,15 +1236,121 @@
     <option name="LAST_COMMIT_MESSAGE" value="修改短信方式" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java</url>
+          <line>205</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="219" column="9" lean-forward="false" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3360">
+          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/VehicleUse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/alpha-web/src/main/webapp/assets/bootstrap3/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-113">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1155,15 +1358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1679">
           <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="252" column="25" lean-forward="false" selection-start-line="248" selection-start-column="12" selection-end-line="252" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,7 +1373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1187,10 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1198,7 +1387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,10 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
-          <folding>
-            <element signature="e#2159#2160#0" expanded="true" />
-            <element signature="e#2195#2196#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1217,10 +1401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding>
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1228,31 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1297#1313#0" expanded="true" />
-            <element signature="e#1601#1617#0" expanded="true" />
-            <element signature="e#2233#2249#0" expanded="true" />
-            <element signature="e#2449#2465#0" expanded="true" />
-            <element signature="e#3557#3573#0" expanded="true" />
-            <element signature="e#3773#3789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1260,8 +1415,243 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/file/ExportVehicleIllegal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/LeaveJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/BackUpJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/timejob/VehicleIllegalJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/SystemConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="123" column="31" lean-forward="false" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/application/MaintainUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="134" column="47" lean-forward="false" selection-start-line="134" selection-start-column="47" selection-end-line="134" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/MaintainDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="106" column="20" lean-forward="false" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/VehicleUseManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="105" column="51" lean-forward="true" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/MaintainManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="95" column="38" lean-forward="false" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/RemindDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/notice/Remind.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="90" column="129" lean-forward="false" selection-start-line="90" selection-start-column="129" selection-end-line="90" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="144" column="47" lean-forward="false" selection-start-line="144" selection-start-column="47" selection-end-line="144" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/vehicle/VehicleUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="134" column="46" lean-forward="true" selection-start-line="134" selection-start-column="46" selection-end-line="134" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/VehicleDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="118" column="21" lean-forward="true" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="111" column="46" lean-forward="false" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/SystemAccountDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/SystemAccountManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/SendCodeMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/constans/YunUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="48" column="50" lean-forward="false" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-web/src/main/java/com/alpha/web/module/screen/api/user/DriverAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="86" column="43" lean-forward="true" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/query/DriverQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/domain/DriverDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/manager/impl/DriverManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/impl/DriverDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/java/com/alpha/dao/DriverDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alpha-core/src/main/resources/sqlmap/driver_sqlmap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="31" column="49" lean-forward="false" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+          <folding>
+            <marker date="1526135131762" expanded="true" signature="1766:2396" ph="insert into driver... " />
+            <marker date="1526135131762" expanded="true" signature="2517:3467" ph="select * fro... driver" />
+            <marker date="1526135131762" expanded="true" signature="4547:5970" ph="update drive... " />
           </folding>
         </state>
       </provider>

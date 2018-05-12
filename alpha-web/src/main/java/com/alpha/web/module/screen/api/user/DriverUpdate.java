@@ -119,33 +119,33 @@ public class DriverUpdate extends BaseAjaxModule {
         if (driverDO.getBirth() == null) {
             return "请填写生日";
         }
-        if (StringUtil.isBlank(driverDO.getEthnicGroup())) {
-            return "请填写民族";
-        }
-        if (StringUtil.isBlank(driverDO.getNativePlace())) {
-            return "请填写籍贯";
-        }
-        if (StringUtil.isBlank(driverDO.getEducation())) {
-            return "请填写学历";
-        }
+//        if (StringUtil.isBlank(driverDO.getEthnicGroup())) {
+//            return "请填写民族";
+//        }
+//        if (StringUtil.isBlank(driverDO.getNativePlace())) {
+//            return "请填写籍贯";
+//        }
+//        if (StringUtil.isBlank(driverDO.getEducation())) {
+//            return "请填写学历";
+//        }
         if (StringUtil.isBlank(driverDO.getMobilePhone()) || !ParamUtil.validMobile(driverDO.getMobilePhone())) {
             return "请填写正确的11位手机号码";
         }
-        if (StringUtil.isBlank(driverDO.getDrivingLicense())) {
-            return "请填写驾驶证号";
-        }
-        if (StringUtil.isBlank(driverDO.getLicenseClass())) {
-            return "请填写驾驶证类型";
-        }
-        if (driverDO.getLicenseStart() == null) {
-            return "请填写驾照开始日期";
-        }
-        if (driverDO.getLicenseEnd() == null) {
-            return "请填写驾照结束日期";
-        }
-        if (StringUtil.isBlank(driverDO.getOfferLicense())) {
-            return "请填写发证机关";
-        }
+//        if (StringUtil.isBlank(driverDO.getDrivingLicense())) {
+//            return "请填写驾驶证号";
+//        }
+//        if (StringUtil.isBlank(driverDO.getLicenseClass())) {
+//            return "请填写驾驶证类型";
+//        }
+//        if (driverDO.getLicenseStart() == null) {
+//            return "请填写驾照开始日期";
+//        }
+//        if (driverDO.getLicenseEnd() == null) {
+//            return "请填写驾照结束日期";
+//        }
+//        if (StringUtil.isBlank(driverDO.getOfferLicense())) {
+//            return "请填写发证机关";
+//        }
         return "ok";
     }
 }
